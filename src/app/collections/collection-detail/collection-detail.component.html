@@ -1,0 +1,238 @@
+<div class="d-flex align-items-center mx-auto min-vh-100" style="margin-top: -5rem;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <img src="{{collectionDetail.banner_image}}" alt="Collection Image" class="img-fluid"
+          style="width: 100%; object-fit: cover; border-radius: 8px;">
+      </div>
+
+      <div class="col-md-6">
+        <h2>{{collectionDetail.collection}}</h2>
+        <p>Price: ${{collectionDetail.price}}</p>
+
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                Description
+              </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <p innerHTML="{{collectionDetail.short_description}}"></p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item" style="margin-top: 1rem;">
+            <h2 class="accordion-header" id="flush-headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                Dummy 1
+              </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">Dummy Text</div>
+            </div>
+          </div>
+          <div class="accordion-item" style="margin-top: 1rem;">
+            <h2 class="accordion-header" id="flush-headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                Dummy 2
+              </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">Dummy Text 2.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center" style="margin-top: 2rem;">
+          <button type="button" class="btn btn-secondary" style="margin: 0rem 1rem;">Brochure</button>
+          <button type="button" class="btn btn-secondary" style="margin: 0rem 1rem;">Inquiry</button>
+          <button type="button" class="btn btn-secondary" style="margin: 0rem 1rem;">Warranty</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="align-items-center" style="margin-top: -3rem;">
+    <ul class="nav nav-pills mb-3 d-flex align-items-center justify-content-around mx-auto" id="pills-tab" role="tablist"  style="width: 50%;">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-specification-tab" data-bs-toggle="pill" data-bs-target="#pills-specification" type="button" role="tab" aria-controls="pills-specification" aria-selected="true">Product Specification</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-products-tab" data-bs-toggle="pill" data-bs-target="#pills-products" type="button" role="tab" aria-controls="pills-products" aria-selected="false">Products</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-finishes-tab" data-bs-toggle="pill" data-bs-target="#pills-finishes" type="button" role="tab" aria-controls="pills-finishes" aria-selected="false">Laminates</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-hardwares-tab" data-bs-toggle="pill" data-bs-target="#pills-hardwares" type="button" role="tab" aria-controls="pills-hardwares" aria-selected="false">Hardwares</button>
+      </li>
+
+
+    </ul>
+    <div class="tab-content " id="pills-tabContent" style="margin-top: 4rem;">
+      <!-- Product Specification -->
+      <div class="tab-pane fade show active" id="pills-specification" role="tabpanel" aria-labelledby="pills-specification-tab" tabindex="0">
+       <div class="row d-flex justify-content-between">
+        <div class="col-5">
+          <img
+                class="card-img-top"
+                src="{{ collectionDetail.banner_image }}"
+                alt="Card image cap"
+                style="height: auto; width: 100%; border-radius: 0.5rem; object-fit: cover;"
+              />
+        </div>
+        <div class="col-6">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Cash Goods</th>
+                <th scope="col">W</th>
+                <th scope="col">D</th>
+                <th scope="col">H</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">King Head Board</th>
+                <td>78"</td>
+                <td>3"</td>
+                <td>48"</td>
+              </tr>
+
+              <tr>
+                <th scope="row">King Wall Gaurd</th>
+                <td>78"</td>
+                <td>3"</td>
+                <td>48"</td>
+              </tr>
+
+              <tr>
+                <th scope="row">King Cubby</th>
+                <td>78"</td>
+                <td>3"</td>
+                <td>48"</td>
+              </tr>
+
+              <tr>
+                <th scope="row">Queen Head Board</th>
+                <td>78"</td>
+                <td>3"</td>
+                <td>48"</td>
+              </tr>
+
+              <tr>
+                <th scope="row">Queen Wall Gaurd</th>
+                <td>78"</td>
+                <td>3"</td>
+                <td>48"</td>
+              </tr>
+              <tr>
+                <th scope="row">Queen Cubby</th>
+                <td>78"</td>
+                <td>3"</td>
+                <td>48"</td>
+              </tr>
+              <tr>
+                <th scope="row">Micro Fridge Combo</th>
+                <td>78"</td>
+                <td>3"</td>
+                <td>48"</td>
+              </tr>
+              <tr>
+                <th scope="row">Media Panel</th>
+                <td>78"</td>
+                <td>3"</td>
+                <td>48"</td>
+              </tr>
+              <tr>
+                <th scope="row">Luggage Bench with Metal Leg</th>
+                <td>78"</td>
+                <td>3"</td>
+                <td>48"</td>
+              </tr>
+              <tr>
+                <th scope="row">Desk with Metal Leg</th>
+                <td>78"</td>
+                <td>3"</td>
+                <td>48"</td>
+              </tr>
+
+
+            </tbody>
+          </table>
+        </div>
+       </div>
+      </div>
+
+      <!-- Products -->
+
+      <div class="tab-pane fade" id="pills-products" role="tabpanel" aria-labelledby="pills-products-tab" tabindex="0">
+        <div class="row">
+          <div class="col-md-4 mb-4" *ngFor="let item of collectionDetail.items">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="{{ item.banner_image_mobile }}"
+                alt="Card image cap"
+                style="height: 12rem; object-fit: cover;"
+              />
+              <div class="card-body">
+                <h5 class="card-title">{{ item.item }}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Laminates -->
+
+      <div class="tab-pane fade" id="pills-finishes" role="tabpanel" aria-labelledby="pills-finishes-tab" tabindex="0">
+        <div class="row">
+          <div class="col-md-4 mb-4" *ngFor="let laminate of flatArrayLaminates">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="{{ laminate.image }}"
+                alt="Card image cap"
+                style="height: 12rem; object-fit: cover;"
+              />
+              <div class="card-body">
+                <h5 class="card-title">{{ laminate.laminate }}</h5>
+              </div>
+            </div>
+          </div>
+      </div>
+      </div>
+
+      <!-- Hardwares -->
+
+      <div class="tab-pane fade" id="pills-hardwares" role="tabpanel" aria-labelledby="pills-hardwares-tab" tabindex="0">
+        <div class="row">
+            <div class="col-md-4 mb-4" *ngFor="let hardare of flatArrayHardware">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="{{ hardare.image }}"
+                  alt="Card image cap"
+                  style="height: 12rem; object-fit: cover;"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">{{ hardare.hardware }}</h5>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

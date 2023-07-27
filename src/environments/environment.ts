@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'http://192.168.50.50/parth-hospitality/api/',
+  front_apiUrl: 'http://192.168.50.50/parth-hospitality/api/',
+  apiId: 'ZTQ2NzZmMmYwZWFjNmY3YjIwYzdmNWZmODkwNzBhMWM='
 };
 
 /*
