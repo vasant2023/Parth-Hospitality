@@ -32,7 +32,7 @@
         <div class="form-group">
           <label for="phone">Phone:</label>
           <input
-            type="tel"
+            type="number"
             class="form-control"
             id="phone"
             name="phone"
@@ -81,7 +81,7 @@
 
         <div class="form-group">
           <label for="zipCode">Zip Code:</label>
-          <input type="text" class="form-control" id="zipCode" name="zipCode" [(ngModel)]="contactObj.zip_code"
+          <input type="number" class="form-control" id="zipCode" name="zipCode" [(ngModel)]="contactObj.zip_code"
           #zip_code="ngModel" />
         </div>
 
