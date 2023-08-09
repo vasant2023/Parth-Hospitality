@@ -90,10 +90,22 @@ export class CollectionDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getCollectionDetails();
+    this.getCountries()
+  }
+
+  _keyPress(event: any) {
+    const pattern = /[0-9]/;
+    let inputChar = String.fromCharCode(event.charCode);
+    if (!pattern.test(inputChar)) {
+      event.preventDefault();
+    }
   }
 
   hardwareArray:any=[]
   flatArrayHardware:any=[];
+  countries:any=[];
+  states:any=[];
+  cities:any=[];
 
   dummyImages:any = [
     "assets/images/specifications/1.jpg",
@@ -103,6 +115,43 @@ export class CollectionDetailComponent implements OnInit {
 
   laminateArray:any=[];
   flatArrayLaminates:any=[];
+
+  getCountries(){
+    this.service.getCountries().subscribe((response: {success:number , message:string, data:[]}) => {
+      console.log(response)
+      if(response.success == 1){
+        this.countries = response.data;
+        console.log(this.countries)
+      }
+    })
+  }
+
+  loadStates(country){
+    console.log(country)
+    if(country){
+      this.service.getStates(country).subscribe((response : {success:number, message:string, data:[]}) => {
+        if(response.success == 1){
+          this.states = response.data;
+          // console.log(this.states)
+        } else {
+          console.log(response.message)
+        }
+      })
+    }
+  }
+
+  loadCities(state){
+    if(state){
+      this.service.getCities(state).subscribe((response : {success:number, message:string, data:[]}) => {
+        if(response.success == 1){
+          this.cities = response.data;
+          // console.log(this.cities)
+        } else {
+          console.log(response.message)
+        }
+      })
+    }
+  }
 
   getCollectionDetails() {
     this.collectionSlug = this.route.snapshot.params['slug'];
@@ -149,19 +198,23 @@ export class CollectionDetailComponent implements OnInit {
     }
   }
 
-  submitContactForm(){
-    console.log(this.contactObj, "Contact object");
-    return false;
-    if(this.isLoading == false){
-      this.isLoading = true;
+  submitContactForm(form){
+    console.log(form.valid)
+    if(form.valid){
 
-      this.service.submitContactForm(this.contactObj).subscribe((response : {success:number, message:string}) => {
-        if(response.success == 1){
-          Swal.fire("Thank You for contacting!", "success");
-          this.router.navigate(["/items"]);
-        }
-        this.isLoading = false
-      })
+      console.log(this.contactObj, "Contact object");
+      // return false;
+      if(this.isLoading == false){
+        this.isLoading = true;
+
+        this.service.submitContactForm(this.contactObj).subscribe((response : {success:number, message:string}) => {
+          if(response.success == 1){
+            Swal.fire("Thank You for contacting!", "success");
+            this.router.navigate(["/collections"]);
+          }
+          this.isLoading = false
+        })
+      }
     }
   }
 
@@ -193,5 +246,6 @@ export class CollectionDetailComponent implements OnInit {
     console.log(slide);
     this.secondarySwiper.directiveRef.setIndex(slide);
   }
+
 
 }

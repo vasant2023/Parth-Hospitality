@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "@ng-select/ng-select": "^3.7.2",
     "jquery": "^3.7.0",
     "ngx-swiper-wrapper": "^7.2.1",
     "ngx-useful-swiper": "^10.0.1",

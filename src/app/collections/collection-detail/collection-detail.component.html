@@ -19,15 +19,19 @@
               <img src="{{ item }}" />
             </div>
           </swiper>
-            <swiper class="swiper mainProductGallery" #secondarySwiper [config]="productImageSwiper">
-                <div
-                  class="swiper-slide"
-                  *ngFor="let item of dummyImages; let i = index"
-                  (click)="jumpBig(i)"
-                >
-                  <img src="{{ item }}" />
-                </div>
-            </swiper>
+          <swiper
+            class="swiper mainProductGallery"
+            #secondarySwiper
+            [config]="productImageSwiper"
+          >
+            <div
+              class="swiper-slide"
+              *ngFor="let item of dummyImages; let i = index"
+              (click)="jumpBig(i)"
+            >
+              <img src="{{ item }}" />
+            </div>
+          </swiper>
         </div>
         <div class="specification-banner-specification">
           <div class="inner-flex inner-flex-medium">
@@ -42,10 +46,11 @@
               </div>
             </div>
             <div class="section-content">
-              <p class="light-fonts" innerHTML="{{collectionDetail.short_description}}">
+              <p
+                class="light-fonts"
+                innerHTML="{{ collectionDetail.short_description }}"
+              >
                 <!-- All pricing for India. Lead time 90 Days/ Faster. -->
-
-
               </p>
             </div>
             <div class="specifcation-banner-accordion">
@@ -604,86 +609,177 @@
         </div>
       </div>
 
-      <form id="inquiry_form" name="inquiry_form" (ngSubmit)="submitContactForm()" #inquiryForm="ngForm">
+      <form
+        id="inquiry_form"
+        name="inquiry_form"
+        (ngSubmit)="inquiryForm.form.valid && submitContactForm(inquiryForm.form) "
+        #inquiryForm="ngForm"
+      >
         <div class="form_wrapper">
           <div class="contact_lable">
             <input
               id="client_name"
               name="name"
               type="text"
-              required="required"
               class="form-control"
               letters-only=""
               [(ngModel)]="contactObj.name"
               #name="ngModel"
+              required
             />
-            <label class="md-lable" for="client_name">Name</label>
+            <label class="md-lable" for="client_name">Name <sup>*</sup></label>
+            <div *ngIf="inquiryForm.submitted && name.invalid" class="invalid-feedback">
+              <div *ngIf="name.errors.required">Name cannot be empty!</div>
           </div>
-          <div class="contact_lable">
-            <input
-              id="email_address"
-              name="email"
-              type="email"
-              required=""
-              autocomplete="off"
-              class="form-control"
-              #email="ngModel"
-              [(ngModel)]="contactObj.email"
-            />
-            <label class="md-lable" for="email_address">Email</label>
           </div>
-          <div class="contact_lable relative">
-            <input
-              id="client_contact_no"
-              name="phone"
-              type="tel"
-              numbers-only=""
-              minlength="8"
-              maxlength="13"
-              required=""
-              autocomplete="off"
-              class="form-control"
-              #phone="ngModel"
-              [(ngModel)]="contactObj.phone"
-            />
-            <label class="md-lable contact_code" for="client_contact_no"
-              >Mobile</label
-            >
-          </div>
-          <div class="contact_lable">
-            <input
-              id="hotel_name"
-              name="company_name"
-              type="text"
-              required="required"
-              class="form-control"
-              #company_name="ngModel"
-              [(ngModel)]="contactObj.company_name"
-            />
-            <label class="md-lable" for="hotel_name">Hotel Name</label>
-          </div>
+
           <div class="relative two-grid-form">
             <div class="contact_lable">
-              <!-- <input id="country" name="country" type="text" required="required"
-                                    class="form-control">
-                                <label class="md-lable" for="country">Country</label> -->
-              <select name="" class="form-control" id="" [(ngModel)]="contactObj.state">
-                <option value="">Country</option>
-                <option value="">India</option>
-                <option value="">USA</option>
-              </select>
+              <input
+                id="email_address"
+                name="email"
+                type="email"
+                autocomplete="off"
+                class="form-control"
+                #email="ngModel"
+                [(ngModel)]="contactObj.email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                required
+
+              />
+              <label class="md-lable" for="email_address">Email</label>
+              <div *ngIf="inquiryForm.submitted && email.invalid" class="invalid-feedback">
+                <div *ngIf="email.errors.required">Email can not be empty!</div>
+                <div *ngIf="email.invalid && !email.errors.required">Invalid Email address</div>
             </div>
-            <div class="contact_lable">
-              <!-- <input id="city" name="city" type="text" required="required"
-                                    class="form-control">
-                                <label class="md-lable" for="city">City</label> -->
-              <select name="" class="form-control" id="" [(ngModel)]="contactObj.city">
-                <option value="">City</option>
-                <option value="">Ahmedabad</option>
-                <option value="">Mumbai</option>
-              </select>
+            </div>
+            <div class="contact_lable relative">
+              <input
+                id="client_contact_no"
+                name="phone"
+                type="tel"
+                numbers-only=""
+                minlength="8"
+                maxlength="13"
+                autocomplete="off"
+                class="form-control"
+                #phone="ngModel"
+                [(ngModel)]="contactObj.phone"
+                (keypress)=_keyPress($event)
+                required
+
+              />
+              <label class="md-lable contact_code" for="client_contact_no"
+                >Mobile</label
+              >
+              <div *ngIf="inquiryForm.submitted && phone.invalid" class="invalid-feedback">
+                <div *ngIf="phone.errors.required">phone can not be empty!</div>
+                <div *ngIf="phone.invalid && !phone.errors.required">Invalid Mobile number</div>
+            </div>
             </div>
           </div>
+
+          <div class="relative two-grid-form">
+            <div class="contact_lable">
+              <input
+                id="hotel_name"
+                name="company_name"
+                type="text"
+                class="form-control"
+                #company_name="ngModel"
+                [(ngModel)]="contactObj.company_name"
+              />
+              <label class="md-lable" for="hotel_name">Hotel Name</label>
+            </div>
+            <div class="contact_lable">
+              <input
+                id="property_code"
+                name="property_code"
+                type="number"
+                class="form-control"
+                #property_code="ngModel"
+                [(ngModel)]="contactObj.property_code"
+              />
+              <label class="md-lable" for="hotel_name">Property Code</label>
+            </div>
+          </div>
+
+          <div class="contact_lable">
+            <ng-select
+              class="form-control"
+              name="country"
+              id="country"
+              [(ngModel)]="contactObj.country"
+              #country="ngModel"
+              (change)="loadStates(contactObj.country)"
+            >
+              <ng-option value="">-Select Country-</ng-option>
+              <ng-option value="{{ country.id }}" *ngFor="let country of countries">
+                {{country.name}}
+              </ng-option
+              >
+            </ng-select>
+          </div>
+
+          <div class="relative two-grid-form">
+            <div class="contact_lable">
+              <ng-select
+              class="form-control"
+              name="country"
+              id="country"
+              [(ngModel)]="contactObj.state"
+              #country="ngModel"
+              (change)="loadCities(contactObj.state)"
+            >
+              <ng-option value="">-Select State-</ng-option>
+              <ng-option value="{{ state.id }}" *ngFor="let state of states">
+                {{state.name}}
+              </ng-option
+              >
+            </ng-select>
+            </div>
+            <div class="contact_lable">
+              <ng-select
+              class="form-control"
+              name="country"
+              id="country"
+              [(ngModel)]="contactObj.city"
+              #country="ngModel"
+            >
+              <ng-option value="">-Select City-</ng-option>
+              <ng-option value="{{ city.id }}" *ngFor="let city of cities">
+                {{city.name}}
+              </ng-option
+              >
+            </ng-select>
+            </div>
+          </div>
+
+          <div class="relative two-grid-form">
+            <div class="contact_lable">
+              <input
+                id="rooms"
+                name="rooms"
+                type="number"
+                class="form-control"
+                #rooms="ngModel"
+                [(ngModel)]="contactObj.rooms"
+              />
+              <label class="md-lable" for="hotel_name">Rooms</label>
+            </div>
+            <div class="contact_lable">
+              <input
+                id="zip_code"
+                name="zip_code"
+                type="number"
+                class="form-control"
+                #zip_code="ngModel"
+                [(ngModel)]="contactObj.zip_code"
+              />
+              <label class="md-lable" for="hotel_name">Zip Code</label>
+            </div>
+          </div>
+
           <div class="contact_lable">
             <textarea
               id="remarks"

@@ -18,6 +18,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CollectionDetailComponent } from './collections/collection-detail/collection-detail.component';
 import { SwiperModule } from 'ngx-swiper-wrapper';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { SwiperModule } from 'ngx-swiper-wrapper';
     AppRoutingModule,
     HttpClientModule,
     SwiperModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

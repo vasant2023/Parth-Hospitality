@@ -199,4 +199,47 @@ export class ServiceService {
     });
     return this.http.post(url, body, { headers: httpHeaders });
   }
+
+  // Countries
+
+  getCountries(){
+    const url = environment.apiUrl + "countries";
+    const apiId = environment.apiId;
+
+    let body = new HttpParams();
+    body = body.append("apiId", apiId);
+
+    let httpHeaders = new HttpHeaders({
+      "Content-Type": "application/x-www-form-urlencoded",
+    });
+    return this.http.post(url, body, { headers: httpHeaders });
+  }
+
+  getStates(country){
+    const url = environment.apiUrl + "states";
+    const apiId = environment.apiId;
+
+    let body = new HttpParams();
+    body = body.append("apiId", apiId);
+    body = body.append("country_id", country);
+
+    let httpHeaders = new HttpHeaders({
+      "Content-Type": "application/x-www-form-urlencoded",
+    });
+    return this.http.post(url, body, { headers: httpHeaders });
+  }
+
+  getCities(state){
+    const url = environment.apiUrl + "cities";
+    const apiId = environment.apiId;
+
+    let body = new HttpParams();
+    body = body.append("apiId", apiId);
+    body = body.append("state_id", state);
+
+    let httpHeaders = new HttpHeaders({
+      "Content-Type": "application/x-www-form-urlencoded",
+    });
+    return this.http.post(url, body, { headers: httpHeaders });
+  }
 }

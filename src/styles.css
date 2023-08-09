@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
 @font-face {
 	font-family: 'Corbert-Regular';
 	src: url('../src/assets/fonts/corbert/Corbert-Regular.woff2') format('woff2'),
@@ -2130,7 +2132,7 @@ button.ph-button.black-border-ph-button p {
 }
 
 .inquire-popup-wrapper {
-	width: 30%;
+	width: 40%;
 	background-color: var(--white-color);
 	transition: var(--common-transition);
 	z-index: 999999;
@@ -2725,4 +2727,9 @@ select {
 
 .small-thumbnail-swiper--outer {
   /* width: 60%; */
+}
+
+
+.ng-select.ng-select-opened.ng-select-bottom>.ng-select-container, .ng-select .ng-select-container{
+  border-color: transparent!important;
 }
