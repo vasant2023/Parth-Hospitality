@@ -1,238 +1,722 @@
-<div class="d-flex align-items-center mx-auto min-vh-100" style="margin-top: -5rem;">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <img src="{{collectionDetail.banner_image}}" alt="Collection Image" class="img-fluid"
-          style="width: 100%; object-fit: cover; border-radius: 8px;">
-      </div>
+<!-- Merging code  -->
 
-      <div class="col-md-6">
-        <h2>{{collectionDetail.collection}}</h2>
-        <p>Price: ${{collectionDetail.price}}</p>
-
-        <div class="accordion accordion-flush" id="accordionFlushExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingOne">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                Description
-              </button>
-            </h2>
-            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-              data-bs-parent="#accordionFlushExample">
-              <div class="accordion-body">
-                <p innerHTML="{{collectionDetail.short_description}}"></p>
+<!-- Specification Wrapper Start -->
+<div id="ph-specification-wrapper" class="relative">
+  <section id="ph-specification-section-1" class="ph-section">
+    <div class="main-container-fluid">
+      <div class="specification-banner-flex">
+        <div class="specification-gallery-card">
+          <swiper
+            class="swiper mainProductGalleryThumbs"
+            #mainSwiper
+            [config]="mainImageSwiper"
+            (indexChange)="jumpThumb($event)"
+          >
+            <div
+              class="swiper-slide"
+              *ngFor="let item of dummyImages; let i = index"
+            >
+              <img src="{{ item }}" />
+            </div>
+          </swiper>
+            <swiper class="swiper mainProductGallery" #secondarySwiper [config]="productImageSwiper">
+                <div
+                  class="swiper-slide"
+                  *ngFor="let item of dummyImages; let i = index"
+                  (click)="jumpBig(i)"
+                >
+                  <img src="{{ item }}" />
+                </div>
+            </swiper>
+        </div>
+        <div class="specification-banner-specification">
+          <div class="inner-flex inner-flex-medium">
+            <div class="inner-flex">
+              <div class="specification-font-size">
+                <h1 class="text-uppercase bold-fonts">
+                  {{ collectionDetail.collection }}
+                </h1>
+              </div>
+              <div class="section-subtitle">
+                <h3 class="regular-fonts">${{ collectionDetail.price }}</h3>
               </div>
             </div>
-          </div>
-          <div class="accordion-item" style="margin-top: 1rem;">
-            <h2 class="accordion-header" id="flush-headingTwo">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                Dummy 1
-              </button>
-            </h2>
-            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-              data-bs-parent="#accordionFlushExample">
-              <div class="accordion-body">Dummy Text</div>
+            <div class="section-content">
+              <p class="light-fonts" innerHTML="{{collectionDetail.short_description}}">
+                <!-- All pricing for India. Lead time 90 Days/ Faster. -->
+
+
+              </p>
             </div>
-          </div>
-          <div class="accordion-item" style="margin-top: 1rem;">
-            <h2 class="accordion-header" id="flush-headingThree">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                Dummy 2
-              </button>
-            </h2>
-            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
-              data-bs-parent="#accordionFlushExample">
-              <div class="accordion-body">Dummy Text 2.</div>
-            </div>
-          </div>
-        </div>
+            <div class="specifcation-banner-accordion">
+              <!-- Accordion -->
+              <div class="acc-container">
+                <div class="acc">
+                  <div
+                    class="acc-head"
+                    (click)="handleAcc('construction')"
+                    [class.active]="accName == 'construction'"
+                  >
+                    <p>Construction</p>
+                  </div>
+                  <div
+                    class="acc-content"
+                    [class.active]="accName == 'construction'"
+                  >
+                    <p>
+                      We are using only mdf carb & pur glue for edge banding.
+                      All surface tops provided with hpl to increase scratch and
+                      impact resistance. Case bottoms are edge banded with pvc
+                      to protect from moisture penetration.
+                    </p>
+                  </div>
+                </div>
 
-        <div class="d-flex align-items-center" style="margin-top: 2rem;">
-          <button type="button" class="btn btn-secondary" style="margin: 0rem 1rem;">Brochure</button>
-          <button type="button" class="btn btn-secondary" style="margin: 0rem 1rem;" (click)="submitContactForm()">Inquiry</button>
-          <button type="button" class="btn btn-secondary" style="margin: 0rem 1rem;">Warranty</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+                <div class="acc">
+                  <div
+                    class="acc-head"
+                    (click)="handleAcc('cardBoard')"
+                    [class.active]="accName == 'cardBoard'"
+                  >
+                    <p>Card Board</p>
+                  </div>
+                  <div
+                    class="acc-content"
+                    [class.active]="accName == 'cardBoard'"
+                  >
+                    <p>
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                      Iusto distinctio perferendis, suscipit eum aperiam
+                      consectetur earum commodi eos corrupti mollitia nihil vero
+                      ab aspernatur saepe laboriosam ipsam quas, reprehenderit
+                      dolor?
+                    </p>
+                  </div>
+                </div>
 
-<div class="container">
-  <div class="align-items-center" style="margin-top: -3rem;">
-    <ul class="nav nav-pills mb-3 d-flex align-items-center justify-content-around mx-auto" id="pills-tab" role="tablist"  style="width: 50%;">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="pills-specification-tab" data-bs-toggle="pill" data-bs-target="#pills-specification" type="button" role="tab" aria-controls="pills-specification" aria-selected="true">Product Specification</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-products-tab" data-bs-toggle="pill" data-bs-target="#pills-products" type="button" role="tab" aria-controls="pills-products" aria-selected="false">Products</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-finishes-tab" data-bs-toggle="pill" data-bs-target="#pills-finishes" type="button" role="tab" aria-controls="pills-finishes" aria-selected="false">Laminates</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-hardwares-tab" data-bs-toggle="pill" data-bs-target="#pills-hardwares" type="button" role="tab" aria-controls="pills-hardwares" aria-selected="false">Hardwares</button>
-      </li>
-
-
-    </ul>
-    <div class="tab-content " id="pills-tabContent" style="margin-top: 4rem;">
-      <!-- Product Specification -->
-      <div class="tab-pane fade show active" id="pills-specification" role="tabpanel" aria-labelledby="pills-specification-tab" tabindex="0">
-       <div class="row d-flex justify-content-between">
-        <div class="col-5">
-          <img
-                class="card-img-top"
-                src="{{ collectionDetail.banner_image }}"
-                alt="Card image cap"
-                style="height: auto; width: 100%; border-radius: 0.5rem; object-fit: cover;"
-              />
-        </div>
-        <div class="col-6">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Cash Goods</th>
-                <th scope="col">W</th>
-                <th scope="col">D</th>
-                <th scope="col">H</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">King Head Board</th>
-                <td>78"</td>
-                <td>3"</td>
-                <td>48"</td>
-              </tr>
-
-              <tr>
-                <th scope="row">King Wall Gaurd</th>
-                <td>78"</td>
-                <td>3"</td>
-                <td>48"</td>
-              </tr>
-
-              <tr>
-                <th scope="row">King Cubby</th>
-                <td>78"</td>
-                <td>3"</td>
-                <td>48"</td>
-              </tr>
-
-              <tr>
-                <th scope="row">Queen Head Board</th>
-                <td>78"</td>
-                <td>3"</td>
-                <td>48"</td>
-              </tr>
-
-              <tr>
-                <th scope="row">Queen Wall Gaurd</th>
-                <td>78"</td>
-                <td>3"</td>
-                <td>48"</td>
-              </tr>
-              <tr>
-                <th scope="row">Queen Cubby</th>
-                <td>78"</td>
-                <td>3"</td>
-                <td>48"</td>
-              </tr>
-              <tr>
-                <th scope="row">Micro Fridge Combo</th>
-                <td>78"</td>
-                <td>3"</td>
-                <td>48"</td>
-              </tr>
-              <tr>
-                <th scope="row">Media Panel</th>
-                <td>78"</td>
-                <td>3"</td>
-                <td>48"</td>
-              </tr>
-              <tr>
-                <th scope="row">Luggage Bench with Metal Leg</th>
-                <td>78"</td>
-                <td>3"</td>
-                <td>48"</td>
-              </tr>
-              <tr>
-                <th scope="row">Desk with Metal Leg</th>
-                <td>78"</td>
-                <td>3"</td>
-                <td>48"</td>
-              </tr>
-
-
-            </tbody>
-          </table>
-        </div>
-       </div>
-      </div>
-
-      <!-- Products -->
-
-      <div class="tab-pane fade" id="pills-products" role="tabpanel" aria-labelledby="pills-products-tab" tabindex="0">
-        <div class="row">
-          <div class="col-md-4 mb-4" *ngFor="let item of collectionDetail.items">
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="{{ item.banner_image_mobile }}"
-                alt="Card image cap"
-                style="height: 12rem; object-fit: cover;"
-              />
-              <div class="card-body">
-                <h5 class="card-title">{{ item.item }}</h5>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Laminates -->
-
-      <div class="tab-pane fade" id="pills-finishes" role="tabpanel" aria-labelledby="pills-finishes-tab" tabindex="0">
-        <div class="row">
-          <div class="col-md-4 mb-4" *ngFor="let laminate of flatArrayLaminates">
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="{{ laminate.image }}"
-                alt="Card image cap"
-                style="height: 12rem; object-fit: cover;"
-              />
-              <div class="card-body">
-                <h5 class="card-title">{{ laminate.laminate }}</h5>
-              </div>
-            </div>
-          </div>
-      </div>
-      </div>
-
-      <!-- Hardwares -->
-
-      <div class="tab-pane fade" id="pills-hardwares" role="tabpanel" aria-labelledby="pills-hardwares-tab" tabindex="0">
-        <div class="row">
-            <div class="col-md-4 mb-4" *ngFor="let hardare of flatArrayHardware">
-              <div class="card">
-                <img
-                  class="card-img-top"
-                  src="{{ hardare.image }}"
-                  alt="Card image cap"
-                  style="height: 12rem; object-fit: cover;"
-                />
-                <div class="card-body">
-                  <h5 class="card-title">{{ hardare.hardware }}</h5>
+                <div class="acc">
+                  <div
+                    class="acc-head"
+                    (click)="handleAcc('glue')"
+                    [class.active]="accName == 'glue'"
+                  >
+                    <p>Pur Glue</p>
+                  </div>
+                  <div class="acc-content" [class.active]="accName == 'glue'">
+                    <p>
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                      Iusto distinctio perferendis, suscipit eum aperiam
+                      consectetur earum commodi eos corrupti mollitia nihil vero
+                      ab aspernatur saepe laboriosam ipsam quas, reprehenderit
+                      dolor?
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="specification-download-btns-flex">
+              <button class="ph-button black-border-ph-button">
+                <p class="text-uppercase">Brochure</p>
+              </button>
+              <button
+                class="ph-button black-border-ph-button"
+                (click)="handleEnquiry()"
+                [class.active]="'popup-overlay-active'"
+                [class.active]="'inquire-popup-wrapper-active'"
+              >
+                <p class="text-uppercase">Inquiry</p>
+              </button>
+              <button class="ph-button black-border-ph-button">
+                <p class="text-uppercase">Warranty</p>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </section>
+  <section id="ph-specification-section-2" class="ph-section section-padding">
+    <div class="main-container">
+      <div class="tab tab-bar-above">
+        <button
+          class="tablinks"
+          [class.active]="tab == 'productSpecification'"
+          (click)="handleTab('productSpecification')"
+          id="defaultOpen"
+        >
+          Product Specification
+        </button>
+        <button
+          class="tablinks"
+          [class.active]="tab == 'products'"
+          (click)="handleTab('products')"
+        >
+          Products
+        </button>
+        <button
+          class="tablinks"
+          [class.active]="tab == 'finishes'"
+          (click)="handleTab('finishes')"
+        >
+          Finishes
+        </button>
+        <button
+          class="tablinks"
+          [class.active]="tab == 'hardwares'"
+          (click)="handleTab('hardwares')"
+        >
+          Hardware
+        </button>
+      </div>
+      <div
+        id="ProductSpecification"
+        class="tabcontent"
+        *ngIf="tab == 'productSpecification'"
+      >
+        <div class="product-specification-grid">
+          <div class="product-specification-grid-image">
+            <img
+              src="assets/images/specifications/product-specification.jpg"
+              alt=""
+            />
+          </div>
+          <div class="product-specification-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    <p class="bold-fonts text-uppercase text-left">
+                      Cash Goods
+                    </p>
+                  </th>
+                  <th>
+                    <p class="bold-fonts text-uppercase text-center">W</p>
+                  </th>
+                  <th>
+                    <p class="bold-fonts text-uppercase text-center">D</p>
+                  </th>
+                  <th>
+                    <p class="bold-fonts text-uppercase text-center">H</p>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="3">
+                    <p class="text-left">King Head Board</p>
+                  </td>
+                  <td>
+                    <p class="text-center">78"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">3"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">48"</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="text-center">78"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">3"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">36"</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="text-center">78"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">3"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">30"</p>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td rowspan="3">
+                    <p class="text-left">King Wall Gaurd</p>
+                  </td>
+                  <td>
+                    <p class="text-center">18"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">3"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">48"</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="text-center">18"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">3"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">36"</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="text-center">18"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">3"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">30"</p>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>
+                    <p class="text-left">King Cubby</p>
+                  </td>
+                  <td>
+                    <p class="text-center">16"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">12"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">8"</p>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td rowspan="3">
+                    <p class="text-left">Queen Head Board</p>
+                  </td>
+                  <td>
+                    <p class="text-center">62"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">3"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">48"</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="text-center">62"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">3"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">36"</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="text-center">62"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">3"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">30"</p>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td rowspan="3">
+                    <p class="text-left">Queen Wall Gaurd</p>
+                  </td>
+                  <td>
+                    <p class="text-center">24"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">3"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">48"</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="text-center">24"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">3"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">36"</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="text-center">24"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">3"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">30"</p>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>
+                    <p class="text-left">Queen Cubby</p>
+                  </td>
+                  <td>
+                    <p class="text-center">22"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">12"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">8"</p>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td rowspan="2">
+                    <p class="text-left">Media Panel</p>
+                  </td>
+                  <td>
+                    <p class="text-center">48"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">3"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">33"</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="text-center">48"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">22"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">33"</p>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td rowspan="3">
+                    <p class="text-left">Luggage Bench with Metal Leg</p>
+                  </td>
+                  <td>
+                    <p class="text-center">48"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">22"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">18"</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="text-center">36"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">22"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">18"</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="text-center">30"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">22"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">18"</p>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td rowspan="2">
+                    <p class="text-left">Desk with Metal Leg</p>
+                  </td>
+                  <td>
+                    <p class="text-center">48"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">22"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">30"</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="text-center">42"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">22"</p>
+                  </td>
+                  <td>
+                    <p class="text-center">30"</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="table-note-lable">
+              <p>*All other sizes are also available.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="Products" class="tabcontent" *ngIf="tab == 'products'">
+        <div class="products-list-grid-wrapper">
+          <div
+            class="products-grid-card"
+            *ngFor="let item of collectionDetail.items"
+          >
+            <div class="inner-flex inner-flex-small">
+              <div class="product-list-image">
+                <a
+                  data-fancybox="hardware-fancy"
+                  href="{{ item.banner_image_mobile }}"
+                  target="_self"
+                >
+                  <img
+                    src="{{ item.banner_image_mobile }}"
+                    alt=""
+                    style="height: 200px"
+                  />
+                </a>
+              </div>
+              <div class="product-name">
+                <h2 class="medium-fonts">
+                  {{ item.item }}
+                </h2>
+              </div>
+              <div class="product-info">
+                <p class="text-uppercase">Size</p>
+                <p class="text-uppercase gray-fonts">56"W x 2"D X 48"H</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="Finishes" class="tabcontent" *ngIf="tab == 'finishes'">
+        <div class="finishes-list-grid-wrapper">
+          <div
+            class="finishes-grid-card"
+            *ngFor="let laminate of flatArrayLaminates"
+          >
+            <div class="inner-flex inner-flex-small">
+              <div class="finishes-list-image">
+                <a
+                  data-fancybox="hardware-fancy"
+                  href="{{ laminate.image }}"
+                  target="_self"
+                >
+                  <img
+                    src="{{ laminate.image }}"
+                    alt=""
+                    style="height: 200px"
+                  />
+                </a>
+              </div>
+              <div class="product-name">
+                <h2 class="medium-fonts text-uppercase">
+                  {{ laminate.laminate }}
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="Hardware" class="tabcontent" *ngIf="tab == 'hardwares'">
+        <div class="hardware-list-grid-wrapper">
+          <div
+            class="hardware-grid-card"
+            *ngFor="let hardare of flatArrayHardware"
+          >
+            <div class="inner-flex inner-flex-small">
+              <div class="hardware-list-image">
+                <a
+                  data-fancybox="hardware-fancy"
+                  href="{{ hardare.image }}"
+                  target="_self"
+                >
+                  <img src="{{ hardare.image }}" alt="" />
+                </a>
+              </div>
+              <div class="product-name">
+                <h2 class="medium-fonts text-uppercase">
+                  {{ hardare.hardware }}
+                </h2>
+              </div>
+              <div class="product-info">
+                <p class="text-uppercase">Size</p>
+                <p class="text-uppercase gray-fonts">56"W x 2"D X 48"H</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div *ngIf="enquiry">
+  <div
+    class="popup-overlay popup-overlay-active"
+    (click)="closeEnquiry()"
+  ></div>
+  <div class="inquire-popup-wrapper inquire-popup-wrapper-active">
+    <div
+      class="inquire-popup-inner-flex side_popup_wrapper inner-flex inner-flex-small"
+    >
+      <div class="inner-flex">
+        <div
+          class="close-popup-inquire"
+          (click)="closeEnquiry()"
+          style="cursor: pointer"
+        >
+          <span class="material-symbols-outlined"> close </span>
+        </div>
+        <div class="section-subtitle">
+          <h3 class="regular-fonts">Enquire Now</h3>
+        </div>
+      </div>
+
+      <form id="inquiry_form" name="inquiry_form" (ngSubmit)="submitContactForm()" #inquiryForm="ngForm">
+        <div class="form_wrapper">
+          <div class="contact_lable">
+            <input
+              id="client_name"
+              name="name"
+              type="text"
+              required="required"
+              class="form-control"
+              letters-only=""
+              [(ngModel)]="contactObj.name"
+              #name="ngModel"
+            />
+            <label class="md-lable" for="client_name">Name</label>
+          </div>
+          <div class="contact_lable">
+            <input
+              id="email_address"
+              name="email"
+              type="email"
+              required=""
+              autocomplete="off"
+              class="form-control"
+              #email="ngModel"
+              [(ngModel)]="contactObj.email"
+            />
+            <label class="md-lable" for="email_address">Email</label>
+          </div>
+          <div class="contact_lable relative">
+            <input
+              id="client_contact_no"
+              name="phone"
+              type="tel"
+              numbers-only=""
+              minlength="8"
+              maxlength="13"
+              required=""
+              autocomplete="off"
+              class="form-control"
+              #phone="ngModel"
+              [(ngModel)]="contactObj.phone"
+            />
+            <label class="md-lable contact_code" for="client_contact_no"
+              >Mobile</label
+            >
+          </div>
+          <div class="contact_lable">
+            <input
+              id="hotel_name"
+              name="company_name"
+              type="text"
+              required="required"
+              class="form-control"
+              #company_name="ngModel"
+              [(ngModel)]="contactObj.company_name"
+            />
+            <label class="md-lable" for="hotel_name">Hotel Name</label>
+          </div>
+          <div class="relative two-grid-form">
+            <div class="contact_lable">
+              <!-- <input id="country" name="country" type="text" required="required"
+                                    class="form-control">
+                                <label class="md-lable" for="country">Country</label> -->
+              <select name="" class="form-control" id="" [(ngModel)]="contactObj.state">
+                <option value="">Country</option>
+                <option value="">India</option>
+                <option value="">USA</option>
+              </select>
+            </div>
+            <div class="contact_lable">
+              <!-- <input id="city" name="city" type="text" required="required"
+                                    class="form-control">
+                                <label class="md-lable" for="city">City</label> -->
+              <select name="" class="form-control" id="" [(ngModel)]="contactObj.city">
+                <option value="">City</option>
+                <option value="">Ahmedabad</option>
+                <option value="">Mumbai</option>
+              </select>
+            </div>
+          </div>
+          <div class="contact_lable">
+            <textarea
+              id="remarks"
+              name="message"
+              type="text"
+              aria-invalid="false"
+              autocomplete="off"
+              class="form-control"
+              rows="1"
+              #message="ngModel"
+              [(ngModel)]="contactObj.message"
+            >
+            </textarea>
+            <label class="md-lable" for="remarks">Comments</label>
+          </div>
+          <div class="checkbox-flex">
+            <input type="checkbox" name="" id="" />
+            <p>
+              <span> Keep Me Updated. </span>
+            </p>
+          </div>
+          <div class="submit-button">
+            <button
+              class="ph-button filled-ph-button filled-ph-button-submit"
+              type="submit"
+            >
+              <p class="">Submit</p>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
+
+<!-- Specification Wrapper End -->

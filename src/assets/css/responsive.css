@@ -1,0 +1,449 @@
+@media only screen and (max-width:1680px) {}
+
+@media only screen and (max-width:1450px) {
+    html {
+        font-size: 12px;
+    }
+
+}
+
+@media only screen and (max-width:1366px) {
+    .companies-card-image {
+        width: 50%;
+    }
+
+    .companies-card-image img {
+        height: 50px;
+        width: auto;
+        object-fit: contain;
+    }
+
+    .projects-home-grid,
+    .services-home-grid {
+        width: 75%;
+        margin: var(--medium-gap-size) auto 0 auto;
+    }
+}
+
+@media only screen and (max-width:1280px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width:1152px) {}
+
+@media only screen and (max-width:1024px) {
+    html {
+        font-size: 9px;
+    }
+
+    .banner-title h2,
+    .banner-title h2 span {
+        font-size: 6rem;
+    }
+
+    .section-title h2,
+    .section-title h2 span {
+        font-size: 3rem;
+    }
+
+    .page-title h2 {
+        font-size: 4rem;
+    }
+
+    .tablinks.active::after {
+        width: 4px;
+        height: 4px;
+    }
+}
+
+@media only screen and (max-width:991px) {
+
+
+    html {
+        font-size: 10px;
+    }
+
+    .visible-tab-mobile {
+        display: block !important;
+    }
+
+    .hide-tab-mobile {
+        display: none !important;
+    }
+
+    .search-btn-header {
+        height: 30px;
+    }
+
+    .overview-card-flex {
+        flex-direction: column;
+        align-items: start;
+        gap: 8rem;
+    }
+
+    .overview-card-flex>div:nth-child(1),
+    .overview-card-flex>div:nth-child(2) {
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    .product-home-card-flex {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 4rem;
+        align-items: start;
+        justify-content: space-between;
+    }
+
+    .product-home-card-flex>div:nth-child(1),
+    .product-home-card-flex>div:nth-child(2) {
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    .product-home-card-image {
+        width: 50% !important;
+    }
+
+    .discount-lable-swiper-card {
+        position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
+        z-index: 5;
+        width: 8rem;
+    }
+
+    .lamp-vector-home-product-card {
+        position: absolute;
+        top: 9rem;
+        right: 0;
+        width: 10%;
+    }
+
+    .swiper-button-next.swiper-button-next-homeproduct {
+        right: unset;
+        left: 95%;
+        top: 45%;
+    }
+
+    .swiper-button-next.swiper-button-next-homeproduct {
+        right: unset;
+        left: 95%;
+        top: 45%;
+    }
+
+    .swiper-button-prev.swiper-button-prev-homeproduct {
+        top: 45%;
+        left: 88%;
+    }
+
+    .price-tag-btn-flex {
+        margin-top: 2rem;
+        width: 30%;
+    }
+
+    .projects-home-grid,
+    .services-home-grid {
+        width: 85%;
+        margin: var(--medium-gap-size) auto 0 auto;
+    }
+
+    .comapnies-grid {
+        width: 100%;
+    }
+
+    .footer-grid-card {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0;
+        align-items: start;
+    }
+
+    .footer-grid-card .inner-flex.inner-flex-center {
+        text-align: left;
+        align-items: start;
+    }
+
+    .footer-card-links-grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--medium-gap-size);
+        padding: 4rem 2rem 2rem 2rem;
+        margin-top: 4rem;
+        border-left: 0px solid #00000030;
+        border-top: 1px solid #00000030;
+    }
+
+    .products-list-grid-wrapper {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hardware-list-grid-wrapper {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .finishes-list-grid-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+    }
+
+    #ph-specification-section-1 {
+        padding-top: 4rem;
+    }
+
+    .specification-banner-flex {
+        flex-direction: column;
+    }
+
+
+    .specification-banner-flex>div:nth-child(2) {
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    .specification-banner-flex>div:nth-child(1) {
+        width: 75%;
+        flex-basis: 75%;
+    }
+
+    .acc-head p {
+        color: var(--primary-color);
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .acc-content p {
+        width: 100%;
+        line-height: 1.6;
+        font-size: 12px;
+    }
+
+    .acc-head::before {
+        right: 1.775rem;
+        width: 3px;
+        height: 1.45rem;
+        margin-top: -0.725rem;
+    }
+
+    .tablinks {
+        padding: 1.5rem 1rem;
+        font-size: 1.35rem;
+    }
+
+    .tab-bar-above {
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+        align-items: center;
+        padding-bottom: 2.5rem;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 4rem;
+        border-bottom: 1px solid #00000030;
+    }
+
+    .main-container {
+        width: 96%;
+        margin: 0 auto;
+    }
+
+    .specification-banner-flex>div:nth-child(1) {
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    .product-specification-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: var(--medium-gap-size);
+        align-items: start;
+    }
+
+    .finishes-list-grid-wrapper,
+    .hardware-list-grid-wrapper,
+    .products-list-grid-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header-logo {
+        width: 9rem;
+    }
+
+    .banner-title br {
+        display: none;
+    }
+
+    .banner-title h2,
+    .banner-title h2 span {
+        font-size: 3.75rem;
+    }
+
+
+    .home-highlights-grid {
+        padding-bottom: 4rem;
+        border-bottom: 1px solid #00000030;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        gap: var(--small-gap-size);
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-home-grid,
+    .services-home-grid {
+        width: 85%;
+        margin: var(--medium-gap-size) auto 0 auto;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .price-tag-btn-flex {
+        margin-top: 2rem;
+        width: 100%;
+    }
+
+    .product-home-card-image {
+        width: 100% !important;
+    }
+
+    .lamp-vector-home-product-card {
+        position: absolute;
+        top: -4rem;
+        right: 0;
+        width: 25%;
+    }
+
+    .swiper-button-next.swiper-button-next-homeproduct {
+        right: unset;
+        left: 85%;
+        top: 60%;
+    }
+
+    .swiper-button-prev.swiper-button-prev-homeproduct {
+        top: 60%;
+        left: 70%;
+    }
+
+    .discount-lable-swiper-card {
+        position: absolute;
+        top: unset;
+        left: unset;
+        z-index: 5;
+        width: 8rem;
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+
+    .comapnies-grid {
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+
+    .comapnies-grid>div:nth-child(odd),
+    .comapnies-grid>div:nth-child(even) {
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    .companies-card-image img {
+        height: 30px;
+        width: auto;
+        object-fit: contain;
+    }
+
+    .footer-card-links-grid-wrapper p {
+        font-size: 16px;
+    }
+
+    .footer-card-links-grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        padding-top: 2rem;
+        margin-top: 2rem;
+        border-top: 0px;
+    }
+
+    .header-flex {
+        width: 94%;
+    }
+
+    .footer-logo {
+        width: 16rem;
+    }
+
+    .channel-partner-footer-card {
+        background-color: var(--secondary-color);
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+
+    .channel-partner-arrow {
+        width: 2.5rem;
+    }
+
+    .channel-partner-footer-card .section-subtitle h3 {
+        font-size: 1.75rem;
+        font-family: var(--medium-font-family-p);
+    }
+
+    .ph-footer-wrapper .inner-flex.inner-flex-big {
+        gap: 3rem;
+    }
+
+    .footer-link-flex .inner-flex {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2.5rem;
+        row-gap: 1rem;
+    }
+
+    .footer-card-address-wrapper {
+        order: 2;
+    }
+
+    .footer-link-flex {
+        order: 1;
+    }
+
+    .footer-grid-card .inner-flex.inner-flex-center {
+        padding-left: 2.5rem;
+    }
+
+    .location-icon-address {
+        display: none;
+    }
+
+    .social-media-footer-ul ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+        align-items: center;
+        justify-content: start;
+    }
+
+    .footer-credential-div {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        align-items: center;
+        padding: var(--small-gap-size) var(--medium-gap-size);
+        border-top: 1px solid #00000030;
+        gap: 1rem;
+        align-items: start;
+    }
+
+    .powered-by {
+        text-align: left;
+    }
+
+    .footer-credential-div p,
+    .footer-credential-div a {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 375px) {}

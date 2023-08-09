@@ -16,7 +16,7 @@ import { CollectionDetailComponent } from './collections/collection-detail/colle
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: HomepageComponent,
     data : {title : "Parth Hospitality"}
   },
@@ -41,7 +41,7 @@ const routes: Routes = [
     data : {title : "Parth Hospitality"}
   },
   {
-    path: 'collections/:collection_ID',
+    path: 'collections/:slug',
     component: CollectionDetailComponent,
     data : {title : "Parth Hospitality"}
   },

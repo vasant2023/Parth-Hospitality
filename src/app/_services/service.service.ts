@@ -111,14 +111,14 @@ export class ServiceService {
    return this.http.post(url, body, { headers: httpHeaders });
   }
 
-  getCollectionDetails(id){
+  getCollectionDetails(slug){
     const url = environment.apiUrl + 'collections/details';
     const apiId = environment.apiId;
 
     let body = new HttpParams();
     body = body.append('apiId', apiId);
     body = body.append('flag', "all");
-    body = body.append('collection_ID', id);
+    body = body.append('slug', slug);
 
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'

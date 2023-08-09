@@ -1,84 +1,220 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    <!-- Logo -->
-    <a class="navbar-brand" href="/">Parth Hospitality</a>
-
-    <!-- Navbar Toggler -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Navbar Items -->
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav mr-auto">
-        <!-- Item Dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="itemDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Item
+<!-- Header Wrapper Start -->
+<div class="ph-header-wrapper">
+  <div class="header-flex">
+      <div class="header-logo">
+          <a href="javascript:void(0);">
+              <img src="assets/images/logo/logo.svg" alt="">
           </a>
-          <div class="dropdown-menu" aria-labelledby="itemDropdown">
-            <a class="dropdown-item" routerLink="/items">Items</a>
-            <a class="dropdown-item" routerLink="/items-category">Items Categories</a>
+      </div>
+      <div class="header-links hide-tab-mobile">
+          <ul>
+              <li>
+                  <a routerLink="/">
+                      <p>Home</p>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:void(0);">
+                      <p>About</p>
+                  </a>
+              </li>
+              <li>
+                  <a routerLink="/collections">
+                      <p>Collections</p>
+                      <span class="material-symbols-outlined">
+                          expand_more
+                      </span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:void(0);">
+                      <p>Blog</p>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:void(0);">
+                      <p>Contact</p>
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div class="header-icons-flex">
+          <div class="search-btn-header">
+              <span class="material-symbols-outlined">
+                  search
+              </span>
           </div>
-        </li>
-
-        <!-- Collection Dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="collectionDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Collection
-          </a>
-          <div class="dropdown-menu" aria-labelledby="collectionDropdown">
-            <a class="dropdown-item" routerLink="/collections">Collections</a>
-            <a class="dropdown-item" routerLink="/collections-category">Collections Categories</a>
+          <div class="visible-tab-mobile">
+              <div class="nav-toggle">
+                  <div class="bar top"></div>
+                  <div class="bar bottom"></div>
+              </div>
           </div>
-        </li>
-
-        <!-- Hardware Dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="hardwareDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Hardware
-          </a>
-          <div class="dropdown-menu" aria-labelledby="hardwareDropdown">
-            <a class="dropdown-item" routerLink="/hardwares">Hardwares</a>
-            <a class="dropdown-item" routerLink="/hardwares-category">Hardwares Categories</a>
-          </div>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="laminateDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Laminates
-          </a>
-          <div class="dropdown-menu" aria-labelledby="laminateDropdown">
-            <a class="dropdown-item" routerLink="/laminates">Laminates</a>
-            <a class="dropdown-item" routerLink="/laminates-category">Laminates Categories</a>
-          </div>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/brands">Brand</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/contact-us">Contact Us</a>
-        </li>
-      </ul>
-
-    </div>
+      </div>
   </div>
-</nav>
+</div>
+<!-- Header Wrapper End -->
 
 
 <router-outlet></router-outlet>
 
-<footer class="content-footer" style="padding: 2rem 0;">
-  <div class="footer">
-    <div class="copyright text-center">
-      <span>Copyright © 2023 <b class="text-dark">Parth Hospitality</b>. All rights reserved.</span>
-    </div>
+ <!-- Footer Wrapper Start -->
+ <div class="ph-footer-wrapper">
+  <div class="inner-flex inner-flex-big">
+
+      <div class="main-container-fluid">
+          <div class="footer-grid-card">
+              <div class="footer-card-1">
+                  <div class="inner-flex inner-flex-center inner-flex-small">
+                      <a href="javascript:void(0);">
+                          <div class="footer-logo">
+                              <img src="assets/images/logo/footer-logo.svg" alt="">
+                          </div>
+                      </a>
+                      <div class="hide-tab-mobile">
+                          <div class="social-media-footer-ul">
+                              <ul>
+                                  <li class="fontawesome">
+                                      <a href="javascript:void(0);">
+                                          <i class="fa-brands fa-square-facebook"></i>
+                                      </a>
+                                  </li>
+                                  <li class="fontawesome">
+                                      <a href="javascript:void(0);">
+                                          <i class="fa-brands fa-instagram"></i>
+                                      </a>
+                                  </li>
+                                  <li class="fontawesome">
+                                      <a href="javascript:void(0);">
+                                          <i class="fa-brands fa-twitter"></i>
+                                      </a>
+                                  </li>
+                                  <li class="fontawesome">
+                                      <a href="javascript:void(0);">
+                                          <i class="fa-brands fa-youtube"></i>
+                                      </a>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="footer-card-2">
+                  <div class="footer-card-links-grid-wrapper">
+                      <div class="footer-card-address-wrapper">
+                          <div class="inner-flex inner-flex-medium">
+                              <div class="inner-flex inner-flex-small">
+                                  <div class="section-subtitle hide-tab-mobile">
+                                      <h3>
+                                          Parth Hospitality
+                                      </h3>
+                                  </div>
+                                  <div class="address-content relative">
+                                      <div class="location-icon-address">
+                                          <span class="material-symbols-outlined">
+                                              location_on
+                                          </span>
+                                      </div>
+                                      <p class="regular-fonts">
+                                          7903 Ocean Highway <br>Pawleys Island, SC 29585
+                                      </p>
+                                  </div>
+                              </div>
+
+                              <div class="inner-flex">
+                                  <a href="tel:+1 803 319 7356">
+                                      <p>
+                                          +1 803 319 7356
+                                      </p>
+                                  </a>
+                                  <a href="mailto:contact@parthhospitality.com">
+                                      <p>
+                                          contact@parthhospitality.com
+                                      </p>
+                                  </a>
+                              </div>
+
+                              <div class="visible-tab-mobile">
+                                  <div class="social-media-footer-ul">
+                                      <ul>
+                                          <li>
+                                              <a href="javascript:void(0);">
+                                                  <img src="assets/images/social/fb.svg" alt="" class="hide-tab-mobile">
+                                                  <img src="assets/images/social/fab.svg" alt="" class="visible-tab-mobile">
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="javascript:void(0);">
+                                                  <img src="assets/images/social/insta.svg" alt="">
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="javascript:void(0);">
+                                                  <img src="assets/images/social/twitter.svg" alt="">
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="javascript:void(0);">
+                                                  <img src="assets/images/social/youtube.svg" alt="">
+                                              </a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="footer-link-flex">
+                          <div class="section-subtitle visible-tab-mobile">
+                              <h3>
+                                  Parth Hospitality
+                              </h3>
+                              <br>
+                              <br>
+                              <br>
+                          </div>
+                          <ul class="inner-flex">
+                              <li>
+                                  <a href="javascript:void(0);">
+                                      <p class="regular-fonts">Home</p>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="javascript:void(0);">
+                                      <p class="regular-fonts">About</p>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="javascript:void(0);">
+                                      <p class="regular-fonts">Product Collections</p>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="javascript:void(0);">
+                                      <p class="regular-fonts">Blog</p>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="javascript:void(0);">
+                                      <p class="regular-fonts">Contact</p>
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="footer-credential-div">
+          <p>
+              &copy; Parth Hospitality 2023 | All Rights Reserved.
+          </p>
+          <div class="powered-by">
+              <p>
+                  Powered by : <a href="https://www.saltpixels.in/" target="_blank"
+                      class="text-uppercase">saltpixels</a>
+              </p>
+          </div>
+      </div>
   </div>
-</footer>
+</div>
+<!-- Footer Wrapper End -->
