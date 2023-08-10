@@ -209,8 +209,8 @@ export class CollectionDetailComponent implements OnInit {
 
         this.service.submitContactForm(this.contactObj).subscribe((response : {success:number, message:string}) => {
           if(response.success == 1){
-            Swal.fire("Thank You for contacting!", "success");
-            this.router.navigate(["/collections"]);
+            Swal.fire("Thank You for conntecting!", "Our team members will be in touch with you shortly!");
+            // this.router.navigate(["/collections"]);
           }
           this.isLoading = false
         })

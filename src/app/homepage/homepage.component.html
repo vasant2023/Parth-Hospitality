@@ -1,8 +1,7 @@
 <div id="ph-home-wrapper" class="relative">
   <section id="ph-home-section-1" class="ph-section">
       <div class="home-banner-swiper-outer relative">
-          <div class="swiper homeBannerSwiper">
-              <div class="swiper-wrapper">
+            <swiper class="swiper homeBannerSwiper" #mainSwiper [config]="homeBannerSwiper">
                   <div class="swiper-slide">
                       <div class="home-banner-image relative">
                           <img src="assets/images/home/banner/stable-diffusion-xl.jpg" alt="">
@@ -29,9 +28,9 @@
                           <div class="black_overlay"></div>
                       </div>
                   </div>
-              </div>
-              <div class="swiper-pagination swiper-pagination-home-banner"></div>
-          </div>
+           </swiper>
+           <div class="swiper-pagination swiper-pagination-home-banner"></div> 
+           <!---->
           <div class="home-banner-content-abs">
               <div class="inner-flex-center inner-flex inner-flex-small">
                   <div class="banner-title">
@@ -45,7 +44,7 @@
                       </h3>
                   </div>
                   <div class="button-home-flex">
-                      <button class="ph-button filled-ph-button">
+                      <button class="ph-button filled-ph-button" (click)="redirect('collections')">
                           <p>
                               View Collection
                           </p>

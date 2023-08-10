@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { SwiperModule, SWIPER_CONFIG, SwiperConfigInterface, SwiperComponent } from 'ngx-swiper-wrapper';
 
 @Component({
@@ -8,23 +9,22 @@ import { SwiperModule, SWIPER_CONFIG, SwiperConfigInterface, SwiperComponent } f
 })
 export class HomepageComponent implements OnInit {
 
-  public productImageSwiper: SwiperConfigInterface = {
-    slidesPerView: 4.75,
-    spaceBetween: 75,
-    loop: false,
-    freeMode: true,
-    loopedSlides: 5, //looped slides should be the same
-    watchSlidesVisibility: true,
-    watchSlidesProgress: true,
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+  public homeBannerSwiper: SwiperConfigInterface = {
+    effect: 'fade',
+    pagination: {
+        el: ".swiper-pagination.swiper-pagination-home-banner",
     },
   };
 
-  constructor() { }
+  constructor(
+    public router : Router
+  ) { }
 
   ngOnInit() {
   }
 
+  redirect(link){
+    console.log(link);
+    this.router.navigate(['/', link]);
+  }
 }

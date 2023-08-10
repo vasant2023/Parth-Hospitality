@@ -743,20 +743,7 @@ button.ph-button.black-border-ph-button p {
 	color: var(--primary-color);
 }
 
-.swiper-pagination.swiper-pagination-home-banner {
-	width: fit-content;
-	bottom: 20%;
-	left: 50%;
-	transform: translateX(-50%);
-}
 
-.swiper-pagination-bullet {
-	background-color: var(--white-color);
-}
-
-.swiper-pagination-bullet-active {
-	background-color: var(--secondary-color);
-}
 
 .overview-card-flex {
 	display: flex;
@@ -1957,13 +1944,20 @@ button.ph-button.black-border-ph-button p {
 }
 
 .acc-content {
-	padding: 1rem 0 0 0;
-	display: none;
+	padding: 0;
+	/* display: none; */
+	max-height: 0;
+	transition: all 0.45s;
+	-moz-transition: all 0.45s;
+	-webkit-transition: all 0.45s;
+	-ms-transition: all 0.45s;
+	-o-transition: all 0.45s;
+	overflow: hidden;
 }
 
 .acc-content.active {
 	padding: 1rem 0 0 0;
-	display: block;
+	max-height: 250px;
 }
 
 .acc-content p {
@@ -2179,6 +2173,10 @@ button.ph-button.black-border-ph-button p {
 	font-size: 1.25rem;
 }
 
+.ng-select.form-control{
+	padding: 0.5rem 1.5rem!important;
+}
+
 .side_popup_wrapper .md-lable {
 	color: #000000;
 	padding: 4px 6px;
@@ -2196,7 +2194,12 @@ button.ph-button.black-border-ph-button p {
 .side_popup_wrapper div.contact_lable input:focus~label.md-lable,
 .side_popup_wrapper div.contact_lable textarea:focus~label.md-lable,
 .side_popup_wrapper div.contact_lable input.not_required~label.md-lable,
-.side_popup_wrapper div.contact_lable textarea.not_required~label.md-lable {
+.side_popup_wrapper div.contact_lable textarea.not_required~label.md-lable,
+.side_popup_wrapper div.contact_lable.active input~label.md-lable,
+.side_popup_wrapper div.contact_lable.active textarea~label.md-lable,
+.side_popup_wrapper div.contact_lable.active input.not_required~label.md-lable,
+.side_popup_wrapper div.contact_lable.active textarea.not_required~label.md-lable
+{
 	transition: all 0.1s ease;
 	top: 5%;
 	transform: translateY(-50%);
@@ -2732,4 +2735,25 @@ select {
 
 .ng-select.ng-select-opened.ng-select-bottom>.ng-select-container, .ng-select .ng-select-container{
   border-color: transparent!important;
+}
+
+
+.swiper-pagination.swiper-pagination-home-banner {
+	width: fit-content;
+	bottom: 20%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.swiper-pagination-bullet {
+	background-color: var(--white-color)!important;
+	margin: 0 4px!important;
+}
+
+.swiper-pagination-bullet-active {
+	background-color: var(--secondary-color)!important;
+}
+
+ng-select .ng-clear-wrapper{
+	display: none!important;
 }

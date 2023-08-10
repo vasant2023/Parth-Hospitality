@@ -57,17 +57,10 @@
               <!-- Accordion -->
               <div class="acc-container">
                 <div class="acc">
-                  <div
-                    class="acc-head"
-                    (click)="handleAcc('construction')"
-                    [class.active]="accName == 'construction'"
-                  >
+                  <div class="acc-head" (click)="handleAcc('construction')" [class.active]="accName == 'construction'" >
                     <p>Construction</p>
                   </div>
-                  <div
-                    class="acc-content"
-                    [class.active]="accName == 'construction'"
-                  >
+                  <div class="acc-content" [class.active]="accName == 'construction'">
                     <p>
                       We are using only mdf carb & pur glue for edge banding.
                       All surface tops provided with hpl to increase scratch and
@@ -587,12 +580,10 @@
   </section>
 </div>
 
-<div *ngIf="enquiry">
-  <div
-    class="popup-overlay popup-overlay-active"
-    (click)="closeEnquiry()"
+<div >
+  <div class="popup-overlay " [class.popup-overlay-active]="enquiry" (click)="closeEnquiry()"
   ></div>
-  <div class="inquire-popup-wrapper inquire-popup-wrapper-active">
+  <div class="inquire-popup-wrapper" [class.inquire-popup-wrapper-active]="enquiry">
     <div
       class="inquire-popup-inner-flex side_popup_wrapper inner-flex inner-flex-small"
     >
@@ -616,7 +607,7 @@
         #inquiryForm="ngForm"
       >
         <div class="form_wrapper">
-          <div class="contact_lable">
+          <div class="contact_lable" [class.active]="contactObj.name != ''">
             <input
               id="client_name"
               name="name"
@@ -634,7 +625,7 @@
           </div>
 
           <div class="relative two-grid-form">
-            <div class="contact_lable">
+            <div class="contact_lable" [class.active]="contactObj.email != ''">
               <input
                 id="email_address"
                 name="email"
@@ -653,7 +644,7 @@
                 <div *ngIf="email.invalid && !email.errors.required">Invalid Email address</div>
             </div>
             </div>
-            <div class="contact_lable relative">
+            <div class="contact_lable relative" [class.active]="contactObj.phone != ''">
               <input
                 id="client_contact_no"
                 name="phone"
@@ -680,7 +671,7 @@
           </div>
 
           <div class="relative two-grid-form">
-            <div class="contact_lable">
+            <div class="contact_lable" [class.active]="contactObj.company_name != ''">
               <input
                 id="hotel_name"
                 name="company_name"
@@ -691,7 +682,7 @@
               />
               <label class="md-lable" for="hotel_name">Hotel Name</label>
             </div>
-            <div class="contact_lable">
+            <div class="contact_lable"  [class.active]="contactObj.property_code != ''">
               <input
                 id="property_code"
                 name="property_code"
@@ -704,7 +695,7 @@
             </div>
           </div>
 
-          <div class="contact_lable">
+          <div class="contact_lable" [class.active]="contactObj.country != ''">
             <ng-select
               class="form-control"
               name="country"
@@ -722,13 +713,13 @@
           </div>
 
           <div class="relative two-grid-form">
-            <div class="contact_lable">
+            <div class="contact_lable" [class.active]="contactObj.state != ''">
               <ng-select
               class="form-control"
-              name="country"
-              id="country"
+              name="state"
+              id="state"
               [(ngModel)]="contactObj.state"
-              #country="ngModel"
+              #state="ngModel"
               (change)="loadCities(contactObj.state)"
             >
               <ng-option value="">-Select State-</ng-option>
@@ -738,13 +729,13 @@
               >
             </ng-select>
             </div>
-            <div class="contact_lable">
+            <div class="contact_lable" [class.active]="contactObj.city != ''">
               <ng-select
               class="form-control"
-              name="country"
-              id="country"
+              name="city"
+              id="city"
               [(ngModel)]="contactObj.city"
-              #country="ngModel"
+              #city="ngModel"
             >
               <ng-option value="">-Select City-</ng-option>
               <ng-option value="{{ city.id }}" *ngFor="let city of cities">
@@ -756,7 +747,7 @@
           </div>
 
           <div class="relative two-grid-form">
-            <div class="contact_lable">
+            <div class="contact_lable" [class.active]="contactObj.rooms != ''">
               <input
                 id="rooms"
                 name="rooms"
@@ -767,7 +758,7 @@
               />
               <label class="md-lable" for="hotel_name">Rooms</label>
             </div>
-            <div class="contact_lable">
+            <div class="contact_lable" [class.active]="contactObj.zip_code != ''">
               <input
                 id="zip_code"
                 name="zip_code"
@@ -780,7 +771,7 @@
             </div>
           </div>
 
-          <div class="contact_lable">
+          <div class="contact_lable" [class.active]="contactObj.message != ''">
             <textarea
               id="remarks"
               name="message"
@@ -790,16 +781,19 @@
               class="form-control"
               rows="1"
               #message="ngModel"
+              rows="5"
               [(ngModel)]="contactObj.message"
             >
             </textarea>
             <label class="md-lable" for="remarks">Comments</label>
           </div>
           <div class="checkbox-flex">
-            <input type="checkbox" name="" id="" />
-            <p>
-              <span> Keep Me Updated. </span>
-            </p>
+            <label>
+              <input type="checkbox" name="" id="" />
+              <p>
+                <span> Keep Me Updated. </span>
+              </p>
+            </label>
           </div>
           <div class="submit-button">
             <button
