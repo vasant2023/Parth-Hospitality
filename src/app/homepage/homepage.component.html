@@ -248,8 +248,9 @@
   <section id="ph-home-section-4" class="ph-section">
       <div class="main-container-fluid">
           <div class="section-padding section-bottom-border relative">
-              <div class="swiper homeProductSwiper">
-                  <div class="swiper-wrapper">
+                <swiper class="swiper homeProductSwiper" #mainSwiper [config]="homeProductSwiper">
+              <!-- <div class="swiper homeProductSwiper"> -->
+                  <!-- <div class="swiper-wrapper"> -->
                       <div class="swiper-slide">
                           <div class="product-home-card-flex">
                               <div class="product-home-card-content">
@@ -342,7 +343,8 @@
                               </div>
                           </div>
                       </div>
-                  </div>
+                  <!-- </div> -->
+                </swiper>
                   <div class="swiper-button-next swiper-button-next-homeproduct">
                       <span class="material-symbols-outlined">
                           arrow_forward
@@ -353,7 +355,7 @@
                           arrow_back
                       </span>
                   </div>
-              </div>
+              <!-- </div> -->
               <div class="lamp-vector-home-product-card">
                   <img src="assets/images/home/lamp-vector.svg" alt="">
               </div>
@@ -615,40 +617,38 @@
           </div>
 
           <div class="clients-logoswiper-outer">
-              <div class="swiper clientsSwiper" [swiper]="productImageSwiper">
-                  <div class="swiper-wrapper">
-                      <div class="swiper-slide">
-                          <div class="logo-slider">
-                              <img src="assets/images/home/clients-logos/cambria.png" alt="">
-                          </div>
-                      </div>
-                      <div class="swiper-slide">
-                          <div class="logo-slider">
-                              <img src="assets/images/home/clients-logos/comfort-inn-suites.png" alt="">
-                          </div>
-                      </div>
-                      <div class="swiper-slide">
-                          <div class="logo-slider">
-                              <img src="assets/images/home/clients-logos/everhome-suites.png" alt="">
-                          </div>
-                      </div>
-                      <div class="swiper-slide">
-                          <div class="logo-slider">
-                              <img src="assets/images/home/clients-logos/rodeway-inn-suites.png" alt="">
-                          </div>
-                      </div>
-                      <div class="swiper-slide">
-                          <div class="logo-slider">
-                              <img src="assets/images/home/clients-logos/woodspring-suites.png" alt="">
-                          </div>
-                      </div>
-                      <div class="swiper-slide">
-                          <div class="logo-slider">
-                              <img src="assets/images/home/clients-logos/ascend-hotel.png" alt="">
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                <swiper class="swiper clientsSwiper" [config]="clientsSwiper">
+                    <div class="swiper-slide">
+                        <div class="logo-slider">
+                            <img src="assets/images/home/clients-logos/cambria.png" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="logo-slider">
+                            <img src="assets/images/home/clients-logos/comfort-inn-suites.png" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="logo-slider">
+                            <img src="assets/images/home/clients-logos/everhome-suites.png" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="logo-slider">
+                            <img src="assets/images/home/clients-logos/rodeway-inn-suites.png" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="logo-slider">
+                            <img src="assets/images/home/clients-logos/woodspring-suites.png" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="logo-slider">
+                            <img src="assets/images/home/clients-logos/ascend-hotel.png" alt="">
+                        </div>
+                    </div>
+                </swiper>
           </div>
       </div>
   </section>

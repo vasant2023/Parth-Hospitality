@@ -1595,12 +1595,13 @@ button.ph-button.black-border-ph-button p {
 
 .swiper-button-next,
 .swiper-button-prev {
-	width: 3.75rem;
-	background-color: #FEF1D8;
-	border-radius: 50%;
-	padding: 0.5rem;
-	height: 3.75rem;
-	margin-top: unset;
+	width: 3.75rem!important;
+	background-color: #FEF1D8!important;
+	border-radius: 50%!important;
+	padding: 0.5rem!important;
+	height: 3.75rem!important;
+	margin-top: unset!important;
+	background-image: unset!important;
 }
 
 .swiper-button-next span,
@@ -1611,12 +1612,16 @@ button.ph-button.black-border-ph-button p {
 .swiper-button-next.swiper-button-next-homeproduct {
 	right: unset;
 	left: 5%;
-	top: 62.5%;
+	top: 57.5%;
+	display: grid!important;
+	place-content: center;
 }
 
 .swiper-button-prev.swiper-button-prev-homeproduct {
-	top: 62.5%;
+	top: 57.5%;
 	left: 0;
+	display: grid!important;
+	place-content: center;
 }
 
 .price-tag-btn-flex {
