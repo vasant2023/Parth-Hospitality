@@ -73,8 +73,9 @@ export class CollectionDetailComponent implements OnInit {
 
   isLoading = false;
   public tab = "productSpecification";
-  public accName = 'construction';
-  enquiry = false
+  public accName = 'Construction';
+  enquiry = false;
+  sizeSpecificationItems:any=[]
 
   createContactForm: FormGroup;
 
@@ -86,7 +87,6 @@ export class CollectionDetailComponent implements OnInit {
 
   collectionSlug = ""
   collectionDetail:any;
-  // imageSrc = "assets/images/specifications/1.jpg";
 
   ngOnInit() {
     this.getCollectionDetails();
@@ -118,10 +118,8 @@ export class CollectionDetailComponent implements OnInit {
 
   getCountries(){
     this.service.getCountries().subscribe((response: {success:number , message:string, data:[]}) => {
-      console.log(response)
       if(response.success == 1){
         this.countries = response.data;
-        console.log(this.countries)
       }
     })
   }
@@ -161,13 +159,11 @@ export class CollectionDetailComponent implements OnInit {
       this.service.getCollectionDetails(this.collectionSlug).subscribe((response: { success: number, message: string, collection: [] }) => {
         this.collectionObj = response.collection
         this.contactObj.collection_id = this.collectionObj.collection_ID;
-        // this.contactObj.collectionName = this.collectionObj.collection
-        // console.log(this.contactObj.collection_id ,this.contactObj.collectionName)
-
 
         if (response.success == 1) {
           this.collectionDetail = response.collection;
-          // console.log(this.collectionDetail)
+          this.sizeSpecificationItems = this.collectionDetail.items;
+          console.log(this.collectionDetail.items)
 
           this.collectionDetail.items.forEach((individualItem) => {
             this.hardwareArray.push(individualItem.hardwares);

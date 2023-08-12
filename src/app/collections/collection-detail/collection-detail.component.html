@@ -14,9 +14,9 @@
           >
             <div
               class="swiper-slide"
-              *ngFor="let item of dummyImages; let i = index"
+              *ngFor="let item of collectionDetail.images; let i = index"
             >
-              <img src="{{ item }}" />
+              <img src="{{ item.image }}" />
             </div>
           </swiper>
           <swiper
@@ -26,10 +26,10 @@
           >
             <div
               class="swiper-slide"
-              *ngFor="let item of dummyImages; let i = index"
+              *ngFor="let item of collectionDetail.images; let i = index"
               (click)="jumpBig(i)"
             >
-              <img src="{{ item }}" />
+              <img src="{{ item.image }}" />
             </div>
           </swiper>
         </div>
@@ -56,61 +56,19 @@
             <div class="specifcation-banner-accordion">
               <!-- Accordion -->
               <div class="acc-container">
-                <div class="acc">
-                  <div class="acc-head" (click)="handleAcc('construction')" [class.active]="accName == 'construction'" >
-                    <p>Construction</p>
+                <div class="acc" *ngFor="let acc of collectionDetail.accordion">
+                  <div class="acc-head" (click)="handleAcc(acc.title)" [class.active]="accName == acc.title" >
+                    <p>{{acc.title}}</p>
                   </div>
-                  <div class="acc-content" [class.active]="accName == 'construction'">
+                  <div class="acc-content" [class.active]="accName == acc.title">
                     <p>
-                      We are using only mdf carb & pur glue for edge banding.
-                      All surface tops provided with hpl to increase scratch and
-                      impact resistance. Case bottoms are edge banded with pvc
-                      to protect from moisture penetration.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="acc">
-                  <div
-                    class="acc-head"
-                    (click)="handleAcc('cardBoard')"
-                    [class.active]="accName == 'cardBoard'"
-                  >
-                    <p>Card Board</p>
-                  </div>
-                  <div
-                    class="acc-content"
-                    [class.active]="accName == 'cardBoard'"
-                  >
-                    <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Iusto distinctio perferendis, suscipit eum aperiam
-                      consectetur earum commodi eos corrupti mollitia nihil vero
-                      ab aspernatur saepe laboriosam ipsam quas, reprehenderit
-                      dolor?
-                    </p>
-                  </div>
-                </div>
-
-                <div class="acc">
-                  <div
-                    class="acc-head"
-                    (click)="handleAcc('glue')"
-                    [class.active]="accName == 'glue'"
-                  >
-                    <p>Pur Glue</p>
-                  </div>
-                  <div class="acc-content" [class.active]="accName == 'glue'">
-                    <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Iusto distinctio perferendis, suscipit eum aperiam
-                      consectetur earum commodi eos corrupti mollitia nihil vero
-                      ab aspernatur saepe laboriosam ipsam quas, reprehenderit
-                      dolor?
+                      {{acc.text}}
                     </p>
                   </div>
                 </div>
               </div>
+              <!-- Accordian End -->
+
             </div>
             <div class="specification-download-btns-flex">
               <button class="ph-button black-border-ph-button">
@@ -196,284 +154,32 @@
                   <th>
                     <p class="bold-fonts text-uppercase text-center">H</p>
                   </th>
+                  <th>
+                    <p class="bold-fonts text-uppercase text-center">Price</p>
+                  </th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td rowspan="3">
-                    <p class="text-left">King Head Board</p>
+
+              <tbody *ngFor="let item of sizeSpecificationItems">
+                <tr *ngFor="let size of item.sizes">
+                  <td *ngIf="size === item.sizes[0]" [attr.rowspan]="item.sizes.length">
+                    <p class="text-left">{{ item.item }}</p>
                   </td>
                   <td>
-                    <p class="text-center">78"</p>
+                    <p class="text-center">{{ size.height }}"</p>
                   </td>
                   <td>
-                    <p class="text-center">3"</p>
+                    <p class="text-center">{{ size.width }}"</p>
                   </td>
                   <td>
-                    <p class="text-center">48"</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p class="text-center">78"</p>
+                    <p class="text-center">{{ size.dimension }}"</p>
                   </td>
                   <td>
-                    <p class="text-center">3"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">36"</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p class="text-center">78"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">3"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">30"</p>
+                    <p class="text-center">${{ size.price }}</p>
                   </td>
                 </tr>
               </tbody>
-              <tbody>
-                <tr>
-                  <td rowspan="3">
-                    <p class="text-left">King Wall Gaurd</p>
-                  </td>
-                  <td>
-                    <p class="text-center">18"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">3"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">48"</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p class="text-center">18"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">3"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">36"</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p class="text-center">18"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">3"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">30"</p>
-                  </td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <td>
-                    <p class="text-left">King Cubby</p>
-                  </td>
-                  <td>
-                    <p class="text-center">16"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">12"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">8"</p>
-                  </td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <td rowspan="3">
-                    <p class="text-left">Queen Head Board</p>
-                  </td>
-                  <td>
-                    <p class="text-center">62"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">3"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">48"</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p class="text-center">62"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">3"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">36"</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p class="text-center">62"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">3"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">30"</p>
-                  </td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <td rowspan="3">
-                    <p class="text-left">Queen Wall Gaurd</p>
-                  </td>
-                  <td>
-                    <p class="text-center">24"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">3"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">48"</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p class="text-center">24"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">3"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">36"</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p class="text-center">24"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">3"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">30"</p>
-                  </td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <td>
-                    <p class="text-left">Queen Cubby</p>
-                  </td>
-                  <td>
-                    <p class="text-center">22"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">12"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">8"</p>
-                  </td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <td rowspan="2">
-                    <p class="text-left">Media Panel</p>
-                  </td>
-                  <td>
-                    <p class="text-center">48"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">3"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">33"</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p class="text-center">48"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">22"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">33"</p>
-                  </td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <td rowspan="3">
-                    <p class="text-left">Luggage Bench with Metal Leg</p>
-                  </td>
-                  <td>
-                    <p class="text-center">48"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">22"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">18"</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p class="text-center">36"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">22"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">18"</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p class="text-center">30"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">22"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">18"</p>
-                  </td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <td rowspan="2">
-                    <p class="text-left">Desk with Metal Leg</p>
-                  </td>
-                  <td>
-                    <p class="text-center">48"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">22"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">30"</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p class="text-center">42"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">22"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">30"</p>
-                  </td>
-                </tr>
-              </tbody>
+
             </table>
 
             <div class="table-note-lable">
@@ -510,7 +216,7 @@
               </div>
               <div class="product-info">
                 <p class="text-uppercase">Size</p>
-                <p class="text-uppercase gray-fonts">56"W x 2"D X 48"H</p>
+                <p class="text-uppercase gray-fonts">{{item.sizes[0].width}}" x {{item.sizes[0].dimension}}" x {{item.sizes[0].height}}"</p>
               </div>
             </div>
           </div>
