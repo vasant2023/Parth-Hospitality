@@ -39,7 +39,8 @@ export class CollectionDetailComponent implements OnInit {
     country: "",
     property_code: "",
     rooms: "",
-    collection_id : this.collectionObj.collection_id
+    collection_id : this.collectionObj.collection_id,
+    brochure: 0
   }
 
   public productImageSwiper: SwiperConfigInterface = {
@@ -107,12 +108,6 @@ export class CollectionDetailComponent implements OnInit {
   states:any=[];
   cities:any=[];
 
-  dummyImages:any = [
-    "assets/images/specifications/1.jpg",
-    "assets/images/specifications/2.jpg",
-    "assets/images/specifications/3.jpg",
-  ]
-
   laminateArray:any=[];
   flatArrayLaminates:any=[];
 
@@ -158,12 +153,13 @@ export class CollectionDetailComponent implements OnInit {
     if (this.collectionSlug) {
       this.service.getCollectionDetails(this.collectionSlug).subscribe((response: { success: number, message: string, collection: [] }) => {
         this.collectionObj = response.collection
+        console.log(this.collectionObj)
         this.contactObj.collection_id = this.collectionObj.collection_ID;
+
 
         if (response.success == 1) {
           this.collectionDetail = response.collection;
           this.sizeSpecificationItems = this.collectionDetail.items;
-          console.log(this.collectionDetail.items)
 
           this.collectionDetail.items.forEach((individualItem) => {
             this.hardwareArray.push(individualItem.hardwares);
@@ -195,7 +191,8 @@ export class CollectionDetailComponent implements OnInit {
   }
 
   submitContactForm(form){
-    console.log(form.valid)
+    // console.log(this.contactObj)
+    // return false
     if(form.valid){
 
       console.log(this.contactObj, "Contact object");
@@ -230,6 +227,11 @@ export class CollectionDetailComponent implements OnInit {
     this.enquiry = true;
   }
 
+  handleBrochure(){
+    this.enquiry = true;
+    this.contactObj.brochure = 1;
+  }
+
   closeEnquiry(){
     this.enquiry = false;
   }
@@ -239,7 +241,6 @@ export class CollectionDetailComponent implements OnInit {
   }
 
   jumpThumb(slide) {
-    console.log(slide);
     this.secondarySwiper.directiveRef.setIndex(slide);
   }
 

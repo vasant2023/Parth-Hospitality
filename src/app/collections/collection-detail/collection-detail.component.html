@@ -16,7 +16,7 @@
               class="swiper-slide"
               *ngFor="let item of collectionDetail.images; let i = index"
             >
-              <img src="{{ item.image }}" />
+              <img src="{{ item.image_full }}" />
             </div>
           </swiper>
           <swiper
@@ -29,7 +29,7 @@
               *ngFor="let item of collectionDetail.images; let i = index"
               (click)="jumpBig(i)"
             >
-              <img src="{{ item.image }}" />
+              <img src="{{ item.image_full }}" />
             </div>
           </swiper>
         </div>
@@ -53,9 +53,9 @@
                 <!-- All pricing for India. Lead time 90 Days/ Faster. -->
               </p>
             </div>
-            <div class="specifcation-banner-accordion">
+            <div class="specifcation-banner-accordion specification">
               <!-- Accordion -->
-              <div class="acc-container">
+              <!-- <div class="acc-container">
                 <div class="acc" *ngFor="let acc of collectionDetail.accordion">
                   <div class="acc-head" (click)="handleAcc(acc.title)" [class.active]="accName == acc.title" >
                     <p>{{acc.title}}</p>
@@ -66,12 +66,14 @@
                     </p>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- Accordian End -->
+              <h3>Specification</h3>
+              <p class="light-fonts" innerHTML="{{collectionDetail.description}}"></p>
 
             </div>
             <div class="specification-download-btns-flex">
-              <button class="ph-button black-border-ph-button">
+              <button class="ph-button black-border-ph-button" *ngIf="collectionDetail.brochure" (click)="handleBrochure()">
                 <p class="text-uppercase">Brochure</p>
               </button>
               <button
@@ -81,9 +83,6 @@
                 [class.active]="'inquire-popup-wrapper-active'"
               >
                 <p class="text-uppercase">Inquiry</p>
-              </button>
-              <button class="ph-button black-border-ph-button">
-                <p class="text-uppercase">Warranty</p>
               </button>
             </div>
           </div>
@@ -132,7 +131,7 @@
         <div class="product-specification-grid">
           <div class="product-specification-grid-image">
             <img
-              src="assets/images/specifications/product-specification.jpg"
+              src="{{collectionDetail.specification_image_full}}"
               alt=""
             />
           </div>
@@ -199,11 +198,11 @@
               <div class="product-list-image">
                 <a
                   data-fancybox="hardware-fancy"
-                  href="{{ item.banner_image_mobile }}"
+                  href="{{ item.banner_image_mobile_full }}"
                   target="_self"
                 >
                   <img
-                    src="{{ item.banner_image_mobile }}"
+                    src="{{ item.banner_image_mobile_full }}"
                     alt=""
                     style="height: 200px"
                   />
@@ -216,7 +215,7 @@
               </div>
               <div class="product-info">
                 <p class="text-uppercase">Size</p>
-                <p class="text-uppercase gray-fonts">{{item.sizes[0].width}}" x {{item.sizes[0].dimension}}" x {{item.sizes[0].height}}"</p>
+                <p class="text-uppercase gray-fonts" *ngFor="let item of item.sizes" style="padding: 0.50rem 0;">{{item.width}}" x {{item.dimension}}" x {{item.height}}" &nbsp; &nbsp; <span>${{item.price}}</span></p>
               </div>
             </div>
           </div>
@@ -227,7 +226,7 @@
         <div class="finishes-list-grid-wrapper">
           <div
             class="finishes-grid-card"
-            *ngFor="let laminate of flatArrayLaminates"
+            *ngFor="let laminate of collectionObj.laminates"
           >
             <div class="inner-flex inner-flex-small">
               <div class="finishes-list-image">
@@ -248,6 +247,11 @@
                   {{ laminate.laminate }}
                 </h2>
               </div>
+              <div class="product-name">
+                <p class="medium-fonts text-uppercase">
+                  {{ laminate.size }}
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -257,7 +261,7 @@
         <div class="hardware-list-grid-wrapper">
           <div
             class="hardware-grid-card"
-            *ngFor="let hardare of flatArrayHardware"
+            *ngFor="let hardare of collectionObj.hardwares"
           >
             <div class="inner-flex inner-flex-small">
               <div class="hardware-list-image">
@@ -275,8 +279,8 @@
                 </h2>
               </div>
               <div class="product-info">
-                <p class="text-uppercase">Size</p>
-                <p class="text-uppercase gray-fonts">56"W x 2"D X 48"H</p>
+                <p class="text-uppercase"></p>
+                <p class="text-uppercase gray-fonts"></p>
               </div>
             </div>
           </div>

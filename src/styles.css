@@ -2762,3 +2762,13 @@ select {
 ng-select .ng-clear-wrapper{
 	display: none!important;
 }
+
+.specification h3{
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1rem 0;
+}
+
+.specification p {
+  font-size: 1.2rem;
+}
