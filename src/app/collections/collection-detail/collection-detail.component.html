@@ -14,7 +14,7 @@
           >
             <div
               class="swiper-slide"
-              *ngFor="let item of collectionDetail.images; let i = index"
+              *ngFor="let item of collectionObj.images; let i = index"
             >
               <img src="{{ item.image_full }}" />
             </div>
@@ -29,7 +29,7 @@
               *ngFor="let item of collectionDetail.images; let i = index"
               (click)="jumpBig(i)"
             >
-              <img src="{{ item.image_full }}" />
+              <img src="{{ item.image_full }}"  />
             </div>
           </swiper>
         </div>
@@ -41,7 +41,15 @@
                   {{ collectionDetail.collection }}
                 </h1>
               </div>
-              <div class="section-subtitle">
+              <div style="display: flex; gap: 1.5rem;"  *ngIf="collectionDetail.sale_price">
+                <div class="section-subtitle">
+                  <h3 class="regular-fonts">${{ collectionDetail.sale_price }}</h3>
+                </div>
+                <div class="section-subtitle" *ngIf="collectionDetail.sale_price">
+                  <h3 class="regular-fonts" style="text-decoration: line-through;">${{ collectionDetail.price }}</h3>
+                </div>
+              </div>
+              <div class="section-subtitle" *ngIf="!collectionDetail.sale_price">
                 <h3 class="regular-fonts">${{ collectionDetail.price }}</h3>
               </div>
             </div>
@@ -232,11 +240,11 @@
               <div class="finishes-list-image">
                 <a
                   data-fancybox="hardware-fancy"
-                  href="{{ laminate.image }}"
+                  href="{{ laminate.image_full }}"
                   target="_self"
                 >
                   <img
-                    src="{{ laminate.image }}"
+                    src="{{ laminate.image_full }}"
                     alt=""
                     style="height: 200px"
                   />
@@ -267,10 +275,10 @@
               <div class="hardware-list-image">
                 <a
                   data-fancybox="hardware-fancy"
-                  href="{{ hardare.image }}"
+                  href="{{ hardare.image_full }}"
                   target="_self"
                 >
-                  <img src="{{ hardare.image }}" alt="" />
+                  <img src="{{ hardare.image_full }}" alt="" />
                 </a>
               </div>
               <div class="product-name">

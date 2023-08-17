@@ -49,26 +49,21 @@ export class CollectionDetailComponent implements OnInit {
     loop: true,
     freeMode: false,
     // loopedSlides: 5,
+    observer: true,
+    // observeParents: true,
     watchSlidesVisibility: true,
     watchSlidesProgress: true,
-    centeredSlides: true
-    // navigation: {
-    //     nextEl: '.swiper-button-next',
-    //     prevEl: '.swiper-button-prev',
-    // },
+    centeredSlides: true,
   };
 
   public mainImageSwiper: SwiperConfigInterface = {
-    spaceBetween: 16,
+    spaceBetween: 18,
     slidesPerView: 1,
     loop: true,
+    observer: true,
     freeMode: false,
     watchSlidesVisibility: true,
     watchSlidesProgress: true,
-    // navigation: {
-    //     nextEl: '.swiper-button-next',
-    //     prevEl: '.swiper-button-prev',
-    // },
   };
 
 
@@ -87,7 +82,9 @@ export class CollectionDetailComponent implements OnInit {
   ) { }
 
   collectionSlug = ""
-  collectionDetail:any;
+  collectionDetail:any = {
+    items:[],
+  }
 
   ngOnInit() {
     this.getCollectionDetails();
@@ -153,7 +150,7 @@ export class CollectionDetailComponent implements OnInit {
     if (this.collectionSlug) {
       this.service.getCollectionDetails(this.collectionSlug).subscribe((response: { success: number, message: string, collection: [] }) => {
         this.collectionObj = response.collection
-        console.log(this.collectionObj)
+        console.log(this.collectionObj);
         this.contactObj.collection_id = this.collectionObj.collection_ID;
 
 
@@ -202,8 +199,9 @@ export class CollectionDetailComponent implements OnInit {
 
         this.service.submitContactForm(this.contactObj).subscribe((response : {success:number, message:string}) => {
           if(response.success == 1){
-            Swal.fire("Thank You for conntecting!", "Our team members will be in touch with you shortly!");
-            // this.router.navigate(["/collections"]);
+            this.enquiry = false
+            Swal.fire("Thank You for Contacting!", "Our team members will be in touch with you shortly!");
+            this.router.navigate(["/collections"]);
           }
           this.isLoading = false
         })
