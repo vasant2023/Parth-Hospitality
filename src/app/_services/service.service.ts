@@ -193,7 +193,8 @@ export class ServiceService {
     body = body.append("country", contactObj.country);
     body = body.append("property_code", contactObj.property_code);
     body = body.append("rooms", contactObj.rooms);
-    body = body.append("collection_ID", contactObj.collection_id);
+    body = body.append("collection_id", contactObj.collection_id);
+    body = body.append("brochure", contactObj.brochure);
 
     let httpHeaders = new HttpHeaders({
       "Content-Type": "application/x-www-form-urlencoded",
