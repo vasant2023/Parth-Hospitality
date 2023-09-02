@@ -19,6 +19,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CollectionDetailComponent } from './collections/collection-detail/collection-detail.component';
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
+import { ChecklistModule } from 'angular-checklist';
+
+
+const ngWizardConfig: NgWizardConfig = {
+  theme: THEME.default
+};
+
 
 @NgModule({
   declarations: [
@@ -38,12 +46,14 @@ import { NgSelectModule } from '@ng-select/ng-select';
   ],
   imports: [
     FormsModule,
+    ChecklistModule,
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     SwiperModule,
-    NgSelectModule
+    NgSelectModule,
+    NgWizardModule.forRoot(ngWizardConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

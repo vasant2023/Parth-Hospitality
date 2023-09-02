@@ -244,4 +244,34 @@ export class ServiceService {
     });
     return this.http.post(url, body, { headers: httpHeaders });
   }
+
+  getFlooring(){
+    const url = environment.apiUrl + "items/list";
+    const apiId = environment.apiId;
+
+    let body = new HttpParams();
+    body = body.append("apiId", apiId);
+    body = body.append("category_ID", '53');
+
+    let httpHeaders = new HttpHeaders({
+      "Content-Type": "application/x-www-form-urlencoded",
+    });
+    return this.http.post(url, body, { headers: httpHeaders });
+  }
+
+  menuCollection(){
+    const url = environment.apiUrl + "categories/list_nested";
+    const apiId = environment.apiId;
+
+    let body = new HttpParams();
+    body = body.append("apiId", apiId);
+    body = body.append("flag", "all")
+    body = body.append("type", 'hotel');
+
+    let httpHeaders = new HttpHeaders({
+      "Content-Type": "application/x-www-form-urlencoded",
+    });
+    return this.http.post(url, body, { headers: httpHeaders });
+  }
 }
+

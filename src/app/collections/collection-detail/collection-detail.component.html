@@ -16,7 +16,8 @@
               class="swiper-slide"
               *ngFor="let item of collectionObj.images; let i = index"
             >
-              <img src="{{ item.image }}" />
+              <!-- &w=675&h=385 -->
+              <img src="{{ item.image }}&w=675&h=385" />
             </div>
           </swiper>
           <swiper
@@ -29,7 +30,8 @@
               *ngFor="let item of collectionDetail.images; let i = index"
               (click)="jumpBig(i)"
             >
-              <img src="{{ item.image }}"  />
+              <!-- &w=213.66&h=122.06 -->
+              <img src="{{ item.image }}&w=213.66&h=122.06" />
             </div>
           </swiper>
         </div>
@@ -41,15 +43,31 @@
                   {{ collectionDetail.collection }}
                 </h1>
               </div>
-              <div style="display: flex; gap: 1.5rem;"  *ngIf="collectionDetail.sale_price">
+              <div
+                style="display: flex; gap: 1.5rem"
+                *ngIf="collectionDetail.sale_price"
+              >
                 <div class="section-subtitle">
-                  <h3 class="regular-fonts">${{ collectionDetail.sale_price }}</h3>
+                  <h3 class="regular-fonts">
+                    ${{ collectionDetail.sale_price }}
+                  </h3>
                 </div>
-                <div class="section-subtitle" *ngIf="collectionDetail.sale_price">
-                  <h3 class="regular-fonts" style="text-decoration: line-through;">${{ collectionDetail.price }}</h3>
+                <div
+                  class="section-subtitle"
+                  *ngIf="collectionDetail.sale_price"
+                >
+                  <h3
+                    class="regular-fonts"
+                    style="text-decoration: line-through"
+                  >
+                    ${{ collectionDetail.price }}
+                  </h3>
                 </div>
               </div>
-              <div class="section-subtitle" *ngIf="!collectionDetail.sale_price">
+              <div
+                class="section-subtitle"
+                *ngIf="!collectionDetail.sale_price"
+              >
                 <h3 class="regular-fonts">${{ collectionDetail.price }}</h3>
               </div>
             </div>
@@ -77,11 +95,17 @@
               </div> -->
               <!-- Accordian End -->
               <h3>Specification</h3>
-              <p class="light-fonts" innerHTML="{{collectionDetail.description}}"></p>
-
+              <p
+                class="light-fonts"
+                innerHTML="{{ collectionDetail.description }}"
+              ></p>
             </div>
             <div class="specification-download-btns-flex">
-              <button class="ph-button black-border-ph-button" *ngIf="collectionDetail.brochure" (click)="handleBrochure()">
+              <button
+                class="ph-button black-border-ph-button"
+                *ngIf="collectionDetail.brochure"
+                (click)="handleBrochure()"
+              >
                 <p class="text-uppercase">Brochure</p>
               </button>
               <button
@@ -98,6 +122,9 @@
       </div>
     </div>
   </section>
+
+  <!-- Active Tabs Section -->
+
   <section id="ph-specification-section-2" class="ph-section section-padding">
     <div class="main-container">
       <div class="tab tab-bar-above">
@@ -138,10 +165,8 @@
       >
         <div class="product-specification-grid">
           <div class="product-specification-grid-image">
-            <img
-              src="{{collectionDetail.specification_image}}"
-              alt=""
-            />
+            <!-- &w=636&h=359.88 -->
+            <img src="{{ collectionDetail.specification_image }}&w=636&h=359.88" alt="" />
           </div>
           <div class="product-specification-table">
             <table>
@@ -169,7 +194,10 @@
 
               <tbody *ngFor="let item of sizeSpecificationItems">
                 <tr *ngFor="let size of item.sizes">
-                  <td *ngIf="size === item.sizes[0]" [attr.rowspan]="item.sizes.length">
+                  <td
+                    *ngIf="size === item.sizes[0]"
+                    [attr.rowspan]="item.sizes.length"
+                  >
                     <p class="text-left">{{ item.item }}</p>
                   </td>
                   <td>
@@ -186,7 +214,6 @@
                   </td>
                 </tr>
               </tbody>
-
             </table>
 
             <div class="table-note-lable">
@@ -204,13 +231,14 @@
           >
             <div class="inner-flex inner-flex-small">
               <div class="product-list-image">
+                <!-- &w=233&h=200 -->
                 <a
-                  data-fancybox="hardware-fancy"
-                  href="{{ item.banner_image_mobile }}"
+                  data-fancybox="item-fancy"
+                  href="{{ item.banner_image }}&w=233&h=200"
                   target="_self"
                 >
                   <img
-                    src="{{ item.banner_image_mobile }}"
+                    src="{{ item.banner_image }}&w=233&h=200"
                     alt=""
                     style="height: 200px"
                   />
@@ -223,7 +251,14 @@
               </div>
               <div class="product-info">
                 <p class="text-uppercase">Size</p>
-                <p class="text-uppercase gray-fonts" *ngFor="let item of item.sizes" style="padding: 0.50rem 0;">{{item.width}}" x {{item.dimension}}" x {{item.height}}" &nbsp; &nbsp; <span>${{item.price}}</span></p>
+                <p
+                  class="text-uppercase gray-fonts"
+                  *ngFor="let item of item.sizes"
+                  style="padding: 0.5rem 0"
+                >
+                  {{ item.width }}" x {{ item.dimension }}" x {{ item.height }}"
+                  &nbsp; &nbsp; <span>${{ item.price }}</span>
+                </p>
               </div>
             </div>
           </div>
@@ -238,13 +273,14 @@
           >
             <div class="inner-flex inner-flex-small">
               <div class="finishes-list-image">
+                <!-- &w=386.4&h=200 -->
                 <a
-                  data-fancybox="hardware-fancy"
-                  href="{{ laminate.image }}"
+                  data-fancybox="laminate-fancy"
+                  href="{{ laminate.image }}&w=386.4&h=200"
                   target="_self"
                 >
                   <img
-                    src="{{ laminate.image }}"
+                    src="{{ laminate.image }}&w=386.4&h=200"
                     alt=""
                     style="height: 200px"
                   />
@@ -269,21 +305,22 @@
         <div class="hardware-list-grid-wrapper">
           <div
             class="hardware-grid-card"
-            *ngFor="let hardare of collectionObj.hardwares"
+            *ngFor="let hardware of collectionObj.hardwares"
           >
             <div class="inner-flex inner-flex-small">
               <div class="hardware-list-image">
+                <!-- &w=230&h=230 -->
                 <a
                   data-fancybox="hardware-fancy"
-                  href="{{ hardare.image }}"
+                  href="{{ hardware.image }}&w=230&h=230"
                   target="_self"
                 >
-                  <img src="{{ hardare.image }}" alt="" />
+                  <img src="{{ hardware.image }}&w=230&h=230" alt=""/>
                 </a>
               </div>
               <div class="product-name">
                 <h2 class="medium-fonts text-uppercase">
-                  {{ hardare.hardware }}
+                  {{ hardware.hardware }}
                 </h2>
               </div>
               <div class="product-info">
@@ -298,10 +335,478 @@
   </section>
 </div>
 
-<div >
-  <div class="popup-overlay " [class.popup-overlay-active]="enquiry" (click)="closeEnquiry()"
+<div>
+  <div
+    class="popup-overlay"
+    [class.popup-overlay-active]="isWizardOpen"
+    (click)="closeWizard()"
   ></div>
-  <div class="inquire-popup-wrapper" [class.inquire-popup-wrapper-active]="enquiry">
+  <div class="inquire-popup-wrapper">
+    <div *ngIf="isWizardOpen" class="wizard-popup">
+      <ng-wizard [config]="config" (stepChanged)="stepChanged($event)">
+        <ng-wizard-step
+          [title]="'Step 1'"
+          [description]="'Contact Details'"
+        >
+          <form
+            id="inquiry_form"
+            name="inquiry_form"
+            (ngSubmit)="
+              inquiryForm.form.valid && submitContactForm()
+            "
+            #inquiryForm="ngForm"
+            style="margin-top: 1rem"
+          >
+            <div class="form_wrapper">
+              <div class="contact_lable" [class.active]="contactObj.name != ''">
+                <label
+                  class="md-lable"
+                  for="client_name"
+                  style="padding: 1rem 0rem"
+                  >Name <sup>*</sup></label
+                >
+                <input
+                  id="client_name"
+                  name="name"
+                  type="text"
+                  class="form-control input-padding"
+                  letters-only=""
+                  [(ngModel)]="contactObj.name"
+                  #name="ngModel"
+                  required
+                />
+                <div
+                  *ngIf="inquiryForm.submitted && name.invalid"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="name.errors.required">Name cannot be empty!</div>
+                </div>
+              </div>
+
+              <div class="relative two-grid-form">
+                <div
+                  class="contact_lable"
+                  [class.active]="contactObj.email != ''"
+                >
+                  <label
+                    class="md-lable"
+                    for="email_address"
+                    style="padding: 1rem 0rem"
+                    >Email</label
+                  >
+                  <input
+                    id="email_address"
+                    name="email"
+                    type="email"
+                    autocomplete="off"
+                    class="form-control input-padding"
+                    #email="ngModel"
+                    [(ngModel)]="contactObj.email"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                    required
+                  />
+                  <div
+                    *ngIf="inquiryForm.submitted && email.invalid"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="email.errors.required">
+                      Email can not be empty!
+                    </div>
+                    <div *ngIf="email.invalid && !email.errors.required">
+                      Invalid Email address
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="contact_lable relative"
+                  [class.active]="contactObj.phone != ''"
+                >
+                  <label
+                    class="md-lable contact_code"
+                    for="client_contact_no"
+                    style="padding: 1rem 0rem"
+                    >Mobile</label
+                  >
+                  <input
+                    id="client_contact_no"
+                    name="phone"
+                    type="tel"
+                    numbers-only=""
+                    minlength="8"
+                    maxlength="13"
+                    autocomplete="off"
+                    class="form-control input-padding"
+                    #phone="ngModel"
+                    [(ngModel)]="contactObj.phone"
+                    (keypress)="_keyPress($event)"
+                    required
+                  />
+
+                  <div
+                    *ngIf="inquiryForm.submitted && phone.invalid"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="phone.errors.required">
+                      phone can not be empty!
+                    </div>
+                    <div *ngIf="phone.invalid && !phone.errors.required">
+                      Invalid Mobile number
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="relative two-grid-form">
+                <div
+                  class="contact_lable"
+                  [class.active]="contactObj.company_name != ''"
+                >
+                  <label
+                    class="md-lable"
+                    for="hotel_name"
+                    style="padding: 1rem 0rem"
+                    >Hotel Name</label
+                  >
+
+                  <input
+                    id="hotel_name"
+                    name="company_name"
+                    type="text"
+                    class="form-control input-padding"
+                    #company_name="ngModel"
+                    [(ngModel)]="contactObj.company_name"
+                  />
+                </div>
+                <div
+                  class="contact_lable"
+                  [class.active]="contactObj.property_code != ''"
+                >
+                  <label
+                    class="md-lable"
+                    for="hotel_name"
+                    style="padding: 1rem 0rem"
+                    >Property Code</label
+                  >
+
+                  <input
+                    id="property_code"
+                    name="property_code"
+                    type="number"
+                    class="form-control input-padding"
+                    #property_code="ngModel"
+                    [(ngModel)]="contactObj.property_code"
+                  />
+                </div>
+              </div>
+
+              <div
+                class="contact_lable"
+                [class.active]="contactObj.country != ''"
+                style="padding: 1rem 0rem"
+              >
+                <ng-select
+                  class="form-control"
+                  name="country"
+                  id="country"
+                  [(ngModel)]="contactObj.country"
+                  #country="ngModel"
+                  (change)="loadStates(contactObj.country)"
+                >
+                  <ng-option value="">-Select Country-</ng-option>
+                  <ng-option
+                    value="{{ country.id }}"
+                    *ngFor="let country of countries"
+                  >
+                    {{ country.name }}
+                  </ng-option>
+                </ng-select>
+              </div>
+
+              <div class="relative two-grid-form">
+                <div
+                  class="contact_lable drops"
+                  [class.active]="contactObj.state != ''"
+                >
+                  <ng-select
+                    class="form-control"
+                    name="state"
+                    id="state"
+                    [(ngModel)]="contactObj.state"
+                    #state="ngModel"
+                    (change)="loadCities(contactObj.state)"
+                  >
+                    <ng-option value="">-Select State-</ng-option>
+                    <ng-option
+                      value="{{ state.id }}"
+                      *ngFor="let state of states"
+                    >
+                      {{ state.name }}
+                    </ng-option>
+                  </ng-select>
+                </div>
+                <div
+                  class="contact_lable"
+                  [class.active]="contactObj.city != ''"
+                >
+                  <ng-select
+                    class="form-control"
+                    name="city"
+                    id="city"
+                    [(ngModel)]="contactObj.city"
+                    #city="ngModel"
+                  >
+                    <ng-option value="">-Select City-</ng-option>
+                    <ng-option
+                      value="{{ city.id }}"
+                      *ngFor="let city of cities"
+                    >
+                      {{ city.name }}
+                    </ng-option>
+                  </ng-select>
+                </div>
+              </div>
+
+              <div class="relative two-grid-form">
+                <div
+                  class="contact_lable"
+                  [class.active]="contactObj.rooms != ''"
+                >
+                  <label
+                    class="md-lable"
+                    for="hotel_name"
+                    style="padding: 1rem 0"
+                    >Rooms</label
+                  >
+
+                  <input
+                    id="rooms"
+                    name="rooms"
+                    type="number"
+                    class="form-control input-padding"
+                    #rooms="ngModel"
+                    [(ngModel)]="contactObj.rooms"
+                  />
+                </div>
+                <div
+                  class="contact_lable"
+                  [class.active]="contactObj.zip_code != ''"
+                >
+                  <label
+                    class="md-lable"
+                    for="hotel_name"
+                    style="padding: 1rem 0"
+                    >Zip Code</label
+                  >
+
+                  <input
+                    id="zip_code"
+                    name="zip_code"
+                    type="number"
+                    class="form-control input-padding"
+                    #zip_code="ngModel"
+                    [(ngModel)]="contactObj.zip_code"
+                  />
+                </div>
+              </div>
+
+              <div
+                class="contact_lable"
+                [class.active]="contactObj.message != ''"
+              >
+                <label class="md-lable" for="remarks" style="padding: 1rem 0"
+                  >Comments</label
+                >
+
+                <textarea
+                  id="remarks"
+                  name="message"
+                  type="text"
+                  aria-invalid="false"
+                  autocomplete="off"
+                  class="form-control"
+                  rows="1"
+                  #message="ngModel"
+                  rows="5"
+                  [(ngModel)]="contactObj.message"
+                >
+                </textarea>
+              </div>
+            </div>
+          </form>
+        </ng-wizard-step>
+
+        <ng-wizard-step
+          [title]="'Step 2'"
+          [description]="'Select Items'"
+        >
+          <div class="image-wrapper-details">
+            <div class="card" *ngFor="let item of collectionDetail.items">
+              <img
+                class="card-img-top"
+                src="{{ item.banner_image }}&w=350&h=350"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <label for="item_{{ item.category_ID }}">
+                  <input
+                    type="checkbox"
+                    name="item_{{ item.item_ID }}"
+                    [(checklist)]="contactObj.item_IDs"
+                    [checklistValue]="item.item_ID"
+                    id="item_{{ item.item_ID }}"
+                    class="rounded-checkbox"
+                    (change)="exampleCHange()"
+                  />
+                </label>
+                <span class="card-text" style="padding-left: 1.5rem">{{
+                  item.item
+                }}</span>
+                <!-- <p class="" *ngFor="let item of item.sizes" style="padding-top: 1rem; padding-left: 2.5rem;">
+                  {{ item.width }}" x {{ item.dimension }}" x
+                  {{ item.height }}" &nbsp; &nbsp;
+                  <span>${{ item.price }}</span>
+                </p> -->
+              </div>
+            </div>
+          </div>
+        </ng-wizard-step>
+
+        <ng-wizard-step [title]="'Step 3'" [description]="'Select Laminates'">
+          <div class="image-wrapper-details">
+            <div class="card" *ngFor="let laminate of collectionObj.laminates">
+              <img
+                class="card-img-top"
+                src="{{ laminate.image }}&w=350&h=350"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <label for="laminate_{{ laminate.laminate_ID }}">
+                  <input
+                    type="checkbox"
+                    name="laminate_{{ laminate.laminate_ID }}"
+                    [(checklist)]="contactObj.laminate_IDs"
+                    [checklistValue]="laminate.laminate_ID"
+                    id="laminate_{{ laminate.laminate_ID }}"
+                    class="rounded-checkbox"
+                    (change)="exampleCHange()"
+                  />
+                </label>
+                <span class="card-text" style="padding-left: 1.5rem">{{
+                  laminate.laminate
+                }}</span>
+                <p style="padding-left: 2.5rem;">
+                  {{ laminate.size }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </ng-wizard-step>
+
+        <ng-wizard-step
+          [title]="'Step 4'"
+          [description]="'Select Flooring'"
+        >
+
+        <div class="image-wrapper-details">
+          <div class="card" *ngFor="let flooring of flooringList">
+            <img
+              class="card-img-top"
+              src="{{ flooring.banner_image }}&w=350&h=350"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <label for="flooring_{{ flooring.item_ID }}">
+                <input
+                  type="checkbox"
+                  name="flooring_{{ flooring.item_ID }}"
+                  [(checklist)]="contactObj.flooring_IDs"
+                  [checklistValue]="flooring.item_ID"
+                  id="flooring_{{ flooring.item_ID }}"
+                  class="rounded-checkbox"
+                  (change)="exampleCHange()"
+                />
+              </label>
+              <span class="card-text" style="padding-left: 1.5rem">
+                {{ flooring.item }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        </ng-wizard-step>
+
+        <ng-wizard-step
+          [title]="'Step 5'"
+          [description]="'Select Add On'"
+        >
+
+          <table class="table" style="margin-top: 1rem">
+            <tbody>
+              <tr *ngFor="let addons of collectionDetail.addons">
+                <!-- <td>
+                  <label for="addons_{{ addons.addon_ID }}">
+                    <input
+                      type="checkbox"
+                      name="addons_{{ addons.addon_ID }}"
+                      [(checklist)]="contactObj.addons_IDs"
+                      [checklistValue]="addons.addon_ID"
+                      id="addons_{{ addons.addon_ID }}"
+                      class="rounded-checkbox"
+                      (change)="exampleCHange()"
+                    />
+                  </label>
+                </td> -->
+
+                <td >
+                  <h3>{{ addons.addon }}</h3>
+
+                  <div class="image-wrapper-details">
+                    <div class="card" *ngFor="let addonItem of addons.list">
+                      <img
+                        class="card-img-top"
+                        src="{{ addonItem.banner_image }}&w=350&h=350"
+                        alt="Card image cap"
+                      />
+                      <div class="card-body">
+                        <label for="addons_{{ addonItem.item_ID }}">
+                          <input
+                            type="checkbox"
+                            name="addonItem_{{ addonItem.item_ID }}"
+                            [(checklist)]="contactObj.addons_IDs"
+                            [checklistValue]="addonItem.item_ID"
+                            id="flooring_{{ addonItem.item_ID }}"
+                            class="rounded-checkbox"
+                            (change)="exampleCHange()"
+                          />
+                        </label>
+                        <span class="card-text" style="padding-left: 1.5rem">
+                          {{ addonItem.item }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                </td>
+
+              </tr>
+            </tbody>
+          </table>
+        </ng-wizard-step>
+      </ng-wizard>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div
+    class="popup-overlay"
+    [class.popup-overlay-active]="enquiry"
+    (click)="closeEnquiry()"
+  ></div>
+  <div
+    class="inquire-popup-wrapper"
+    [class.inquire-popup-wrapper-active]="enquiry"
+  >
     <div
       class="inquire-popup-inner-flex side_popup_wrapper inner-flex inner-flex-small"
     >
@@ -321,7 +826,9 @@
       <form
         id="inquiry_form"
         name="inquiry_form"
-        (ngSubmit)="inquiryForm.form.valid && submitContactForm(inquiryForm.form) "
+        (ngSubmit)="
+          inquiryForm.form.valid && submitContactForm()
+        "
         #inquiryForm="ngForm"
       >
         <div class="form_wrapper">
@@ -337,9 +844,12 @@
               required
             />
             <label class="md-lable" for="client_name">Name <sup>*</sup></label>
-            <div *ngIf="inquiryForm.submitted && name.invalid" class="invalid-feedback">
+            <div
+              *ngIf="inquiryForm.submitted && name.invalid"
+              class="invalid-feedback"
+            >
               <div *ngIf="name.errors.required">Name cannot be empty!</div>
-          </div>
+            </div>
           </div>
 
           <div class="relative two-grid-form">
@@ -354,15 +864,22 @@
                 [(ngModel)]="contactObj.email"
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                 required
-
               />
               <label class="md-lable" for="email_address">Email</label>
-              <div *ngIf="inquiryForm.submitted && email.invalid" class="invalid-feedback">
+              <div
+                *ngIf="inquiryForm.submitted && email.invalid"
+                class="invalid-feedback"
+              >
                 <div *ngIf="email.errors.required">Email can not be empty!</div>
-                <div *ngIf="email.invalid && !email.errors.required">Invalid Email address</div>
+                <div *ngIf="email.invalid && !email.errors.required">
+                  Invalid Email address
+                </div>
+              </div>
             </div>
-            </div>
-            <div class="contact_lable relative" [class.active]="contactObj.phone != ''">
+            <div
+              class="contact_lable relative"
+              [class.active]="contactObj.phone != ''"
+            >
               <input
                 id="client_contact_no"
                 name="phone"
@@ -374,22 +891,29 @@
                 class="form-control"
                 #phone="ngModel"
                 [(ngModel)]="contactObj.phone"
-                (keypress)=_keyPress($event)
+                (keypress)="_keyPress($event)"
                 required
-
               />
               <label class="md-lable contact_code" for="client_contact_no"
                 >Mobile</label
               >
-              <div *ngIf="inquiryForm.submitted && phone.invalid" class="invalid-feedback">
+              <div
+                *ngIf="inquiryForm.submitted && phone.invalid"
+                class="invalid-feedback"
+              >
                 <div *ngIf="phone.errors.required">phone can not be empty!</div>
-                <div *ngIf="phone.invalid && !phone.errors.required">Invalid Mobile number</div>
-            </div>
+                <div *ngIf="phone.invalid && !phone.errors.required">
+                  Invalid Mobile number
+                </div>
+              </div>
             </div>
           </div>
 
           <div class="relative two-grid-form">
-            <div class="contact_lable" [class.active]="contactObj.company_name != ''">
+            <div
+              class="contact_lable"
+              [class.active]="contactObj.company_name != ''"
+            >
               <input
                 id="hotel_name"
                 name="company_name"
@@ -400,7 +924,10 @@
               />
               <label class="md-lable" for="hotel_name">Hotel Name</label>
             </div>
-            <div class="contact_lable"  [class.active]="contactObj.property_code != ''">
+            <div
+              class="contact_lable"
+              [class.active]="contactObj.property_code != ''"
+            >
               <input
                 id="property_code"
                 name="property_code"
@@ -423,44 +950,44 @@
               (change)="loadStates(contactObj.country)"
             >
               <ng-option value="">-Select Country-</ng-option>
-              <ng-option value="{{ country.id }}" *ngFor="let country of countries">
-                {{country.name}}
-              </ng-option
+              <ng-option
+                value="{{ country.id }}"
+                *ngFor="let country of countries"
               >
+                {{ country.name }}
+              </ng-option>
             </ng-select>
           </div>
 
           <div class="relative two-grid-form">
             <div class="contact_lable" [class.active]="contactObj.state != ''">
               <ng-select
-              class="form-control"
-              name="state"
-              id="state"
-              [(ngModel)]="contactObj.state"
-              #state="ngModel"
-              (change)="loadCities(contactObj.state)"
-            >
-              <ng-option value="">-Select State-</ng-option>
-              <ng-option value="{{ state.id }}" *ngFor="let state of states">
-                {{state.name}}
-              </ng-option
+                class="form-control"
+                name="state"
+                id="state"
+                [(ngModel)]="contactObj.state"
+                #state="ngModel"
+                (change)="loadCities(contactObj.state)"
               >
-            </ng-select>
+                <ng-option value="">-Select State-</ng-option>
+                <ng-option value="{{ state.id }}" *ngFor="let state of states">
+                  {{ state.name }}
+                </ng-option>
+              </ng-select>
             </div>
             <div class="contact_lable" [class.active]="contactObj.city != ''">
               <ng-select
-              class="form-control"
-              name="city"
-              id="city"
-              [(ngModel)]="contactObj.city"
-              #city="ngModel"
-            >
-              <ng-option value="">-Select City-</ng-option>
-              <ng-option value="{{ city.id }}" *ngFor="let city of cities">
-                {{city.name}}
-              </ng-option
+                class="form-control"
+                name="city"
+                id="city"
+                [(ngModel)]="contactObj.city"
+                #city="ngModel"
               >
-            </ng-select>
+                <ng-option value="">-Select City-</ng-option>
+                <ng-option value="{{ city.id }}" *ngFor="let city of cities">
+                  {{ city.name }}
+                </ng-option>
+              </ng-select>
             </div>
           </div>
 
@@ -476,7 +1003,10 @@
               />
               <label class="md-lable" for="hotel_name">Rooms</label>
             </div>
-            <div class="contact_lable" [class.active]="contactObj.zip_code != ''">
+            <div
+              class="contact_lable"
+              [class.active]="contactObj.zip_code != ''"
+            >
               <input
                 id="zip_code"
                 name="zip_code"

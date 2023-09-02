@@ -1,5 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@ng-select/ng-select/themes/default.theme.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+/* Wizard Imports */
+@import '~ng-wizard/themes/ng_wizard.min.css';
+@import '~ng-wizard/themes/ng_wizard_theme_arrows.min.css';
+@import '~ng-wizard/themes/ng_wizard_theme_circles.min.css';
+@import '~ng-wizard/themes/ng_wizard_theme_dots.min.css';
+
 
 @font-face {
 	font-family: 'Corbert-Regular';
@@ -601,12 +610,12 @@ body.no-scroll-body {
 .ph-header-wrapper {
 	position: fixed;
 	background-color: var(--white-color);
-	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	/* box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); */
 	transition: var(--common-transition);
 	top: 0;
 	left: 0;
 	width: 100%;
-	padding: 1.823rem 0;
+	padding: 0;
 	z-index: 99999;
 }
 
@@ -2116,7 +2125,7 @@ button.ph-button.black-border-ph-button p {
 	width: 100%;
 	height: 100%;
 	transition: all ease 0.4s;
-	background: rgba(0, 0, 0, 40%);
+	background: rgba(0, 0, 0, 0.4);
 	z-index: 99999;
 	backdrop-filter: blur(5px);
 	transition: var(--common-transition);
@@ -2771,4 +2780,172 @@ ng-select .ng-clear-wrapper{
 
 .specification p {
   font-size: 1.2rem;
+}
+
+.ng-wizard-theme-arrows>ul.step-anchor>li.active>a{
+  background-color: #F7AC29 !important;
+}
+
+.ng-wizard-theme-arrows>ul.step-anchor>li.active>a {
+  border-color: #F7AC29!important;
+  color: #fff!important;
+  background: #F7AC29!important;
+}
+
+.ng-wizard-theme-arrows>ul.step-anchor>li.active>a:after {
+  border-left: 30px solid #F7AC29!important;
+}
+
+.ng-wizard-theme-arrows>ul.step-anchor>li.done>a {
+  border-color: #b1dfbb!important;
+  color: #fff!important;
+  background: #f9c262!important;
+}
+
+.ng-wizard-theme-arrows>ul.step-anchor>li.done>a:after {
+  border-left: 30px solid #f9c262;
+}
+.btn-info {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #F7AC29;
+  --bs-btn-border-color: #F7AC29;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #31d2f2;
+  --bs-btn-hover-border-color: #F7AC29;
+  --bs-btn-focus-shadow-rgb: 11,172,204;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #3dd5f3;
+  --bs-btn-active-border-color: #25cff2;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #F7AC29;
+  --bs-btn-disabled-border-color: #F7AC29;
+  margin: 0rem 1rem;
+}
+
+.btn-secondary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #F7AC29;
+  --bs-btn-border-color: #F7AC29;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #F7AC29;
+  --bs-btn-hover-border-color: #F7AC29;
+  --bs-btn-focus-shadow-rgb: 130,138,145;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #f9c262;
+  --bs-btn-active-border-color: #F7AC29;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #f9c262;
+  --bs-btn-disabled-border-color: #F7AC29;
+}
+
+.btn-info:hover{
+  background-color: #F7AC29 !important;
+}
+
+.wizard-popup .btn .btn-secondary .disabled {
+  background-color: #F7AC29 !important;
+}
+
+.btn-group {
+  border-color: #F7AC29;
+}
+
+.btn.disabled, .btn:disabled, fieldset:disabled .btn {
+  color: #333;
+  pointer-events: none;
+  background-color: #f9c262;
+  border-color: var(--bs-btn-disabled-border-color);
+  opacity: var(--bs-btn-disabled-opacity);
+}
+.header-links>ul>li {
+  min-height: 82px;
+  position: relative;
+  display: flex;
+}
+.megamenu-level-1 {
+  position: absolute;
+  background: #F2F2F2;
+  top: 80px;
+  padding: 0rem;
+  min-width: 160%;
+  opacity: 0;
+  visibility: hidden;
+  left: -10%;
+  transition: var(--common-transition);
+}
+.megamenu-level-1 li{
+  padding: 0.75rem 1.5rem;
+}
+.megamenu-level-head:hover .megamenu-level-1{
+  opacity: 1;
+  transition: var(--common-transition);
+  visibility: visible;
+}
+.right-menu-ul-li, .megamenu-level-1-sub {
+  flex-direction: column !important;
+  gap: 0 !important;
+  justify-content: start !important;
+  align-items: start !important;
+}
+.right-menu-ul-li{
+  gap: 0 !important;
+}
+.megamenu-level-1-sub li{
+  border-bottom: 1px solid #a6a3a3;
+}
+.megamenu-level-1-sub li:hover{
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+.megamenu-level-1-sub li:hover a,
+.megamenu-level-1-sub li:hover a p,
+.megamenu-level-1-sub li:hover span{
+  color: #FFF !important;
+}
+.megamenu-level-1-sub li .right-menu-ul-li a,
+.megamenu-level-1-sub li .right-menu-ul-li a p,
+.megamenu-level-1-sub li .right-menu-ul-li span{
+  color: #000 !important;
+}
+
+.right-menu-ul-li li:hover a,
+.right-menu-ul-li li:hover a p,
+.right-menu-ul-li li:hover span{
+  color: #FFF !important;
+}
+
+
+.megamenu-last-level-head{
+  position: relative;
+  width: 100%;
+}
+.megamenu-last-level-head>a{
+  width: 100%;
+  justify-content: space-between !important;
+}
+.right-hover-megamenu {
+  position: absolute;
+  left: 100%;
+  background: #FFF;
+  padding: 0;
+  width: 110%;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--common-transition);
+}
+.right-hover-megamenu li{
+  position: relative;
+  min-height: 43px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid #c8c8c8;
+}
+.megamenu-last-level-head:hover .right-hover-megamenu{
+  opacity: 1;
+  visibility: visible;
+  transition: var(--common-transition);
 }

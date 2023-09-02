@@ -1,6 +1,5 @@
-<div class="container mt-4">
-  <h1 class="text-center mb-4">Laminates</h1>
-  <div class="row">
+<!-- <div class="container mt-4" style="margin-top: 8rem;">
+  <div class="row" style="display: flex; flex-wrap: wrap; gap: 1rem;">
     <div class="col-md-4 mb-4" *ngFor="let item of laminate_list">
       <div class="card">
         <img
@@ -12,6 +11,31 @@
         <div class="card-body">
           <h5 class="card-title">{{ item.laminate }}</h5>
           <a href="#" class="btn btn-secondary">View More...</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container mt-4" style=" margin-top: 6rem;">
+  <h1 class="heading">Laminates</h1>
+  <div class="flex align-center card-wrap">
+    <div class="card" *ngFor="let item of laminate_list">
+      <div class="" style="cursor: pointer;">
+        <!-- <a routerLink="/collections/{{item.slug}}"> -->
+          <!-- &w=240&h=216 -->
+          <img
+            class=""
+            src="{{ item.image }}&w=240&h=216"
+            alt="Card image cap"
+            style="height: 18rem;width: 20rem; object-fit: cover;"
+          />
+        <!-- </a> -->
+        <div class="content">
+          <h5 class="" style="text-align: center;">{{ item.laminate }}</h5>
+          <!-- <div class="btn">
+            <a routerLink="/collections/{{item.slug}}" class="">View More...</a>
+          </div> -->
         </div>
       </div>
     </div>

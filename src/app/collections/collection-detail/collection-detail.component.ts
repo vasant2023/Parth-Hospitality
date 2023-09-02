@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { of } from 'rxjs';
 import {
   FormBuilder,
   FormGroup,
@@ -10,6 +11,9 @@ import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
 import { ServiceService } from 'src/app/_services/service.service';
 import Swal from "sweetalert2";
 import { SwiperModule, SWIPER_CONFIG, SwiperConfigInterface, SwiperComponent } from 'ngx-swiper-wrapper';
+import { NgWizardConfig, NgWizardService, StepChangedArgs, STEP_STATE, THEME } from 'ng-wizard';
+import { style } from '@angular/animations';
+
 
 @Component({
   selector: 'app-collection-detail',
@@ -18,13 +22,29 @@ import { SwiperModule, SWIPER_CONFIG, SwiperConfigInterface, SwiperComponent } f
 })
 export class CollectionDetailComponent implements OnInit {
 
+  stepStates = {
+    normal: STEP_STATE.normal,
+    disabled: STEP_STATE.disabled,
+    error: STEP_STATE.error,
+    hidden: STEP_STATE.hidden
+  };
+
+  config: NgWizardConfig = {
+    selected: 0,
+    theme: THEME.arrows,
+    toolbarSettings: {
+      toolbarExtraButtons: [
+        { text: 'Submit', class: 'btn btn-info', event: () => { this.submitContactForm() } }
+      ],
+    }
+  };
+
   @ViewChild('mainSwiper', {static:false}) mainSwiper: SwiperComponent;
   @ViewChild('secondarySwiper', {static:false}) secondarySwiper: SwiperComponent;
 
-
   collectionObj:any = {
     collection_id: "",
-    name: ""
+    name: "",
   }
 
   contactObj:any = {
@@ -40,7 +60,11 @@ export class CollectionDetailComponent implements OnInit {
     property_code: "",
     rooms: "",
     collection_id : this.collectionObj.collection_id,
-    brochure: 0
+    brochure: 0,
+    item_IDs:[],
+    laminate_IDs:[],
+    flooring_IDs:[],
+    addons_IDs:[]
   }
 
   public productImageSwiper: SwiperConfigInterface = {
@@ -68,17 +92,20 @@ export class CollectionDetailComponent implements OnInit {
 
 
   isLoading = false;
+  isWizardOpen = false;
   public tab = "productSpecification";
   public accName = 'Construction';
   enquiry = false;
-  sizeSpecificationItems:any=[]
+  sizeSpecificationItems:any=[];
+  flooringList:any=[]
 
   createContactForm: FormGroup;
 
   constructor(
       public service: ServiceService,
       private route :ActivatedRoute,
-      private router: Router
+      private router: Router,
+      private ngWizardService: NgWizardService
   ) { }
 
   collectionSlug = ""
@@ -88,7 +115,11 @@ export class CollectionDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getCollectionDetails();
-    this.getCountries()
+    this.getCountries();
+    this.getFlooring();
+    this.route.paramMap.subscribe(params => {
+      this.getCollectionDetails();
+    })
   }
 
   _keyPress(event: any) {
@@ -99,14 +130,14 @@ export class CollectionDetailComponent implements OnInit {
     }
   }
 
-  hardwareArray:any=[]
-  flatArrayHardware:any=[];
+  // hardwareArray:any=[]
+  // flatArrayHardware:any=[];
   countries:any=[];
   states:any=[];
   cities:any=[];
 
-  laminateArray:any=[];
-  flatArrayLaminates:any=[];
+  // laminateArray:any=[];
+  // flatArrayLaminates:any=[];
 
   getCountries(){
     this.service.getCountries().subscribe((response: {success:number , message:string, data:[]}) => {
@@ -158,41 +189,41 @@ export class CollectionDetailComponent implements OnInit {
           this.collectionDetail = response.collection;
           this.sizeSpecificationItems = this.collectionDetail.items;
 
-          this.collectionDetail.items.forEach((individualItem) => {
-            this.hardwareArray.push(individualItem.hardwares);
-          });
+          // this.collectionDetail.items.forEach((individualItem) => {
+          //   this.hardwareArray.push(individualItem.hardwares);
+          // });
 
-          this.collectionDetail.items.forEach((individualLaminate) => {
-            this.laminateArray.push(individualLaminate.laminate);
-          });
+          // this.collectionDetail.items.forEach((individualLaminate) => {
+          //   this.laminateArray.push(individualLaminate.laminate);
+          // });
 
-          this.flatArrayHardware = this.hardwareArray.flat();
-          this.flatArrayLaminates = this.laminateArray.flat();
+          // this.flatArrayHardware = this.hardwareArray.flat();
+          // this.flatArrayLaminates = this.laminateArray.flat();
 
           // Remove duplicates from flatArrayHardware
-          this.flatArrayHardware = this.flatArrayHardware.filter((item, index, self) =>
-          index === self.findIndex((t) => (
-            t.hardware === item.hardware
-          ))
-          );
+          // this.flatArrayHardware = this.flatArrayHardware.filter((item, index, self) =>
+          // index === self.findIndex((t) => (
+          //   t.hardware === item.hardware
+          // ))
+          // );
 
           // Remove duplicates from flatArrayLaminates
-          this.flatArrayLaminates = this.flatArrayLaminates.filter((item, index, self) =>
-          index === self.findIndex((t) => (
-            t.laminate === item.laminate
-          ))
-          );
+          // this.flatArrayLaminates = this.flatArrayLaminates.filter((item, index, self) =>
+          // index === self.findIndex((t) => (
+          //   t.laminate === item.laminate
+          // ))
+          // );
         }
       })
     }
   }
 
-  submitContactForm(form){
+  submitContactForm(){
     // console.log(this.contactObj)
     // return false
-    if(form.valid){
+    // if(form.valid){
 
-      console.log(this.contactObj, "Contact object");
+      // console.log(this.contactObj, "Contact object");
       // return false;
       if(this.isLoading == false){
         this.isLoading = true;
@@ -206,7 +237,7 @@ export class CollectionDetailComponent implements OnInit {
           this.isLoading = false
         })
       }
-    }
+    // }
   }
 
   handleTab(tabName){
@@ -222,7 +253,7 @@ export class CollectionDetailComponent implements OnInit {
   }
 
   handleEnquiry(){
-    this.enquiry = true;
+    this.isWizardOpen = true;
   }
 
   handleBrochure(){
@@ -234,6 +265,10 @@ export class CollectionDetailComponent implements OnInit {
     this.enquiry = false;
   }
 
+  closeWizard(){
+    this.isWizardOpen = false
+  }
+
   jumpBig(index){
     this.mainSwiper.directiveRef.setIndex(index);
   }
@@ -242,5 +277,53 @@ export class CollectionDetailComponent implements OnInit {
     this.secondarySwiper.directiveRef.setIndex(slide);
   }
 
+
+  // Wizard Functions
+
+  showPreviousStep(event?: Event) {
+    this.ngWizardService.previous();
+  }
+
+  showNextStep(event?: Event) {
+    this.ngWizardService.next();
+  }
+
+  resetWizard(event?: Event) {
+    this.ngWizardService.reset();
+  }
+
+  setTheme(theme: THEME) {
+    this.ngWizardService.theme(theme);
+  }
+
+  stepChanged(args: StepChangedArgs) {
+    // console.log(args.step);
+  }
+
+  isValidTypeBoolean: boolean = true;
+
+  // isValidFunctionReturnsBoolean(args: StepValidationArgs) {
+  //   return true;
+  // }
+
+  // isValidFunctionReturnsObservable(args: StepValidationArgs) {
+  //   return of(true);
+  // }
+
+  exampleCHange(){
+    // console.log(this.contactObj.addons_IDs, "Add ons")
+    // console.log(this.contactObj.item_IDs, "items")
+    // console.log(this.contactObj.laminate_IDs, "laminates")
+    // console.log(this.contactObj.flooring_IDs, "flooring")
+  }
+
+  getFlooring(){
+    this.service.getFlooring().subscribe((response: {success:number, message:string,items:[]}) => {
+      if(response.success == 1){
+        this.flooringList = response.items
+        console.log(this.flooringList)
+      }
+    })
+  }
 
 }

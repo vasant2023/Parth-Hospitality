@@ -18,13 +18,53 @@
                       <p>About</p>
                   </a>
               </li>
-              <li>
+              <li class="megamenu-level-head">
                   <a routerLink="/collections">
                       <p>Collections</p>
                       <span class="material-symbols-outlined">
                           expand_more
                       </span>
                   </a>
+                  <div class="megamenu-level-1" *ngIf="menuList">
+                    <ul class="megamenu-level-1-sub">
+                      <li class="megamenu-last-level-head" *ngFor="let item of menuList">
+                        <a routerLink="/collections">
+                            <p>{{item.category}}</p>
+                            <span class="material-symbols-outlined" *ngIf="item.children.length > 0">
+                                chevron_right
+                            </span>
+                        </a>
+                        <div class="right-hover-megamenu" *ngIf="item.children.length > 0">
+                          <ul class="right-menu-ul-li">
+                            <li *ngFor="let submenu of item.children">
+                              <p *ngIf="submenu.collections.length > 0">
+                                <a routerLink="/collections/{{submenu.collections[0].slug}}">
+                                    <p>{{submenu.category}}</p>
+                                </a>
+                              </p>
+                              <p *ngIf="submenu.collections.length == 0">
+                                <a href="javascript:void(0)">
+                                    <p>{{submenu.category}}</p>
+                                </a>
+                              </p>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+              </li>
+              <li>
+                <a routerLink="/laminates">
+                    <p>Laminates</p>
+
+                </a>
+              </li>
+              <li>
+                <a routerLink="/items">
+                    <p>Items</p>
+
+                </a>
               </li>
               <li>
                   <a href="javascript:void(0);">
