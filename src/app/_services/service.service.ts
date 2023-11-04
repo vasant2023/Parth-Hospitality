@@ -176,6 +176,8 @@ export class ServiceService {
   // Contact form
 
   submitContactForm(contactObj){
+    // console.log(contactObj);
+    // return false
     const url = environment.apiUrl + "leads/lead-add";
     const apiId = environment.apiId;
 
@@ -195,6 +197,11 @@ export class ServiceService {
     body = body.append("rooms", contactObj.rooms);
     body = body.append("collection_id", contactObj.collection_id);
     body = body.append("brochure", contactObj.brochure);
+    body = body.append("items", contactObj.item_IDs);
+    body = body.append("laminates", contactObj.laminate_IDs);
+    body = body.append("floorings", contactObj.flooring_IDs);
+    body = body.append("addons", contactObj.addons_IDs);
+
 
     let httpHeaders = new HttpHeaders({
       "Content-Type": "application/x-www-form-urlencoded",

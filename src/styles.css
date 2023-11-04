@@ -659,8 +659,12 @@ body.no-scroll-body {
 	text-transform: uppercase;
 }
 
+.home-banner-image{
+  padding-top: 6rem;
+}
+
 .home-banner-image img {
-	height: 100vh;
+	height: 100%;
 }
 
 .home-banner-content-abs {

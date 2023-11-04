@@ -148,7 +148,6 @@ export class CollectionDetailComponent implements OnInit {
   }
 
   loadStates(country){
-    console.log(country)
     if(country){
       this.service.getStates(country).subscribe((response : {success:number, message:string, data:[]}) => {
         if(response.success == 1){
