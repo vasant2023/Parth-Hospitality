@@ -30,24 +30,130 @@
 
 .image-wrapper-details {
   display: grid;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 1rem;
-    grid-template-columns: repeat(4,1fr);
-    gap: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
 }
 
-.image-wrapper-details>div{
+.image-wrapper-details>div {
   width: 100%;
   aspect-ratio: 1;
 }
-.card-img-top{
+
+.card-img-top {
   width: 100%;
   aspect-ratio: 1;
   object-fit: contain;
 }
 
-.swiper-slide{
+.swiper-slide {
   width: 100%;
+}
+
+.select_country_code {
+  position: absolute;
+  z-index: 999;
+  width: 25%;
+  background: transparent;
+  border: unset;
+  top: 50%;
+  left: 0;
+  transform: translate(0%, -50%);
+}
+
+.select_country_main_wrapper .contact_code {
+  margin-left: 18%;
+}
+
+.form-control:focus {
+  box-shadow: unset !important;
+}
+
+.select_country_main_wrapper.active input {
+  padding-left: 18%;
+}
+
+.side_popup_wrapper .select_country_main_wrapper.contact_lable input:focus~label.md-lable,
+.side_popup_wrapper .select_country_main_wrapper.contact_lable input.not_required~label.md-lable,
+.side_popup_wrapper .select_country_main_wrapper.contact_lable.active input~label.md-lable,
+.side_popup_wrapper .select_country_main_wrapper.contact_lable.active input.not_required~label.md-lable {
+  left: -16% !important;
+}
+
+.country_code_data>div{
+  font-size: 1.25em;
+}
+
+
+
+
+
+
+
+
+.country_code_list_data ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.country_code_list_data ul li {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  transition: all ease 0.2s;
+}
+
+.country_code_list_data ul li:hover {
+  background-color: #dddddd;
+}
+
+.country_code_list_data li>div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.country_code_list_data {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 40vh;
+  overflow-y: scroll;
+  width: 300px;
+  z-index: 99999;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #999999;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.country_code_list_data {
+  display: none;
+}
+
+.country_code_list_data.active {
+  display: block;
+}
+
+.country_code_data {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.conatct_number_input {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.5rem;
+  z-index: 999;
 }

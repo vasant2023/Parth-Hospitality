@@ -78,7 +78,7 @@ const routes: Routes = [
     data : {title : "Parth Hospitality"}
   },
   {
-    path: 'lead',
+    path: 'lead/:slug',
     component: LeadComponent,
     data : {title : "Parth Hospitality"}
   },

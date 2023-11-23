@@ -28,9 +28,15 @@
           <div class="megamenu-level-1" *ngIf="menuList">
             <ul class="megamenu-level-1-sub">
               <li class="megamenu-last-level-head" *ngFor="let item of menuList">
-                <a routerLink="/collections">
+                <a href="javascript:void(0)" *ngIf="item.children.length > 0">
                   <p>{{item.category}}</p>
-                  <span class="material-symbols-outlined" *ngIf="item.children.length > 0">
+                  <span class="material-symbols-outlined">
+                    chevron_right
+                  </span>
+                </a>
+                <a routerLink="/collections"  *ngIf="item.children.length <= 0">
+                  <p>{{item.category}}</p>
+                  <span class="material-symbols-outlined">
                     chevron_right
                   </span>
                 </a>

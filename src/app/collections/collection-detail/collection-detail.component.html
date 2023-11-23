@@ -74,15 +74,15 @@
                 (click)="handleBrochure()">
                 <p class="text-uppercase">Brochure</p>
               </button>
-              <!-- <button class="ph-button black-border-ph-button">
-                <a routerLink="/lead">
+              <button class="ph-button black-border-ph-button">
+                <a routerLink="/lead/{{collectionDetail.slug}}">
                   <p class="text-uppercase">Inquiry</p>
                 </a>
-              </button> -->
-              <button class="ph-button black-border-ph-button" (click)="handleEnquiry()"
+              </button>
+              <!-- <button class="ph-button black-border-ph-button" (click)="handleEnquiry()"
                 [class.active]="'popup-overlay-active'" [class.active]="'inquire-popup-wrapper-active'">
                 <p class="text-uppercase">Inquiry</p>
-              </button>
+              </button> -->
             </div>
           </div>
         </div>
@@ -246,7 +246,7 @@
   </section>
 </div>
 
-<div>
+<!-- <div>
   <div class="popup-overlay" [class.popup-overlay-active]="isWizardOpen" (click)="closeWizard()"></div>
   <div class="inquire-popup-wrapper">
     <div *ngIf="isWizardOpen" class="wizard-popup">
@@ -386,11 +386,6 @@
                       {{ item.item }}</span>
                   </div>
                 </label>
-                <!-- <p class="" *ngFor="let item of item.sizes" style="padding-top: 1rem; padding-left: 2.5rem;">
-                  {{ item.width }}" x {{ item.dimension }}" x
-                  {{ item.height }}" &nbsp; &nbsp;
-                  <span>${{ item.price }}</span>
-                </p> -->
               </div>
             </div>
           </div>
@@ -451,20 +446,6 @@
           <table class="table" style="margin-top: 1rem">
             <tbody>
               <tr *ngFor="let addons of collectionDetail.addons">
-                <!-- <td>
-                  <label for="addons_{{ addons.addon_ID }}">
-                    <input
-                      type="checkbox"
-                      name="addons_{{ addons.addon_ID }}"
-                      [(checklist)]="contactObj.addons_IDs"
-                      [checklistValue]="addons.addon_ID"
-                      id="addons_{{ addons.addon_ID }}"
-                      class="rounded-checkbox"
-                      (change)="exampleCHange()"
-                    />
-                  </label>
-                </td> -->
-
                 <td>
                   <h3>{{ addons.addon }}</h3>
 
@@ -500,7 +481,7 @@
       </ng-wizard>
     </div>
   </div>
-</div>
+</div> -->
 
 <div>
   <div class="popup-overlay" [class.popup-overlay-active]="enquiry" (click)="closeEnquiry()"></div>
@@ -515,8 +496,8 @@
         </div>
       </div>
 
-      <form id="inquiry_form" name="inquiry_form"
-        (ngSubmit)="inquiryForm.form.valid && submitContactForm()" #inquiryForm="ngForm">
+      <form id="inquiry_form" name="inquiry_form" (ngSubmit)="inquiryForm.form.valid && submitContactForm()"
+        #inquiryForm="ngForm">
         <div class="form_wrapper">
           <div class="contact_lable relative" [class.active]="contactObj.name != ''">
             <input id="client_name" name="name" type="text" class="form-control" letters-only=""
@@ -540,7 +521,30 @@
                 </div>
               </div>
             </div>
-            <div class="contact_lable relative" [class.active]="contactObj.phone != ''">
+            <div class="contact_lable relative select_country_main_wrapper" [class.active]="contactObj.phone != ''">
+
+              <div class="conatct_number_input">
+                <div class="country_code_data" (click)="country_code_click(); ">
+                  <div>
+                    &nbsp; +{{contactObj.country}}
+                  </div>
+                  <div>
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="country_code_list_data" [class.active]="country_code_clickF">
+                <ul>
+                  <li *ngFor="let country_list_detail of countries"
+                    (click)="country_click_career(country_list_detail.id);">
+                    <div (click)="country_code_click_false();">
+                      <span class="display_country_code">+{{country_list_detail.id}}</span>
+                      {{country_list_detail.name}}
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
               <input id="client_contact_no" name="phone" type="tel" numbers-only="" minlength="8" maxlength="13"
                 autocomplete="off" class="form-control" #phone="ngModel" [(ngModel)]="contactObj.phone"
                 (keypress)="_keyPress($event)" required />

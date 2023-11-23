@@ -39,15 +39,15 @@ export class CollectionDetailComponent implements OnInit {
     }
   };
 
-  @ViewChild('mainSwiper', {static:false}) mainSwiper: SwiperComponent;
-  @ViewChild('secondarySwiper', {static:false}) secondarySwiper: SwiperComponent;
+  @ViewChild('mainSwiper', { static: false }) mainSwiper: SwiperComponent;
+  @ViewChild('secondarySwiper', { static: false }) secondarySwiper: SwiperComponent;
 
-  collectionObj:any = {
+  collectionObj: any = {
     collection_id: "",
     name: "",
   }
 
-  contactObj:any = {
+  contactObj: any = {
     name: "",
     email: "",
     phone: "",
@@ -59,12 +59,12 @@ export class CollectionDetailComponent implements OnInit {
     country: "",
     property_code: "",
     rooms: "",
-    collection_id : this.collectionObj.collection_id,
+    collection_id: this.collectionObj.collection_id,
     brochure: 0,
-    item_IDs:[],
-    laminate_IDs:[],
-    flooring_IDs:[],
-    addons_IDs:[]
+    item_IDs: [],
+    laminate_IDs: [],
+    flooring_IDs: [],
+    addons_IDs: []
   }
 
   public productImageSwiper: SwiperConfigInterface = {
@@ -96,21 +96,21 @@ export class CollectionDetailComponent implements OnInit {
   public tab = "productSpecification";
   public accName = 'Construction';
   enquiry = false;
-  sizeSpecificationItems:any=[];
-  flooringList:any=[]
+  sizeSpecificationItems: any = [];
+  flooringList: any = []
 
   createContactForm: FormGroup;
 
   constructor(
-      public service: ServiceService,
-      private route :ActivatedRoute,
-      private router: Router,
-      private ngWizardService: NgWizardService
+    public service: ServiceService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private ngWizardService: NgWizardService
   ) { }
 
   collectionSlug = ""
-  collectionDetail:any = {
-    items:[],
+  collectionDetail: any = {
+    items: [],
   }
 
   ngOnInit() {
@@ -132,25 +132,25 @@ export class CollectionDetailComponent implements OnInit {
 
   // hardwareArray:any=[]
   // flatArrayHardware:any=[];
-  countries:any=[];
-  states:any=[];
-  cities:any=[];
+  countries: any = [];
+  states: any = [];
+  cities: any = [];
 
   // laminateArray:any=[];
   // flatArrayLaminates:any=[];
 
-  getCountries(){
-    this.service.getCountries().subscribe((response: {success:number , message:string, data:[]}) => {
-      if(response.success == 1){
+  getCountries() {
+    this.service.getCountries().subscribe((response: { success: number, message: string, data: [] }) => {
+      if (response.success == 1) {
         this.countries = response.data;
       }
     })
   }
 
-  loadStates(country){
-    if(country){
-      this.service.getStates(country).subscribe((response : {success:number, message:string, data:[]}) => {
-        if(response.success == 1){
+  loadStates(country) {
+    if (country) {
+      this.service.getStates(country).subscribe((response: { success: number, message: string, data: [] }) => {
+        if (response.success == 1) {
           this.states = response.data;
           // console.log(this.states)
         } else {
@@ -160,10 +160,10 @@ export class CollectionDetailComponent implements OnInit {
     }
   }
 
-  loadCities(state){
-    if(state){
-      this.service.getCities(state).subscribe((response : {success:number, message:string, data:[]}) => {
-        if(response.success == 1){
+  loadCities(state) {
+    if (state) {
+      this.service.getCities(state).subscribe((response: { success: number, message: string, data: [] }) => {
+        if (response.success == 1) {
           this.cities = response.data;
           // console.log(this.cities)
         } else {
@@ -173,10 +173,31 @@ export class CollectionDetailComponent implements OnInit {
     }
   }
 
+
+  public country_code_clickF = false;
+  country_code_click() {
+    if (this.country_code_clickF) {
+      this.country_code_clickF = false;
+    } else {
+      this.country_code_clickF = true;
+    }
+  }
+
+  country_code_click_false() {
+    this.country_code_clickF = false;
+  }
+
+  country_click_career(id) {
+    this.contactObj.country = id;
+    this.country_code_clickF = false;
+  }
+
+
+
   getCollectionDetails() {
     this.collectionSlug = this.route.snapshot.params['slug'];
     this.contactObj.collection_id = this.collectionSlug
-
+    this.contactObj.country = '101';
     if (this.collectionSlug) {
       this.service.getCollectionDetails(this.collectionSlug).subscribe((response: { success: number, message: string, collection: [] }) => {
         this.collectionObj = response.collection
@@ -217,29 +238,34 @@ export class CollectionDetailComponent implements OnInit {
     }
   }
 
-  submitContactForm(){
+
+
+  submitContactForm() {
     // console.log(this.contactObj)
     // return false
     // if(form.valid){
 
-      // console.log(this.contactObj, "Contact object");
-      // return false;
-      if(this.isLoading == false){
-        this.isLoading = true;
+    // console.log(this.contactObj, "Contact object");
+    // return false;
+    if (this.isLoading == false) {
+      this.isLoading = true;
 
-        this.service.submitContactForm(this.contactObj).subscribe((response : {success:number, message:string}) => {
-          if(response.success == 1){
-            this.enquiry = false
-            Swal.fire("Thank You for Contacting!", "Our team members will be in touch with you shortly!");
-            this.router.navigate(["/collections"]);
-          }
-          this.isLoading = false
-        })
-      }
+      this.service.submitContactForm(this.contactObj).subscribe((response: { success: number, message: string }) => {
+        if (response.success == 1) {
+          var phone = this.contactObj.phone;
+          this.contactObj.phone = this.contactObj.country + " " + phone;
+
+          this.enquiry = false
+          Swal.fire("Thank You for Contacting!", "Our team members will be in touch with you shortly!");
+          this.router.navigate(["/collections"]);
+        }
+        this.isLoading = false
+      })
+    }
     // }
   }
 
-  handleTab(tabName){
+  handleTab(tabName) {
     this.tab = tabName;
   }
 
@@ -251,24 +277,24 @@ export class CollectionDetailComponent implements OnInit {
     }
   }
 
-  handleEnquiry(){
+  handleEnquiry() {
     this.isWizardOpen = true;
   }
 
-  handleBrochure(){
+  handleBrochure() {
     this.enquiry = true;
     this.contactObj.brochure = 1;
   }
 
-  closeEnquiry(){
+  closeEnquiry() {
     this.enquiry = false;
   }
 
-  closeWizard(){
+  closeWizard() {
     this.isWizardOpen = false
   }
 
-  jumpBig(index){
+  jumpBig(index) {
     this.mainSwiper.directiveRef.setIndex(index);
   }
 
@@ -309,16 +335,16 @@ export class CollectionDetailComponent implements OnInit {
   //   return of(true);
   // }
 
-  exampleCHange(){
+  exampleCHange() {
     // console.log(this.contactObj.addons_IDs, "Add ons")
     // console.log(this.contactObj.item_IDs, "items")
     // console.log(this.contactObj.laminate_IDs, "laminates")
     // console.log(this.contactObj.flooring_IDs, "flooring")
   }
 
-  getFlooring(){
-    this.service.getFlooring().subscribe((response: {success:number, message:string,items:[]}) => {
-      if(response.success == 1){
+  getFlooring() {
+    this.service.getFlooring().subscribe((response: { success: number, message: string, items: [] }) => {
+      if (response.success == 1) {
         this.flooringList = response.items
         console.log(this.flooringList)
       }
