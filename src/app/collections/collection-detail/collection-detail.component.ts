@@ -81,7 +81,7 @@ export class CollectionDetailComponent implements OnInit {
   };
 
   public mainImageSwiper: SwiperConfigInterface = {
-    spaceBetween: 18,
+    spaceBetween: 20,
     slidesPerView: 1,
     loop: true,
     observer: true,

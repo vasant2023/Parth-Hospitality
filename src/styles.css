@@ -2113,9 +2113,19 @@ button.ph-button.black-border-ph-button p {
 }
 
 .hardware-list-image {
-	aspect-ratio: 16/13;
+	/* aspect-ratio: 16/13; */
 	background-color: #F5F5F5;
 }
+
+.hardware-list-image a{
+	display: grid;
+	place-content: center;
+	height: 150px;
+	padding: 0 2rem;
+	aspect-ratio: unset;
+	background-color: #F5F5F5;
+  }
+  
 
 .finishes-list-image {
 	background-color: #F5F5F5;
@@ -2153,6 +2163,7 @@ button.ph-button.black-border-ph-button p {
 	padding: 2rem;
 	right: -100%;
 	top: 0;
+	overflow: auto;
 }
 
 .inquire-popup-wrapper.inquire-popup-wrapper-active {
@@ -2172,7 +2183,7 @@ button.ph-button.black-border-ph-button p {
 .side_popup_wrapper .form_wrapper {
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+	gap: 2rem;
 }
 
 .side_popup_wrapper .contact_lable {
@@ -2270,6 +2281,23 @@ select {
 	display: flex;
 	align-items: center;
 	gap: 0.25rem;
+}
+
+.checkbox-flex label{
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.invalid-feedback{
+	display: block;
+}
+.invalid-feedback>div{
+	position: absolute;
+	width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--bs-form-invalid-color);
 }
 
 /* Fancy Box */

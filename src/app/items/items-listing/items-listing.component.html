@@ -20,18 +20,17 @@
 
 <div class="container mt-4" style=" margin-top: 6rem;">
   <h1 class="heading">Items</h1>
-  <div class="flex align-center card-wrap">
+  <!-- <div class="flex align-center card-wrap"> -->
+  <div class="grid">
     <div class="card" *ngFor="let item of item_list">
       <div class="" style="cursor: pointer;">
         <!-- <a routerLink="/collections/{{item.slug}}"> -->
-          <!-- &w=240&h=216 -->
-          <img
-            class=""
-            src="{{ item.banner_image }}&w=240&h=216"
-            alt="Card image cap"
-            style="height: 18rem;width: 20rem; object-fit: cover;"
-          />
-          <!-- <img [src]="item.banner_image ? item.banner_image_mobile : 'assets/images/default.png'" class="img categoryiconimg" style="height: 18rem;width: 20rem; object-fit: cover;" default="assets/images/profile.jpg" /> -->
+        <!-- &w=240&h=216 -->
+        <a data-fancybox="item-fancy" href="{{ item.banner_image }}&w=500&h=500" target="_self">
+          <img class="" src="{{ item.banner_image }}&w=500&h=500" alt="Card image cap"
+            style="height: 18rem;width: 20rem; object-fit: contain;" />
+        </a>
+        <!-- <img [src]="item.banner_image ? item.banner_image_mobile : 'assets/images/default.png'" class="img categoryiconimg" style="height: 18rem;width: 20rem; object-fit: cover;" default="assets/images/profile.jpg" /> -->
 
         <!-- </a> -->
         <div class="content">

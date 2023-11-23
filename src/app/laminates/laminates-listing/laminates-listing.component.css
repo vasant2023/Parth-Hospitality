@@ -12,6 +12,7 @@
   align-items: center;
 }
 
+
 .wrap {
   flex-wrap: wrap;
 }
@@ -24,18 +25,18 @@
   text-align: center;
   font-size: 2rem;
   font-weight: 600;
-  padding-top: 3rem;
+  padding-top: 5rem;
   padding-bottom: 2rem;
 }
 
 .content {
-  padding: 1rem 0rem;
+  padding: 1rem 0.5rem;
 }
 
 .content h5 {
   font-size: 1.5rem;
   font-weight: 600;
-  padding-bottom: 1rem;
+  /* padding-bottom: 1rem; */
 }
 
 .content .btn {

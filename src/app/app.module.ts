@@ -21,6 +21,7 @@ import { SwiperModule } from 'ngx-swiper-wrapper';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
 import { ChecklistModule } from 'angular-checklist';
+import { LeadComponent } from './lead/lead.component';
 
 
 const ngWizardConfig: NgWizardConfig = {
@@ -42,7 +43,8 @@ const ngWizardConfig: NgWizardConfig = {
     CollectionsCategoryComponent,
     BrandsComponent,
     ContactUsComponent,
-    CollectionDetailComponent
+    CollectionDetailComponent,
+    LeadComponent
   ],
   imports: [
     FormsModule,

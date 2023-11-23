@@ -4,13 +4,14 @@
 
   gap: 2rem; */
   display: grid;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 1rem;
-    grid-template-columns: repeat(4,1fr);
-    gap: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
 }
+
 
 /* .space-between {
   justify-content: space-between;
@@ -32,12 +33,12 @@
   text-align: center;
   font-size: 2rem;
   font-weight: 600;
-  padding-top: 3rem;
+  padding-top: 5rem;
   padding-bottom: 2rem;
 }
 
 .content {
-  padding: 1rem 0rem;
+  padding: 1rem 0.5rem;
 }
 
 .content h5 {
@@ -55,9 +56,10 @@
   margin-top: 1rem;
 }
 
-.content .btn:hover{
+.content .btn:hover {
   background-color: var(--secondary-color);
 }
+
 .content .btn a:hover {
   color: #fff;
 }

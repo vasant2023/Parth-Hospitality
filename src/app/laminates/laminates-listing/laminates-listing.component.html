@@ -23,13 +23,11 @@
     <div class="card" *ngFor="let item of laminate_list">
       <div class="" style="cursor: pointer;">
         <!-- <a routerLink="/collections/{{item.slug}}"> -->
-          <!-- &w=240&h=216 -->
-          <img
-            class=""
-            src="{{ item.image }}&w=240&h=216"
-            alt="Card image cap"
-            style="height: 18rem;width: 20rem; object-fit: cover;"
-          />
+        <!-- &w=240&h=216 -->
+
+        <a data-fancybox="item-fancy" href="{{ item.image }}&w=240&h=216" target="_self">
+          <img src="{{ item.image }}&w=500&h=500" alt="" style="height: 216px" />
+        </a>
         <!-- </a> -->
         <div class="content">
           <h5 class="" style="text-align: center;">{{ item.laminate }}</h5>
@@ -41,4 +39,3 @@
     </div>
   </div>
 </div>
-

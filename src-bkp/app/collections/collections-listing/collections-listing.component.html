@@ -1,0 +1,24 @@
+<div class="container mt-4" style=" margin-top: 6rem;">
+  <h1 class="heading">Collections</h1>
+  <div class="flex">
+    <div class="card" *ngFor="let item of collection_list">
+      <div class="" style="cursor: pointer;">
+        <!-- &w=360&h=216 -->
+        <a routerLink="/collections/{{item.slug}}">
+          <img
+            class=""
+            src="{{ item.banner_image }}&w=360&h=216"
+            alt="Card image cap"
+            style="height: 18rem;width: 30rem; object-fit: cover;"
+          />
+        </a>
+        <div class="content">
+          <h5 class="">{{ item.collection }}</h5>
+          <div class="btn" style="width: 100%;">
+            <a routerLink="/collections/{{item.slug}}" class="">View More...</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

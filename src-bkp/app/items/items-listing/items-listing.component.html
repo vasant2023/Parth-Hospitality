@@ -1,0 +1,46 @@
+<!-- <div class="container mt-4">
+  <h1 class="text-center mb-4">Items</h1>
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let item of item_list">
+      <div class="card">
+        <img
+          class="card-img-top"
+          src="{{ item.banner_image_mobile }}"
+          alt="Card image cap"
+          style="height: 18rem; object-fit: cover;"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ item.item }}</h5>
+          <a href="#" class="btn btn-secondary">View More...</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container mt-4" style=" margin-top: 6rem;">
+  <h1 class="heading">Items</h1>
+  <div class="flex align-center card-wrap">
+    <div class="card" *ngFor="let item of item_list">
+      <div class="" style="cursor: pointer;">
+        <!-- <a routerLink="/collections/{{item.slug}}"> -->
+          <!-- &w=240&h=216 -->
+          <img
+            class=""
+            src="{{ item.banner_image }}&w=240&h=216"
+            alt="Card image cap"
+            style="height: 18rem;width: 20rem; object-fit: cover;"
+          />
+          <!-- <img [src]="item.banner_image ? item.banner_image_mobile : 'assets/images/default.png'" class="img categoryiconimg" style="height: 18rem;width: 20rem; object-fit: cover;" default="assets/images/profile.jpg" /> -->
+
+        <!-- </a> -->
+        <div class="content">
+          <h5 class="" style="text-align: center;">{{ item.item }}</h5>
+          <!-- <div class="btn">
+            <a routerLink="/collections/{{item.slug}}" class="">View More...</a>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

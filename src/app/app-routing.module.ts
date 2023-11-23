@@ -12,6 +12,7 @@ import { LaminatesListingComponent } from './laminates/laminates-listing/laminat
 import { LaminatesCategoryComponent } from './laminates/laminates-category/laminates-category.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CollectionDetailComponent } from './collections/collection-detail/collection-detail.component';
+import { LeadComponent } from './lead/lead.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
     component: HomepageComponent,
     data : {title : "Parth Hospitality"}
   },
+ 
   {
     path: 'brands',
     component: BrandsComponent,
@@ -75,7 +77,11 @@ const routes: Routes = [
     component: ContactUsComponent,
     data : {title : "Parth Hospitality"}
   },
-
+  {
+    path: 'lead',
+    component: LeadComponent,
+    data : {title : "Parth Hospitality"}
+  },
 ];
 
 @NgModule({
