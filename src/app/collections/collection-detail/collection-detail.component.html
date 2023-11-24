@@ -139,24 +139,34 @@
                 </tr>
               </thead>
 
-              <tbody *ngFor="let item of sizeSpecificationItems">
-                <tr *ngFor="let size of item.sizes">
-                  <td *ngIf="size === item.sizes[0]" [attr.rowspan]="item.sizes.length">
-                    <p class="text-left">{{ item.item }}</p>
-                  </td>
-                  <td>
-                    <p class="text-center">{{ size.height }}"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">{{ size.width }}"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">{{ size.dimension }}"</p>
-                  </td>
-                  <td>
-                    <p class="text-center">${{ size.price }}</p>
-                  </td>
-                </tr>
+              <tbody>
+                <ng-container *ngFor="let item of sizeSpecificationItems">
+                  <tr *ngFor="let size of item.sizes">
+                    <td *ngIf="size === item.sizes[0]" [attr.rowspan]="item.sizes.length">
+                      <p class="text-left">{{ item.item }}</p>
+                    </td>
+                    <td>
+                      <p class="text-center">{{ size.height }}"</p>
+                    </td>
+                    <td>
+                      <p class="text-center">{{ size.width }}"</p>
+                    </td>
+                    <td>
+                      <p class="text-center">{{ size.dimension }}"</p>
+                    </td>
+                    <td>
+                      <p class="text-center">${{ size.price }}</p>
+                    </td>
+                  </tr>
+                </ng-container>
+                  <tr>
+                    <td><p>Total</p></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="text-center"><p>${{collectionObj.item_total}}</p></td>
+                  </tr>
+               
               </tbody>
             </table>
 

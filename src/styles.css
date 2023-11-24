@@ -686,7 +686,7 @@ body.no-scroll-body {
 }
 
 button.ph-button {
-	padding: 1rem 1.5rem;
+	padding: 1rem 1.8rem;
 	border-radius: 0.4rem;
 	display: flex;
 	flex-direction: row;
@@ -742,7 +742,7 @@ button.ph-button.black-border-ph-button:hover p {
 }
 
 button.ph-button p {
-	font-size: var(--link-font-size);
+	font-size: 1.3rem;
 	text-transform: uppercase;
 	line-height: 1;
 	transition: var(--common-transition);
