@@ -1727,7 +1727,7 @@ button.ph-button.black-border-ph-button p {
 	flex-wrap: wrap;
 	gap: var(--big-gap-size);
 	width: 75%;
-	margin-left: auto;
+	/* margin-left: auto; */
 }
 
 .companies-card-image img {
