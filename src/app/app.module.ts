@@ -22,6 +22,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
 import { ChecklistModule } from 'angular-checklist';
 import { LeadComponent } from './lead/lead.component';
+import { ChannelPartnerComponent } from './channel-partner/channel-partner.component';
 
 
 const ngWizardConfig: NgWizardConfig = {
@@ -44,7 +45,8 @@ const ngWizardConfig: NgWizardConfig = {
     BrandsComponent,
     ContactUsComponent,
     CollectionDetailComponent,
-    LeadComponent
+    LeadComponent,
+    ChannelPartnerComponent
   ],
   imports: [
     FormsModule,

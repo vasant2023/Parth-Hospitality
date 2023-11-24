@@ -117,6 +117,7 @@ export class LeadComponent implements OnInit {
   ngOnInit() {
     this.getCollectionDetails();
     this.getCountries();
+    this.loadStates(101);
     this.getFlooring();
     this.route.paramMap.subscribe(params => {
       this.getCollectionDetails();

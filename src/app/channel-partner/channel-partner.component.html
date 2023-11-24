@@ -1,0 +1,45 @@
+<div>
+  <h1 class="heading">Channel Partner</h1>
+  <div class="channel-container">
+    <div class="channel-wrapper">
+      <form name="form" (ngSubmit)="submitContactForm()" #createContactForm="ngForm">
+        <div class="channel_flex">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="contactObj.name" #name="ngModel"
+              required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="contactObj.email"
+              #email="ngModel" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="number" class="form-control" id="phone" name="phone" [(ngModel)]="contactObj.phone"
+              #phone="ngModel" required />
+          </div>
+
+          <div class="form-group">
+            <label for="company_name">Company Name:</label>
+            <input type="text" class="form-control" id="company_name" name="company_name"
+              [(ngModel)]="contactObj.company_name" #company_name="ngModel" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Comments:</label>
+            <textarea type="text" class="form-control" id="message" name="message"
+              [(ngModel)]="contactObj.message" #message="ngModel"></textarea>
+          </div>
+        
+        </div>
+        <div class="channel_submit_btn">
+          <button type="submit" class="btn btn-secondary ">Submit</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

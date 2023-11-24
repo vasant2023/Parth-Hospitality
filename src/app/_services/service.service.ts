@@ -185,6 +185,7 @@ export class ServiceService {
     body = body.append("apiId", apiId);
     body = body.append("flag", "all");
     body = body.append("name", contactObj.name);
+    body = body.append("type", contactObj.type);
     body = body.append("email", contactObj.email);
     body = body.append("phone", contactObj.phone);
     body = body.append("message", contactObj.message);

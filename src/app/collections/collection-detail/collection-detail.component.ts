@@ -105,7 +105,7 @@ export class CollectionDetailComponent implements OnInit {
     public service: ServiceService,
     private route: ActivatedRoute,
     private router: Router,
-    private ngWizardService: NgWizardService
+    private ngWizardService: NgWizardService,
   ) { }
 
   collectionSlug = ""
@@ -116,10 +116,17 @@ export class CollectionDetailComponent implements OnInit {
   ngOnInit() {
     this.getCollectionDetails();
     this.getCountries();
+    this.loadStates(101);
     this.getFlooring();
     this.route.paramMap.subscribe(params => {
       this.getCollectionDetails();
     })
+    
+
+
+
+
+
   }
 
   _keyPress(event: any) {
@@ -252,9 +259,8 @@ export class CollectionDetailComponent implements OnInit {
 
       this.service.submitContactForm(this.contactObj).subscribe((response: { success: number, message: string }) => {
         if (response.success == 1) {
-          var phone = this.contactObj.phone;
-          this.contactObj.phone = this.contactObj.country + " " + phone;
-
+          this.contactObj.phone = this.contactObj.country + " " + this.contactObj.phone;
+          console.log(this.contactObj.phone);
           this.enquiry = false
           Swal.fire("Thank You for Contacting!", "Our team members will be in touch with you shortly!");
           this.router.navigate(["/collections"]);

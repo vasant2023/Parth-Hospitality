@@ -13,6 +13,7 @@ import { LaminatesCategoryComponent } from './laminates/laminates-category/lamin
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CollectionDetailComponent } from './collections/collection-detail/collection-detail.component';
 import { LeadComponent } from './lead/lead.component';
+import { ChannelPartnerComponent } from './channel-partner/channel-partner.component';
 
 
 const routes: Routes = [
@@ -75,6 +76,11 @@ const routes: Routes = [
   {
     path: 'contact-us',
     component: ContactUsComponent,
+    data : {title : "Parth Hospitality"}
+  },
+  {
+    path: 'channel-partner',
+    component: ChannelPartnerComponent,
     data : {title : "Parth Hospitality"}
   },
   {

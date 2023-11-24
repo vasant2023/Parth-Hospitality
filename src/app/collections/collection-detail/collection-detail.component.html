@@ -106,7 +106,7 @@
           Finishes
         </button>
         <button class="tablinks" [class.active]="tab == 'hardwares'" (click)="handleTab('hardwares')">
-          Hardware
+          Brands
         </button>
       </div>
       <div id="ProductSpecification" class="tabcontent" *ngIf="tab == 'productSpecification'">
@@ -174,7 +174,7 @@
               <div class="product-list-image">
                 <!-- &w=233&h=200 -->
                 <a data-fancybox="item-fancy" href="{{ item.banner_image_full }}" target="_self">
-                  <img src="{{ item.banner_image_full }}" alt="" style="height: 200px" />
+                  <img src="{{ item.banner_image_full }}" alt="" style="height: 300px" />
                 </a>
               </div>
               <div class="product-name">
@@ -201,7 +201,7 @@
               <div class="finishes-list-image">
                 <!-- &w=386.4&h=200 -->
                 <a data-fancybox="laminate-fancy" href="{{ laminate.image_full }}" target="_self">
-                  <img src="{{ laminate.image_full }}" alt="" style="height: 200px" />
+                  <img src="{{ laminate.image_full }}" alt="" style="height: 300px" />
                 </a>
               </div>
               <div class="product-name">
