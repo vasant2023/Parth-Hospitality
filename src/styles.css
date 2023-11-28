@@ -1731,8 +1731,8 @@ button.ph-button.black-border-ph-button p {
 }
 
 .companies-card-image img {
-	width: auto;
-	margin-left: 0;
+	width: 70%;
+	margin : 0 auto;
 }
 
 .comapnies-grid>div:nth-child(odd) {
@@ -1777,7 +1777,7 @@ button.ph-button.black-border-ph-button p {
 }
 
 .clients-logoswiper-outer {
-	padding: 4.5rem 3.5rem 0 3.5rem;
+	padding: 4.5rem 1.5rem 0 1.5rem;
 }
 
 .row-center-flex {
@@ -2316,6 +2316,9 @@ select {
         font-size: 12px;
     }
 
+	.heading {
+		padding-top: 6rem !important;
+	}
 }
 
 @media only screen and (max-width:1366px) {
@@ -2340,6 +2343,11 @@ select {
     html {
         font-size: 10px;
     }
+
+
+	.heading {
+		padding-top: 8rem !important;
+	}
 }
 
 @media only screen and (max-width:1152px) {}
@@ -2371,6 +2379,9 @@ select {
 
 @media only screen and (max-width:991px) {
 
+	.heading {
+		padding-top: 6rem !important;
+	}
 
     html {
         font-size: 10px;
@@ -2755,9 +2766,19 @@ select {
     .footer-credential-div a {
         font-size: 13px;
     }
+	.header-flex {
+		margin: 8px auto;
+	}
 }
 
-@media only screen and (max-width: 375px) {}
+@media only screen and (max-width: 375px) {
+	html {
+        font-size: 8px;
+    }
+
+
+
+}
 
 /* Font Awesome Icons */
 

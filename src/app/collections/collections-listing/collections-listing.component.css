@@ -63,3 +63,10 @@
 .content .btn a:hover {
   color: #fff;
 }
+
+@media only screen and (max-width:991px) {
+
+  .flex {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

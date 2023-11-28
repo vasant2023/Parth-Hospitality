@@ -5,16 +5,16 @@
       <div class="" style="cursor: pointer;">
         <!-- &w=360&h=216 -->
         <a routerLink="/collections/{{item.slug}}">
-          <img class="" src="{{ item.banner_image }}&w=500&h=500" alt="Card image cap"
-            style="height: 18rem;width: 30rem; object-fit: contain;" />
+          <img class="" src="{{ item.banner_image }}&w=500&h=500" alt="Card image cap" />
+          <!-- style="height: 18rem;width: 30rem; object-fit: contain;"  -->
         </a>
         <div class="content">
           <h5 class="" style="text-align: center;">{{ item.collection }}</h5>
           <div class=" btn" style="width: 100%;">
             <a routerLink="/collections/{{item.slug}}" class="">View More...</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>

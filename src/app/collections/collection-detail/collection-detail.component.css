@@ -157,3 +157,8 @@
   padding: 0.5rem;
   z-index: 999;
 }
+
+.total_item_bold{
+  font-family: var(--bold-font-family);
+  font-size: 1.2rem;
+}
