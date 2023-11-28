@@ -1,0 +1,41 @@
+:root {
+	/* colors */
+	--primary-color: #000000;
+	--secondary-color: #F7AC29;
+	--highlight-color: #E0E0E0;
+	--placeholder-color: #F3F3F3;
+	--white-color: #FFFFFF;
+
+	/* font-sizes */
+	--banner-font-size: 5rem;
+	--section-title-font-size: 6rem;
+	--title-font-size: 3.5rem;
+	--specification-font-size: 2.5rem;
+	--subtitle-font-size: 2rem;
+	--content-font-size: 1.5rem;
+	--link-font-size: 1rem;
+	--smallcontent-font-size: 1.25rem;
+
+	/* font-families */
+	--light-font-family: 'Poppins-Light';
+	--regular-font-family: 'Poppins-Regular';
+	--semibold-font-family: 'Poppins-SemiBold';
+	--bold-font-family: 'Poppins-Bold';
+	--medium-font-family: 'Poppins-Medium';
+
+	/* other variables */
+	--common-transition: all 0.6s ease;
+	--web-border-radius: 0.625rem;
+	--mobile-border-radius: 0.6rem;
+	--common-gap-size: 1rem;
+	--small-gap-size: 1.5rem;
+	--medium-gap-size: 3rem;
+	--big-gap-size: 6rem;
+}
+
+#ph-detail-blog-wrapper .section-content p, .section-content a {
+  font-family: var(--light-font-family);
+}
+.white-text {
+	color: var(--white-color);
+}

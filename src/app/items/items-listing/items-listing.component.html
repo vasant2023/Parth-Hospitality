@@ -1,44 +1,278 @@
-<!-- <div class="container mt-4">
-  <h1 class="text-center mb-4">Items</h1>
-  <div class="row">
-    <div class="col-md-4 mb-4" *ngFor="let item of item_list">
-      <div class="card">
-        <img
-          class="card-img-top"
-          src="{{ item.banner_image_mobile }}"
-          alt="Card image cap"
-          style="height: 18rem; object-fit: cover;"
-        />
-        <div class="card-body">
-          <h5 class="card-title">{{ item.item }}</h5>
-          <a href="#" class="btn btn-secondary">View More...</a>
+<!--
+
+<div class="container mt-4" style=" margin-top: 6rem;">
+  <h1 class="heading">Items</h1>
+  <div class="grid">
+    <div class="card" *ngFor="let item of item_list">
+      <div class="" style="cursor: pointer;">
+
+        <a data-fancybox="item-fancy" href="{{ item.banner_image }}&w=500&h=500" target="_self">
+          <img class="" src="{{ item.banner_image }}&w=500&h=500" alt="Card image cap"
+            style="height: 18rem;width: 20rem; object-fit: contain;" />
+        </a>
+
+
+
+        <div class="content">
+          <h5 class="" style="text-align: center;">{{ item.item }}</h5>
+
         </div>
       </div>
     </div>
   </div>
 </div> -->
 
-<div class="container mt-4" style=" margin-top: 6rem;">
-  <h1 class="heading">Items</h1>
-  <!-- <div class="flex align-center card-wrap"> -->
-  <div class="grid">
-    <div class="card" *ngFor="let item of item_list">
-      <div class="" style="cursor: pointer;">
-        <!-- <a routerLink="/collections/{{item.slug}}"> -->
-        <!-- &w=240&h=216 -->
-        <a data-fancybox="item-fancy" href="{{ item.banner_image }}&w=500&h=500" target="_self">
-          <img class="" src="{{ item.banner_image }}&w=500&h=500" alt="Card image cap"
-            style="height: 18rem;width: 20rem; object-fit: contain;" />
-        </a>
-        <!-- <img [src]="item.banner_image ? item.banner_image_mobile : 'assets/images/default.png'" class="img categoryiconimg" style="height: 18rem;width: 20rem; object-fit: cover;" default="assets/images/profile.jpg" /> -->
+<div id="ph-items-wrapper" class="relative ph-items-wrapper">
+  <section id="ph-items-section-1" class="ph-section relative">
+    <div class="relative">
+      <div class="banner_img">
+        <img src="assets/images/items/items-banner.jpg" alt="" />
+      </div>
+      <div class="black_overlay"></div>
+      <div class="page-title banner-title-sec">
+        <h2 class="white-text uppercase">Items</h2>
+      </div>
+    </div>
+  </section>
 
-        <!-- </a> -->
-        <div class="content">
-          <h5 class="" style="text-align: center;">{{ item.item }}</h5>
-          <!-- <div class="btn">
-            <a routerLink="/collections/{{item.slug}}" class="">View More...</a>
-          </div> -->
+  <section id="ph-items-section-2" class="ph-section relative section-padding">
+    <div class="main-container">
+      <div class="inner-flex inner-flex-medium">
+        <div class="filter-search-flex">
+          <div class="filter-search-sec">
+            <div class="sort_by visible-tab-mobile">
+              <div class="sort_by sort_by_flex">
+                <div
+                  class="section-content section-content-mob-flex"
+                  ng-click="filter_popup_toggle()"
+                >
+                  <p class="medium-fonts">Filter</p>
+                  <span class="">
+                    <span class="material-symbols-outlined"> tune </span>
+                  </span>
+                </div>
+                <div class="hide-tab-mobile">
+                  <div class="clear-btn">
+                    <button
+                      class="clear_btn btn_scale_hover"
+                      ng-click="clearAllFilters()"
+                    >
+                      <div class="section-content">
+                        <P class="white-color">Clear All</P>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="filter-flex-sec">
+              <a href="javascript:void(0);">
+                <div class="fiilter-button">
+                  <div class="small-content">
+                    <p>Category</p>
+                  </div>
+                  <div class="down-arrow">
+                    <img src="assets/images/icons/down-arrow.png" alt="" />
+                  </div>
+                </div>
+              </a>
+
+              <a href="javascript:void(0);">
+                <div class="fiilter-button">
+                  <div class="small-content">
+                    <p>Color</p>
+                  </div>
+                  <div class="down-arrow">
+                    <img src="assets/images/icons/down-arrow.png" alt="" />
+                  </div>
+                </div>
+              </a>
+
+              <a href="javascript:void(0);">
+                <div class="fiilter-button">
+                  <div class="small-content">
+                    <p>Collection</p>
+                  </div>
+                  <div class="down-arrow">
+                    <img src="assets/images/icons/down-arrow.png" alt="" />
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="filter-search-sec">
+            <div class="search-box">
+              <div class="search-btn">
+                <img src="assets/images/icons/search.png" alt="" />
+              </div>
+              <input class="search-input" type="text" placeholder="Search" />
+            </div>
+          </div>
         </div>
+
+        <div class="relative">
+          <div class="items-flex-sec">
+            <div
+              class="items-sec inner-flex inner-flex-common"
+              *ngFor="let item of item_list"
+            >
+              <a
+                data-fancybox="item-fancy"
+                href="{{ item.banner_image }}&w=390&h=324"
+                target="_self"
+              >
+                <div class="items-img-sec">
+                  <img src="{{ item.banner_image }}&w=309&h=324" alt="" />
+                  <div class="black_overlay"></div>
+                  <div class="small-content">
+                    <p class="medium-fonts">{{ item.item }}</p>
+                  </div>
+                  <div class="hoverarrow_icon">
+                    <img src="assets/images/icons/item-hover-icon.png" alt="" />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!--
+
+                      <div class="items-sec inner-flex inner-flex-common">
+                          <div class="items-img-sec">
+                              <img src="assets/images/items/items2.jpg" alt="">
+                              <div class="black_overlay"></div>
+                          </div>
+
+                          <div class="small-content">
+                              <p class="medium-fonts">CC Red Roof Plus King Nightstand</p>
+                          </div>
+                          <div class="hoverarrow_icon">
+                              <img src="assets/images/icons/item-hover-icon.png" alt="">
+                          </div>
+                      </div>
+
+
+                      <div class="items-sec inner-flex inner-flex-common">
+                          <div class="items-img-sec">
+                              <img src="assets/images/items/items1.jpg" alt="">
+                              <div class="black_overlay"></div>
+                          </div>
+
+                          <div class="small-content">
+                              <p class="medium-fonts">CC Red Roof Plus King Nightstand</p>
+                          </div>
+                          <div class="hoverarrow_icon">
+                              <img src="assets/images/icons/item-hover-icon.png" alt="">
+                          </div>
+                      </div>
+
+                      <div class="items-sec inner-flex inner-flex-common">
+                          <div class="items-img-sec">
+                              <img src="assets/images/items/items2.jpg" alt="">
+                              <div class="black_overlay"></div>
+                          </div>
+
+                          <div class="small-content">
+                              <p class="medium-fonts">CC Red Roof Plus King Nightstand</p>
+                          </div>
+                          <div class="hoverarrow_icon">
+                              <img src="assets/images/icons/item-hover-icon.png" alt="">
+                          </div>
+                      </div>
+
+                      <div class="items-sec inner-flex inner-flex-common">
+                          <div class="items-img-sec">
+                              <img src="assets/images/items/items2.jpg" alt="">
+                              <div class="black_overlay"></div>
+                          </div>
+
+                          <div class="small-content">
+                              <p class="medium-fonts">CC Red Roof Plus King Nightstand</p>
+                          </div>
+                          <div class="hoverarrow_icon">
+                              <img src="assets/images/icons/item-hover-icon.png" alt="">
+                          </div>
+                      </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="filter_mobile_overlay"></div>
+<div class="filter_mobile_sec relative">
+  <!-- Add active class  -->
+
+  <div class="filter_sec inner-flex inner-flex-small">
+    <div
+      class="close_icon"
+      ng-click="filter_popup_click_close();"
+      role="button"
+      tabindex="0"
+    >
+      <img src="assets/images/icons/close.svg" alt="" />
+    </div>
+
+    <div class="section-content">
+      <p class="bold-family">Filters</p>
+    </div>
+
+    <div class="filter_accordion inner-flex inner-flex-small">
+      <div class="accordion-block">
+        <div class="filter-flex-item accordion_click" accordion>
+          <!-- Add active class  -->
+          <div class="filter_text_accordion_flex">
+            <div class="section-content">
+              <p class="medium-fonts">Category</p>
+            </div>
+            <div class="filter-arrow">
+              <span class="material-symbols-outlined down-arrow"> add </span>
+              <!--after add active class uncommented this code-->
+              <!-- <span class="material-symbols-outlined up-arrow ">
+                              remove
+                          </span> -->
+            </div>
+          </div>
+        </div>
+        <div class="content_accordian"></div>
+      </div>
+
+      <div class="accordion-block">
+        <div class="filter-flex-item accordion_click" accordion>
+          <!-- Add active class  -->
+          <div class="filter_text_accordion_flex">
+            <div class="section-content">
+              <p class="medium-fonts">Color</p>
+            </div>
+            <div class="filter-arrow">
+              <span class="material-symbols-outlined down-arrow"> add </span>
+              <!--after add active class uncommented this code-->
+              <!-- <span class="material-symbols-outlined up-arrow ">
+                              remove
+                          </span> -->
+            </div>
+          </div>
+        </div>
+        <div class="content_accordian"></div>
+      </div>
+
+      <div class="accordion-block">
+        <div class="filter-flex-item accordion_click" accordion>
+          <!-- Add active class  -->
+          <div class="filter_text_accordion_flex">
+            <div class="section-content">
+              <p class="medium-fonts">Collection</p>
+            </div>
+            <div class="filter-arrow">
+              <span class="material-symbols-outlined down-arrow"> add </span>
+              <!--after add active class uncommented this code-->
+              <!-- <span class="material-symbols-outlined up-arrow ">
+                              remove
+                          </span> -->
+            </div>
+          </div>
+        </div>
+        <div class="content_accordian"></div>
       </div>
     </div>
   </div>

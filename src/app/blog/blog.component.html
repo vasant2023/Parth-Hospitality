@@ -1,0 +1,102 @@
+<div id="ph-blog-wrapper" class="relative ph-blog-wrapper">
+  <section id="ph-blog-section-1" class="ph-section">
+      <div class="about-banner-swiper-outer relative">
+          <div class="banner_img relative">
+              <img src="assets/images/blog/Blog.png" alt="">
+              <div class="black_overlay"></div>
+
+              <div class="page-title banner-title-sec">
+                  <h2 class="white-color text-uppercase">
+                      BLOGS
+                  </h2>
+              </div>
+          </div>
+      </div>
+  </section>
+  <section id="ph-blog-section-2" class="ph-section ">
+      <div class="about-container relative sec2_padding  section-bottom-border">
+          <div class="product-about-card-flex" routerLink="{{blog_list[0].blog_ID}}" style="cursor: pointer;">
+              <div class="product-about-50">
+                  <div class="sec2_subtext_width">
+                      <div class="regular-fonts">
+                          <p class="">
+                              Article
+                          </p>
+                      </div>
+                      <div class="section-subtitle">
+                          <h3>
+                              {{blog_list[0].title}}
+                          </h3>
+                      </div>
+                      <div class="section-content">
+                          <p>
+                            {{blog_list[0].timestamp}}
+                          </p>
+                          <div class="read_flex">
+                            <div class="section-content-about">
+                                <p  class="small-content" style="color: gray;">
+                                    Read more
+                                </p>
+                            </div>
+                            <div class="right-blog-aerrow">
+                              <span class="material-symbols-outlined" style="vertical-align: middle; font-size: 2rem; color: gray;">
+                                arrow_right_alt
+                                </span>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="product-about-50">
+                  <div class="about_sec2_img">
+                      <img src="assets/images/blog/blog1.png" alt="">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <section id="ph-blog-section-3" class="ph-section ">
+      <div class="about-container relative section-bottom-border">
+          <div class="project-list-grid">
+              <div *ngFor="let blog of blog_list">
+                  <div class="about_sec2_img">
+                      <img src="{{blog.banner_image_full}}" alt="">
+                  </div>
+                  <div class="sec3_subtext_width">
+                      <div class="regular-fonts">
+                          <p class="">
+                              Article
+                          </p>
+                      </div>
+                      <div class="section-content">
+                          <p>
+                              {{blog.title}}
+                          </p>
+                      </div>
+                      <div class="section-content-about">
+                          <p  class="small-content ">
+                              {{blog.timestamp}} <br>
+                          </p>
+                      </div>
+                      <a routerLink="/blog/{{blog.blog_ID}}">
+                        <div class="read_flex">
+                          <div class="section-content-about" style="color: gray;">
+                              <p  class="small-content ">
+                                  Read more
+                              </p>
+                          </div>
+                          <div class="right-blog-aerrow">
+                            <span class="material-symbols-outlined" style="vertical-align: middle; font-size: 2rem; color: gray;">
+                              arrow_right_alt
+                              </span>
+                          </div>
+                        </div>
+                      </a>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </section>
+  <div class="section-bottom-border"></div>
+</div>

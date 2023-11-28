@@ -14,6 +14,9 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CollectionDetailComponent } from './collections/collection-detail/collection-detail.component';
 import { LeadComponent } from './lead/lead.component';
 import { ChannelPartnerComponent } from './channel-partner/channel-partner.component';
+import { AboutComponent } from './about/about.component';
+import { BlogComponent } from './blog/blog.component';
+import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 
 
 const routes: Routes = [
@@ -22,7 +25,7 @@ const routes: Routes = [
     component: HomepageComponent,
     data : {title : "Parth Hospitality"}
   },
- 
+
   {
     path: 'brands',
     component: BrandsComponent,
@@ -86,6 +89,21 @@ const routes: Routes = [
   {
     path: 'lead/:slug',
     component: LeadComponent,
+    data : {title : "Parth Hospitality"}
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
+    data : {title : "Parth Hospitality"}
+  },
+  {
+    path: 'blog',
+    component: BlogComponent,
+    data : {title : "Parth Hospitality"}
+  },
+  {
+    path: 'blog/:blog_ID',
+    component: BlogDetailComponent,
     data : {title : "Parth Hospitality"}
   },
 ];
