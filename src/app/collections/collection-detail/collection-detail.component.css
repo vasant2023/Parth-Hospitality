@@ -73,7 +73,7 @@
 }
 
 .select_country_main_wrapper.active input {
-  padding-left: 18%;
+  padding-left: 6rem;
 }
 
 .side_popup_wrapper .select_country_main_wrapper.contact_lable input:focus~label.md-lable,
@@ -83,12 +83,9 @@
   left: -16% !important;
 }
 
-.country_code_data>div{
+.country_code_data>div {
   font-size: 1.25em;
 }
-
-
-
 
 
 
@@ -158,7 +155,31 @@
   z-index: 999;
 }
 
-.total_item_bold{
+.total_item_bold {
   font-family: var(--bold-font-family);
   font-size: 1.2rem;
+}
+
+@media only screen and (max-width:991px) {
+  .inquire-popup-wrapper {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width:768px) {
+
+  .side_popup_wrapper div.contact_lable input:focus~label.md-lable,
+  .side_popup_wrapper div.contact_lable textarea:focus~label.md-lable,
+  .side_popup_wrapper div.contact_lable input.not_required~label.md-lable,
+  .side_popup_wrapper div.contact_lable textarea.not_required~label.md-lable,
+  .side_popup_wrapper div.contact_lable.active input~label.md-lable,
+  .side_popup_wrapper div.contact_lable.active textarea~label.md-lable,
+  .side_popup_wrapper div.contact_lable.active input.not_required~label.md-lable,
+  .side_popup_wrapper div.contact_lable.active textarea.not_required~label.md-lable {
+    font-size: 10px;
+  }
+
+  .inquire-popup-wrapper {
+    width: 100%;
+  }
 }

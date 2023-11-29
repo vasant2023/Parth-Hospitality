@@ -16,9 +16,9 @@
             </div>
           </swiper>
           <swiper class="swiper mainProductGallery" #secondarySwiper [config]="productImageSwiper">
-            <div class="swiper-slide" *ngFor="let item of collectionDetail.images; let i = index" (click)="jumpBig(i)">
+            <div class="swiper-slide main_short_image" *ngFor="let item of collectionDetail.images; let i = index" (click)="jumpBig(i)">
               <!-- &w=213.66&h=122.06 -->
-              <img src="{{ item.image_full }}" style="height: 150px; object-fit: contain;" />
+              <img src="{{ item.image_full }}" style=" object-fit: contain;" />
             </div>
           </swiper>
         </div>
@@ -36,7 +36,7 @@
                     ${{ collectionDetail.sale_price }}
                   </h3>
                 </div>
-                <div class="section-subtitle" *ngIf="collectionDetail.sale_price">
+                <div class="section-subtitle" *ngIf="collectionDetail.price > collectionDetail.sale_price">
                   <h3 class="regular-fonts" style="text-decoration: line-through">
                     ${{ collectionDetail.price }}
                   </h3>
@@ -184,7 +184,7 @@
               <div class="product-list-image">
                 <!-- &w=233&h=200 -->
                 <a data-fancybox="item-fancy" href="{{ item.banner_image_full }}" target="_self">
-                  <img src="{{ item.banner_image_full }}" alt="" style="height: 300px" />
+                  <img src="{{ item.banner_image_full }}" alt="" />
                 </a>
               </div>
               <div class="product-name">
