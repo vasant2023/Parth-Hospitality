@@ -281,5 +281,35 @@ export class ServiceService {
     });
     return this.http.post(url, body, { headers: httpHeaders });
   }
+
+  // Blogs
+
+  getBlogs() {
+    const url = environment.apiUrl + "blogs/list";
+    const apiId = environment.apiId;
+
+    let body = new HttpParams();
+    body = body.append("apiId", apiId);
+    body = body.append("flag", "all");
+
+    let httpHeaders = new HttpHeaders({
+      "Content-Type": "application/x-www-form-urlencoded",
+    });
+    return this.http.post(url, body, { headers: httpHeaders });
+  }
+
+  getBlogDetails(blog_ID){
+    const url = environment.apiUrl + "blogs/details";
+    const apiId = environment.apiId;
+
+    let body = new HttpParams();
+    body = body.append("apiId", apiId);
+    body = body.append("blog_ID", blog_ID);
+
+    let httpHeaders = new HttpHeaders({
+      "Content-Type": "application/x-www-form-urlencoded",
+    });
+    return this.http.post(url, body, { headers: httpHeaders });
+  }
 }
 
