@@ -28,32 +28,6 @@
         </div>
       </swiper>
       <div class="swiper-pagination swiper-pagination-home-banner"></div>
-      <!---->
-      <!-- <div class="home-banner-content-abs">
-        <div class="inner-flex-center inner-flex inner-flex-small">
-          <div class="banner-title">
-            <h2 class="white-color text-uppercase">
-              Hotel Furniture <br /><span>Bespoke</span> Manufacturer
-            </h2>
-          </div>
-          <div class="section-subtitle">
-            <h3 class="white-color regular-fonts">
-              To your exact specification in any color size & shape.
-            </h3>
-          </div>
-          <div class="button-home-flex">
-            <button
-              class="ph-button filled-ph-button"
-              (click)="redirect('collections')"
-            >
-              <p>View Collection</p>
-            </button>
-            <button class="ph-button white-border-ph-button">
-              <p>Inquire Now</p>
-            </button>
-          </div>
-        </div>
-      </div> -->
     </div>
   </section>
   <section id="ph-home-section-2" class="ph-section section-padding">
@@ -116,7 +90,7 @@
               </p>
             </div>
             <button class="ph-button black-border-ph-button">
-              <p>Know More</p>
+              <a routerLink="/about">Know More</a>
             </button>
           </div>
           <div class="overview-industry-image-flex">
@@ -225,84 +199,48 @@
 
   <section id="ph-home-section-4" class="ph-section">
     <div class="main-container-fluid">
-      <div class="section-padding section-bottom-border relative">
+      <div class="section-padding section-bottom-border relative" *ngIf="collection_list.length > 0">
         <swiper class="swiper homeProductSwiper" #mainSwiper [config]="homeProductSwiper">
-          <!-- <div class="swiper homeProductSwiper"> -->
-          <!-- <div class="swiper-wrapper"> -->
-          <div class="swiper-slide">
-            <div class="product-home-card-flex">
-              <div class="product-home-card-content">
-                <div class="inner-flex inner-flex-small">
-                  <div class="section-title">
-                    <h2 class="text-uppercase">Almond <br />Collection</h2>
-                  </div>
-                  <div class="section-content">
-                    <p>
-                      Everyone wants a room with a VUE. We combine the strength
-                      of metal and advantages of high pressure laminates to
-                      create the most durable hotel furniture available.
-                    </p>
-                  </div>
-                  <div class="price-tag-btn-flex">
-                    <div class="section-content">
-                      <p class="white-color">$899</p>
+          <ng-container *ngFor="let item of collection_list;index as i">
+            <div class="swiper-slide" *ngIf="i == 5 || i == 1">
+              <div class="product-home-card-flex">
+                <div class="product-home-card-content">
+                  <div class="inner-flex inner-flex-small">
+                    <div class="section-title">
+                      <h2 class="text-uppercase">{{item.collection}}</h2>
                     </div>
-                    <div class="regular-fonts">
-                      <p class="secondary-color striked-text line-through">
-                        $1499
+                    <div class="section-content description_limit_page">
+                      <p innerHtml="{{item.description}}">
                       </p>
                     </div>
-                    <div class="add-to-cart-btn">
-                      <p class="text-uppercase white-color">Add To Cart</p>
+                    <div class="price-tag-btn-flex">
+                      <div class="section-content">
+                        <p class="white-color">${{item.sale_price}}</p>
+                      </div>
+                      <div class="regular-fonts" *ngIf=" item.price > item.sale_price">
+                        <p class="secondary-color striked-text line-through">
+                          ${{item.price}}
+                        </p>
+                      </div>
+                      <div class="add-to-cart-btn">
+                        <a routerLink="/collections/{{item.slug}}">
+                          <p class="text-uppercase white-color">View Collection</p>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="product-home-card-image relative">
-                <img src="assets/images/home/almond-collect.jpg" class="main-product-img" />
-                <div class="discount-lable-swiper-card">
-                  <img src="assets/images/home/discount-lable.svg" alt="" />
+                <div class="product-home-card-image relative">
+                  <img src="assets/images/home/almond-collect.jpg" class="main-product-img" />
+                  <!-- <div class="discount-lable-swiper-card">
+                    <img src="assets/images/home/discount-lable.svg" alt="" />
+                  </div> -->
                 </div>
               </div>
             </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="product-home-card-flex">
-              <div class="product-home-card-content">
-                <div class="inner-flex inner-flex-small">
-                  <div class="section-title">
-                    <h2 class="text-uppercase">Almond <br />Collection</h2>
-                  </div>
-                  <div class="section-content">
-                    <p>
-                      Everyone wants a room with a VUE. We combine the strength
-                      of metal and advantages of high pressure laminates to
-                      create the most durable hotel furniture available.
-                    </p>
-                  </div>
-                  <div class="price-tag-btn-flex">
-                    <div class="section-content">
-                      <p class="white-color">$899</p>
-                    </div>
-                    <div class="regular-fonts">
-                      <p class="secondary-color striked-text line-through">
-                        $1499
-                      </p>
-                    </div>
-                    <div class="add-to-cart-btn">
-                      <p class="text-uppercase white-color">Add To Cart</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-home-card-image relative">
-                <img src="assets/images/home/almond-collect.jpg" class="main-product-img" />
-                <div class="discount-lable-swiper-card">
-                  <img src="assets/images/home/discount-lable.svg" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
+          </ng-container>
+
+
           <!-- </div> -->
         </swiper>
         <div class="swiper-button-next swiper-button-next-homeproduct">
@@ -576,20 +514,23 @@
   </section>
 
   <div class="main-container-fluid">
-    <div class="channel-partner-footer-card section-padding" style="cursor: pointer">
-      <div class="inner-flex inner-flex-center">
-        <div class="row-center-flex">
-          <div class="section-subtitle">
-            <h3 class="text-uppercase">Become A Channel Partner</h3>
+    <a routerLink="/channel-partner">
+      <div class="channel-partner-footer-card section-padding" style="cursor: pointer">
+        <div class="inner-flex inner-flex-center">
+          <div class="row-center-flex">
+            <div class="section-subtitle">
+              <h3 class="text-uppercase">Become A Channel Partner</h3>
+            </div>
+            <div class="channel-partner-arrow">
+              <img src="assets/images/icons/right-arrow-long.svg" alt="" />
+            </div>
           </div>
-          <a class="channel-partner-arrow" routerLink="/channel-partner">
-            <img src="assets/images/icons/right-arrow-long.svg" alt="" />
-          </a>
-        </div>
-        <div class="section-content">
-          <p>Let's work & Grow together.</p>
+          <div class="section-content">
+            <p>Let's work & Grow together.</p>
+          </div>
         </div>
       </div>
-    </div>
+    </a>
+
   </div>
 </div>

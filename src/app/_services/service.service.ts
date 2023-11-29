@@ -20,13 +20,16 @@ export class ServiceService {
 
   // Items
 
-  getItems() {
+  getItems(data) {
     const url = environment.apiUrl + "items/list";
     const apiId = environment.apiId;
 
     let body = new HttpParams();
     body = body.append("apiId", apiId);
     body = body.append("flag", "all");
+    body = body.append("search", data.search);
+    body = body.append("page", data.PageIndex);
+    body = body.append("limit", data.PageSize);
 
     let httpHeaders = new HttpHeaders({
       "Content-Type": "application/x-www-form-urlencoded",

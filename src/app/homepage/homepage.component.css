@@ -2,3 +2,8 @@
     width: max-content;
     margin: 0 auto;
 }
+
+.description_limit_page{
+    height: 300px;
+    overflow: hidden;
+}

@@ -3,12 +3,25 @@
   align-items: center;
   gap: 2.5rem;
   flex-flow: row wrap;
-  row-gap: 4rem;
+  /* row-gap: 4rem; */
 }
 
 .ph-laminate-wrapper .laminate-sec {
-  flex-basis: calc(34.18% - 2.5rem);
+	flex-basis: calc(33.33% - 1.7rem);
 }
+
+.laminate-img-sec{
+	background: #ebebeb;
+	height: 30vh;
+	display: grid;
+	place-content: center;
+}
+
+.laminate-img-sec img {
+	height: 28vh;
+	object-fit: contain;
+	padding: 2rem;
+  }
 
 /*  Laminate End */
 @media only screen and (max-width:991px) {

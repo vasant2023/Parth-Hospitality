@@ -355,3 +355,16 @@
     }
 
 }
+
+
+.about_pd_main{
+    padding: 8rem 0;
+}
+
+.about_pd_btm_main{
+    padding-bottom: 8rem;
+}
+
+.about_section{
+    height: 100%;
+}

@@ -12,22 +12,21 @@
   gap: 1.5rem;
 }
 
+.banner-title-sec {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
 
-/* .space-between {
-  justify-content: space-between;
-} */
-
-/* .align-center {
-  align-items: center;
-} */
+.collection-container{
+  width: 80%;
+  margin: 0 auto;
+}
 
 .wrap {
   flex-wrap: wrap;
 }
-
-/* .card-wrap {
-  padding: 2rem 2rem;
-} */
 
 .heading {
   text-align: center;

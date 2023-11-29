@@ -1,24 +1,29 @@
-<!-- Merging code  -->
-
-<!-- Specification Wrapper Start -->
 <div id="ph-specification-wrapper" class="relative">
   <section id="ph-specification-section-1" class="ph-section">
     <div class="main-container-fluid">
       <div class="specification-banner-flex">
-        <div class="specification-gallery-card">
-          <swiper class="swiper mainProductGalleryThumbs" #mainSwiper [config]="mainImageSwiper"
-            (indexChange)="jumpThumb($event)">
-            <div class="swiper-slide" *ngFor="let item of collectionObj.images; let i = index">
-              <!-- &w=675&h=385 -->
-              <a data-fancybox="item-fancy" href="{{ item.image }}&w=675&h=385" target="_self">
-                <img src="{{ item.image }}&w=675&h=385" />
-              </a>
+        <div class="specification-gallery-card ">
+          <div class="relative">
+            <swiper class="swiper mainProductGalleryThumbs" #mainSwiper [config]="mainImageSwiper"
+              (indexChange)="jumpThumb($event)">
+              <div class="swiper-slide" *ngFor="let item of collectionObj.images; let i = index">
+                <a data-fancybox="item-fancy" href="{{ item.image }}&w=675&h=385" target="_self">
+                  <img src="{{ item.image }}&w=675&h=385" />
+                </a>
+              </div>
+            </swiper>
+            <div class="swiper-button-next swiper-button-next-collection">
+              <span class="material-symbols-outlined"> arrow_forward </span>
             </div>
-          </swiper>
+            <div class="swiper-button-prev swiper-button-prev-collection">
+              <span class="material-symbols-outlined"> arrow_back </span>
+            </div>
+          </div>
+
           <swiper class="swiper mainProductGallery" #secondarySwiper [config]="productImageSwiper">
-            <div class="swiper-slide" *ngFor="let item of collectionDetail.images; let i = index" (click)="jumpBig(i)">
-              <!-- &w=213.66&h=122.06 -->
-              <img src="{{ item.image_full }}" style="height: 150px; object-fit: contain;" />
+            <div class="swiper-slide main_short_image" *ngFor="let item of collectionDetail.images; let i = index"
+              (click)="jumpBig(i)">
+              <img src="{{ item.image_full }}" style=" object-fit: contain;" />
             </div>
           </swiper>
         </div>
@@ -36,7 +41,7 @@
                     ${{ collectionDetail.sale_price }}
                   </h3>
                 </div>
-                <div class="section-subtitle" *ngIf="collectionDetail.sale_price">
+                <div class="section-subtitle" *ngIf="collectionDetail.price > collectionDetail.sale_price">
                   <h3 class="regular-fonts" style="text-decoration: line-through">
                     ${{ collectionDetail.price }}
                   </h3>
@@ -48,24 +53,9 @@
             </div>
             <div class="section-content">
               <p class="light-fonts" innerHTML="{{ collectionDetail.short_description }}">
-                <!-- All pricing for India. Lead time 90 Days/ Faster. -->
               </p>
             </div>
             <div class="specifcation-banner-accordion specification">
-              <!-- Accordion -->
-              <!-- <div class="acc-container">
-                <div class="acc" *ngFor="let acc of collectionDetail.accordion">
-                  <div class="acc-head" (click)="handleAcc(acc.title)" [class.active]="accName == acc.title" >
-                    <p>{{acc.title}}</p>
-                  </div>
-                  <div class="acc-content" [class.active]="accName == acc.title">
-                    <p>
-                      {{acc.text}}
-                    </p>
-                  </div>
-                </div>
-              </div> -->
-              <!-- Accordian End -->
               <h3>Specification</h3>
               <p class="light-fonts" innerHTML="{{ collectionDetail.description }}"></p>
             </div>
@@ -79,10 +69,6 @@
                   <p class="text-uppercase">Inquiry</p>
                 </a>
               </button>
-              <!-- <button class="ph-button black-border-ph-button" (click)="handleEnquiry()"
-                [class.active]="'popup-overlay-active'" [class.active]="'inquire-popup-wrapper-active'">
-                <p class="text-uppercase">Inquiry</p>
-              </button> -->
             </div>
           </div>
         </div>
@@ -159,14 +145,18 @@
                     </td>
                   </tr>
                 </ng-container>
-                  <tr>
-                    <td><p class="total_item_bold">Total</p></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="text-center"><p class="total_item_bold">${{collectionObj.item_total}}</p></td>
-                  </tr>
-               
+                <tr>
+                  <td>
+                    <p class="total_item_bold">Total</p>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td class="text-center">
+                    <p class="total_item_bold">${{collectionObj.item_total}}</p>
+                  </td>
+                </tr>
+
               </tbody>
             </table>
 
@@ -184,7 +174,7 @@
               <div class="product-list-image">
                 <!-- &w=233&h=200 -->
                 <a data-fancybox="item-fancy" href="{{ item.banner_image_full }}" target="_self">
-                  <img src="{{ item.banner_image_full }}" alt="" style="height: 300px" />
+                  <img src="{{ item.banner_image_full }}" alt="" />
                 </a>
               </div>
               <div class="product-name">
@@ -234,7 +224,6 @@
           <div class="hardware-grid-card" *ngFor="let hardware of collectionObj.hardwares">
             <div class="inner-flex inner-flex-small">
               <div class="hardware-list-image">
-                <!-- &w=230&h=230 -->
                 <a data-fancybox="hardware-fancy" href="{{ hardware.image_full }}" target="_self">
                   <img src="{{ hardware.image_full }} " alt="" />
                 </a>
@@ -256,242 +245,6 @@
   </section>
 </div>
 
-<!-- <div>
-  <div class="popup-overlay" [class.popup-overlay-active]="isWizardOpen" (click)="closeWizard()"></div>
-  <div class="inquire-popup-wrapper">
-    <div *ngIf="isWizardOpen" class="wizard-popup">
-      <ng-wizard [config]="config" (stepChanged)="stepChanged($event)">
-        <ng-wizard-step [title]="'Step 1'" [description]="'Contact Details'">
-          <form id="inquiry_form" name="inquiry_form"
-            (ngSubmit)="inquiryForm.form.valid && submitContactForm()" #inquiryForm="ngForm"
-            style="margin-top: 1rem">
-            <div class="form_wrapper">
-              <div class="contact_lable" [class.active]="contactObj.name != ''">
-                <label class="md-lable" for="name" style="padding: 1rem 0rem">Name <sup>*</sup></label>
-                <input id="name" name="name" type="text" class="form-control input-padding" letters-only=""
-                  [(ngModel)]="contactObj.name" #name="ngModel" required />
-                <div *ngIf="inquiryForm.submitted && name.invalid" class="invalid-feedback">
-                  <div *ngIf="name.errors.required">Name cannot be empty!</div>
-                </div>
-              </div>
-
-              <div class="relative two-grid-form">
-                <div class="contact_lable" [class.active]="contactObj.email != ''">
-                  <label class="md-lable" for="email_address" style="padding: 1rem 0rem">Email</label>
-                  <input id="email_address" name="email" type="email" autocomplete="off"
-                    class="form-control input-padding" #email="ngModel" [(ngModel)]="contactObj.email"
-                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
-                  <div *ngIf="inquiryForm.submitted && email.invalid" class="invalid-feedback">
-                    <div *ngIf="email.errors.required">
-                      Email can not be empty!
-                    </div>
-                    <div *ngIf="email.invalid && !email.errors.required">
-                      Invalid Email address
-                    </div>
-                  </div>
-                </div>
-                <div class="contact_lable relative" [class.active]="contactObj.phone != ''">
-                  <label class="md-lable contact_code" for="client_contact_no" style="padding: 1rem 0rem">Mobile</label>
-                  <input id="client_contact_no" name="phone" type="tel" numbers-only="" minlength="8" maxlength="13"
-                    autocomplete="off" class="form-control input-padding" #phone="ngModel"
-                    [(ngModel)]="contactObj.phone" (keypress)="_keyPress($event)" required />
-
-                  <div *ngIf="inquiryForm.submitted && phone.invalid" class="invalid-feedback">
-                    <div *ngIf="phone.errors.required">
-                      phone can not be empty!
-                    </div>
-                    <div *ngIf="phone.invalid && !phone.errors.required">
-                      Invalid Mobile number
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="relative two-grid-form">
-                <div class="contact_lable" [class.active]="contactObj.company_name != ''">
-                  <label class="md-lable" for="hotel_name" style="padding: 1rem 0rem">Hotel Name</label>
-
-                  <input id="hotel_name" name="company_name" type="text" class="form-control input-padding"
-                    #company_name="ngModel" [(ngModel)]="contactObj.company_name" />
-                </div>
-                <div class="contact_lable" [class.active]="contactObj.property_code != ''">
-                  <label class="md-lable" for="hotel_name" style="padding: 1rem 0rem">Property Code</label>
-
-                  <input id="property_code" name="property_code" type="number" class="form-control input-padding"
-                    #property_code="ngModel" [(ngModel)]="contactObj.property_code" />
-                </div>
-              </div>
-
-              <div class="contact_lable" [class.active]="contactObj.country != ''" style="padding: 1rem 0rem">
-                <ng-select class="form-control" name="country" id="country" [(ngModel)]="contactObj.country"
-                  #country="ngModel" (change)="loadStates(contactObj.country)">
-                  <ng-option value="">-Select Country-</ng-option>
-                  <ng-option value="{{ country.id }}" *ngFor="let country of countries">
-                    {{ country.name }}
-                  </ng-option>
-                </ng-select>
-              </div>
-
-              <div class="relative two-grid-form">
-                <div class="contact_lable drops" [class.active]="contactObj.state != ''">
-                  <ng-select class="form-control" name="state" id="state" [(ngModel)]="contactObj.state"
-                    #state="ngModel" (change)="loadCities(contactObj.state)">
-                    <ng-option value="">-Select State-</ng-option>
-                    <ng-option value="{{ state.id }}" *ngFor="let state of states">
-                      {{ state.name }}
-                    </ng-option>
-                  </ng-select>
-                </div>
-                <div class="contact_lable" [class.active]="contactObj.city != ''">
-                  <ng-select class="form-control" name="city" id="city" [(ngModel)]="contactObj.city" #city="ngModel">
-                    <ng-option value="">-Select City-</ng-option>
-                    <ng-option value="{{ city.id }}" *ngFor="let city of cities">
-                      {{ city.name }}
-                    </ng-option>
-                  </ng-select>
-                </div>
-              </div>
-
-              <div class="relative two-grid-form">
-                <div class="contact_lable" [class.active]="contactObj.rooms != ''">
-                  <label class="md-lable" for="hotel_name" style="padding: 1rem 0">Rooms</label>
-
-                  <input id="rooms" name="rooms" type="number" class="form-control input-padding" #rooms="ngModel"
-                    [(ngModel)]="contactObj.rooms" />
-                </div>
-                <div class="contact_lable" [class.active]="contactObj.zip_code != ''">
-                  <label class="md-lable" for="hotel_name" style="padding: 1rem 0">Zip Code</label>
-
-                  <input id="zip_code" name="zip_code" type="number" class="form-control input-padding"
-                    #zip_code="ngModel" [(ngModel)]="contactObj.zip_code" />
-                </div>
-              </div>
-
-              <div class="contact_lable" [class.active]="contactObj.message != ''">
-                <label class="md-lable" for="remarks" style="padding: 1rem 0">Comments</label>
-
-                <textarea id="remarks" name="message" type="text" aria-invalid="false" autocomplete="off"
-                  class="form-control" rows="1" #message="ngModel" rows="5" [(ngModel)]="contactObj.message">
-                </textarea>
-              </div>
-            </div>
-          </form>
-        </ng-wizard-step>
-
-        <ng-wizard-step [title]="'Step 2'" [description]="'Select Items'">
-          <div class="image-wrapper-details">
-            <div class="card" *ngFor="let item of collectionDetail.items">
-              <div class="card-body" style="display: grid; place-content: center;">
-                <label for="item_{{ item.item_ID }}">
-                  <div>
-                    <img class="card-img-top" src="{{ item.banner_image_full }}" alt="Card image cap" />
-                  </div>
-
-                  <div style="padding-top: 2rem;">
-                    <input type="checkbox" name="item_{{ item.item_ID }}" [(checklist)]="contactObj.item_IDs"
-                      [checklistValue]="item.item_ID" id="item_{{ item.item_ID }}" class="rounded-checkbox"
-                      (change)="exampleCHange()" />
-
-                    <span class="card-text" style="padding-left: 1rem">
-                      {{ item.item }}</span>
-                  </div>
-                </label>
-              </div>
-            </div>
-          </div>
-        </ng-wizard-step>
-
-        <ng-wizard-step [title]="'Step 3'" [description]="'Select Laminates'">
-          <div class="image-wrapper-details">
-            <div class="card" *ngFor="let laminate of collectionObj.laminates">
-              <div class="card-body" style="display: grid; place-content: center;">
-                <label for="laminate_{{ laminate.laminate_ID }}">
-                  <div>
-                    <img class="card-img-top" src="{{ laminate.image }}&w=350&h=350" alt="Card image cap" />
-                  </div>
-                  <div style="padding-top: 2rem;">
-                    <input type="checkbox" name="laminate_{{ laminate.laminate_ID }}"
-                      [(checklist)]="contactObj.laminate_IDs" [checklistValue]="laminate.laminate_ID"
-                      id="laminate_{{ laminate.laminate_ID }}" class="rounded-checkbox" (change)="exampleCHange()" />
-
-                    <span class="card-text" style="padding-left: 1rem">{{ laminate.laminate }}</span>
-                  </div>
-                </label>
-                <p style="padding-left: 2.5rem; padding-top: 0.5rem;">
-                  {{ laminate.size }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </ng-wizard-step>
-
-        <ng-wizard-step [title]="'Step 4'" [description]="'Select Flooring'">
-
-          <div class="image-wrapper-details">
-            <div class="card" *ngFor="let flooring of flooringList">
-              <div class="card-body" style="display: grid; place-content: center;">
-                <label for="flooring_{{ flooring.item_ID }}">
-                  <div>
-                    <img class="card-img-top" src="{{ flooring.banner_image }}&w=350&h=350" alt="Card image cap" />
-                  </div>
-                  <div style="padding-top: 2rem;">
-                    <input type="checkbox" name="flooring_{{ flooring.item_ID }}"
-                      [(checklist)]="contactObj.flooring_IDs" [checklistValue]="flooring.item_ID"
-                      id="flooring_{{ flooring.item_ID }}" class="rounded-checkbox" (change)="exampleCHange()" />
-
-                    <span class="card-text" style="padding-left: 1.5rem">
-                      {{ flooring.item }}
-                    </span>
-                  </div>
-
-                </label>
-              </div>
-            </div>
-          </div>
-
-        </ng-wizard-step>
-
-        <ng-wizard-step [title]="'Step 5'" [description]="'Select Add On'">
-
-          <table class="table" style="margin-top: 1rem">
-            <tbody>
-              <tr *ngFor="let addons of collectionDetail.addons">
-                <td>
-                  <h3>{{ addons.addon }}</h3>
-
-                  <div class="image-wrapper-details">
-                    <div class="card" *ngFor="let addonItem of addons.list">
-                      <div class="card-body" style="display: grid; place-content: center;">
-                        <label for="addons_{{ addonItem.item_ID }}">
-                          <div>
-                            <img class="card-img-top" src="{{ addonItem.banner_image }}&w=350&h=350"
-                              alt="Card image cap" />
-                          </div>
-                          <div style="padding-top: 2rem;">
-                            <input type="checkbox" name="addonItem_{{ addonItem.item_ID }}"
-                              [(checklist)]="contactObj.addons_IDs" [checklistValue]="addonItem.item_ID"
-                              id="flooring_{{ addonItem.item_ID }}" class="rounded-checkbox"
-                              (change)="exampleCHange()" />
-
-                            <span class="card-text" style="padding-left: 1.5rem">
-                              {{ addonItem.item }}
-                            </span>
-                          </div>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-
-                </td>
-
-              </tr>
-            </tbody>
-          </table>
-        </ng-wizard-step>
-      </ng-wizard>
-    </div>
-  </div>
-</div> -->
 
 <div>
   <div class="popup-overlay" [class.popup-overlay-active]="enquiry" (click)="closeEnquiry()"></div>
@@ -648,5 +401,3 @@
     </div>
   </div>
 </div>
-
-<!-- Specification Wrapper End -->

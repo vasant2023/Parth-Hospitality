@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { ServiceService } from "../../_services/service.service";
+import { PagerService } from 'src/app/_services/pager.service';
 
 
 @Component({
@@ -12,25 +13,62 @@ import { ServiceService } from "../../_services/service.service";
 export class ItemsListingComponent implements OnInit {
 
   constructor(
-    public service: ServiceService
+    public service: ServiceService,
+    private pagerService: PagerService,
   ) { }
 
   item_list: any = [];
+
+  pager: any = {};
+  pagedItems: any[];
+  PageIndex: number = 1;
+  PageSize: number = 20;
+  flag: number = 1;
+ 
+  objtotalrecords: number;
+
+  public item_data = {
+    PageIndex: this.PageIndex,
+    PageSize: this.PageSize,
+    // search: this.search,
+  };
 
   ngOnInit() {
     this.getItems();
   }
 
-  getItems(){
-    this.service.getItems().subscribe((response : {success: number, message: string, items:[]}) => {
-      if(response.success == 1){
+  getItems() {
+    // this.item_data.search = this.search;
+    // this.item_data.search = this.item_data.search ? this.item_data.search : "";
+    this.item_data.PageIndex = this.PageIndex;
+    this.item_data.PageSize = this.PageSize;
+
+    this.service.getItems(this.item_data).subscribe((response: { success: number, message: string, items: [] }) => {
+      if (response.success == 1) {
         this.item_list = response.items;
-        console.log(this.item_list);
+        this.objtotalrecords = 200;
+
+        if (this.item_list.length > 0 && this.flag == 1) { // initialize to page 1
+            this.flag = 0;
+            this.setPage(this.PageIndex, this.flag);
+        }
+        else if (this.item_list.length == 0) {
+            this.item_list = [];
+        }
       } else {
-        // this.toastr.error(response.message, "Error", {});
-        // this.loaderService.hide();
+        this.item_list = [];
       }
     })
   }
+
+  setPage(page: number, flag: number) {
+
+    this.pager = this.pagerService.getPager(200, page, this.PageSize);
+    this.PageIndex = this.pager.currentPage;
+    if (flag == 1) {
+      this.getItems();
+    }
+  }
+
 
 }
