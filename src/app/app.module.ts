@@ -26,6 +26,7 @@ import { ChannelPartnerComponent } from './channel-partner/channel-partner.compo
 import { AboutComponent } from './about/about.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
+import { PagerService } from './_services/pager.service';
 
 
 const ngWizardConfig: NgWizardConfig = {
@@ -65,7 +66,9 @@ const ngWizardConfig: NgWizardConfig = {
     NgSelectModule,
     NgWizardModule.forRoot(ngWizardConfig)
   ],
-  providers: [],
+  providers: [
+    PagerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

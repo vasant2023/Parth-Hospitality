@@ -183,3 +183,17 @@
     width: 100%;
   }
 }
+
+.swiper-button-next.swiper-button-next-collection {
+  right: 3%;
+  top: 50%;
+  display: grid !important;
+  place-content: center;
+}
+
+.swiper-button-prev.swiper-button-prev-collection {
+  top: 50%;
+  left: 3%;
+  display: grid !important;
+  place-content: center;
+}

@@ -184,7 +184,7 @@
 
 	/* font-sizes */
 	--banner-font-size: 7.5rem;
-  --common-banner-font-size: 5rem;
+	--common-banner-font-size: 5rem;
 	--section-title-font-size: 6rem;
 	--title-font-size: 3.5rem;
 	--specification-font-size: 2.5rem;
@@ -739,6 +739,30 @@ button.ph-button.white-border-ph-button:hover {
 	background-color: var(--white-color);
 }
 
+button.ph-button.white-border-ph-button:hover a {
+	color: var(--primary-color);
+}
+
+
+button.ph-button.black-border-ph-button:hover a {
+	color: var(--primary-color);
+}
+
+button.ph-button a {
+	font-size: 1.3rem;
+	text-transform: uppercase;
+	line-height: 1;
+	transition: var(--common-transition);
+}
+
+button.ph-button.white-border-ph-button a {
+	color: var(--white-color);
+}
+
+button.ph-button.black-border-ph-button a {
+	color: var(--primary-color);
+}
+
 button.ph-button.white-border-ph-button:hover p {
 	color: var(--primary-color);
 }
@@ -762,8 +786,6 @@ button.ph-button.white-border-ph-button p {
 button.ph-button.black-border-ph-button p {
 	color: var(--primary-color);
 }
-
-
 
 .overview-card-flex {
 	display: flex;
@@ -1632,13 +1654,13 @@ button.ph-button.black-border-ph-button p {
 .swiper-button-next.swiper-button-next-homeproduct {
 	right: unset;
 	left: 5%;
-	top: 57.5%;
+	top: 60%;
 	display: grid !important;
 	place-content: center;
 }
 
 .swiper-button-prev.swiper-button-prev-homeproduct {
-	top: 57.5%;
+	top: 60%;
 	left: 0;
 	display: grid !important;
 	place-content: center;
@@ -2131,8 +2153,8 @@ button.ph-button.black-border-ph-button p {
 	padding: 0 2rem;
 	aspect-ratio: unset;
 	background-color: #F5F5F5;
-  }
-  
+}
+
 
 .finishes-list-image {
 	background-color: #F5F5F5;
@@ -3041,4 +3063,51 @@ fieldset:disabled .btn {
 	opacity: 1;
 	visibility: visible;
 	transition: var(--common-transition);
+}
+
+.pagination {
+	display: flex;
+	gap: 2px;
+	margin: 2rem 1rem 0 auto;
+	border-radius: 5px;
+	overflow: hidden;
+	width: fit-content;
+}
+
+.pagination li a {
+	cursor: pointer;
+	display: block;
+	display: inline-block;
+	padding: 8px 16px;
+	text-decoration: none;
+	color: var(--black-color);
+	border: solid 1px #f0f0f0;
+	background-color: #f0f0f0;
+	transition: all ease-in-out 0.2s;
+}
+
+.pagination li.active a,
+.pagination li:not(.disabled):hover a {
+	background-color: var(--secondary-color);
+	border-color: var(--secondary-color);
+	color: #f0f0f0;
+}
+
+.page-item .page-link {
+	font-size:1.2rem;
+}
+
+.pagination li.disabled a {
+	pointer-events: none;
+	opacity: 0.7;
+}
+
+.text-right,
+.text-right p {
+	text-align: right !important;
+}
+
+.text-center,
+.text-center p {
+	text-align: center !important;
 }

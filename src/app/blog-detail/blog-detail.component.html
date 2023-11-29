@@ -1,52 +1,25 @@
 <div id="ph-detail-blog-wrapper" class="relative ">
   <section id="ph-detail-blog-section-1" class="ph-section">
-      <div class="about-banner-swiper-outer relative">
-          <div class="banner_img relative">
-              <img src="assets/images/blog/Blog.png" alt="">
-              <div class="black_overlay"></div>
+    <div class="about-banner-swiper-outer relative">
+      <div class="banner_img relative">
+        <img src="assets/images/blog/Blog.png" alt="">
+        <div class="black_overlay"></div>
 
-              <div class="page-title banner-title-sec">
-                  <h2 class="white-color text-uppercase">
-                      BLOGS DETAIL
-                  </h2>
-              </div>
-          </div>
+        <div class="page-title banner-title-sec">
+          <h2 class="white-color text-uppercase">
+            {{blogObj.title}}
+          </h2>
+        </div>
       </div>
-  </section>
-  <section id="ph-detail-blog-section-2" class="ph-section ">
-      <div class="about-container relative sec2_padding ">
-          <div class="product-about-card-flex">
-              <div class="product-about-50">
-                  <div class="sec2_subtext_width">
-                      <div class="regular-fonts">
-                          <p class=" striked-text line-through">
-                              Article
-                          </p>
-                      </div>
-                      <div class="section-subtitle">
-                          <h3>
-                              {{blogObj.title}}
-                          </h3>
-                      </div>
-
-                  </div>
-              </div>
-              <div class="product-about-50">
-                  <div class="about_sec2_img">
-                      <img src="{{blogObj.blog_image}}" alt="">
-                  </div>
-              </div>
-          </div>
-      </div>
+    </div>
   </section>
   <section id="ph-detail-blog-section-3" class="ph-section ">
-      <div class="about-container relative ">
-          <div class="section-content">
-              <p innerHTML=" {{blogObj.description}}">
-              </p>
-          </div>
+    <div class="about-container relative sec2_padding">
+      <div class="section-content">
+        <p innerHTML="{{blogObj.description}}">
+        </p>
       </div>
+    </div>
   </section>
   <div class="section-bottom-border"></div>
 </div>
-

@@ -1,15 +1,36 @@
 .ph-items-wrapper .items-flex-sec {
   display: flex;
-  gap: 1.5rem;
   flex-flow: row wrap;
-  row-gap: 4rem;
+  gap: 4rem;
 }
 
 .ph-items-wrapper .items-sec {
-  flex-basis: calc(26.4% - 2.5rem);
+  /* flex-basis: calc(26.4% - 2.5rem);
+  transition: var(--common-transition);
+  position: relative;
+  z-index: 99; */
+  flex-basis: calc(25% - 3rem);
   transition: var(--common-transition);
   position: relative;
   z-index: 99;
+}
+
+.item_main_title {
+  padding-top: 2rem;
+  font-size: var(--content-font-size);
+}
+
+.items-img-sec {
+  background: #ebebeb;
+  height: 40vh;
+  display: grid;
+  place-content: center;
+}
+
+.items-img-sec img {
+  height: 30vh;
+  object-fit: contain;
+  padding: 2rem;
 }
 
 .ph-items-wrapper .hoverarrow_icon {
@@ -24,13 +45,10 @@
   z-index: 101;
 }
 
-.ph-items-wrapper .items-img-sec {
-  overflow: hidden;
-}
 
 .ph-items-wrapper .items-img-sec .black_overlay {
   opacity: 0;
-  height: 90.5%;
+  height: 100%;
   visibility: hidden;
   z-index: 9;
 }
@@ -95,19 +113,19 @@
   color: var(--primary-color);
 }
 
-.ph-items-wrapper .filter_mobile_sec {
+.filter_mobile_sec {
   display: none;
 }
 
 .banner-title-sec {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .white-text {
-	color: var(--white-color);
+  color: var(--white-color);
 }
 
 /*  Items End */
@@ -118,7 +136,7 @@
 
 
   .ph-items-wrapper .items-sec {
-      flex-basis: calc(26.2% - 2.5rem);
+    flex-basis: calc(26.2% - 2.5rem);
   }
 }
 
@@ -126,11 +144,11 @@
 @media only screen and (max-width:991px) {
 
   .ph-items-wrapper .items-sec {
-      flex-basis: calc(52.4% - 2.5rem);
+    flex-basis: calc(52.4% - 2.5rem);
   }
 
   .ph-items-wrapper .items-sec .small-content p {
-      font-size: 1.8rem;
+    font-size: 1.8rem;
   }
 
 }
@@ -138,78 +156,78 @@
 @media only screen and (max-width: 767px) {
 
   .ph-items-wrapper .items-sec {
-      flex-basis: 100%;
+    flex-basis: 100%;
   }
 
   /* Filter CSS Start */
   .filter-search-sec:nth-child(1) .filter-flex-sec {
-      display: none;
+    display: none;
   }
 
   .sort_by_flex {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 0.8rem 1rem;
-      border: 1px solid #ccc;
-      background-color: #f4f4f4;
-      width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    background-color: #f4f4f4;
+    width: fit-content;
   }
 
   .section-content-mob-flex {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 
   .sort_by_flex .section-content p {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
 
 
 
   .filter_mobile_sec {
-      visibility: hidden;
-      opacity: 0;
-      position: fixed;
-      bottom: -100%;
-      left: 0;
-      width: 100%;
-      background-color: var(--white-color);
-      z-index: 999999;
-      transition: var(--common-transition);
-      padding: 1.5rem;
-      overflow-y: scroll;
-      min-height: 75vh;
-      max-height: 85vh;
-      display: block;
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--white-color);
+    z-index: 999999;
+    transition: var(--common-transition);
+    padding: 1.5rem;
+    overflow-y: scroll;
+    min-height: 75vh;
+    max-height: 85vh;
+    display: block;
   }
 
   .filter_mobile_sec.active {
-      visibility: visible;
-      opacity: 1;
-      bottom: 0;
+    visibility: visible;
+    opacity: 1;
+    bottom: 0;
   }
 
   .close_icon {
-      width: 2rem;
-      margin-left: auto;
+    width: 2rem;
+    margin-left: auto;
   }
 
   .filter_text_accordion_flex {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .filter-arrow .up-arrow {
-      display: none;
+    display: none;
   }
 
   .filter-flex-item.active .filter_text_accordion_flex .filter-arrow .up-arrow {
-      display: block;
+    display: block;
   }
 
   /* Filter CSS  End*/

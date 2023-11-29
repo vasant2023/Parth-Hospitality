@@ -83,11 +83,15 @@ export class CollectionDetailComponent implements OnInit {
   public mainImageSwiper: SwiperConfigInterface = {
     spaceBetween: 20,
     slidesPerView: 1,
-    loop: true,
+    // loop: true,
     observer: true,
     freeMode: false,
     watchSlidesVisibility: true,
     watchSlidesProgress: true,
+    navigation: {
+      nextEl: ".swiper-button-next.swiper-button-next-collection",
+      prevEl: ".swiper-button-prev.swiper-button-prev-collection",
+    },
   };
 
 
@@ -121,7 +125,7 @@ export class CollectionDetailComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.getCollectionDetails();
     })
-    
+
 
 
 
