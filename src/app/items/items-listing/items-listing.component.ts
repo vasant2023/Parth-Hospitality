@@ -30,7 +30,7 @@ export class ItemsListingComponent implements OnInit {
   public item_data = {
     PageIndex: this.PageIndex,
     PageSize: this.PageSize,
-    search: this.search,
+    // search: this.search,
   };
 
   ngOnInit() {
@@ -39,7 +39,7 @@ export class ItemsListingComponent implements OnInit {
 
   getItems() {
     // this.item_data.search = this.search;
-    this.item_data.search = this.item_data.search ? this.item_data.search : "";
+    // this.item_data.search = this.item_data.search ? this.item_data.search : "";
     this.item_data.PageIndex = this.PageIndex;
     this.item_data.PageSize = this.PageSize;
 
