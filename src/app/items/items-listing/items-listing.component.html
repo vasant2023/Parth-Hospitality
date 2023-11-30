@@ -11,10 +11,7 @@
     </div>
   </section>
 
-  <div class="loader" *ngIf="isLoading">
-  </div>
-
-  <section id="ph-items-section-2" class="ph-section relative section-padding" *ngIf="!isLoading">
+  <section id="ph-items-section-2" class="ph-section relative section-padding">
     <div class="main-container">
       <div class="inner-flex inner-flex-medium">
         <div class="filter-search-flex">
@@ -74,7 +71,11 @@
           </div>
         </div>
 
-        <div class="relative">
+
+        <div class="loader" *ngIf="isLoading">
+        </div>
+
+        <div class="relative" *ngIf="!isLoading">
           <div class="items-flex-sec">
             <div class="items-sec inner-flex inner-flex-common" *ngFor="let item of item_list">
               <a data-fancybox="item-fancy" href="{{ item.banner_image_full }}" target="_self">

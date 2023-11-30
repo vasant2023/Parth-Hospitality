@@ -41,7 +41,7 @@
                 {{ blog_list[0].timestamp }}
               </p>
             </div>
-            <!-- <div class="read_flex">
+            <div class="read_flex">
               <div class="section-content-about">
                 <p class="small-content" style="color: gray;">
                   Read more
@@ -52,7 +52,7 @@
                   arrow_right_alt
                 </span>
               </div>
-            </div> -->
+            </div>
           </div>
         </div>
         <div class="product-about-50">
@@ -66,7 +66,7 @@
   <section id="ph-blog-section-3" class="ph-section" *ngIf="!isLoading">
     <div class="about-container relative section-bottom-border">
       <div class="project-list-grid">
-        <div *ngFor="let blog of blog_list" routerLink="/blog/{{blog.slug}}">
+        <div *ngFor="let blog of blog_list" routerLink="/blog/{{blog.slug}}" style="cursor: pointer;">
           <div class="about_sec2_img">
             <img src="{{ blog.blog_image_full }}" alt="" />
           </div>
@@ -76,7 +76,9 @@
             </div>
             <div class="blog-title">
               <p>
-                {{ blog.title }}
+                <!-- {{ blog.title }} -->
+                {{ blog.title.slice(0, 40) }}
+                {{ blog.title.length > 40 ? '...' : '' }}
               </p>
             </div>
             <div class="section-content-about">
