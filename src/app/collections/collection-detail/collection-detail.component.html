@@ -7,11 +7,15 @@
             <swiper class="swiper mainProductGalleryThumbs" #mainSwiper [config]="mainImageSwiper"
               (indexChange)="jumpThumb($event)">
               <div class="swiper-slide main_swiper_width_pd" *ngFor="let item of collectionObj.images; let i = index">
-                <a data-fancybox="item-fancy" href="{{ item.image }}&w=675&h=385" target="_self">
+                <a data-fancybox="item-fancy" href="{{ item.image }}&w=675&h=385" target="_self" *ngIf="item.image">
                   <img src="{{ item.image }}&w=675&h=385" />
                 </a>
               </div>
             </swiper>
+            <div class="coolection_dummy_section">
+              <img src="assets/images/dummy-placeholder.png" *ngIf="collectionObj.images == ''">
+            </div>
+
             <div class="swiper-button-next swiper-button-next-collection">
               <span class="material-symbols-outlined"> arrow_forward </span>
             </div>
@@ -99,7 +103,7 @@
         <div class="product-specification-grid">
           <div class="product-specification-grid-image">
             <!-- &w=636&h=359.88 -->
-            <img src="{{ collectionDetail.specification_image }}&w=636&h=359.88" alt="" />
+            <img src="{{ collectionDetail.specification_image_full }}" alt="" />
           </div>
           <div class="product-specification-table">
             <table>
@@ -199,9 +203,8 @@
           <div class="finishes-grid-card" *ngFor="let laminate of collectionObj.laminates">
             <div class="inner-flex inner-flex-small">
               <div class="finishes-list-image">
-                <!-- &w=386.4&h=200 -->
                 <a data-fancybox="laminate-fancy" href="{{ laminate.image_full }}" target="_self">
-                  <img src="{{ laminate.image_full }}" alt="" style="height: 300px" />
+                  <img src="{{ laminate.image_full }}" alt="" />
                 </a>
               </div>
               <div class="product-name">

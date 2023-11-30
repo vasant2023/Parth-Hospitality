@@ -2134,16 +2134,20 @@ button.ph-button.black-border-ph-button p {
 }
 
 .product-list-image {
-	aspect-ratio: 16/13;
-	border: 2px solid #F5F5F5;
-	padding: 2.5rem;
-	overflow: hidden;
+	display: grid;
+	place-content: center;
+	height: 40vh;
+	border: 2px solid #ebebeb;
+	padding: 2rem;
 }
 
 .product-list-image img {
-	width: 100%;
-	height: 100%;
+	height: 30vh;
 	object-fit: contain;
+}
+
+.finishes-list-image img{
+	height: 28vh;
 }
 
 .gray-fonts {
@@ -2151,18 +2155,27 @@ button.ph-button.black-border-ph-button p {
 }
 
 .hardware-list-image {
-	/* aspect-ratio: 16/13; */
-	background-color: #F5F5F5;
+	display: grid;
+	place-content: center;
+	height: 20vh;
+	border: 2px solid #ebebeb;
+	padding: 2rem;
 }
 
-.hardware-list-image a {
+.hardware-list-image img{
+	height: 8vh;
+	object-fit: contain;
+}
+
+
+/* .hardware-list-image a {
 	display: grid;
 	place-content: center;
 	height: 150px;
 	padding: 0 2rem;
 	aspect-ratio: unset;
 	background-color: #F5F5F5;
-}
+} */
 
 
 .finishes-list-image {
@@ -3084,7 +3097,7 @@ fieldset:disabled .btn {
 .pagination {
 	display: flex;
 	gap: 2px;
-	margin: 2rem 1rem 0 auto;
+	margin: 2rem 1rem 0 auto !important;
 	border-radius: 5px;
 	overflow: hidden;
 	width: fit-content;
@@ -3126,4 +3139,10 @@ fieldset:disabled .btn {
 .text-center,
 .text-center p {
 	text-align: center !important;
+}
+
+a.page-link {
+    height: 45px;
+	display: flex !important;
+    gap: 0.5rem;
 }
