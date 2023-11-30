@@ -39,7 +39,7 @@
               </div>
             </div>
             <div class="filter-flex-sec">
-              <a href="javascript:void(0);">
+              <!-- <a href="javascript:void(0);">
                 <div class="fiilter-button">
                   <div class="small-content">
                     <p>Category</p>
@@ -48,7 +48,15 @@
                     <img src="assets/images/icons/down-arrow.png" alt="" />
                   </div>
                 </div>
-              </a>
+              </a> -->
+
+              <select [(ngModel)]="item_data.category_ID" (change)="getItems()"
+                class="form-control select_main_item_control">
+                <option disabled value=""> Category</option>
+                <option *ngFor="let categories of categories_list" value="{{categories.category_ID}}">
+                  {{categories.category}}
+                </option>
+              </select>
 
               <!-- <div class="relative">
                 <div class="fiilter-button" (click)="openCollection()">

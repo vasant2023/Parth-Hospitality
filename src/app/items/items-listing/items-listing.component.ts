@@ -19,6 +19,7 @@ export class ItemsListingComponent implements OnInit {
 
   item_list: any = [];
   collection_list: any = [];
+  categories_list: any = [];
   public usersPager: any = [];
 
   search = "";
@@ -29,7 +30,7 @@ export class ItemsListingComponent implements OnInit {
   public PageSize: number = 20;
   public flag: number = 1;
   public totalCount: number = 0;
-  public isLoading:boolean = false;
+  public isLoading: boolean = false;
 
 
   objtotalrecords: number;
@@ -39,12 +40,14 @@ export class ItemsListingComponent implements OnInit {
     PageIndex: this.PageIndex,
     PageSize: this.PageSize,
     search: "",
-    collection_ID: ""
+    collection_ID: "",
+    category_ID: ""
   };
 
   ngOnInit() {
     this.getItems();
     this.getCollection();
+    this.menuCollection();
   }
 
   onSearchChange(value: string) {
@@ -82,7 +85,7 @@ export class ItemsListingComponent implements OnInit {
   //   });
 
 
-  public isLoading = false;
+  // public isLoading = false;
 
   getItems() {
     this.isLoading = true;
@@ -123,6 +126,17 @@ export class ItemsListingComponent implements OnInit {
     this.service.getCollection().subscribe((response: { success: number, message: string, collections: [] }) => {
       if (response.success == 1) {
         this.collection_list = response.collections;
+      } else {
+      }
+    })
+  }
+
+
+
+  menuCollection() {
+    this.service.item_categories().subscribe((response: { success: number, message: string, categories: [] }) => {
+      if (response.success == 1) {
+        this.categories_list = response.categories;
       } else {
       }
     })
