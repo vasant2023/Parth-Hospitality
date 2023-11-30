@@ -19,6 +19,7 @@
       <div
         class="product-about-card-flex"
         style="cursor: pointer"
+        routerLink="/blog/{{blog_list[0].slug}}"
       >
         <div class="product-about-50">
           <div class="sec2_subtext_width">
@@ -60,7 +61,7 @@
   <section id="ph-blog-section-3" class="ph-section">
     <div class="about-container relative section-bottom-border">
       <div class="project-list-grid">
-        <div *ngFor="let blog of blog_list">
+        <div *ngFor="let blog of blog_list" routerLink="/blog/{{blog.slug}}">
           <div class="about_sec2_img">
             <img src="{{ blog.blog_image_full }}" alt="" />
           </div>
@@ -72,44 +73,6 @@
               <p>
                 {{ blog.title }}
               </p>
-            </div>
-            <div class="section-content-about">
-              <p class="small-content">{{ blog.timestamp }} <br /></p>
-            </div>
-            <a routerLink="/blog/{{ blog.slug }}">
-              <div class="read_flex">
-                <div class="section-content-about" style="color: gray">
-                  <p class="small-content">Read more</p>
-                </div>
-                <div class="right-blog-aerrow">
-                  <span
-                    class="material-symbols-outlined"
-                    style="vertical-align: middle; font-size: 2rem; color: gray"
-                  >
-                    arrow_right_alt
-                  </span>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="about-container relative section-bottom-border">
-      <div class="project-list-grid">
-        <div *ngFor="let blog of blog_list">
-          <div class="about_sec2_img">
-            <img src="{{ blog.blog_image_full }}" alt="" />
-          </div>
-          <div class="sec3_subtext_width">
-            <div class="regular-fonts">
-              <p class="">Article</p>
-            </div>
-            <div class="section-subtitle blog-title-main-font">
-              <h3>
-                {{ blog.title }}
-              </h3>
             </div>
             <div class="section-content-about">
               <p class="small-content">{{ blog.timestamp }} <br /></p>
