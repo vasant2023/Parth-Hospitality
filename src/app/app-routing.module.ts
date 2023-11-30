@@ -102,7 +102,7 @@ const routes: Routes = [
     data : {title : "Parth Hospitality"}
   },
   {
-    path: 'blog/:blog_ID',
+    path: 'blog/:blog_slug',
     component: BlogDetailComponent,
     data : {title : "Parth Hospitality"}
   },

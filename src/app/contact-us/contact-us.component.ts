@@ -59,7 +59,7 @@ export class ContactUsComponent implements OnInit {
     }
   }
 
-  submitContactForm(){
+  submitContactForm(form){
     this.contactObj.type = 'contact';
     if(this.isLoading == false){
       this.isLoading = true;

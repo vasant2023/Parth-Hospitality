@@ -14,6 +14,7 @@ export class CollectionsListingComponent implements OnInit {
     public service: ServiceService
   ) { }
 
+  public isLoading:boolean = false;
   collection_list: any = [];
 
 
@@ -22,6 +23,7 @@ export class CollectionsListingComponent implements OnInit {
   }
 
   getCollection(){
+    this.isLoading = true;
     this.service.getCollection().subscribe((response : {success: number, message: string, collections:[]}) => {
       if(response.success == 1){
         this.collection_list = response.collections;
@@ -29,6 +31,7 @@ export class CollectionsListingComponent implements OnInit {
         // this.toastr.error(response.message, "Error", {});
         // this.loaderService.hide();
       }
+      this.isLoading = false;
     })
   }
 

@@ -25,7 +25,7 @@ export class BlogDetailComponent implements OnInit {
 
   blogId = ""
   getBlogId(){
-    this.blogId = this.route.snapshot.params['blog_ID'];
+    this.blogId = this.route.snapshot.params['blog_slug'];
   }
 
   getBlogDetails(){

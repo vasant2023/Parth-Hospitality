@@ -14,6 +14,7 @@ export class BlogComponent implements OnInit {
     public service: ServiceService
   ) { }
 
+  public isLoading:boolean = false;
   blog_list: any = [];
 
   ngOnInit() {
@@ -21,12 +22,14 @@ export class BlogComponent implements OnInit {
   }
 
   getBlogs(){
+    this.isLoading = true;
     this.service.getBlogs().subscribe((response : {success: number, message: string, blogs:[]}) => {
       if(response.success == 1){
         this.blog_list = response.blogs;
       } else {
 
       }
+      this.isLoading =false;
     })
   }
 

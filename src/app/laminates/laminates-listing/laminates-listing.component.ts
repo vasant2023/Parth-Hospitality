@@ -16,6 +16,8 @@ export class LaminatesListingComponent implements OnInit {
     private pagerService: PagerService,
   ) { }
 
+  public isLoading:boolean = false;
+
   laminate_list: any = [];
 
 
@@ -36,6 +38,7 @@ export class LaminatesListingComponent implements OnInit {
   }
 
   getLaminates(){
+    this.isLoading = true;
     this.item_data.PageIndex = this.PageIndex;
     this.item_data.PageSize = this.PageSize;
     this.service.getLaminates(this.item_data).subscribe(res => {
@@ -55,7 +58,9 @@ export class LaminatesListingComponent implements OnInit {
       else {
         this.laminate_list = [];
       }
+      this.isLoading = false;
     }, error => { console.log(error) })
+
   }
 
   setPage(page: number, flag: number) {

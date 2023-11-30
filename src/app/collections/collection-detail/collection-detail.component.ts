@@ -95,7 +95,7 @@ export class CollectionDetailComponent implements OnInit {
   };
 
 
-  isLoading = false;
+  public isLoading:boolean = false;
   isWizardOpen = false;
   public tab = "productSpecification";
   public accName = 'Construction';
@@ -125,12 +125,6 @@ export class CollectionDetailComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.getCollectionDetails();
     })
-
-
-
-
-
-
   }
 
   _keyPress(event: any) {
@@ -206,11 +200,12 @@ export class CollectionDetailComponent implements OnInit {
 
 
   getCollectionDetails() {
+    this.isLoading = true;
     this.collectionSlug = this.route.snapshot.params['slug'];
     this.contactObj.collection_id = this.collectionSlug
     this.contactObj.country = '101';
     if (this.collectionSlug) {
-      this.service.getCollectionDetails(this.collectionSlug).subscribe((response: { success: number, message: string, collection: [] }) => {
+      this.service.getCollectionDetails(this.collectionSlug).subscribe((response: { success: number, message: string, collection: {} }) => {
         this.collectionObj = response.collection
         console.log(this.collectionObj);
         this.contactObj.collection_id = this.collectionObj.collection_ID;
@@ -245,6 +240,8 @@ export class CollectionDetailComponent implements OnInit {
           // ))
           // );
         }
+
+        this.isLoading = false;
       })
     }
   }

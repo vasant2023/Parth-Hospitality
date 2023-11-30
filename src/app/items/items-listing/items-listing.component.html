@@ -93,7 +93,11 @@
           </div>
         </div>
 
-        <div class="relative">
+
+        <div class="loader" *ngIf="isLoading">
+        </div>
+
+        <div class="relative" *ngIf="!isLoading">
           <div class="items-flex-sec">
             <div class="items-sec inner-flex inner-flex-common" *ngFor="let item of item_list">
               <a data-fancybox="item-fancy" href="{{ item.banner_image_full }}" target="_self">
@@ -185,6 +189,7 @@
     </div>
   </div>
 </div>
+
 
 <ng-container *ngIf="item_list && item_list.length > 0">
   <ul *ngIf="usersPager.pages && usersPager.pages.length > 1" class="pagination">

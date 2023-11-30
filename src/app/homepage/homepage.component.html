@@ -210,10 +210,10 @@
                       <h2 class="text-uppercase">{{item.collection}}</h2>
                     </div>
                     <div class="section-content description_limit_page">
-                      <p innerHtml="{{item.description}}">
+                      <p innerHtml="{{item.short_description}}">
                       </p>
                     </div>
-                    <div class="price-tag-btn-flex">
+                    <div class="price-tag-btn-flex" routerLink="/collections/{{item.slug}}" style="cursor: pointer;">
                       <div class="section-content">
                         <p class="white-color">${{item.sale_price}}</p>
                       </div>

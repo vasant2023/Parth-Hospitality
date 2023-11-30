@@ -24,10 +24,16 @@ export class ItemsListingComponent implements OnInit {
   search = "";
   pager: any = {};
   pagedItems: any[];
+
   public PageIndex: number = 1;
   public PageSize: number = 20;
   public flag: number = 1;
   public totalCount: number = 0;
+  public isLoading:boolean = false;
+
+
+  objtotalrecords: number;
+
 
   public item_data = {
     PageIndex: this.PageIndex,
@@ -49,6 +55,7 @@ export class ItemsListingComponent implements OnInit {
       this.getItems();
     }
   }
+
 
   // getItems() {
   //   this.item_data.search = this.item_data.search ? this.item_data.search : "";
@@ -75,12 +82,12 @@ export class ItemsListingComponent implements OnInit {
   //   });
 
 
-  // }
-
   public isLoading = false;
 
   getItems() {
     this.isLoading = true;
+    this.item_data.search = this.item_data.search ? this.item_data.search : "";
+
     this.service.getItems(this.item_data).subscribe((response: { success: number, message: string, items: [], total_records: number }) => {
       if (response.success == 1) {
         this.item_list = response.items;

@@ -164,3 +164,23 @@
     width: 100%;
   }
 }
+
+.blog-title p {
+	font-size: var(--content-font-size);
+	font-family: var(--regular-font-family);
+  font-weight: 600;
+}
+
+.loader{
+  display: flex;
+  align-items: center;
+  border: 12px solid #f7eede;
+  border-top: 12px solid #F7AC29;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+  margin: 0 auto;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}

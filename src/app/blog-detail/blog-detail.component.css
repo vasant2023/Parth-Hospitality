@@ -154,6 +154,22 @@
     padding-bottom: 5%;
 }
 
+.section-subtitle-blog h3 {
+  font-size: var(--title-font-size);
+	font-family: var(--medium-font-family-p);
+  padding-bottom: 2rem;
+}
+
+.banner_img{
+  padding-top: 6.8rem;
+}
+
+.banner_img, .banner_img img{
+  aspect-ratio: 16/5;
+}
+
+
+
 @media only screen and (max-width: 767px) {
 
     #ph-detail-blog-wrapper .product-about-card-flex {
@@ -185,7 +201,10 @@
     }
 }
 
+
+
 .blog_page_title h2 {
     font-size: 3rem;
     font-family: var(--bold-font-family);
 }
+

@@ -310,7 +310,7 @@ export class ServiceService {
 
     let body = new HttpParams();
     body = body.append("apiId", apiId);
-    body = body.append("blog_ID", blog_ID);
+    body = body.append("slug", blog_ID);
 
     let httpHeaders = new HttpHeaders({
       "Content-Type": "application/x-www-form-urlencoded",
