@@ -1,145 +1,152 @@
- .ph-contact-wrapper .ph-contact-section-one {
-     background-image: url("../../assets/images/contact/contact-banner.jpg");
-     background-size: cover;
-     background-position: center center;
-     background-repeat: no-repeat;
-     display: grid;
-     place-items: center;
- }
+.section-padding-contact {
+    padding: 4rem 0;
+}
 
- .ph-contact-wrapper .section-title h2 {
-     font-size: 3rem;
- }
+.ph-contact-wrapper .ph-contact-section-one {
+    background-image: url("../../assets/images/contact/contact-banner.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: grid;
+    place-items: center;
+}
 
- .ph-contact-wrapper .ph-contact-wrapper-main-grid {
-     border-radius: 1.75rem;
-     background-color: #F8AB18d4;
- }
+.ph-contact-wrapper .section-title h2 {
+    font-size: 3rem;
+}
 
- .ph-contact-wrapper .ph-contact-flex {
-     display: flex;
-     flex-direction: row;
-     align-items: end;
-     width: 100%;
-     padding: 2rem;
-     gap: var(--medium-gap-size);
-     width: 100%;
-     padding: 6rem 3rem 3rem 3rem;
- }
+.ph-contact-wrapper .ph-contact-wrapper-main-grid {
+    border-radius: 1.75rem;
+    background-color: #F8AB18d4;
+}
 
- .ph-contact-wrapper .ph-contact-flex>div:nth-child(1) {
-     width: calc(100% - 45% - 1.5rem);
-     flex-basis: calc(100% - 45% - 1.5rem);
- }
+.ph-contact-wrapper .ph-contact-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    width: 100%;
+    padding: 2rem;
+    gap: var(--medium-gap-size);
+    width: 100%;
+    padding: 6rem 3rem 3rem 3rem;
+}
 
- .ph-contact-wrapper .ph-contact-flex>div:nth-child(2) {
-     width: calc(100% - 55% - 1.5rem);
-     flex-basis: calc(100% - 55% - 1.5rem);
- }
+.ph-contact-wrapper .ph-contact-flex>div:nth-child(1) {
+    width: calc(100% - 45% - 1.5rem);
+    flex-basis: calc(100% - 45% - 1.5rem);
+}
 
- .ph-contact-wrapper .ph-contact-form-grid {
-     display: grid;
-     width: 100%;
-     grid-template-columns: repeat(1, 1fr);
-     gap: 1.5rem;
-     padding: 4rem 0 0 2rem;
-     position: relative;
+.ph-contact-wrapper .ph-contact-flex>div:nth-child(2) {
+    width: calc(100% - 55% - 1.5rem);
+    flex-basis: calc(100% - 55% - 1.5rem);
+}
 
- }
+.ph-contact-wrapper .ph-contact-form-grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    padding: 4rem 0 0 2rem;
+    position: relative;
 
- 
- .ph-contact-wrapper .ph-contact-form-grid::before {
-     content: "";
-     position: absolute;
-     top: 0;
-     left: -1.5rem;
-     height: 100%;
-     width: 1px;
-     background-color: var(--primary-color);
-     opacity: 30%;
- }
+}
 
- .ph-contact-wrapper .ph-contact-form-input input:focus,
- .ph-contact-wrapper .ph-contact-form-input input:focus-visible,
- .ph-contact-wrapper .ph-contact-form-input textarea:focus {
-     border: 2px solid var(--primary-color);
- }
 
- .ph-contact-wrapper .ph-contact-form-input input,
- .ph-contact-wrapper .ph-contact-form-input textarea {
-     padding: 1.25rem;
-     width: 100%;
-     outline: none;
-     border: 1px solid var(--primary-color);
-     border-radius: 8px;
-     background-color: transparent;
-     font-family: var(--semibold-font-family);
-     font-size: var(--link-font-size);
-     color: var(--primary-color);
-     resize: none;
- }
+.ph-contact-wrapper .ph-contact-form-grid::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -1.5rem;
+    height: 100%;
+    width: 1px;
+    background-color: var(--primary-color);
+    opacity: 30%;
+}
 
- .ph-contact-wrapper .ph-contact-form-input input::placeholder,
- .ph-contact-wrapper .ph-contact-form-input textarea::placeholder {
-     font-family: var(--regular-font-family);
-     font-size: var(--link-font-size);
-     text-transform: uppercase;
-     color: #000000;
- }
+.ph-contact-wrapper .ph-contact-form-input input:focus,
+.ph-contact-wrapper .ph-contact-form-input input:focus-visible,
+.ph-contact-wrapper .ph-contact-form-input textarea:focus {
+    border: 2px solid var(--primary-color);
+}
 
- .ph-contact-wrapper .ph-contact-form-input button.ph-contact-form-input-button {
-     width: 100%;
-     border: 1px solid var(--primary-color);
-     border-radius: 8px;
-     background-color: var(--primary-color);
-     padding: 1.25rem;
-     outline: none
- }
+.ph-contact-wrapper .ph-contact-form-input input,
+.ph-contact-wrapper .ph-contact-form-input textarea {
+    padding: 1.25rem;
+    width: 100%;
+    outline: none;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    background-color: transparent;
+    font-family: var(--semibold-font-family);
+    font-size: var(--link-font-size);
+    color: var(--primary-color);
+    resize: none;
+}
 
- @media screen and (max-width : 1450px) {
-     .ph-contact-wrapper .link-font p {
-         font-size: 1.25rem;
-         font-family: var(--light-font-family);
-     }
+.ph-contact-wrapper .ph-contact-form-input input::placeholder,
+.ph-contact-wrapper .ph-contact-form-input textarea::placeholder {
+    font-family: var(--regular-font-family);
+    font-size: var(--link-font-size);
+    text-transform: uppercase;
+    color: #000000;
+}
 
-     .ph-contact-wrapper .ph-contact-form-input input,
-     .ph-contact-wrapper .ph-contact-form-input input::placeholder,
-     .ph-contact-wrapper .ph-contact-form-input textarea,
-     .ph-contact-wrapper .ph-contact-form-input textarea::placeholder {
-         font-size: 1.25rem;
-     }
- }
+.ph-contact-wrapper .ph-contact-form-input button.ph-contact-form-input-button {
+    width: 100%;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    padding: 1.25rem;
+    outline: none
+}
 
- @media screen and (max-width : 991px) {
 
-     .ph-contact-wrapper .ph-contact-flex {
-         flex-direction: column;
-         padding: 3rem 1.5rem 3rem 1.5rem;
-     }
 
-     .ph-contact-wrapper .ph-contact-flex>div:nth-child(2),
-     .ph-contact-wrapper .ph-contact-flex>div:nth-child(1) {
-         width: 100%;
-         flex-basis: 100%;
-     }
+@media screen and (max-width : 1450px) {
 
-     .ph-contact-wrapper .ph-contact-form-grid {
-         width: 100%;
-         padding: 3rem 0 0 0;
-     }
+    .ph-contact-wrapper .link-font p {
+        font-size: 1.25rem;
+        font-family: var(--light-font-family);
+    }
 
-     .ph-contact-wrapper .ph-contact-form-grid::before {
-         top: 0;
-         left: 0;
-         height: 1px;
-         width: 100%;
-     }
- }
+    .ph-contact-wrapper .ph-contact-form-input input,
+    .ph-contact-wrapper .ph-contact-form-input input::placeholder,
+    .ph-contact-wrapper .ph-contact-form-input textarea,
+    .ph-contact-wrapper .ph-contact-form-input textarea::placeholder {
+        font-size: 1.25rem;
+    }
+}
 
- @media screen and (max-width : 767px) {
+@media screen and (max-width : 991px) {
 
-     .ph-contact-wrapper .ph-contact-section-one {
-         height: 115vh;
-     }
+    .ph-contact-wrapper .ph-contact-flex {
+        flex-direction: column;
+        padding: 3rem 1.5rem 3rem 1.5rem;
+    }
 
- }
+    .ph-contact-wrapper .ph-contact-flex>div:nth-child(2),
+    .ph-contact-wrapper .ph-contact-flex>div:nth-child(1) {
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    .ph-contact-wrapper .ph-contact-form-grid {
+        width: 100%;
+        padding: 3rem 0 0 0;
+    }
+
+    .ph-contact-wrapper .ph-contact-form-grid::before {
+        top: 0;
+        left: 0;
+        height: 1px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width : 767px) {
+
+    .ph-contact-wrapper .ph-contact-section-one {
+        height: 115vh;
+    }
+
+}

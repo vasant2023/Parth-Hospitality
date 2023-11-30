@@ -51,14 +51,23 @@ export class ContactUsComponent implements OnInit {
   ngOnInit() {
   }
 
+  _keyPress(event: any) {
+    const pattern = /[0-9]/;
+    let inputChar = String.fromCharCode(event.charCode);
+    if (!pattern.test(inputChar)) {
+      event.preventDefault();
+    }
+  }
+
   submitContactForm(){
+    this.contactObj.type = 'contact';
     if(this.isLoading == false){
       this.isLoading = true;
 
       this.service.submitContactForm(this.contactObj).subscribe((response : {success:number, message:string}) => {
         if(response.success == 1){
           Swal.fire("Thank You for contacting!", "success");
-          this.router.navigate(["/items"]);
+          this.contactObj = {};
         }
         this.isLoading = false
       })

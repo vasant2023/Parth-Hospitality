@@ -489,7 +489,7 @@
 
     .ph-channel-partner-wrapper .ph-edge-wrapper .ph-cp-icon {
         border-radius: 1.75rem 1.75rem 0 0;
-        padding: 1rem;
+        padding: 1rem   ;
     }
 
     .ph-channel-partner-wrapper .ph-edge-grid-item>div:nth-child(1),

@@ -1,4 +1,4 @@
-<div id="ph-collection-wrapper" class="relative ph-collection-wrapper">
+<div id="ph-collection-wrapper" class="relative ph-collection-wrapper main_banner_section_pd">
   <section id="ph-collection-section-1" class="ph-section">
     <div class="about-banner-swiper-outer relative">
       <div class="banner_img relative">
@@ -16,19 +16,17 @@
   <div class="collection-container" style=" margin-top: 4rem;">
     <div class="flex">
       <div class="card" *ngFor="let item of collection_list">
-        <div class="" style="cursor: pointer;">
-          <!-- &w=360&h=216 -->
-          <a routerLink="/collections/{{item.slug}}">
-            <img class="" src="{{ item.banner_image }}&w=500&h=500" alt="Card image cap" />
-            <!-- style="height: 18rem;width: 30rem; object-fit: contain;"  -->
-          </a>
-          <div class="content">
-            <h5 class="" style="text-align: center;">{{ item.collection }}</h5>
-            <div class=" btn" style="width: 100%;">
-              <a routerLink="/collections/{{item.slug}}" class="">Explore</a>
+        <a routerLink="/collections/{{item.slug}}">
+          <div class="" style="cursor: pointer;">
+            <img class="" src="{{ item.banner_image }}&w=500&h=300" alt="Card image cap" />
+            <div class="content">
+              <h5 class="" style="text-align: center;">{{ item.collection }}</h5>
+              <div class=" btn" style="width: 100%;">
+                <p class="white-color">Explore</p>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>

@@ -49,9 +49,6 @@
   object-fit: contain;
 }
 
-.swiper-slide {
-  width: 100%;
-}
 
 .select_country_code {
   position: absolute;

@@ -6,7 +6,7 @@
           <div class="relative">
             <swiper class="swiper mainProductGalleryThumbs" #mainSwiper [config]="mainImageSwiper"
               (indexChange)="jumpThumb($event)">
-              <div class="swiper-slide" *ngFor="let item of collectionObj.images; let i = index">
+              <div class="swiper-slide main_swiper_width_pd" *ngFor="let item of collectionObj.images; let i = index">
                 <a data-fancybox="item-fancy" href="{{ item.image }}&w=675&h=385" target="_self">
                   <img src="{{ item.image }}&w=675&h=385" />
                 </a>

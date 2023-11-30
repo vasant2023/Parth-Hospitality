@@ -76,7 +76,7 @@
 }
 
 .ph-blog-wrapper .sec3_subtext_width {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: var(--small-gap-size);
@@ -121,12 +121,23 @@
   transform: translate(-50%, -50%);
 }
 
+.blog-title-main-font h3{
+  font-size: var(--content-font-size);
+  line-height: 1.5;
+}
 
+@media only screen and (max-width: 991px) {
+
+  .ph-blog-wrapper .project-list-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
 
 @media only screen and (max-width: 767px) {
 
   .ph-blog-wrapper .product-about-card-flex {
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 2rem;
     padding: 3%;
   }

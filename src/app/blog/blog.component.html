@@ -1,4 +1,4 @@
-<div id="ph-blog-wrapper" class="relative ph-blog-wrapper">
+<div id="ph-blog-wrapper " class="relative ph-blog-wrapper main_banner_section_pd">
   <section id="ph-blog-section-1" class="ph-section">
     <div class="about-banner-swiper-outer relative">
       <div class="banner_img relative">
@@ -33,7 +33,7 @@
                 {{blog_list[0].timestamp}}
               </p>
             </div>
-            <div class="read_flex">
+            <!-- <div class="read_flex">
               <div class="section-content-about">
                 <p class="small-content" style="color: gray;">
                   Read more
@@ -44,7 +44,7 @@
                   arrow_right_alt
                 </span>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="product-about-50">
@@ -56,47 +56,46 @@
     </div>
   </section>
   <section id="ph-blog-section-3" class="ph-section ">
-      <div class="about-container relative section-bottom-border">
-          <div class="project-list-grid">
-              <div *ngFor="let blog of blog_list">
-                  <div class="about_sec2_img">
-                      <img src="{{blog.blog_image_full}}" alt="">
-                  </div>
-                  <div class="sec3_subtext_width">
-                      <div class="regular-fonts">
-                          <p class="">
-                              Article
-                          </p>
-                      </div>
-                      <div class="section-content">
-                          <p>
-                              {{blog.title}}
-                          </p>
-                      </div>
-                      <div class="section-content-about">
-                          <p  class="small-content ">
-                              {{blog.timestamp}} <br>
-                          </p>
-                      </div>
-                      <a routerLink="/blog/{{blog.blog_ID}}">
-                        <div class="read_flex">
-                          <div class="section-content-about" style="color: gray;">
-                              <p  class="small-content ">
-                                  Read more
-                              </p>
-                          </div>
-                          <div class="right-blog-aerrow">
-                            <span class="material-symbols-outlined" style="vertical-align: middle; font-size: 2rem; color: gray;">
-                              arrow_right_alt
-                              </span>
-                          </div>
-                        </div>
-                      </a>
-                  </div>
+    <div class="about-container relative section-bottom-border">
+      <div class="project-list-grid">
+        <div *ngFor="let blog of blog_list">
+          <div class="about_sec2_img">
+            <img src="{{blog.blog_image_full}}" alt="">
+          </div>
+          <div class="sec3_subtext_width">
+            <div class="regular-fonts">
+              <p class="">
+                Article
+              </p>
+            </div>
+            <div class="section-subtitle blog-title-main-font">
+              <h3>
+                {{blog.title}}
+              </h3>
+            </div>
+            <div class="section-content-about">
+              <p class="small-content ">
+                {{blog.timestamp}} <br>
+              </p>
+            </div>
+            <a routerLink="/blog/{{blog.blog_ID}}">
+              <div class="read_flex">
+                <div class="section-content-about" style="color: gray;">
+                  <p class="small-content ">
+                    Read more
+                  </p>
+                </div>
+                <div class="right-blog-aerrow">
+                  <span class="material-symbols-outlined" style="vertical-align: middle; font-size: 2rem; color: gray;">
+                    arrow_right_alt
+                  </span>
+                </div>
               </div>
+            </a>
+          </div>
+        </div>
 
       </div>
     </div>
   </section>
-  <div class="section-bottom-border"></div>
 </div>

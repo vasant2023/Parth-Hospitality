@@ -39,14 +39,14 @@
 }
 
 #ph-detail-blog-wrapper .banner-title-sec {
-    /* position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%); */
     position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* position: absolute;
     left: 32%;
     top: 50%;
-    transform: translate(-25%, -50%);
+    transform: translate(-25%, -50%); */
     text-align: center;
 }
 
@@ -183,4 +183,9 @@
     #ph-detail-blog-wrapper .sec3_subtext_width {
         width: 100%;
     }
+}
+
+.blog_page_title h2 {
+    font-size: 3rem;
+    font-family: var(--bold-font-family);
 }
