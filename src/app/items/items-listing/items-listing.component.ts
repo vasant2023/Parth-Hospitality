@@ -19,6 +19,7 @@ export class ItemsListingComponent implements OnInit {
 
   item_list: any = [];
 
+
   // pager: any = {};
   // pagedItems: any[];
   // PageIndex: number = 1;
@@ -26,16 +27,37 @@ export class ItemsListingComponent implements OnInit {
   // flag: number = 1;
   search = "";
 
+  pager: any = {};
+  pagedItems: any[];
+  PageIndex: number = 1;
+  PageSize: number = 20;
+  flag: number = 1;
+
+
   objtotalrecords: number;
 
   public item_data = {
+
     // PageIndex: this.PageIndex,
     // PageSize: this.PageSize,
-    search: this.search,
+
+    PageIndex: this.PageIndex,
+    PageSize: this.PageSize,
+    search: "",
+
   };
 
   ngOnInit() {
     this.getItems();
+  }
+
+  onSearchChange(value: string) {
+    this.item_data.search = value;
+    if(this.item_data.search == ''){
+      this.getItems();
+    } else {
+      this.getItems();
+    }
   }
 
   getItems() {
