@@ -2,7 +2,11 @@
   <section id="ph-detail-blog-section-1" class="ph-section">
     <div class="about-banner-swiper-outer relative">
       <div class="banner_img relative">
-        <img src="{{blogObj.blog_image}}&h=400" alt="" >
+
+        <img src="assets/images/blog/Blog.png" alt=""  *ngIf="!blogObj.blog_image_full">
+        <img src="{{blogObj.blog_image_full}}" alt="" *ngIf="blogObj.blog_image_full">
+
+        <!-- <img src="{{blogObj.blog_image}}&h=400" alt="" > -->
         <div class="black_overlay"></div>
 
       </div>

@@ -28,8 +28,10 @@ export class ServiceService {
     body = body.append("apiId", apiId);
     body = body.append("flag", "all");
     body = body.append("search", data.search);
-    // body = body.append("page", data.PageIndex);
-    // body = body.append("limit", data.PageSize);
+    body = body.append("page", data.PageIndex);
+    body = body.append("limit", data.PageSize);
+    body = body.append("collection_ID", data.collection_ID);
+    body = body.append("category_ID", data.category_ID);
 
     let httpHeaders = new HttpHeaders({
       "Content-Type": "application/x-www-form-urlencoded",
@@ -54,13 +56,15 @@ export class ServiceService {
 
   // Laminates
 
-  getLaminates() {
+  getLaminates(data) {
     const url = environment.apiUrl + "laminates/list";
     const apiId = environment.apiId;
 
     let body = new HttpParams();
     body = body.append("apiId", apiId);
     body = body.append("flag", "all");
+    body = body.append("page", data.PageIndex);
+    body = body.append("limit", data.PageSize);
 
     let httpHeaders = new HttpHeaders({
       "Content-Type": "application/x-www-form-urlencoded",
@@ -285,6 +289,22 @@ export class ServiceService {
     return this.http.post(url, body, { headers: httpHeaders });
   }
 
+
+  item_categories(){
+    const url = environment.apiUrl + "categories/list_nested";
+    const apiId = environment.apiId;
+
+    let body = new HttpParams();
+    body = body.append("apiId", apiId);
+    body = body.append("flag", "all")
+    body = body.append("type", 'item');
+
+    let httpHeaders = new HttpHeaders({
+      "Content-Type": "application/x-www-form-urlencoded",
+    });
+    return this.http.post(url, body, { headers: httpHeaders });
+  }
+
   // Blogs
 
   getBlogs() {
@@ -301,13 +321,13 @@ export class ServiceService {
     return this.http.post(url, body, { headers: httpHeaders });
   }
 
-  getBlogDetails(blog_ID){
+  getBlogDetails(slug){
     const url = environment.apiUrl + "blogs/details";
     const apiId = environment.apiId;
 
     let body = new HttpParams();
     body = body.append("apiId", apiId);
-    body = body.append("slug", blog_ID);
+    body = body.append("slug", slug);
 
     let httpHeaders = new HttpHeaders({
       "Content-Type": "application/x-www-form-urlencoded",

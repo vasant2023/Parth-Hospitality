@@ -35,3 +35,24 @@
     </div>
   </section>
 </div>
+
+
+<ng-container *ngIf="laminate_list && laminate_list.length > 0">
+  <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+    <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+      <a class="page-link" (click)="setPage(1,1)">First</a>
+    </li>
+    <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+      <a class="page-link" (click)="setPage(pager.currentPage - 1,1)">Previous</a>
+    </li>
+    <li class="page-item" *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+      <a class="page-link" (click)="setPage(page,1)">{{page}}</a>
+    </li>
+    <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a class="page-link" (click)="setPage(pager.currentPage + 1,1)">Next</a>
+    </li>
+    <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a class="page-link" (click)="setPage(pager.totalPages,1)">Last</a>
+    </li>
+  </ul>
+</ng-container>
