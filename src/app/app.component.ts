@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { ServiceService } from './_services/service.service';
 
 @Component({
@@ -14,7 +14,16 @@ export class AppComponent implements OnInit{
     public service: ServiceService,
     private route :ActivatedRoute,
 
-  ){}
+  ){
+    router.events.subscribe(event => {
+
+      if (event instanceof NavigationEnd) {
+
+        window.scrollTo(0, 0);
+
+      }
+    });
+  }
 
   ngOnInit(){
     this.menuCollection();

@@ -2,20 +2,20 @@
   <section id="ph-detail-blog-section-1" class="ph-section">
     <div class="about-banner-swiper-outer relative">
       <div class="banner_img relative">
-        <img src="assets/images/blog/Blog.png" alt="">
+        <img src="{{blogObj.blog_image}}&h=400" alt="" >
         <div class="black_overlay"></div>
-
-        <div class="page-title banner-title-sec">
-          <h2 class="white-color text-uppercase" style="padding-top: 5rem;">
-            {{blogObj.title}}
-          </h2>
-        </div>
       </div>
     </div>
   </section>
+
   <section id="ph-detail-blog-section-3" class="ph-section ">
     <div class="about-container relative sec2_padding">
       <div class="section-content">
+        <div class="section-subtitle-blog">
+          <h3>
+            {{blogObj.title}}
+          </h3>
+        </div>
         <p innerHTML="{{blogObj.description}}">
         </p>
       </div>

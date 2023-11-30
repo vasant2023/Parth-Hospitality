@@ -15,7 +15,7 @@
   </section>
   <section id="ph-blog-section-2" class="ph-section ">
     <div class="about-container relative sec2_padding  section-bottom-border">
-      <div class="product-about-card-flex" routerLink="{{blog_list[0].blog_ID}}" style="cursor: pointer;">
+      <div class="product-about-card-flex" routerLink="{{blog_list[0].slug}}" style="cursor: pointer;">
         <div class="product-about-50">
           <div class="sec2_subtext_width">
             <div class="regular-fonts">
@@ -58,7 +58,7 @@
   <section id="ph-blog-section-3" class="ph-section ">
       <div class="about-container relative section-bottom-border">
           <div class="project-list-grid">
-              <div *ngFor="let blog of blog_list">
+              <div *ngFor="let blog of blog_list" routerLink="/blog/{{blog.slug}}">
                   <div class="about_sec2_img">
                       <img src="{{blog.blog_image_full}}" alt="">
                   </div>
@@ -68,7 +68,7 @@
                               Article
                           </p>
                       </div>
-                      <div class="section-content">
+                      <div class="blog-title">
                           <p>
                               {{blog.title}}
                           </p>
@@ -78,7 +78,7 @@
                               {{blog.timestamp}} <br>
                           </p>
                       </div>
-                      <a routerLink="/blog/{{blog.blog_ID}}">
+                      <a routerLink="/blog/{{blog.slug}}">
                         <div class="read_flex">
                           <div class="section-content-about" style="color: gray;">
                               <p  class="small-content ">

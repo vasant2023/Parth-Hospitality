@@ -153,3 +153,9 @@
     width: 100%;
   }
 }
+
+.blog-title p {
+	font-size: var(--content-font-size);
+	font-family: var(--regular-font-family);
+  font-weight: 600;
+}
