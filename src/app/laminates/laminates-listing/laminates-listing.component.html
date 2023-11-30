@@ -13,7 +13,10 @@
     </div>
   </section>
 
-  <section id="ph-laminate-section-2" class="ph-section relative section-padding">
+  <div class="loader" *ngIf="isLoading">
+  </div>
+
+  <section id="ph-laminate-section-2" class="ph-section relative section-padding" *ngIf="!isLoading">
     <div class="main-container">
       <div class="relative">
         <div class="laminate-flex-sec">

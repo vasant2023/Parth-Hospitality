@@ -1,4 +1,7 @@
-<div id="ph-specification-wrapper" class="relative">
+<div class="loader" *ngIf="isLoading">
+</div>
+
+<div id="ph-specification-wrapper" class="relative" *ngIf="!isLoading">
   <section id="ph-specification-section-1" class="ph-section">
     <div class="main-container-fluid">
       <div class="specification-banner-flex">

@@ -11,7 +11,10 @@
     </div>
   </section>
 
-  <section id="ph-items-section-2" class="ph-section relative section-padding">
+  <div class="loader" *ngIf="isLoading">
+  </div>
+
+  <section id="ph-items-section-2" class="ph-section relative section-padding" *ngIf="!isLoading">
     <div class="main-container">
       <div class="inner-flex inner-flex-medium">
         <div class="filter-search-flex">
@@ -172,7 +175,7 @@
 </div>
 
 
-<!-- 
+<!--
 <ng-container *ngIf="item_list && item_list.length > 0">
   <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
     <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">

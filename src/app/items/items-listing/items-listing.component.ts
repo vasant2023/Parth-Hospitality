@@ -32,6 +32,7 @@ export class ItemsListingComponent implements OnInit {
   PageIndex: number = 1;
   PageSize: number = 20;
   flag: number = 1;
+  public isLoading:boolean = false;
 
 
   objtotalrecords: number;
@@ -61,6 +62,7 @@ export class ItemsListingComponent implements OnInit {
   }
 
   getItems() {
+    this.isLoading = true;
     this.item_data.search = this.item_data.search ? this.item_data.search : "";
     // this.item_data.PageIndex = this.PageIndex;
     // this.item_data.PageSize = this.PageSize;
@@ -80,6 +82,7 @@ export class ItemsListingComponent implements OnInit {
       } else {
         this.item_list = [];
       }
+      this.isLoading = false;
     })
   }
 

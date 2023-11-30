@@ -468,6 +468,7 @@ body.no-scroll-body {
 	gap: 0.5rem;
 }
 
+
 .inner-flex.inner-flex-small {
 	gap: var(--small-gap-size);
 }
@@ -3127,3 +3128,4 @@ fieldset:disabled .btn {
 .text-center p {
 	text-align: center !important;
 }
+

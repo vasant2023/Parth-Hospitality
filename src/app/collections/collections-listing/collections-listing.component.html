@@ -13,7 +13,11 @@
       </div>
     </div>
   </section>
-  <div class="collection-container" style=" margin-top: 4rem;">
+
+  <div class="loader" *ngIf="isLoading">
+  </div>
+
+  <div class="collection-container" style=" margin-top: 4rem;" *ngIf="!isLoading">
     <div class="flex">
       <div class="card" *ngFor="let item of collection_list">
 

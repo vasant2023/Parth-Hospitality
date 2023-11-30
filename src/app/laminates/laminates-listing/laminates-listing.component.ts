@@ -14,6 +14,8 @@ export class LaminatesListingComponent implements OnInit {
     public service: ServiceService
   ) { }
 
+  public isLoading:boolean = false;
+
   laminate_list: any = [];
 
   ngOnInit() {
@@ -21,6 +23,7 @@ export class LaminatesListingComponent implements OnInit {
   }
 
   getLaminates(){
+    this.isLoading = true;
     this.service.getLaminates().subscribe((response : {success: number, message: string, laminates:[]}) => {
       if(response.success == 1){
         this.laminate_list = response.laminates;
@@ -28,6 +31,7 @@ export class LaminatesListingComponent implements OnInit {
         // this.toastr.error(response.message, "Error", {});
         // this.loaderService.hide();
       }
+      this.isLoading = false;
     })
   }
 

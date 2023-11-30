@@ -14,7 +14,12 @@
       </div>
     </div>
   </section>
-  <section id="ph-blog-section-2" class="ph-section">
+
+  <div class="loader" *ngIf="isLoading">
+  </div>
+
+
+  <section id="ph-blog-section-2" class="ph-section" *ngIf="!isLoading">
     <div class="about-container relative sec2_padding section-bottom-border">
       <div
         class="product-about-card-flex"
@@ -58,7 +63,7 @@
       </div>
     </div>
   </section>
-  <section id="ph-blog-section-3" class="ph-section">
+  <section id="ph-blog-section-3" class="ph-section" *ngIf="!isLoading">
     <div class="about-container relative section-bottom-border">
       <div class="project-list-grid">
         <div *ngFor="let blog of blog_list" routerLink="/blog/{{blog.slug}}">
