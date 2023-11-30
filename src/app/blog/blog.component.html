@@ -1,36 +1,38 @@
-<div id="ph-blog-wrapper " class="relative ph-blog-wrapper main_banner_section_pd">
+<div
+  id="ph-blog-wrapper "
+  class="relative ph-blog-wrapper main_banner_section_pd"
+>
   <section id="ph-blog-section-1" class="ph-section">
     <div class="about-banner-swiper-outer relative">
       <div class="banner_img relative">
-        <img src="assets/images/blog/Blog.png" alt="">
+        <img src="assets/images/blog/Blog.png" alt="" />
         <div class="black_overlay"></div>
 
         <div class="page-title banner-title-sec">
-          <h2 class="white-color text-uppercase">
-            BLOGS
-          </h2>
+          <h2 class="white-color text-uppercase">BLOGS</h2>
         </div>
       </div>
     </div>
   </section>
-  <section id="ph-blog-section-2" class="ph-section ">
-    <div class="about-container relative sec2_padding  section-bottom-border">
-      <div class="product-about-card-flex" routerLink="{{blog_list[0].slug}}" style="cursor: pointer;">
+  <section id="ph-blog-section-2" class="ph-section">
+    <div class="about-container relative sec2_padding section-bottom-border">
+      <div
+        class="product-about-card-flex"
+        style="cursor: pointer"
+      >
         <div class="product-about-50">
           <div class="sec2_subtext_width">
             <div class="regular-fonts">
-              <p class="">
-                Article
-              </p>
+              <p class="">Article</p>
             </div>
             <div class="section-subtitle">
               <h3>
-                {{blog_list[0].title}}
+                {{ blog_list[0].title }}
               </h3>
             </div>
             <div class="section-content">
               <p>
-                {{blog_list[0].timestamp}}
+                {{ blog_list[0].timestamp }}
               </p>
             </div>
             <!-- <div class="read_flex">
@@ -49,92 +51,86 @@
         </div>
         <div class="product-about-50">
           <div class="about_sec2_img">
-            <img src="{{blog_list[0].blog_image_full}}" alt="">
+            <img src="{{ blog_list[0].blog_image_full }}" alt="" />
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section id="ph-blog-section-3" class="ph-section ">
-
-      <div class="about-container relative section-bottom-border">
-          <div class="project-list-grid">
-              <div *ngFor="let blog of blog_list" routerLink="/blog/{{blog.slug}}">
-                  <div class="about_sec2_img">
-                      <img src="{{blog.blog_image_full}}" alt="">
-                  </div>
-                  <div class="sec3_subtext_width">
-                      <div class="regular-fonts">
-                          <p class="">
-                              Article
-                          </p>
-                      </div>
-                      <div class="blog-title">
-                          <p>
-                              {{blog.title}}
-                          </p>
-                      </div>
-                      <div class="section-content-about">
-                          <p  class="small-content ">
-                              {{blog.timestamp}} <br>
-                          </p>
-                      </div>
-                      <a routerLink="/blog/{{blog.slug}}">
-                        <div class="read_flex">
-                          <div class="section-content-about" style="color: gray;">
-                              <p  class="small-content ">
-                                  Read more
-                              </p>
-                          </div>
-                          <div class="right-blog-aerrow">
-                            <span class="material-symbols-outlined" style="vertical-align: middle; font-size: 2rem; color: gray;">
-                              arrow_right_alt
-                              </span>
-                          </div>
-                        </div>
-                      </a>
-                  </div>
+  <section id="ph-blog-section-3" class="ph-section">
+    <div class="about-container relative section-bottom-border">
+      <div class="project-list-grid">
+        <div *ngFor="let blog of blog_list">
+          <div class="about_sec2_img">
+            <img src="{{ blog.blog_image_full }}" alt="" />
+          </div>
+          <div class="sec3_subtext_width">
+            <div class="regular-fonts">
+              <p class="">Article</p>
+            </div>
+            <div class="blog-title">
+              <p>
+                {{ blog.title }}
+              </p>
+            </div>
+            <div class="section-content-about">
+              <p class="small-content">{{ blog.timestamp }} <br /></p>
+            </div>
+            <a routerLink="/blog/{{ blog.slug }}">
+              <div class="read_flex">
+                <div class="section-content-about" style="color: gray">
+                  <p class="small-content">Read more</p>
+                </div>
+                <div class="right-blog-aerrow">
+                  <span
+                    class="material-symbols-outlined"
+                    style="vertical-align: middle; font-size: 2rem; color: gray"
+                  >
+                    arrow_right_alt
+                  </span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="about-container relative section-bottom-border">
       <div class="project-list-grid">
         <div *ngFor="let blog of blog_list">
           <div class="about_sec2_img">
-            <img src="{{blog.blog_image_full}}" alt="">
+            <img src="{{ blog.blog_image_full }}" alt="" />
           </div>
           <div class="sec3_subtext_width">
             <div class="regular-fonts">
-              <p class="">
-                Article
-              </p>
+              <p class="">Article</p>
             </div>
             <div class="section-subtitle blog-title-main-font">
               <h3>
-                {{blog.title}}
+                {{ blog.title }}
               </h3>
             </div>
             <div class="section-content-about">
-              <p class="small-content ">
-                {{blog.timestamp}} <br>
-              </p>
+              <p class="small-content">{{ blog.timestamp }} <br /></p>
             </div>
-            <a routerLink="/blog/{{blog.blog_ID}}">
+            <a routerLink="/blog/{{ blog.slug }}">
               <div class="read_flex">
-                <div class="section-content-about" style="color: gray;">
-                  <p class="small-content ">
-                    Read more
-                  </p>
+                <div class="section-content-about" style="color: gray">
+                  <p class="small-content">Read more</p>
                 </div>
                 <div class="right-blog-aerrow">
-                  <span class="material-symbols-outlined" style="vertical-align: middle; font-size: 2rem; color: gray;">
+                  <span
+                    class="material-symbols-outlined"
+                    style="vertical-align: middle; font-size: 2rem; color: gray"
+                  >
                     arrow_right_alt
                   </span>
                 </div>
-
               </div>
             </a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
