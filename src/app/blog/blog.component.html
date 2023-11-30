@@ -49,7 +49,7 @@
         </div>
         <div class="product-about-50">
           <div class="about_sec2_img">
-            <img src="assets/images/blog/blog1.png" alt="">
+            <img src="{{blog_list[0].blog_image_full}}" alt="">
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@
           <div class="project-list-grid">
               <div *ngFor="let blog of blog_list">
                   <div class="about_sec2_img">
-                      <img src="{{blog.banner_image_full}}" alt="">
+                      <img src="{{blog.blog_image_full}}" alt="">
                   </div>
                   <div class="sec3_subtext_width">
                       <div class="regular-fonts">

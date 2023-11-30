@@ -65,8 +65,7 @@
               <div class="search-btn">
                 <img src="assets/images/icons/search.png" alt="" />
               </div>
-              <input type="text" name="search" id="search" class="search-input" placeholder="Search" (keyup.enter)="getItems(1)"
-                [(ngModel)]="item_data.search" autocomplete="off" />
+              <input type="text" name="search" id="search" class="search-input" placeholder="Search" autocomplete="off" [(ngModel)]="item_data.search" (ngModelChange)="onSearchChange($event)"/>
             </div>
           </div>
         </div>

@@ -24,17 +24,26 @@ export class ItemsListingComponent implements OnInit {
   PageIndex: number = 1;
   PageSize: number = 20;
   flag: number = 1;
- 
+
   objtotalrecords: number;
 
   public item_data = {
     PageIndex: this.PageIndex,
     PageSize: this.PageSize,
-    // search: this.search,
+    search: "",
   };
 
   ngOnInit() {
     this.getItems();
+  }
+
+  onSearchChange(value: string) {
+    this.item_data.search = value;
+    if(this.item_data.search == ''){
+      this.getItems();
+    } else {
+      this.getItems();
+    }
   }
 
   getItems() {
