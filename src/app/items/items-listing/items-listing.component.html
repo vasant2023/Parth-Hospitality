@@ -1,4 +1,4 @@
-<div id="ph-items-wrapper" class="relative ph-items-wrapper">
+<div id="ph-items-wrapper" class="relative ph-items-wrapper main_banner_section_pd">
   <section id="ph-items-section-1" class="ph-section relative">
     <div class="relative">
       <div class="banner_img">
@@ -65,7 +65,8 @@
               <div class="search-btn">
                 <img src="assets/images/icons/search.png" alt="" />
               </div>
-              <input type="text" name="search" id="search" class="search-input" placeholder="Search" autocomplete="off" [(ngModel)]="item_data.search" (ngModelChange)="onSearchChange($event)"/>
+              <input type="text" name="search" id="search" class="search-input" placeholder="Search" autocomplete="off"
+                [(ngModel)]="item_data.search" (ngModelChange)="onSearchChange($event)" />
             </div>
           </div>
         </div>
@@ -74,16 +75,19 @@
           <div class="items-flex-sec">
             <div class="items-sec inner-flex inner-flex-common" *ngFor="let item of item_list">
               <a data-fancybox="item-fancy" href="{{ item.banner_image_full }}" target="_self">
-                <div class="items-img-sec relative">
-                  <img src="{{ item.banner_image_full }}" alt="" />
-                  <div class="black_overlay"></div>
+                <div class="relative">
+                  <div class="items-img-sec">
+                    <img src="{{ item.banner_image_full }}" alt="" />
+                    <div class="black_overlay"></div>
+                  </div>
+                  <div class="hoverarrow_icon">
+                    <img src="assets/images/icons/item-hover-icon.png" alt="" />
+                  </div>
                 </div>
                 <div class="small-content item_main_title">
                   <p class="medium-fonts">{{ item.item }}</p>
                 </div>
-                <div class="hoverarrow_icon">
-                  <img src="assets/images/icons/item-hover-icon.png" alt="" />
-                </div>
+
               </a>
             </div>
           </div>
@@ -168,7 +172,7 @@
 </div>
 
 
-
+<!-- 
 <ng-container *ngIf="item_list && item_list.length > 0">
   <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
     <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
@@ -187,4 +191,4 @@
       <a class="page-link" (click)="setPage(pager.totalPages,1)">Last</a>
     </li>
   </ul>
-</ng-container>
+</ng-container> -->

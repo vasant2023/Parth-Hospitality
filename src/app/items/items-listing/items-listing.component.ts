@@ -19,18 +19,32 @@ export class ItemsListingComponent implements OnInit {
 
   item_list: any = [];
 
+
+  // pager: any = {};
+  // pagedItems: any[];
+  // PageIndex: number = 1;
+  // PageSize: number = 20;
+  // flag: number = 1;
+  search = "";
+
   pager: any = {};
   pagedItems: any[];
   PageIndex: number = 1;
   PageSize: number = 20;
   flag: number = 1;
 
+
   objtotalrecords: number;
 
   public item_data = {
+
+    // PageIndex: this.PageIndex,
+    // PageSize: this.PageSize,
+
     PageIndex: this.PageIndex,
     PageSize: this.PageSize,
     search: "",
+
   };
 
   ngOnInit() {
@@ -47,37 +61,36 @@ export class ItemsListingComponent implements OnInit {
   }
 
   getItems() {
-    // this.item_data.search = this.search;
-    // this.item_data.search = this.item_data.search ? this.item_data.search : "";
-    this.item_data.PageIndex = this.PageIndex;
-    this.item_data.PageSize = this.PageSize;
+    this.item_data.search = this.item_data.search ? this.item_data.search : "";
+    // this.item_data.PageIndex = this.PageIndex;
+    // this.item_data.PageSize = this.PageSize;
 
     this.service.getItems(this.item_data).subscribe((response: { success: number, message: string, items: [] }) => {
       if (response.success == 1) {
         this.item_list = response.items;
-        this.objtotalrecords = 200;
+        // this.objtotalrecords = 200;
 
-        if (this.item_list.length > 0 && this.flag == 1) { // initialize to page 1
-            this.flag = 0;
-            this.setPage(this.PageIndex, this.flag);
-        }
-        else if (this.item_list.length == 0) {
-            this.item_list = [];
-        }
+        // if (this.item_list.length > 0 && this.flag == 1) { // initialize to page 1
+        //   this.flag = 0;
+        //   this.setPage(this.PageIndex, this.flag);
+        // }
+        // else if (this.item_list.length == 0) {
+        //   this.item_list = [];
+        // }
       } else {
         this.item_list = [];
       }
     })
   }
 
-  setPage(page: number, flag: number) {
+  // setPage(page: number, flag: number) {
 
-    this.pager = this.pagerService.getPager(200, page, this.PageSize);
-    this.PageIndex = this.pager.currentPage;
-    if (flag == 1) {
-      this.getItems();
-    }
-  }
+  //   this.pager = this.pagerService.getPager( page, this.PageSize);
+  //   this.PageIndex = this.pager.currentPage;
+  //   if (flag == 1) {
+  //     this.getItems();
+  //   }
+  // }
 
 
 }

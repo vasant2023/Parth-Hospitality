@@ -6,7 +6,7 @@
         <img src="assets/images/logo/logo.svg" alt="">
       </a>
     </div>
-    <div class="header-links hide-tab-mobile">
+    <div class="header-links hidden-header-mobile-view">
       <ul>
         <li>
           <a routerLink="/">
@@ -34,7 +34,7 @@
                     chevron_right
                   </span>
                 </a>
-                <a routerLink="/collections"  *ngIf="item.children.length <= 0">
+                <a routerLink="/collections" *ngIf="item.children.length <= 0">
                   <p>{{item.category}}</p>
                   <span class="material-symbols-outlined">
                     chevron_right
@@ -87,10 +87,12 @@
       </ul>
     </div>
     <div class="header-icons-flex">
-      <div class="search-btn-header">
-        <span class="material-symbols-outlined">
-          search
-        </span>
+      <div class="inquiry_now_header_btn">
+        <a href="javascript:void(0)">
+          <button>
+            Inquire now
+          </button>
+        </a>
       </div>
       <div class="visible-tab-mobile">
         <div class="nav-toggle">
@@ -242,12 +244,15 @@
                   </a>
                 </li>
                 <li>
-                  <a routerLink="/contact-us" >
+
+
+                  <a routerLink="contact-us">
+
                     <p class="regular-fonts">Contact</p>
                   </a>
                 </li>
                 <li>
-                  <a routerLink="/channel-partner" >
+                  <a routerLink="/channel-partner">
                     <p class="regular-fonts">Channel Partner</p>
                   </a>
                 </li>

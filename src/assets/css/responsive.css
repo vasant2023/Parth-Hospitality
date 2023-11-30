@@ -1,11 +1,4 @@
-@media only screen and (max-width:1680px) {}
 
-@media only screen and (max-width:1450px) {
-    html {
-        font-size: 12px;
-    }
-
-}
 
 @media only screen and (max-width:1366px) {
     .companies-card-image {
@@ -25,18 +18,8 @@
     }
 }
 
-@media only screen and (max-width:1280px) {
-    html {
-        font-size: 10px;
-    }
-}
-
-@media only screen and (max-width:1152px) {}
-
 @media only screen and (max-width:1024px) {
-    html {
-        font-size: 9px;
-    }
+
 
     .banner-title h2,
     .banner-title h2 span {
@@ -61,10 +44,7 @@
 @media only screen and (max-width:991px) {
 
 
-    html {
-        font-size: 10px;
-    }
-
+ 
     .visible-tab-mobile {
         display: block !important;
     }
