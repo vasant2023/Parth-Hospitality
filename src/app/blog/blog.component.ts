@@ -16,6 +16,7 @@ export class BlogComponent implements OnInit {
 
   public isLoading:boolean = false;
   blog_list: any = [];
+  remaining_blog_list: any = [];
 
   ngOnInit() {
     this.getBlogs();
@@ -26,6 +27,9 @@ export class BlogComponent implements OnInit {
     this.service.getBlogs().subscribe((response : {success: number, message: string, blogs:[]}) => {
       if(response.success == 1){
         this.blog_list = response.blogs;
+        if(this.blog_list.length > 0){
+          this.remaining_blog_list = this.blog_list.slice(1);
+        }
       } else {
 
       }

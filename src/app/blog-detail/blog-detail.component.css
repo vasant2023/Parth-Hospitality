@@ -155,7 +155,7 @@
 }
 
 .section-subtitle-blog h3 {
-  font-size: var(--title-font-size);
+  font-size: var(--subtitle-font-size);
 	font-family: var(--medium-font-family-p);
   padding-bottom: 2rem;
 }
