@@ -29,8 +29,15 @@ export class ChannelPartnerComponent implements OnInit {
     email: "",
     phone: "",
     message: "",
-    company_name: "",
+    city: "",
+    state: "",
+    zip_code: "",
+    country: "",
   }
+
+
+
+
 
   isLoading = false;
 
@@ -44,6 +51,53 @@ export class ChannelPartnerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getCountries();
+  }
+
+
+  _keyPress(event: any) {
+    const pattern = /[0-9]/;
+    let inputChar = String.fromCharCode(event.charCode);
+    if (!pattern.test(inputChar)) {
+      event.preventDefault();
+    }
+  }
+
+  countries: any = [];
+  states: any = [];
+  cities: any = [];
+
+
+  getCountries() {
+    this.service.getCountries().subscribe((response: { success: number, message: string, data: [] }) => {
+      if (response.success == 1) {
+        this.countries = response.data;
+      }
+    })
+  }
+
+  loadStates(country) {
+    if (country) {
+      this.service.getStates(country).subscribe((response: { success: number, message: string, data: [] }) => {
+        if (response.success == 1) {
+          this.states = response.data;
+        } else {
+          console.log(response.message)
+        }
+      })
+    }
+  }
+
+  loadCities(state) {
+    if (state) {
+      this.service.getCities(state).subscribe((response: { success: number, message: string, data: [] }) => {
+        if (response.success == 1) {
+          this.cities = response.data;
+        } else {
+          console.log(response.message)
+        }
+      })
+    }
   }
  
   submitContactForm(){

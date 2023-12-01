@@ -132,28 +132,41 @@
 
 
 
-@media only screen and (max-width:1450px) {
-
-
+@media only screen and (max-width:1152px) {
   .ph-items-wrapper .items-sec {
-    flex-basis: calc(26.2% - 2.5rem);
+    flex-basis: calc(33.33% - 2.7rem);
   }
 }
 
 
 @media only screen and (max-width:991px) {
+  .ph-items-wrapper .items-flex-sec {
+    gap: 2rem;
+  }
 
   .ph-items-wrapper .items-sec {
-    flex-basis: calc(52.4% - 2.5rem);
+    flex-basis: calc(50% - 1rem);
   }
 
   .ph-items-wrapper .items-sec .small-content p {
     font-size: 1.8rem;
   }
 
+  .visible-tab-mobile {
+    display: none !important;
+  }
+
 }
 
 @media only screen and (max-width: 767px) {
+  .visible-tab-mobile {
+    display: block !important;
+  }
+
+  .banner_img img {
+    height: 60vh;
+    object-fit: cover;
+  }
 
   .ph-items-wrapper .items-sec {
     flex-basis: 100%;
@@ -316,4 +329,101 @@
 
 .select_main_item_control::-ms-expand {
   display: none;
+}
+
+
+.filter_mobile_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(82 82 82 / 40%);
+  z-index: 999999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all ease 0.4s;
+}
+
+.filter_mobile_overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media only screen and (max-width:1024px) {
+
+  .search-btn img {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width:767px) {
+  .search-btn img {
+    width: 100%;
+  }
+
+  .ph-items-wrapper .search-input {
+    font-size: 10px;
+  }
+
+  .material-symbols-outlined {
+    font-size: 15px;
+  }
+
+  .filter-search-sec {
+    flex-basis: 50%;
+  }
+
+  .select_main_item_control {
+    border: unset;
+    padding: 2rem 0 0 0;
+    border-radius: unset;
+    font-size: 1.5rem;
+    background: url(../../../assets/images/icons/down-arrow.png) 98% / 4% no-repeat;
+  }
+
+  :focus-visible {
+    outline: unset;
+  }
+
+  .form-control:focus {
+    box-shadow: unset !important;
+  }
+
+
+  .apply_now_btn button {
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    color: var(--white-color);
+  }
+
+
+
+  .clear_now_btn button{
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem;
+    background-color: red;
+    border: 1px solid red;
+    color: var(--white-color);
+  }
+
+  .apply_clear_filter{
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+.clear-btn{
+  width: 100%;
+}
+
+.section-clear-content p{
+  font-size: var(--regular-font-family);
+  font-family: var(--light-font-family);
+  line-height: normal;
+  cursor: pointer;
+  text-decoration: underline;
+  color: red;
 }

@@ -112,4 +112,8 @@ export class HomepageComponent implements OnInit {
             }
         })
     }
+
+    convertToNumber(value: string): number {
+        return Number(value);
+    }
 }

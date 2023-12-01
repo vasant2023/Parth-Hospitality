@@ -210,35 +210,10 @@ export class CollectionDetailComponent implements OnInit {
         console.log(this.collectionObj);
         this.contactObj.collection_id = this.collectionObj.collection_ID;
 
-
         if (response.success == 1) {
           this.collectionDetail = response.collection;
           this.sizeSpecificationItems = this.collectionDetail.items;
 
-          // this.collectionDetail.items.forEach((individualItem) => {
-          //   this.hardwareArray.push(individualItem.hardwares);
-          // });
-
-          // this.collectionDetail.items.forEach((individualLaminate) => {
-          //   this.laminateArray.push(individualLaminate.laminate);
-          // });
-
-          // this.flatArrayHardware = this.hardwareArray.flat();
-          // this.flatArrayLaminates = this.laminateArray.flat();
-
-          // Remove duplicates from flatArrayHardware
-          // this.flatArrayHardware = this.flatArrayHardware.filter((item, index, self) =>
-          // index === self.findIndex((t) => (
-          //   t.hardware === item.hardware
-          // ))
-          // );
-
-          // Remove duplicates from flatArrayLaminates
-          // this.flatArrayLaminates = this.flatArrayLaminates.filter((item, index, self) =>
-          // index === self.findIndex((t) => (
-          //   t.laminate === item.laminate
-          // ))
-          // );
         }
 
         this.isLoading = false;
@@ -249,19 +224,12 @@ export class CollectionDetailComponent implements OnInit {
 
 
   submitContactForm() {
-    // console.log(this.contactObj)
-    // return false
-    // if(form.valid){
-
-    // console.log(this.contactObj, "Contact object");
-    // return false;
     if (this.isLoading == false) {
       this.isLoading = true;
 
       this.service.submitContactForm(this.contactObj).subscribe((response: { success: number, message: string }) => {
         if (response.success == 1) {
           this.contactObj.phone = this.contactObj.country + " " + this.contactObj.phone;
-          console.log(this.contactObj.phone);
           this.enquiry = false
           Swal.fire("Thank You for Contacting!", "Our team members will be in touch with you shortly!");
           this.router.navigate(["/collections"]);
@@ -358,4 +326,8 @@ export class CollectionDetailComponent implements OnInit {
     })
   }
 
+
+  convertToNumber(value: string): number {
+    return Number(value);
+  }
 }

@@ -37,7 +37,7 @@
 </div>
 
 
-<ng-container *ngIf="laminate_list && laminate_list.length > 0">
+<!-- <ng-container *ngIf="laminate_list && laminate_list.length > 0">
   <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
     <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
       <a class="page-link" (click)="setPage(1,1)">First</a>
@@ -54,5 +54,53 @@
     <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
       <a class="page-link" (click)="setPage(pager.totalPages,1)">Last</a>
     </li>
+  </ul>
+</ng-container> -->
+
+
+<ng-container *ngIf=" laminate_list && laminate_list.length> 0">
+  <ul *ngIf="usersPager.pages && usersPager.pages.length > 1" class="pagination">
+    <ng-container *ngIf="usersPager.currentPage > 1">
+      <li class="page-item pgbtn prev">
+        <a class="page-link" (click)="setUsersPage(usersPager.currentPage - 1, 1)"><span
+            class="material-symbols-outlined"> arrow_back_ios</span> Prev</a>
+      </li>
+    </ng-container>
+
+    <ng-container *ngIf="usersPager.startPage != 1">
+      <li class="page-item first">
+        <a class="page-link " (click)="setUsersPage(1,1)">1</a>
+      </li>
+    </ng-container>
+
+    <ng-container *ngIf="usersPager.startPage != 1">
+      <li class="dots">
+        <a class="page-link">...</a>
+      </li>
+    </ng-container>
+
+    <li class="page-item" *ngFor="let page of usersPager.pages" [ngClass]="{active:usersPager.currentPage === page}">
+      <a class="page-link" (click)="setUsersPage(page,1)">{{page}}</a>
+    </li>
+
+    <ng-container *ngIf="usersPager.endPage != usersPager.totalPages">
+      <li class="dots">
+        <a class="page-link">...</a>
+      </li>
+    </ng-container>
+
+    <ng-container *ngIf="usersPager.endPage != usersPager.totalPages">
+      <li class="page-item last">
+        <a class="page-link" (click)="setUsersPage(usersPager.totalPages,1)">{{usersPager.totalPages}}</a>
+      </li>
+    </ng-container>
+
+    <ng-container *ngIf="usersPager.currentPage < usersPager.totalPages">
+      <li class="page-item pgbtn next">
+        <a class="page-link" (click)="setUsersPage(usersPager.currentPage + 1, 1)">Next <span
+            class="material-symbols-outlined"> navigate_next</span></a>
+      </li>
+    </ng-container>
+
   </ul>
 </ng-container>

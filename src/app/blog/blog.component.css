@@ -136,6 +136,11 @@
 
 @media only screen and (max-width: 767px) {
 
+  .banner_img img{
+    height: 60vh;
+    object-fit: cover;
+  }
+
   .ph-blog-wrapper .product-about-card-flex {
     flex-direction: column-reverse;
     gap: 2rem;

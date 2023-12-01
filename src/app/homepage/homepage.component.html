@@ -202,7 +202,7 @@
       <div class="section-padding section-bottom-border relative" *ngIf="collection_list.length > 0">
         <swiper class="swiper homeProductSwiper" #mainSwiper [config]="homeProductSwiper">
           <ng-container *ngFor="let item of collection_list;index as i">
-            <div class="swiper-slide" *ngIf="i == 5 || i == 1">
+            <div class="swiper-slide" *ngIf="i == 1 || i == 5">
               <div class="product-home-card-flex">
                 <div class="product-home-card-content">
                   <div class="inner-flex inner-flex-small">
@@ -217,7 +217,8 @@
                       <div class="section-content">
                         <p class="white-color">${{item.sale_price}}</p>
                       </div>
-                      <div class="regular-fonts" *ngIf=" item.price > item.sale_price">
+                      <!-- *ngIf="item.price > item.sale_price" -->
+                      <div class="regular-fonts" *ngIf="convertToNumber(item.price) > convertToNumber(item.sale_price)">
                         <p class="secondary-color striked-text line-through">
                           ${{item.price}}
                         </p>
@@ -231,7 +232,8 @@
                   </div>
                 </div>
                 <div class="product-home-card-image relative">
-                  <img src="assets/images/home/almond-collect.jpg" class="main-product-img" />
+                  <!-- <img src="assets/images/home/almond-collect.jpg" class="main-product-img" /> -->
+                  <img src="{{item.banner_image_full}}" alt="">
                   <!-- <div class="discount-lable-swiper-card">
                     <img src="assets/images/home/discount-lable.svg" alt="" />
                   </div> -->

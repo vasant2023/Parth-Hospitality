@@ -62,7 +62,7 @@
 }
 
 .select_country_main_wrapper .contact_code {
-  margin-left: 18%;
+  margin-left: 4.5rem;
 }
 
 .form-control:focus {
@@ -77,16 +77,17 @@
 .side_popup_wrapper .select_country_main_wrapper.contact_lable input.not_required~label.md-lable,
 .side_popup_wrapper .select_country_main_wrapper.contact_lable.active input~label.md-lable,
 .side_popup_wrapper .select_country_main_wrapper.contact_lable.active input.not_required~label.md-lable {
-  left: -16% !important;
+  left: -4rem !important;
 }
 
 .country_code_data>div {
   font-size: 1.25em;
 }
 
-
-
-
+.down-country-angle i {
+  font-size: 1rem;
+  padding-left: 0.3rem;
+}
 
 .country_code_list_data ul {
   display: flex;
@@ -196,7 +197,7 @@
 }
 
 
-.loader{
+.loader {
   display: flex;
   align-items: center;
   border: 12px solid #f7eede;

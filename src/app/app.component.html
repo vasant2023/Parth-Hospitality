@@ -75,12 +75,12 @@
           </a>
         </li>
         <li>
-          <a routerLink="blog">
+          <a routerLink="/blog">
             <p>Blog</p>
           </a>
         </li>
         <li>
-          <a routerLink="contact-us">
+          <a routerLink="/contact-us">
             <p>Contact</p>
           </a>
         </li>
@@ -95,15 +95,56 @@
         </a>
       </div>
       <div class="visible-tab-mobile">
-        <div class="nav-toggle">
-          <div class="bar top"></div>
-          <div class="bar bottom"></div>
+        <div id="nav-toggle" (click)="mobile_menu_click();" [class.active]="mobile_menu_click_F"
+          class="mobile_menu_plus">
+          <div class="plus">
+            <div class="bar top"></div>
+            <div class="bar middle"></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 <!-- Header Wrapper End -->
+
+
+<div id="mobile-nav-menu" [class.active]="mobile_menu_click_F" class="mobile_header ">
+  <div class="relative">
+    <div class="header_padding">
+      <ul>
+        <li>
+          <a routerLink="/" (click)="mobile_menu_click();">
+            Home</a>
+        </li>
+        <li>
+          <a routerLink="/about" (click)="mobile_menu_click();">
+            About</a>
+        </li>
+        <li>
+          <a routerLink="/collections" (click)="mobile_menu_click();">
+            Product Collection</a>
+        </li>
+        <li>
+          <a routerLink="/items" (click)="mobile_menu_click();">
+            Items</a>
+        </li>
+        <li>
+          <a routerLink="/laminates" (click)="mobile_menu_click();">
+            Laminates</a>
+        </li>
+        <li>
+          <a routerLink="/blog" (click)="mobile_menu_click();">
+            Blog</a>
+        </li>
+        <li>
+          <a routerLink="/contact-us" (click)="mobile_menu_click();">
+            Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
 
 <router-outlet></router-outlet>

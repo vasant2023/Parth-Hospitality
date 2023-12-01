@@ -19,7 +19,7 @@
                 #createContactForm="ngForm" novalidate class="ph-contact-form-grid">
 
                 <div class="ph-contact-form-input">
-                  <input type="text" name="name" id="name" placeholder="Name" [(ngModel)]="contactObj.name"
+                  <input type="text" name="name" id="name" placeholder="Name*" [(ngModel)]="contactObj.name"
                     #name="ngModel" required>
 
                   <div *ngIf="createContactForm.submitted && name.invalid" class="invalid-feedback">
@@ -30,7 +30,8 @@
 
                 <div class="ph-contact-form-input">
                   <input type="text" minlength="1" maxlength="10" (keypress)=_keyPress($event) name="phone" id="phone"
-                    placeholder="contact" [(ngModel)]="contactObj.phone" #phone="ngModel" required pattern="[0-9]{10}$">
+                    placeholder="Contact No.*" [(ngModel)]="contactObj.phone" #phone="ngModel" required
+                    pattern="[0-9]{10}$">
 
                   <div *ngIf="createContactForm.submitted && phone.invalid" class="invalid-feedback">
                     <div *ngIf="phone.errors.required">Contact can not be empty!
@@ -42,7 +43,7 @@
 
 
                 <div class="ph-contact-form-input">
-                  <input type="email" name="email" id="email" placeholder="email" [(ngModel)]="contactObj.email"
+                  <input type="email" name="email" id="email" placeholder="Email*" [(ngModel)]="contactObj.email"
                     #email="ngModel" required>
                   <div *ngIf="createContactForm.submitted && email.invalid" class="invalid-feedback">
                     <div *ngIf="email.errors.required">Email can not be empty!</div>
@@ -52,9 +53,13 @@
 
 
                 <div class="ph-contact-form-input">
-                  <textarea name="message" id="message" placeholder="add remarks" rows="10"
-                    [(ngModel)]="contactObj.message" #message="ngModel"></textarea>
+                  <textarea name="message" id="message" placeholder="Add remarks*" rows="10"
+                    [(ngModel)]="contactObj.message" #message="ngModel" required></textarea>
+                  <div *ngIf="createContactForm.submitted && message.invalid" class="invalid-feedback">
+                    <div *ngIf="message.errors.required">Message cannot be empty!</div>
+                  </div>
                 </div>
+
                 <div class="ph-contact-form-input">
                   <button type="submit" class="ph-contact-form-input-button">
                     <div class="link-font">

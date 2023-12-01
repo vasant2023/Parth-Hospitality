@@ -630,7 +630,7 @@ body.no-scroll-body {
 	width: 100%;
 	padding: 0;
 	z-index: 99999;
-  border-bottom: 1px solid #e9e4e4;
+	border-bottom: 1px solid #e9e4e4;
 }
 
 .header-flex {
@@ -1701,7 +1701,7 @@ button.ph-button.black-border-ph-button p {
 }
 
 .product-home-card-image {
-	aspect-ratio: 144/121;
+	/* aspect-ratio: 144/121; */
 	border-radius: 1rem;
 	background-color: var(--placeholder-color);
 }
@@ -1893,17 +1893,6 @@ button.ph-button.black-border-ph-button p {
 	color: #FF0000;
 }
 
-.bar {
-	display: block;
-	height: 2px;
-	width: 25px;
-	background-color: var(--primary-color);
-}
-
-.bar.top {
-	margin-top: 0 !important;
-	margin-bottom: 8px;
-}
 
 .header-icons-flex {
 	display: flex;
@@ -2148,7 +2137,7 @@ button.ph-button.black-border-ph-button p {
 	object-fit: contain;
 }
 
-.finishes-list-image img{
+.finishes-list-image img {
 	height: 28vh;
 }
 
@@ -2164,7 +2153,7 @@ button.ph-button.black-border-ph-button p {
 	padding: 2rem;
 }
 
-.hardware-list-image img{
+.hardware-list-image img {
 	height: 8vh;
 	object-fit: contain;
 }
@@ -2255,9 +2244,9 @@ button.ph-button.black-border-ph-button p {
 	font-size: 1.25rem;
 }
 
-.ng-select.form-control {
+/* .ng-select.form-control {
 	padding: 0.5rem 1.5rem !important;
-}
+} */
 
 .side_popup_wrapper .md-lable {
 	color: #000000;
@@ -2379,6 +2368,10 @@ select {
 	.megamenu-level-1 {
 		top: 50px !important;
 	}
+
+	.main_banner_section_pd {
+		padding-top: 5.5rem;
+	}
 }
 
 @media only screen and (max-width:1366px) {
@@ -2406,6 +2399,10 @@ select {
 
 	.megamenu-level-1 {
 		top: 47px !important;
+	}
+
+	.main_banner_section_pd {
+		padding-top: 6rem;
 	}
 }
 
@@ -2440,7 +2437,148 @@ select {
 	}
 }
 
+.mobile_header {
+	display: none;
+}
+
 @media only screen and (max-width:991px) {
+
+	.mobile_header {
+		display: block;
+	}
+
+	.bar {
+		display: block;
+		height: 2px;
+		width: 25px;
+		background-color: #000;
+		margin: 5px auto;
+		-webkit-transition: all .7s ease;
+		-moz-transition: all .7s ease;
+		-ms-transition: all .7s ease;
+		-o-transition: all .7s ease;
+		transition: all .7s ease;
+	}
+
+	#nav-toggle .bar.top {
+		-webkit-transform: translateY(-3px) rotateZ(0deg);
+		-moz-transform: translateY(-3px) rotateZ(0deg);
+		-ms-transform: translateY(-3px) rotateZ(0deg);
+		-o-transform: translateY(-3px) rotateZ(0deg);
+		transform: translateY(-3px) rotateZ(0deg);
+	}
+
+	#nav-toggle .bar.middle {
+		-webkit-transform: translateY(0px) rotateZ(0deg);
+		-moztransform: translateY(0px) rotateZ(0deg);
+		-ms-transform: translateY(0px) rotateZ(0deg);
+		-o-transform: translateY(0px) rotateZ(0deg);
+		transform: translateY(0px) rotateZ(0deg);
+	}
+
+
+
+	#nav-toggle.active .bar.middle {
+		-webkit-transform: translateY(-5px) rotateZ(45deg);
+		-moz-transform: translateY(-5px) rotateZ(45deg);
+		-ms-transform: translateY(-5px) rotateZ(45deg);
+		-o-transform: translateY(-5px) rotateZ(45deg);
+		transform: translateY(-5px) rotateZ(45deg);
+	}
+
+	#nav-toggle.active .bar.top {
+		-webkit-transform: translateY(2px) rotateZ(-45deg);
+		-moz-transform: translateY(2px) rotateZ(-45deg);
+		-ms-transform: translateY(2px) rotateZ(-45deg);
+		-o-transform: translateY(2px) rotateZ(-45deg);
+		transform: translateY(2px) rotateZ(-45deg);
+	}
+
+	#mobile-nav-menu {
+		width: 100%;
+		background: white;
+		font-size: 19px;
+		padding: 0;
+		position: fixed;
+		overflow: auto;
+		cursor: pointer;
+		z-index: 999;
+		right: -100%;
+		top: 0%;
+		transition: all ease 0.7s;
+		height: 100%;
+		padding: 8rem 0;
+	}
+
+	#mobile-nav-menu.active {
+		right: 0;
+	}
+
+	.header_padding {
+		height: 100%;
+		padding: 3rem;
+	}
+
+	.header_padding>ul>li {
+		padding: 1rem 0;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	.main_banner_section_pd {
+		padding-top: 7.7rem;
+	}
 
 	.hidden-header-mobile-view {
 		display: none;
@@ -3144,7 +3282,23 @@ fieldset:disabled .btn {
 }
 
 a.page-link {
-    height: 45px;
+	height: 40px;
 	display: flex !important;
-    gap: 0.5rem;
+	gap: 0.5rem;
+	align-items: center;
+}
+
+@media only screen and (max-width: 991px) {
+
+	a.page-link {
+		height: 35px;
+	}
+
+}
+
+@media only screen and (max-width: 475px) {
+	a.page-link {
+		height: 30px;
+		padding: 1.5rem !important;
+	}
 }

@@ -48,7 +48,8 @@
                     ${{ collectionDetail.sale_price }}
                   </h3>
                 </div>
-                <div class="section-subtitle" *ngIf="collectionDetail.price > collectionDetail.sale_price">
+                <div class="section-subtitle"
+                  *ngIf="convertToNumber(collectionDetail.price) > convertToNumber(collectionDetail.sale_price)">
                   <h3 class="regular-fonts" style="text-decoration: line-through">
                     ${{ collectionDetail.price }}
                   </h3>
@@ -271,7 +272,7 @@
           <div class="contact_lable relative" [class.active]="contactObj.name != ''">
             <input id="client_name" name="name" type="text" class="form-control" letters-only=""
               [(ngModel)]="contactObj.name" #name="ngModel" required="" />
-            <label class="md-lable" for="client_name">Name <sup>*</sup></label>
+            <label class="md-lable" for="client_name">Name*</label>
             <div *ngIf="inquiryForm.submitted && name.invalid" class="invalid-feedback">
               <div *ngIf="name.errors.required">Name cannot be empty!</div>
             </div>
@@ -282,7 +283,7 @@
               <input id="email_address" name="email" type="email" autocomplete="off" class="form-control"
                 #email="ngModel" [(ngModel)]="contactObj.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                 required />
-              <label class="md-lable" for="email_address">Email</label>
+              <label class="md-lable" for="email_address">Email*</label>
               <div *ngIf="inquiryForm.submitted && email.invalid" class="invalid-feedback">
                 <div *ngIf="email.errors.required">Email can not be empty!</div>
                 <div *ngIf="email.invalid && !email.errors.required">
@@ -297,7 +298,7 @@
                   <div>
                     &nbsp; +{{contactObj.country}}
                   </div>
-                  <div>
+                  <div class="down-country-angle">
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </div>
                 </div>
@@ -317,7 +318,7 @@
               <input id="client_contact_no" name="phone" type="tel" numbers-only="" minlength="8" maxlength="13"
                 autocomplete="off" class="form-control" #phone="ngModel" [(ngModel)]="contactObj.phone"
                 (keypress)="_keyPress($event)" required />
-              <label class="md-lable contact_code" for="client_contact_no">Mobile</label>
+              <label class="md-lable contact_code" for="client_contact_no">Mobile*</label>
               <div *ngIf="inquiryForm.submitted && phone.invalid" class="invalid-feedback">
                 <div *ngIf="phone.errors.required">phone can not be empty!</div>
                 <div *ngIf="phone.invalid && !phone.errors.required">
@@ -334,7 +335,7 @@
               <label class="md-lable" for="company_name">Hotel Name</label>
             </div>
             <div class="contact_lable" [class.active]="contactObj.property_code != ''">
-              <input id="property_code" name="property_code" type="number" class="form-control" #property_code="ngModel"
+              <input id="property_code" name="property_code" (keypress)=_keyPress($event) type="text" class="form-control" #property_code="ngModel"
                 [(ngModel)]="contactObj.property_code" />
               <label class="md-lable" for="company_name">Property Code</label>
             </div>
@@ -372,22 +373,26 @@
 
           <div class="relative two-grid-form">
             <div class="contact_lable" [class.active]="contactObj.rooms != ''">
-              <input id="rooms" name="rooms" type="number" class="form-control" #rooms="ngModel"
+              <input id="rooms" name="rooms" type="text" class="form-control" #rooms="ngModel" (keypress)=_keyPress($event)
                 [(ngModel)]="contactObj.rooms" />
               <label class="md-lable" for="hotel_name">Rooms</label>
             </div>
+
             <div class="contact_lable" [class.active]="contactObj.zip_code != ''">
-              <input id="zip_code" name="zip_code" type="number" class="form-control" #zip_code="ngModel"
-                [(ngModel)]="contactObj.zip_code" />
+              <input id="zip_code" name="zip_code" type="text" (keypress)=_keyPress($event) class="form-control"
+                #zip_code="ngModel" [(ngModel)]="contactObj.zip_code" />
               <label class="md-lable" for="hotel_name">Zip Code</label>
             </div>
           </div>
 
           <div class="contact_lable" [class.active]="contactObj.message != ''">
             <textarea id="remarks" name="message" type="text" aria-invalid="false" autocomplete="off"
-              class="form-control" rows="1" #message="ngModel" rows="5" [(ngModel)]="contactObj.message">
+              class="form-control" rows="1" #message="ngModel" rows="5" [(ngModel)]="contactObj.message" required>
             </textarea>
-            <label class="md-lable" for="remarks">Comments</label>
+            <div *ngIf="inquiryForm.submitted && message.invalid" class="invalid-feedback">
+              <div *ngIf="message.errors.required">Message can not be empty!</div>
+            </div>
+            <label class="md-lable" for="remarks">Comments*</label>
           </div>
           <div class="checkbox-flex">
             <label>

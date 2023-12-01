@@ -17,6 +17,9 @@
 	object-fit: cover;
 }
 
+
+
+
 /*  Laminate End */
 @media only screen and (max-width:991px) {
 	.ph-laminate-wrapper .laminate-sec {
@@ -304,8 +307,12 @@ body.no-scroll-body {
 
 
 
-
-
+@media only screen and (max-width:1152px) {
+	.main-container {
+		width: 90%;
+		margin: 0 auto;
+	}
+}
 
 
 @media only screen and (max-width:1024px) {
@@ -377,16 +384,16 @@ body.no-scroll-body {
 }
 
 
-.loader{
-  display: flex;
-  align-items: center;
-  border: 12px solid #f7eede;
-  border-top: 12px solid #F7AC29;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 2s linear infinite;
-  margin: 0 auto;
-  margin-top: 10rem;
-  margin-bottom: 10rem;
+.loader {
+	display: flex;
+	align-items: center;
+	border: 12px solid #f7eede;
+	border-top: 12px solid #F7AC29;
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	animation: spin 2s linear infinite;
+	margin: 0 auto;
+	margin-top: 10rem;
+	margin-bottom: 10rem;
 }

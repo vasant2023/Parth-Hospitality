@@ -21,13 +21,13 @@
           <div class="filter-search-sec">
             <div class="sort_by visible-tab-mobile">
               <div class="sort_by sort_by_flex">
-                <div class="section-content section-content-mob-flex" ng-click="filter_popup_toggle()">
+                <div class="section-content section-content-mob-flex" (click)="isFilterCollection()">
                   <p class="medium-fonts">Filter</p>
                   <span class="">
                     <span class="material-symbols-outlined"> tune </span>
                   </span>
                 </div>
-                <div class="hide-tab-mobile">
+                <!-- <div>
                   <div class="clear-btn">
                     <button class="clear_btn btn_scale_hover" ng-click="clearAllFilters()">
                       <div class="section-content">
@@ -35,20 +35,10 @@
                       </div>
                     </button>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="filter-flex-sec">
-              <!-- <a href="javascript:void(0);">
-                <div class="fiilter-button">
-                  <div class="small-content">
-                    <p>Category</p>
-                  </div>
-                  <div class="down-arrow">
-                    <img src="assets/images/icons/down-arrow.png" alt="" />
-                  </div>
-                </div>
-              </a> -->
 
               <select [(ngModel)]="item_data.category_ID" (change)="getItems()"
                 class="form-control select_main_item_control">
@@ -58,25 +48,6 @@
                 </option>
               </select>
 
-              <!-- <div class="relative">
-                <div class="fiilter-button" (click)="openCollection()">
-                  <div class="small-content">
-                    <p>Collection</p>
-                  </div>
-                  <div class="down-arrow">
-                    <img src="assets/images/icons/down-arrow.png" alt="" />
-                  </div>
-                </div>
-                <div class="collection-dropdown" [class.active]="isOpenCollection">
-                  <div class="collection_ul_list">
-                    <ul>
-                      <li *ngFor="let collections of collection_list">
-                        {{collections.collection}}
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div> -->
               <select [(ngModel)]="item_data.collection_ID" (change)="getItems()"
                 class="form-control select_main_item_control">
                 <option disabled value=""> Collections</option>
@@ -84,9 +55,12 @@
                   {{collections.collection}}
                 </option>
               </select>
-
+              <div class="clear-btn">
+                <div class="section-clear-content" (click)="clearAllFilters()">
+                  <p>Clear All</p>
+                </div>
+              </div>
             </div>
-
 
           </div>
 
@@ -141,10 +115,10 @@
 
 
 
-<div class="filter_mobile_overlay"></div>
-<div class="filter_mobile_sec relative">
+<div class="filter_mobile_overlay" [class.active]="is_filter_collection" (click)="isFiltercloseCollection();"></div>
+<div class="filter_mobile_sec relative" [class.active]="is_filter_collection">
   <div class="filter_sec inner-flex inner-flex-small">
-    <div class="close_icon" ng-click="filter_popup_click_close();" role="button" tabindex="0">
+    <div class="close_icon" (click)="isFiltercloseCollection();" role="button" tabindex="0">
       <img src="assets/images/icons/close.svg" alt="" />
     </div>
 
@@ -153,53 +127,40 @@
     </div>
 
     <div class="filter_accordion inner-flex inner-flex-small">
-      <div class="accordion-block">
-        <div class="filter-flex-item accordion_click" accordion>
-          <div class="filter_text_accordion_flex">
-            <div class="section-content">
-              <p class="medium-fonts">Category</p>
-            </div>
-            <div class="filter-arrow">
-              <span class="material-symbols-outlined down-arrow"> add </span>
-            </div>
-          </div>
-        </div>
-        <div class="content_accordian"></div>
-      </div>
+      <div class="filter_select_option_mian">
+        <select [(ngModel)]="item_data.category_ID" (change)="getItems()" class="form-control select_main_item_control">
+          <option disabled value=""> Category</option>
+          <option *ngFor="let categories of categories_list" value="{{categories.category_ID}}">
+            {{categories.category}}
+          </option>
+        </select>
 
-      <div class="accordion-block">
-        <div class="filter-flex-item accordion_click" accordion>
-          <div class="filter_text_accordion_flex">
-            <div class="section-content">
-              <p class="medium-fonts">Color</p>
-            </div>
-            <div class="filter-arrow">
-              <span class="material-symbols-outlined down-arrow"> add </span>
-            </div>
-          </div>
-        </div>
-        <div class="content_accordian"></div>
+        <select [(ngModel)]="item_data.collection_ID" (change)="getItems()"
+          class="form-control select_main_item_control">
+          <option disabled value=""> Collections</option>
+          <option *ngFor="let collections of collection_list" value="{{collections.collection_ID}}">
+            {{collections.collection}}
+          </option>
+        </select>
       </div>
-
-      <div class="accordion-block">
-        <div class="filter-flex-item accordion_click" accordion>
-          <div class="filter_text_accordion_flex">
-            <div class="section-content">
-              <p class="medium-fonts">Collection</p>
-            </div>
-            <div class="filter-arrow">
-              <span class="material-symbols-outlined down-arrow"> add </span>
-            </div>
-          </div>
+      <div class="apply_clear_filter">
+        <div class="apply_now_btn">
+          <button (click)="isFiltercloseCollection();">
+            Apply
+          </button>
         </div>
-        <div class="content_accordian"></div>
+        <div class="clear_now_btn" >
+          <button (click)="clearAllFilters();isFiltercloseCollection();">
+            Clear All
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 
-<ng-container *ngIf="item_list && item_list.length > 0">
+<ng-container *ngIf=" item_list && item_list.length> 0">
   <ul *ngIf="usersPager.pages && usersPager.pages.length > 1" class="pagination">
     <ng-container *ngIf="usersPager.currentPage > 1">
       <li class="page-item pgbtn prev">

@@ -1,38 +1,3 @@
-/* .heading {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 600;
-    padding-top: 7rem;
-    padding-bottom: 4rem;
-}
-
-.channel-container {
-    width: 80%;
-    margin: 0 auto;
-}
-
-.channel-wrapper .channel_flex{
-    display: flex;
-    flex-flow: row wrap;
-    gap: 2rem;
-}
-
-.channel-wrapper .channel_flex>div{
-    flex-basis: calc(50% - 1rem);
-}
-
-.channel-wrapper .channel_flex>div label{
-    font-size: 1.25rem;
-    margin-bottom: 0.3rem;
-}
-.channel-wrapper .channel_flex>div input{
-    font-size: 1.25rem;
-}
-
-.channel_submit_btn{
-    width: max-content;
-    margin: 3rem auto 0 auto;
-} */
 :root {
     /* colors */
     --primary-color: #000000;
@@ -71,11 +36,12 @@
 
 .ph-channel-partner-wrapper .visible-sm,
 .ph-channel-partner-wrapper .visible-xs {
-    display :none !important;
+    display: none !important;
 }
+
 .ph-channel-partner-wrapper .hidden-sm,
 .ph-channel-partner-wrapper .hidden-xs {
-    display :block !important ;
+    display: block !important;
 }
 
 .ph-channel-partner-wrapper .banner-title h2,
@@ -124,8 +90,8 @@
     background-color: #F8AB1820;
 }
 
-.ph-channel-partner-wrapper .ph-edge-wrapper{
-    gap:   6rem  !important;
+.ph-channel-partner-wrapper .ph-edge-wrapper {
+    gap: 6rem !important;
 }
 
 .ph-channel-partner-wrapper .ph-edge-wrapper .ph-cp-icon {
@@ -133,7 +99,7 @@
     flex-direction: row;
     align-items: center;
     gap: 1rem;
-    padding: 1rem 1rem 1rem  2rem;
+    padding: 1rem 1rem 1rem 2rem;
     min-height: 72px;
 }
 
@@ -262,30 +228,51 @@
     display: grid;
     padding: 0 1rem 1rem 0;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: "one two" "three four" "five six" "seven eight" "nine ten" "eleven twelve" " . thirteen";
+    grid-template-areas: "one two" "three four" "five six" "seven eight" "nine nine" " . ten";
     gap: 1.75rem;
 }
 
 .ph-channel-partner-wrapper .dealer-form-grid .dealer-form-input input:focus-visible,
-.ph-channel-partner-wrapper .dealer-form-grid .dealer-form-input input:focus {
+.ph-channel-partner-wrapper .dealer-form-grid .dealer-form-input input:focus,
+.ph-channel-partner-wrapper .dealer-form-grid .dealer-form-input select:focus-visible,
+.ph-channel-partner-wrapper .dealer-form-grid .dealer-form-input select:focus,
+.ph-channel-partner-wrapper .dealer-form-grid .dealer-form-input textarea:focus-visible,
+.ph-channel-partner-wrapper .dealer-form-grid .dealer-form-input textarea:focus {
     border: 1px solid var(--secondary-color);
 }
 
-.ph-channel-partner-wrapper .dealer-form-grid .dealer-form-input input {
+.ph-channel-partner-wrapper .dealer-form-grid .dealer-form-input input,
+.ph-channel-partner-wrapper .dealer-form-grid .dealer-form-input select ,
+.ph-channel-partner-wrapper .dealer-form-grid .dealer-form-input textarea{
     width: 100%;
     padding: 1.25rem;
     background-color: transparent;
     border: 1px solid #A9A9A9;
     border-radius: 8px;
     outline: none;
-    font-family: var(--semibold-font-family);
+    font-family: var(--medium-font-family-p);
     font-size: 1rem;
 }
 
-.ph-channel-partner-wrapper .dealer-form-grid .dealer-form-input input::placeholder {
+.ph-channel-partner-wrapper .dealer-form-grid .dealer-form-input textarea{
+    resize: none;
+    height: 90px;
+}
+
+.ph-channel-partner-wrapper .dealer-form-grid .dealer-form-input input::placeholder ,
+.ph-channel-partner-wrapper .dealer-form-grid .dealer-form-input textarea::placeholder{
     color: #A9A9A9;
     font-family: var(--regular-font-family);
     font-size: 1rem;
+}
+
+.ph-channel-partner-wrapper .dealer-form-grid .dealer-form-input select {
+    font-size: 1rem;
+    font-family: var(--regular-font-family);
+    background: url(../../assets/images/icons/down-arrow.png) 95% / 4% no-repeat;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
 }
 
 .ph-channel-partner-wrapper .dealer-form-input button.dealer-form-btn {
@@ -305,7 +292,7 @@
 
 .ph-channel-partner-wrapper .dealer-form-input .cp-form-input-spec-text p {
     color: #A9A9A9;
-    font-family: var(--regular-font-family);
+    font-family: var(--medium-font-family-p);
     font-size: 10px;
 }
 
@@ -348,18 +335,6 @@
 
 .ph-channel-partner-wrapper .dealer-form-grid>div:nth-child(10) {
     grid-area: ten;
-}
-
-.ph-channel-partner-wrapper .dealer-form-grid>div:nth-child(11) {
-    grid-area: eleven;
-}
-
-.ph-channel-partner-wrapper .dealer-form-grid>div:nth-child(12) {
-    grid-area: twelve;
-}
-
-.ph-channel-partner-wrapper .dealer-form-grid>div:nth-child(13) {
-    grid-area: thirteen;
 }
 
 .ph-channel-partner-wrapper .cp-outer-table-cup-img {
@@ -438,10 +413,11 @@
     }
 
     .ph-channel-partner-wrapper .visible-sm {
-        display :block !important;
+        display: block !important;
     }
+
     .ph-channel-partner-wrapper .hidden-sm {
-        display :none !important ;
+        display: none !important;
     }
 
     .ph-channel-partner-wrapper .ph-channel-partner-banner-img,
@@ -489,7 +465,7 @@
 
     .ph-channel-partner-wrapper .ph-edge-wrapper .ph-cp-icon {
         border-radius: 1.75rem 1.75rem 0 0;
-        padding: 1rem   ;
+        padding: 1rem;
     }
 
     .ph-channel-partner-wrapper .ph-edge-grid-item>div:nth-child(1),
@@ -558,10 +534,11 @@
 @media only screen and (max-width: 767px) {
 
     .ph-channel-partner-wrapper .visible-xs {
-        display :block !important;
+        display: block !important;
     }
+
     .ph-channel-partner-wrapper .hidden-xs {
-        display :none !important ;
+        display: none !important;
     }
 
     .ph-channel-partner-wrapper .banner-title h2,

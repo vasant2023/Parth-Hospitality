@@ -7,14 +7,14 @@ import { ServiceService } from './_services/service.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
   constructor(
     private router: Router,
     public service: ServiceService,
-    private route :ActivatedRoute,
+    private route: ActivatedRoute,
 
-  ){
+  ) {
     router.events.subscribe(event => {
 
       if (event instanceof NavigationEnd) {
@@ -23,19 +23,35 @@ export class AppComponent implements OnInit{
     });
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.menuCollection();
   }
 
-  menuList:any= [];
+  menuList: any = [];
   title = 'Parth-Hospitality';
 
-  menuCollection(){
-    this.service.menuCollection().subscribe((response: {success:number, message:string, categories:[]}) => {
-      if(response.success == 1){
+  menuCollection() {
+    this.service.menuCollection().subscribe((response: { success: number, message: string, categories: [] }) => {
+      if (response.success == 1) {
         this.menuList = response.categories;
         console.log(this.menuList);
       }
     })
   }
+
+
+
+  public mobile_menu_click_F = false;
+  mobile_menu_click() {
+    if (this.mobile_menu_click_F) {
+      this.mobile_menu_click_F = false;
+    } else {
+      this.mobile_menu_click_F = true;
+    }
+  }
+
+  mobile_menu_close_click() {
+    this.mobile_menu_click_F = false;
+  }
+
 }

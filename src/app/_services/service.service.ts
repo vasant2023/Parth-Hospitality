@@ -26,7 +26,7 @@ export class ServiceService {
 
     let body = new HttpParams();
     body = body.append("apiId", apiId);
-    body = body.append("flag", "all");
+    // body = body.append("flag", "all");
     body = body.append("search", data.search);
     body = body.append("page", data.PageIndex);
     body = body.append("limit", data.PageSize);

@@ -33,9 +33,6 @@ export class ItemsListingComponent implements OnInit {
   public isLoading: boolean = false;
 
 
-  objtotalrecords: number;
-
-
   public item_data = {
     PageIndex: this.PageIndex,
     PageSize: this.PageSize,
@@ -102,6 +99,15 @@ export class ItemsListingComponent implements OnInit {
     })
   }
 
+
+ clearAllFilters() {
+
+    this.item_data.category_ID = ""
+    this.item_data.collection_ID = ""
+    this.getItems();
+}
+
+
   // setPage(page: number, flag: number) {
 
   //   this.pager = this.pagerService.getPager(this.totalCount, page, this.PageSize);
@@ -157,4 +163,22 @@ export class ItemsListingComponent implements OnInit {
     this.isOpenCollection = false;
   }
 
+
+
+
+  public is_filter_collection = false;
+
+  isFilterCollection() {
+    if (!this.is_filter_collection) {
+      this.is_filter_collection = true;
+    }
+    else {
+      this.is_filter_collection = false;
+    }
+  }
+
+
+  isFiltercloseCollection() {
+    this.is_filter_collection = false;
+  }
 }
