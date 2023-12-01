@@ -2,21 +2,21 @@
   <section id="ph-home-section-1" class="ph-section">
     <div class="home-banner-swiper-outer relative">
       <swiper class="swiper homeBannerSwiper" #mainSwiper [config]="homeBannerSwiper">
-        <div class="swiper-slide">
+        <div class="swiper-slide" *ngFor="let image of bannerList">
           <div class="home-banner-image relative">
-            <img src="assets/images/home/banner/parth-banner-2.jpg" alt="" />
+            <img src="{{image.image}}" alt="" />
             <div class=""></div>
           </div>
         </div>
-        <div class="swiper-slide">
+        <!-- <div class="swiper-slide">
           <div class="home-banner-image relative">
-            <img src="assets/images/home/banner/parth-banner-2.jpg" style="opacity: 0.25" alt="" />
+            <img src="assets/images/home/banner/stable-diffusion-xl.jpg" style="opacity: 0.25" alt="" />
             <div class="black_overlay"></div>
           </div>
         </div>
         <div class="swiper-slide">
           <div class="home-banner-image relative">
-            <img src="assets/images/home/banner/stable-diffusion-xl.jpg" alt="" />
+            <img src="assets/images/home/banner/parth-banner-2.jpg" alt="" />
             <div class="black_overlay"></div>
           </div>
         </div>
@@ -25,7 +25,7 @@
             <img src="assets/images/home/banner/stable-diffusion-xl.jpg" style="opacity: 0.25" alt="" />
             <div class="black_overlay"></div>
           </div>
-        </div>
+        </div> -->
       </swiper>
       <div class="swiper-pagination swiper-pagination-home-banner"></div>
     </div>

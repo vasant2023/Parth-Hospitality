@@ -70,14 +70,14 @@ export class CollectionDetailComponent implements OnInit {
   public productImageSwiper: SwiperConfigInterface = {
     spaceBetween: 10,
     slidesPerView: 3,
-    loop: true,
+    loop: false,
     freeMode: false,
     // loopedSlides: 5,
     observer: true,
     // observeParents: true,
     watchSlidesVisibility: true,
     watchSlidesProgress: true,
-    centeredSlides: true,
+    centeredSlides: false,
   };
 
   public mainImageSwiper: SwiperConfigInterface = {

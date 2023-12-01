@@ -334,5 +334,20 @@ export class ServiceService {
     });
     return this.http.post(url, body, { headers: httpHeaders });
   }
+
+  // Home Page Banners
+
+  getHomePageBanners(){
+    const url = environment.apiUrl + "home-banners/list";
+    const apiId = environment.apiId;
+
+    let body = new HttpParams();
+    body = body.append("apiId", apiId);
+
+    let httpHeaders = new HttpHeaders({
+      "Content-Type": "application/x-www-form-urlencoded",
+    });
+    return this.http.post(url, body, { headers: httpHeaders });
+  }
 }
 
