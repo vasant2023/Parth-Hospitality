@@ -1,6 +1,6 @@
 <div id="ph-home-wrapper" class="relative">
   <section id="ph-home-section-1" class="ph-section">
-    <div class="home-banner-swiper-outer relative">
+    <div class="home-banner-swiper-outer relative" *ngIf="bannerList.length > 0">
       <swiper class="swiper homeBannerSwiper" #mainSwiper [config]="homeBannerSwiper">
         <div class="swiper-slide" *ngFor="let image of bannerList">
           <div class="home-banner-image relative">

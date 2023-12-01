@@ -15,7 +15,9 @@ import { ServiceService } from "../_services/service.service";
 })
 export class HomepageComponent implements OnInit {
   public homeBannerSwiper: SwiperConfigInterface = {
-    effect: 'fade',
+    effect: "fade",
+    // centeredSlides: true,
+    fadeEffect: { crossFade: true },
     pagination: {
       el: ".swiper-pagination.swiper-pagination-home-banner",
     },
@@ -105,13 +107,30 @@ export class HomepageComponent implements OnInit {
   }
 
   collection_list: any = [];
+  bannerList: any = [];
 
-    getCollection() {
-        this.service.getCollection().subscribe((response: { success: number, message: string, collections: [] }) => {
-            if (response.success == 1) {
-                this.collection_list = response.collections;
-            } else {
-            }
-        })
-    }
+  getCollection() {
+    this.service
+      .getCollection()
+      .subscribe(
+        (response: { success: number; message: string; collections: [] }) => {
+          if (response.success == 1) {
+            this.collection_list = response.collections;
+          } else {
+          }
+        }
+      );
+  }
+
+  getHomePageBanners() {
+    this.service.getHomePageBanners().subscribe((response:any) => {
+      if(response.success == 1){
+        this.bannerList = response.banners;
+      }
+    })
+  }
+
+  convertToNumber(value: string): number {
+    return Number(value);
+  }
 }
