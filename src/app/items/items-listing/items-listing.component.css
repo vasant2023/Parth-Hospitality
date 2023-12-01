@@ -282,6 +282,10 @@
   border-radius: 50px;
   padding: 0.6rem;
   background: #f4f4f4;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background: url(../../../assets/images/icons/down-arrow.png) 90% / 9% no-repeat;
 }
 
 .no_records_list {
@@ -290,12 +294,12 @@
   place-content: center;
 }
 
-.no_records_list p{
+.no_records_list p {
   font-size: var(--content-font-size);
   font-family: var(--medium-font-family-p);
 }
 
-.loader{
+.loader {
   display: flex;
   align-items: center;
   border: 12px solid #f7eede;
@@ -309,3 +313,7 @@
   margin-bottom: 10rem;
 }
 
+
+.select_main_item_control::-ms-expand {
+  display: none;
+}
