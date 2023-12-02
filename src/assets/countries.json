@@ -1,0 +1,1876 @@
+{
+    "results": [
+        {
+          "id": "1",
+          "iso": "af",
+          "name": "AFGHANISTAN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+93"
+        },
+        {
+          "id": "2",
+          "iso": "al",
+          "name": "ALBANIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+355"
+        },
+        {
+          "id": "3",
+          "iso": "dz",
+          "name": "ALGERIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+213"
+        },
+        {
+          "id": "4",
+          "iso": "as",
+          "name": "AMERICAN SAMOA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1684"
+        },
+        {
+          "id": "5",
+          "iso": "ad",
+          "name": "ANDORRA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+376"
+        },
+        {
+          "id": "6",
+          "iso": "ao",
+          "name": "ANGOLA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+244"
+        },
+        {
+          "id": "7",
+          "iso": "ai",
+          "name": "ANGUILLA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1264"
+        },
+        {
+          "id": "8",
+          "iso": "aq",
+          "name": "ANTARCTICA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+672"
+        },
+        {
+          "id": "9",
+          "iso": "ag",
+          "name": "ANTIGUA AND BARBUDA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1268"
+        },
+        {
+          "id": "10",
+          "iso": "ar",
+          "name": "ARGENTINA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+54"
+        },
+        {
+          "id": "11",
+          "iso": "am",
+          "name": "ARMENIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+374"
+        },
+        {
+          "id": "12",
+          "iso": "aw",
+          "name": "ARUBA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+297"
+        },
+        {
+          "id": "13",
+          "iso": "au",
+          "name": "AUSTRALIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+61"
+        },
+        {
+          "id": "14",
+          "iso": "at",
+          "name": "AUSTRIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+43"
+        },
+        {
+          "id": "15",
+          "iso": "az",
+          "name": "AZERBAIJAN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+994"
+        },
+        {
+          "id": "16",
+          "iso": "bs",
+          "name": "BAHAMAS THE",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1242"
+        },
+        {
+          "id": "17",
+          "iso": "bh",
+          "name": "BAHRAIN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+973"
+        },
+        {
+          "id": "18",
+          "iso": "bd",
+          "name": "BANGLADESH",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+880"
+        },
+        {
+          "id": "19",
+          "iso": "bb",
+          "name": "BARBADOS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1246"
+        },
+        {
+          "id": "20",
+          "iso": "by",
+          "name": "BELARUS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+375"
+        },
+        {
+          "id": "21",
+          "iso": "be",
+          "name": "BELGIUM",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+32"
+        },
+        {
+          "id": "22",
+          "iso": "bz",
+          "name": "BELIZE",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+501"
+        },
+        {
+          "id": "23",
+          "iso": "bj",
+          "name": "BENIN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+229"
+        },
+        {
+          "id": "24",
+          "iso": "bm",
+          "name": "BERMUDA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1441"
+        },
+        {
+          "id": "25",
+          "iso": "bt",
+          "name": "BHUTAN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+975"
+        },
+        {
+          "id": "26",
+          "iso": "bo",
+          "name": "BOLIVIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+591"
+        },
+        {
+          "id": "27",
+          "iso": "ba",
+          "name": "BOSNIA AND HERZEGOVINA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+387"
+        },
+        {
+          "id": "28",
+          "iso": "bw",
+          "name": "BOTSWANA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+267"
+        },
+        {
+          "id": "30",
+          "iso": "br",
+          "name": "BRAZIL",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+55"
+        },
+        {
+          "id": "31",
+          "iso": "io",
+          "name": "BRITISH INDIAN OCEAN TERRITORY",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+246"
+        },
+        {
+          "id": "32",
+          "iso": "bn",
+          "name": "BRUNEI",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+673"
+        },
+        {
+          "id": "33",
+          "iso": "bg",
+          "name": "BULGARIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+359"
+        },
+        {
+          "id": "34",
+          "iso": "bf",
+          "name": "BURKINA FASO",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+226"
+        },
+        {
+          "id": "35",
+          "iso": "bi",
+          "name": "BURUNDI",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+257"
+        },
+        {
+          "id": "36",
+          "iso": "kh",
+          "name": "CAMBODIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+855"
+        },
+        {
+          "id": "37",
+          "iso": "cm",
+          "name": "CAMEROON",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+237"
+        },
+        {
+          "id": "38",
+          "iso": "ca",
+          "name": "CANADA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1"
+        },
+        {
+          "id": "39",
+          "iso": "cv",
+          "name": "CAPE VERDE",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+238"
+        },
+        {
+          "id": "40",
+          "iso": "ky",
+          "name": "CAYMAN ISLANDS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1345"
+        },
+        {
+          "id": "41",
+          "iso": "cf",
+          "name": "CENTRAL AFRICAN REPUBLIC",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+236"
+        },
+        {
+          "id": "42",
+          "iso": "td",
+          "name": "CHAD",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+235"
+        },
+        {
+          "id": "43",
+          "iso": "cl",
+          "name": "CHILE",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+56"
+        },
+        {
+          "id": "44",
+          "iso": "cn",
+          "name": "CHINA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+86"
+        },
+        {
+          "id": "45",
+          "iso": "cx",
+          "name": "CHRISTMAS ISLAND",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+61"
+        },
+        {
+          "id": "46",
+          "iso": "cc",
+          "name": "COCOS (KEELING) ISLANDS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+672"
+        },
+        {
+          "id": "47",
+          "iso": "co",
+          "name": "COLOMBIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+57"
+        },
+        {
+          "id": "48",
+          "iso": "km",
+          "name": "COMOROS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+269"
+        },
+        {
+          "id": "49",
+          "iso": "cg",
+          "name": "CONGO",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+242"
+        },
+        {
+          "id": "50",
+          "iso": "cd",
+          "name": "CONGO THE DEMOCRATIC REPUBLIC OF THE",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+242"
+        },
+        {
+          "id": "51",
+          "iso": "ck",
+          "name": "COOK ISLANDS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+682"
+        },
+        {
+          "id": "52",
+          "iso": "cr",
+          "name": "COSTA RICA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+506"
+        },
+        {
+          "id": "53",
+          "iso": "ci",
+          "name": "COTE D'IVOIRE (IVORY COAST)",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+225"
+        },
+        {
+          "id": "54",
+          "iso": "hr",
+          "name": "CROATIA (HRVATSKA)",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+385"
+        },
+        {
+          "id": "55",
+          "iso": "cu",
+          "name": "CUBA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+53"
+        },
+        {
+          "id": "56",
+          "iso": "cy",
+          "name": "CYPRUS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+357"
+        },
+        {
+          "id": "57",
+          "iso": "cz",
+          "name": "CZECH REPUBLIC",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+420"
+        },
+        {
+          "id": "58",
+          "iso": "dk",
+          "name": "DENMARK",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+45"
+        },
+        {
+          "id": "59",
+          "iso": "dj",
+          "name": "DJIBOUTI",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+253"
+        },
+        {
+          "id": "60",
+          "iso": "dm",
+          "name": "DOMINICA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1767"
+        },
+        {
+          "id": "61",
+          "iso": "do",
+          "name": "DOMINICAN REPUBLIC",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1809"
+        },
+        {
+          "id": "63",
+          "iso": "ec",
+          "name": "ECUADOR",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+593"
+        },
+        {
+          "id": "64",
+          "iso": "eg",
+          "name": "EGYPT",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+20"
+        },
+        {
+          "id": "65",
+          "iso": "sv",
+          "name": "EL SALVADOR",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+503"
+        },
+        {
+          "id": "66",
+          "iso": "gq",
+          "name": "EQUATORIAL GUINEA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+240"
+        },
+        {
+          "id": "67",
+          "iso": "er",
+          "name": "ERITREA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+291"
+        },
+        {
+          "id": "68",
+          "iso": "ee",
+          "name": "ESTONIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+372"
+        },
+        {
+          "id": "69",
+          "iso": "et",
+          "name": "ETHIOPIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+251"
+        },
+        {
+          "id": "71",
+          "iso": "fk",
+          "name": "FALKLAND ISLANDS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+500"
+        },
+        {
+          "id": "72",
+          "iso": "fo",
+          "name": "FAROE ISLANDS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+298"
+        },
+        {
+          "id": "73",
+          "iso": "fj",
+          "name": "FIJI ISLANDS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+679"
+        },
+        {
+          "id": "74",
+          "iso": "fi",
+          "name": "FINLAND",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+358"
+        },
+        {
+          "id": "75",
+          "iso": "fr",
+          "name": "FRANCE",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+33"
+        },
+        {
+          "id": "76",
+          "iso": "gf",
+          "name": "FRENCH GUIANA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+594"
+        },
+        {
+          "id": "77",
+          "iso": "pf",
+          "name": "FRENCH POLYNESIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+689"
+        },
+        {
+          "id": "79",
+          "iso": "ga",
+          "name": "GABON",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+241"
+        },
+        {
+          "id": "80",
+          "iso": "gm",
+          "name": "GAMBIA THE",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+220"
+        },
+        {
+          "id": "81",
+          "iso": "ge",
+          "name": "GEORGIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+995"
+        },
+        {
+          "id": "82",
+          "iso": "de",
+          "name": "GERMANY",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+49"
+        },
+        {
+          "id": "83",
+          "iso": "gh",
+          "name": "GHANA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+233"
+        },
+        {
+          "id": "84",
+          "iso": "gi",
+          "name": "GIBRALTAR",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+350"
+        },
+        {
+          "id": "85",
+          "iso": "gr",
+          "name": "GREECE",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+30"
+        },
+        {
+          "id": "86",
+          "iso": "gl",
+          "name": "GREENLAND",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+299"
+        },
+        {
+          "id": "87",
+          "iso": "gd",
+          "name": "GRENADA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1473"
+        },
+        {
+          "id": "88",
+          "iso": "gp",
+          "name": "GUADELOUPE",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+590"
+        },
+        {
+          "id": "89",
+          "iso": "gu",
+          "name": "GUAM",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1671"
+        },
+        {
+          "id": "90",
+          "iso": "gt",
+          "name": "GUATEMALA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+502"
+        },
+        {
+          "id": "92",
+          "iso": "gn",
+          "name": "GUINEA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+224"
+        },
+        {
+          "id": "93",
+          "iso": "gw",
+          "name": "GUINEA-BISSAU",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+245"
+        },
+        {
+          "id": "94",
+          "iso": "gy",
+          "name": "GUYANA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+592"
+        },
+        {
+          "id": "95",
+          "iso": "ht",
+          "name": "HAITI",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+509"
+        },
+        {
+          "id": "97",
+          "iso": "hn",
+          "name": "HONDURAS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+504"
+        },
+        {
+          "id": "98",
+          "iso": "hk",
+          "name": "HONG KONG S.A.R.",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+852"
+        },
+        {
+          "id": "99",
+          "iso": "hu",
+          "name": "HUNGARY",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+36"
+        },
+        {
+          "id": "100",
+          "iso": "is",
+          "name": "ICELAND",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+354"
+        },
+        {
+          "id": "101",
+          "iso": "in",
+          "name": "INDIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+91"
+        },
+        {
+          "id": "102",
+          "iso": "id",
+          "name": "INDONESIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+62"
+        },
+        {
+          "id": "103",
+          "iso": "ir",
+          "name": "IRAN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+98"
+        },
+        {
+          "id": "104",
+          "iso": "iq",
+          "name": "IRAQ",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+964"
+        },
+        {
+          "id": "105",
+          "iso": "ie",
+          "name": "IRELAND",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+353"
+        },
+        {
+          "id": "106",
+          "iso": "il",
+          "name": "ISRAEL",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+972"
+        },
+        {
+          "id": "107",
+          "iso": "it",
+          "name": "ITALY",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+39"
+        },
+        {
+          "id": "108",
+          "iso": "jm",
+          "name": "JAMAICA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1876"
+        },
+        {
+          "id": "109",
+          "iso": "jp",
+          "name": "JAPAN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+81"
+        },
+        {
+          "id": "111",
+          "iso": "jo",
+          "name": "JORDAN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+962"
+        },
+        {
+          "id": "112",
+          "iso": "kz",
+          "name": "KAZAKHSTAN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+7"
+        },
+        {
+          "id": "113",
+          "iso": "ke",
+          "name": "KENYA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+254"
+        },
+        {
+          "id": "114",
+          "iso": "ki",
+          "name": "KIRIBATI",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+686"
+        },
+        {
+          "id": "115",
+          "iso": "kp",
+          "name": "KOREA NORTH",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+850"
+        },
+        {
+          "id": "116",
+          "iso": "kr",
+          "name": "KOREA SOUTH",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+82"
+        },
+        {
+          "id": "117",
+          "iso": "kw",
+          "name": "KUWAIT",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+965"
+        },
+        {
+          "id": "118",
+          "iso": "kg",
+          "name": "KYRGYZSTAN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+996"
+        },
+        {
+          "id": "119",
+          "iso": "la",
+          "name": "LAOS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+856"
+        },
+        {
+          "id": "120",
+          "iso": "lv",
+          "name": "LATVIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+371"
+        },
+        {
+          "id": "121",
+          "iso": "lb",
+          "name": "LEBANON",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+961"
+        },
+        {
+          "id": "122",
+          "iso": "ls",
+          "name": "LESOTHO",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+266"
+        },
+        {
+          "id": "123",
+          "iso": "lr",
+          "name": "LIBERIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+231"
+        },
+        {
+          "id": "124",
+          "iso": "ly",
+          "name": "LIBYA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+218"
+        },
+        {
+          "id": "125",
+          "iso": "li",
+          "name": "LIECHTENSTEIN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+423"
+        },
+        {
+          "id": "126",
+          "iso": "lt",
+          "name": "LITHUANIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+370"
+        },
+        {
+          "id": "127",
+          "iso": "lu",
+          "name": "LUXEMBOURG",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+352"
+        },
+        {
+          "id": "128",
+          "iso": "mo",
+          "name": "MACAU S.A.R.",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+853"
+        },
+        {
+          "id": "129",
+          "iso": "mk",
+          "name": "MACEDONIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+389"
+        },
+        {
+          "id": "130",
+          "iso": "mg",
+          "name": "MADAGASCAR",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+261"
+        },
+        {
+          "id": "131",
+          "iso": "mw",
+          "name": "MALAWI",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+265"
+        },
+        {
+          "id": "132",
+          "iso": "my",
+          "name": "MALAYSIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+60"
+        },
+        {
+          "id": "133",
+          "iso": "mv",
+          "name": "MALDIVES",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+960"
+        },
+        {
+          "id": "134",
+          "iso": "ml",
+          "name": "MALI",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+223"
+        },
+        {
+          "id": "135",
+          "iso": "mt",
+          "name": "MALTA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+356"
+        },
+        {
+          "id": "137",
+          "iso": "mh",
+          "name": "MARSHALL ISLANDS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+692"
+        },
+        {
+          "id": "138",
+          "iso": "mq",
+          "name": "MARTINIQUE",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+596"
+        },
+        {
+          "id": "139",
+          "iso": "mr",
+          "name": "MAURITANIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+222"
+        },
+        {
+          "id": "140",
+          "iso": "mu",
+          "name": "MAURITIUS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+230"
+        },
+        {
+          "id": "141",
+          "iso": "yt",
+          "name": "MAYOTTE",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+269"
+        },
+        {
+          "id": "142",
+          "iso": "mx",
+          "name": "MEXICO",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+52"
+        },
+        {
+          "id": "143",
+          "iso": "fm",
+          "name": "MICRONESIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+691"
+        },
+        {
+          "id": "144",
+          "iso": "md",
+          "name": "MOLDOVA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+373"
+        },
+        {
+          "id": "145",
+          "iso": "mc",
+          "name": "MONACO",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+377"
+        },
+        {
+          "id": "146",
+          "iso": "mn",
+          "name": "MONGOLIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+976"
+        },
+        {
+          "id": "147",
+          "iso": "ms",
+          "name": "MONTSERRAT",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1664"
+        },
+        {
+          "id": "148",
+          "iso": "ma",
+          "name": "MOROCCO",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+212"
+        },
+        {
+          "id": "149",
+          "iso": "mz",
+          "name": "MOZAMBIQUE",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+258"
+        },
+        {
+          "id": "150",
+          "iso": "mm",
+          "name": "MYANMAR",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+95"
+        },
+        {
+          "id": "151",
+          "iso": "na",
+          "name": "NAMIBIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+264"
+        },
+        {
+          "id": "152",
+          "iso": "nr",
+          "name": "NAURU",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+674"
+        },
+        {
+          "id": "153",
+          "iso": "np",
+          "name": "NEPAL",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+977"
+        },
+        {
+          "id": "154",
+          "iso": "an",
+          "name": "NETHERLANDS ANTILLES",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+599"
+        },
+        {
+          "id": "155",
+          "iso": "nl",
+          "name": "NETHERLANDS THE",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+31"
+        },
+        {
+          "id": "156",
+          "iso": "nc",
+          "name": "NEW CALEDONIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+687"
+        },
+        {
+          "id": "157",
+          "iso": "nz",
+          "name": "NEW ZEALAND",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+64"
+        },
+        {
+          "id": "158",
+          "iso": "ni",
+          "name": "NICARAGUA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+505"
+        },
+        {
+          "id": "159",
+          "iso": "ne",
+          "name": "NIGER",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+227"
+        },
+        {
+          "id": "160",
+          "iso": "ng",
+          "name": "NIGERIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+234"
+        },
+        {
+          "id": "161",
+          "iso": "nu",
+          "name": "NIUE",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+683"
+        },
+        {
+          "id": "162",
+          "iso": "nf",
+          "name": "NORFOLK ISLAND",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+672"
+        },
+        {
+          "id": "163",
+          "iso": "mp",
+          "name": "NORTHERN MARIANA ISLANDS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1670"
+        },
+        {
+          "id": "164",
+          "iso": "no",
+          "name": "NORWAY",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+47"
+        },
+        {
+          "id": "165",
+          "iso": "om",
+          "name": "OMAN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+968"
+        },
+        {
+          "id": "166",
+          "iso": "pk",
+          "name": "PAKISTAN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+92"
+        },
+        {
+          "id": "167",
+          "iso": "pw",
+          "name": "PALAU",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+680"
+        },
+        {
+          "id": "168",
+          "iso": "ps",
+          "name": "PALESTINIAN TERRITORY OCCUPIED",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+970"
+        },
+        {
+          "id": "169",
+          "iso": "pa",
+          "name": "PANAMA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+507"
+        },
+        {
+          "id": "170",
+          "iso": "pg",
+          "name": "PAPUA NEW GUINEA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+675"
+        },
+        {
+          "id": "171",
+          "iso": "py",
+          "name": "PARAGUAY",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+595"
+        },
+        {
+          "id": "172",
+          "iso": "pe",
+          "name": "PERU",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+51"
+        },
+        {
+          "id": "173",
+          "iso": "ph",
+          "name": "PHILIPPINES",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+63"
+        },
+        {
+          "id": "174",
+          "iso": "pn",
+          "name": "PITCAIRN ISLAND",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+64"
+        },
+        {
+          "id": "175",
+          "iso": "pl",
+          "name": "POLAND",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+48"
+        },
+        {
+          "id": "176",
+          "iso": "pt",
+          "name": "PORTUGAL",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+351"
+        },
+        {
+          "id": "177",
+          "iso": "pr",
+          "name": "PUERTO RICO",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1787"
+        },
+        {
+          "id": "178",
+          "iso": "qa",
+          "name": "QATAR",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+974"
+        },
+        {
+          "id": "179",
+          "iso": "re",
+          "name": "REUNION",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+262"
+        },
+        {
+          "id": "180",
+          "iso": "ro",
+          "name": "ROMANIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+40"
+        },
+        {
+          "id": "181",
+          "iso": "ru",
+          "name": "RUSSIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+70"
+        },
+        {
+          "id": "182",
+          "iso": "rw",
+          "name": "RWANDA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+250"
+        },
+        {
+          "id": "183",
+          "iso": "sh",
+          "name": "SAINT HELENA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+290"
+        },
+        {
+          "id": "184",
+          "iso": "kn",
+          "name": "SAINT KITTS AND NEVIS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1869"
+        },
+        {
+          "id": "185",
+          "iso": "lc",
+          "name": "SAINT LUCIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1758"
+        },
+        {
+          "id": "186",
+          "iso": "pm",
+          "name": "SAINT PIERRE AND MIQUELON",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+508"
+        },
+        {
+          "id": "187",
+          "iso": "vc",
+          "name": "SAINT VINCENT AND THE GRENADINES",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1784"
+        },
+        {
+          "id": "188",
+          "iso": "ws",
+          "name": "SAMOA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+684"
+        },
+        {
+          "id": "189",
+          "iso": "sm",
+          "name": "SAN MARINO",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+378"
+        },
+        {
+          "id": "190",
+          "iso": "st",
+          "name": "SAO TOME AND PRINCIPE",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+239"
+        },
+        {
+          "id": "191",
+          "iso": "sa",
+          "name": "SAUDI ARABIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+966"
+        },
+        {
+          "id": "192",
+          "iso": "sn",
+          "name": "SENEGAL",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+221"
+        },
+        {
+          "id": "194",
+          "iso": "sc",
+          "name": "SEYCHELLES",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+248"
+        },
+        {
+          "id": "195",
+          "iso": "sl",
+          "name": "SIERRA LEONE",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+232"
+        },
+        {
+          "id": "196",
+          "iso": "sg",
+          "name": "SINGAPORE",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+65"
+        },
+        {
+          "id": "197",
+          "iso": "sk",
+          "name": "SLOVAKIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+421"
+        },
+        {
+          "id": "198",
+          "iso": "si",
+          "name": "SLOVENIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+386"
+        },
+        {
+          "id": "200",
+          "iso": "sb",
+          "name": "SOLOMON ISLANDS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+677"
+        },
+        {
+          "id": "201",
+          "iso": "so",
+          "name": "SOMALIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+252"
+        },
+        {
+          "id": "202",
+          "iso": "za",
+          "name": "SOUTH AFRICA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+27"
+        },
+        {
+          "id": "203",
+          "iso": "gs",
+          "name": "SOUTH GEORGIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+500"
+        },
+        {
+          "id": "205",
+          "iso": "es",
+          "name": "SPAIN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+34"
+        },
+        {
+          "id": "206",
+          "iso": "lk",
+          "name": "SRI LANKA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+94"
+        },
+        {
+          "id": "207",
+          "iso": "sd",
+          "name": "SUDAN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+249"
+        },
+        {
+          "id": "208",
+          "iso": "sr",
+          "name": "SURINAME",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+597"
+        },
+        {
+          "id": "209",
+          "iso": "sj",
+          "name": "SVALBARD AND JAN MAYEN ISLANDS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+47"
+        },
+        {
+          "id": "210",
+          "iso": "sz",
+          "name": "SWAZILAND",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+268"
+        },
+        {
+          "id": "211",
+          "iso": "se",
+          "name": "SWEDEN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+46"
+        },
+        {
+          "id": "212",
+          "iso": "ch",
+          "name": "SWITZERLAND",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+41"
+        },
+        {
+          "id": "213",
+          "iso": "sy",
+          "name": "SYRIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+963"
+        },
+        {
+          "id": "214",
+          "iso": "tw",
+          "name": "TAIWAN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+886"
+        },
+        {
+          "id": "215",
+          "iso": "tj",
+          "name": "TAJIKISTAN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+992"
+        },
+        {
+          "id": "216",
+          "iso": "tz",
+          "name": "TANZANIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+255"
+        },
+        {
+          "id": "217",
+          "iso": "th",
+          "name": "THAILAND",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+66"
+        },
+        {
+          "id": "218",
+          "iso": "tg",
+          "name": "TOGO",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+228"
+        },
+        {
+          "id": "219",
+          "iso": "tk",
+          "name": "TOKELAU",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+690"
+        },
+        {
+          "id": "220",
+          "iso": "to",
+          "name": "TONGA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+676"
+        },
+        {
+          "id": "221",
+          "iso": "tt",
+          "name": "TRINIDAD AND TOBAGO",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1868"
+        },
+        {
+          "id": "222",
+          "iso": "tn",
+          "name": "TUNISIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+216"
+        },
+        {
+          "id": "223",
+          "iso": "tr",
+          "name": "TURKEY",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+90"
+        },
+        {
+          "id": "224",
+          "iso": "tm",
+          "name": "TURKMENISTAN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+7370"
+        },
+        {
+          "id": "225",
+          "iso": "tc",
+          "name": "TURKS AND CAICOS ISLANDS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1649"
+        },
+        {
+          "id": "226",
+          "iso": "tv",
+          "name": "TUVALU",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+688"
+        },
+        {
+          "id": "227",
+          "iso": "ug",
+          "name": "UGANDA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+256"
+        },
+        {
+          "id": "228",
+          "iso": "ua",
+          "name": "UKRAINE",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+380"
+        },
+        {
+          "id": "229",
+          "iso": "ae",
+          "name": "UNITED ARAB EMIRATES",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+971"
+        },
+        {
+          "id": "230",
+          "iso": "gb",
+          "name": "UNITED KINGDOM",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+44"
+        },
+        {
+          "id": "231",
+          "iso": "us",
+          "name": "UNITED STATES",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1"
+        },
+        {
+          "id": "232",
+          "iso": "um",
+          "name": "UNITED STATES MINOR OUTLYING ISLANDS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1"
+        },
+        {
+          "id": "233",
+          "iso": "uy",
+          "name": "URUGUAY",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+598"
+        },
+        {
+          "id": "234",
+          "iso": "uz",
+          "name": "UZBEKISTAN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+998"
+        },
+        {
+          "id": "235",
+          "iso": "vu",
+          "name": "VANUATU",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+678"
+        },
+        {
+          "id": "236",
+          "iso": "va",
+          "name": "VATICAN CITY STATE (HOLY SEE)",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+39"
+        },
+        {
+          "id": "237",
+          "iso": "ve",
+          "name": "VENEZUELA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+58"
+        },
+        {
+          "id": "238",
+          "iso": "vn",
+          "name": "VIETNAM",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+84"
+        },
+        {
+          "id": "239",
+          "iso": "vg",
+          "name": "VIRGIN ISLANDS (BRITISH)",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1284"
+        },
+        {
+          "id": "240",
+          "iso": "vi",
+          "name": "VIRGIN ISLANDS (US)",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+1340"
+        },
+        {
+          "id": "241",
+          "iso": "wf",
+          "name": "WALLIS AND FUTUNA ISLANDS",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+681"
+        },
+        {
+          "id": "242",
+          "iso": "eh",
+          "name": "WESTERN SAHARA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+212"
+        },
+        {
+          "id": "243",
+          "iso": "ye",
+          "name": "YEMEN",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+967"
+        },
+        {
+          "id": "245",
+          "iso": "zm",
+          "name": "ZAMBIA",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+260"
+        },
+        {
+          "id": "246",
+          "iso": "zw",
+          "name": "ZIMBABWE",
+          "name_greek": null,
+          "sortname": null,
+          "phonecode": "+263"
+        }
+    ]
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { of } from 'rxjs';
 import {
   FormBuilder,
@@ -40,15 +40,15 @@ export class LeadComponent implements OnInit {
     }
   };
 
-  @ViewChild('mainSwiper', {static:false}) mainSwiper: SwiperComponent;
-  @ViewChild('secondarySwiper', {static:false}) secondarySwiper: SwiperComponent;
+  @ViewChild('mainSwiper', { static: false }) mainSwiper: SwiperComponent;
+  @ViewChild('secondarySwiper', { static: false }) secondarySwiper: SwiperComponent;
 
-  collectionObj:any = {
+  collectionObj: any = {
     collection_id: "",
     name: "",
   }
 
-  contactObj:any = {
+  contactObj: any = {
     name: "",
     email: "",
     phone: "",
@@ -60,12 +60,12 @@ export class LeadComponent implements OnInit {
     country: "",
     property_code: "",
     rooms: "",
-    collection_id : this.collectionObj.collection_id,
+    collection_id: this.collectionObj.collection_id,
     brochure: 0,
-    item_IDs:[],
-    laminate_IDs:[],
-    flooring_IDs:[],
-    addons_IDs:[]
+    item_IDs: [],
+    laminate_IDs: [],
+    flooring_IDs: [],
+    addons_IDs: []
   }
 
   public productImageSwiper: SwiperConfigInterface = {
@@ -97,21 +97,31 @@ export class LeadComponent implements OnInit {
   public tab = "productSpecification";
   public accName = 'Construction';
   enquiry = false;
-  sizeSpecificationItems:any=[];
-  flooringList:any=[]
+  sizeSpecificationItems: any = [];
+  flooringList: any = []
 
   createContactForm: FormGroup;
 
   constructor(
-      public service: ServiceService,
-      private route :ActivatedRoute,
-      private router: Router,
-      private ngWizardService: NgWizardService
-  ) { }
+    public service: ServiceService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private ngWizardService: NgWizardService,
+
+  ) {
+    router.events.subscribe(event => {
+
+      if (event instanceof NavigationEnd) {
+        window.scrollTo(0, 0);
+      }
+    });
+  }
+
+
 
   collectionSlug = ""
-  collectionDetail:any = {
-    items:[],
+  collectionDetail: any = {
+    items: [],
   }
 
   ngOnInit() {
@@ -132,22 +142,22 @@ export class LeadComponent implements OnInit {
     }
   }
 
-  countries:any=[];
-  states:any=[];
-  cities:any=[];
+  countries: any = [];
+  states: any = [];
+  cities: any = [];
 
-  getCountries(){
-    this.service.getCountries().subscribe((response: {success:number , message:string, data:[]}) => {
-      if(response.success == 1){
+  getCountries() {
+    this.service.getCountries().subscribe((response: { success: number, message: string, data: [] }) => {
+      if (response.success == 1) {
         this.countries = response.data;
       }
     })
   }
 
-  loadStates(country){
-    if(country){
-      this.service.getStates(country).subscribe((response : {success:number, message:string, data:[]}) => {
-        if(response.success == 1){
+  loadStates(country) {
+    if (country) {
+      this.service.getStates(country).subscribe((response: { success: number, message: string, data: [] }) => {
+        if (response.success == 1) {
           this.states = response.data;
         } else {
           console.log(response.message)
@@ -156,10 +166,10 @@ export class LeadComponent implements OnInit {
     }
   }
 
-  loadCities(state){
-    if(state){
-      this.service.getCities(state).subscribe((response : {success:number, message:string, data:[]}) => {
-        if(response.success == 1){
+  loadCities(state) {
+    if (state) {
+      this.service.getCities(state).subscribe((response: { success: number, message: string, data: [] }) => {
+        if (response.success == 1) {
           this.cities = response.data;
         } else {
           console.log(response.message)
@@ -207,29 +217,29 @@ export class LeadComponent implements OnInit {
     }
   }
 
-  submitContactForm(){
-      if(this.isLoading == false){
-        this.isLoading = true;
+  submitContactForm() {
+    if (this.isLoading == false) {
+      this.isLoading = true;
 
-        this.service.submitContactForm(this.contactObj).subscribe((response : {success:number, message:string}) => {
-          if(response.success == 1){
+      this.service.submitContactForm(this.contactObj).subscribe((response: { success: number, message: string }) => {
+        if (response.success == 1) {
 
-            var phone = this.contactObj.phone;
-            this.contactObj.phone = this.contactObj.country + " " + phone;
-  
+          var phone = this.contactObj.phone;
+          this.contactObj.phone = this.contactObj.country + " " + phone;
 
 
-            this.enquiry = false
-            Swal.fire("Thank You for Contacting!", "Our team members will be in touch with you shortly!");
-            this.router.navigate(["/collections"]);
-          }
-          this.isLoading = false
-        })
-      }
+
+          this.enquiry = false
+          Swal.fire("Thank You for Contacting!", "Our team members will be in touch with you shortly!");
+          this.router.navigate(["/collections"]);
+        }
+        this.isLoading = false
+      })
+    }
     // }
   }
 
-  handleTab(tabName){
+  handleTab(tabName) {
     this.tab = tabName;
   }
 
@@ -241,24 +251,24 @@ export class LeadComponent implements OnInit {
     }
   }
 
-  handleEnquiry(){
+  handleEnquiry() {
     this.isWizardOpen = true;
   }
 
-  handleBrochure(){
+  handleBrochure() {
     this.enquiry = true;
     this.contactObj.brochure = 1;
   }
 
-  closeEnquiry(){
+  closeEnquiry() {
     this.enquiry = false;
   }
 
-  closeWizard(){
+  closeWizard() {
     this.isWizardOpen = false
   }
 
-  jumpBig(index){
+  jumpBig(index) {
     this.mainSwiper.directiveRef.setIndex(index);
   }
 
@@ -299,12 +309,12 @@ export class LeadComponent implements OnInit {
   //   return of(true);
   // }
 
-  exampleCHange(){
+  exampleCHange() {
   }
 
-  getFlooring(){
-    this.service.getFlooring().subscribe((response: {success:number, message:string,items:[]}) => {
-      if(response.success == 1){
+  getFlooring() {
+    this.service.getFlooring().subscribe((response: { success: number, message: string, items: [] }) => {
+      if (response.success == 1) {
         this.flooringList = response.items
         console.log(this.flooringList)
       }

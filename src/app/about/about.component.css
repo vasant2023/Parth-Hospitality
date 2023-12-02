@@ -159,6 +159,10 @@
 
 @media only screen and (max-width: 767px) {
 
+    .t_center p {
+        text-align: left ;
+    }
+
     .ph-channel-partner-banner-img, .ph-channel-partner-banner-img img {
         aspect-ratio: 0.75;
     }

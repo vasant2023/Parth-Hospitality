@@ -100,8 +100,9 @@ export class ChannelPartnerComponent implements OnInit {
     }
   }
  
-  submitContactForm(){
-    this.contactObj.type = 'channel_partner';
+  submitContactForm(form){
+    if(form.valid){
+      this.contactObj.type = 'channel_partner';
     if(this.isLoading == false){
       this.isLoading = true;
  
@@ -113,6 +114,8 @@ export class ChannelPartnerComponent implements OnInit {
         this.isLoading = false
       })
     }
+    }
+    
   }
 
 }

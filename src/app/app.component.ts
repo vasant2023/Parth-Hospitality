@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
 
   ) {
     router.events.subscribe(event => {
-
       if (event instanceof NavigationEnd) {
         window.scrollTo(0, 0);
       }
@@ -51,7 +50,46 @@ export class AppComponent implements OnInit {
   }
 
   mobile_menu_close_click() {
-    this.mobile_menu_click_F = false;
+    this.sub_menu_click_f = false;
+    this.sub_menu_2_click_false = false;
+    this.sub_menu_2_click_f = "";
   }
+
+
+
+  public sub_menu_click_f = false;
+  sub_mobile_menu_click() {
+    if (this.sub_menu_click_f) {
+      this.sub_menu_click_f = false;
+    } else {
+      this.sub_menu_click_f = true;
+    }
+  }
+
+  sub_mobile_menu_click_close() {
+    this.sub_menu_click_f = false;
+  }
+
+  public sub_menu_2_click_false = false;
+  public sub_menu_2_click_f = "";
+  sub_mobile_2_menu_click(category_ID) {
+    // if (this.sub_menu_2_click_f) {
+      this.sub_menu_2_click_f = category_ID;
+    // } 
+  }
+
+  sub_mobile_2_menu_click_close() {
+    this.sub_menu_2_click_false = false;
+    this.sub_menu_2_click_f = "";
+  }
+
+
+  all_close_menu(){
+    this.sub_menu_2_click_false = false;
+    this.sub_menu_click_f = false;
+    this.mobile_menu_click_F = false;
+    this.sub_menu_2_click_f = "";
+  }
+
 
 }

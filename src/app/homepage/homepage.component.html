@@ -4,7 +4,8 @@
       <swiper class="swiper homeBannerSwiper" #mainSwiper [config]="homeBannerSwiper">
         <div class="swiper-slide" *ngFor="let image of bannerList">
           <div class="home-banner-image relative">
-            <img src="{{image.image}}" alt="" />
+            <img src="{{image.image}}" alt=""  class="mobile_hidden"/> 
+            <img src="{{image.mobile_image}}" alt="" class="website_hidden"/> 
             <div class=""></div>
           </div>
         </div>
