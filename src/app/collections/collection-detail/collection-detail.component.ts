@@ -12,8 +12,8 @@ import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
 import { ServiceService } from 'src/app/_services/service.service';
 import Swal from "sweetalert2";
 import { SwiperModule, SWIPER_CONFIG, SwiperConfigInterface, SwiperComponent } from 'ngx-swiper-wrapper';
-import { NgWizardConfig, NgWizardService, StepChangedArgs, STEP_STATE, THEME } from 'ng-wizard';
 import { style } from '@angular/animations';
+declare var $: any
 
 
 @Component({
@@ -22,23 +22,6 @@ import { style } from '@angular/animations';
   styleUrls: ['./collection-detail.component.css']
 })
 export class CollectionDetailComponent implements OnInit {
-
-  stepStates = {
-    normal: STEP_STATE.normal,
-    disabled: STEP_STATE.disabled,
-    error: STEP_STATE.error,
-    hidden: STEP_STATE.hidden
-  };
-
-  config: NgWizardConfig = {
-    selected: 0,
-    theme: THEME.arrows,
-    toolbarSettings: {
-      toolbarExtraButtons: [
-        { text: 'Submit', class: 'btn btn-info', event: () => { this.submitContactForm() } }
-      ],
-    }
-  };
 
   @ViewChild('mainSwiper', { static: false }) mainSwiper: SwiperComponent;
   @ViewChild('secondarySwiper', { static: false }) secondarySwiper: SwiperComponent;
@@ -97,7 +80,6 @@ export class CollectionDetailComponent implements OnInit {
 
 
   public isLoading: boolean = false;
-  isWizardOpen = false;
   public tab = "productSpecification";
   public accName = 'Construction';
   enquiry = false;
@@ -110,7 +92,6 @@ export class CollectionDetailComponent implements OnInit {
     public service: ServiceService,
     private route: ActivatedRoute,
     private router: Router,
-    private ngWizardService: NgWizardService,
     private el: ElementRef, 
     private renderer: Renderer2
   ) { }
@@ -123,67 +104,11 @@ export class CollectionDetailComponent implements OnInit {
   ngOnInit() {
     this.getCollectionDetails();
     this.getCountries();
-    this.loadStates(101);
+    this.loadStates(91);
     this.getFlooring();
     this.route.paramMap.subscribe(params => {
       this.getCollectionDetails();
-    })
-
-
-
-    // const l1Elements = this.el.nativeElement.querySelectorAll('.l1');
-    // l1Elements.forEach((element: HTMLElement) => {
-    //   this.renderer.listen(element, 'click', () => {
-    //     const tag = element.getAttribute('value');
-    //     const tag1 = element.innerText;
-    //     const backLink = "#layer" + tag;
-
-    //     // Update navigation link attributes
-    //     const navLink = this.el.nativeElement.querySelector('.nav-link');
-    //     this.renderer.setAttribute(navLink, 'href', backLink);
-    //     this.renderer.setAttribute(navLink, 'value', tag);
-
-    //     // Show/hide layers
-    //     const layerElement = this.el.nativeElement.querySelector("#layer" + tag);
-    //     this.renderer.removeClass(layerElement, 'hide-menu');
-    //     this.renderer.toggleClass(layerElement, 'show-menu');
-    //   });
-    // });
-
-    // // Handling click on elements with class 'nav-link'
-    // const navLinkElement = this.el.nativeElement.querySelector('.nav-link');
-    // this.renderer.listen(navLinkElement, 'click', () => {
-    //   const tag = navLinkElement.getAttribute('href');
-    //   const val = parseInt(navLinkElement.getAttribute('value'), 10);
-
-    //   // Hide the corresponding layer
-    //   const layerElement = this.el.nativeElement.querySelector(tag);
-    //   this.renderer.removeClass(layerElement, 'show-menu');
-
-    //   // Update navigation link attributes for the previous layer
-    //   const backLink = "#layer" + (val - 1);
-    //   this.renderer.setAttribute(navLinkElement, 'href', backLink);
-    //   this.renderer.setAttribute(navLinkElement, 'value', (val - 1).toString());
-    // });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+    }) 
   }
 
   _keyPress(event: any) {
@@ -211,12 +136,11 @@ export class CollectionDetailComponent implements OnInit {
     })
   }
 
-  loadStates(country) {
-    if (country) {
-      this.service.getStates(country).subscribe((response: { success: number, message: string, data: [] }) => {
+  loadStates(phonecode) {
+    if (phonecode) {
+      this.service.getStates(phonecode).subscribe((response: { success: number, message: string, data: [] }) => {
         if (response.success == 1) {
           this.states = response.data;
-          // console.log(this.states)
         } else {
           console.log(response.message)
         }
@@ -229,7 +153,6 @@ export class CollectionDetailComponent implements OnInit {
       this.service.getCities(state).subscribe((response: { success: number, message: string, data: [] }) => {
         if (response.success == 1) {
           this.cities = response.data;
-          // console.log(this.cities)
         } else {
           console.log(response.message)
         }
@@ -240,11 +163,7 @@ export class CollectionDetailComponent implements OnInit {
 
   public country_code_clickF = false;
   country_code_click() {
-    if (this.country_code_clickF) {
-      this.country_code_clickF = false;
-    } else {
-      this.country_code_clickF = true;
-    }
+      this.country_code_clickF =  !this.country_code_clickF;   
   }
 
   country_code_click_false() {
@@ -256,13 +175,17 @@ export class CollectionDetailComponent implements OnInit {
     this.country_code_clickF = false;
   }
 
+  closeCountry(){
+    this.country_code_clickF = false
+  }
+
 
 
   getCollectionDetails() {
     this.isLoading = true;
     this.collectionSlug = this.route.snapshot.params['slug'];
     this.contactObj.collection_id = this.collectionSlug
-    this.contactObj.country = '101';
+    this.contactObj.country = '91';
     if (this.collectionSlug) {
       this.service.getCollectionDetails(this.collectionSlug).subscribe((response: { success: number, message: string, collection: {} }) => {
         this.collectionObj = response.collection
@@ -311,9 +234,7 @@ export class CollectionDetailComponent implements OnInit {
     }
   }
 
-  handleEnquiry() {
-    this.isWizardOpen = true;
-  }
+
 
   handleBrochure() {
     this.enquiry = true;
@@ -324,56 +245,16 @@ export class CollectionDetailComponent implements OnInit {
     this.enquiry = false;
   }
 
-  closeWizard() {
-    this.isWizardOpen = false
-  }
-
   jumpBig(index) {
     this.mainSwiper.directiveRef.setIndex(index);
   }
 
   jumpThumb(slide) {
+
     this.secondarySwiper.directiveRef.setIndex(slide);
-  }
-
-
-  // Wizard Functions
-
-  showPreviousStep(event?: Event) {
-    this.ngWizardService.previous();
-  }
-
-  showNextStep(event?: Event) {
-    this.ngWizardService.next();
-  }
-
-  resetWizard(event?: Event) {
-    this.ngWizardService.reset();
-  }
-
-  setTheme(theme: THEME) {
-    this.ngWizardService.theme(theme);
-  }
-
-  stepChanged(args: StepChangedArgs) {
-    // console.log(args.step);
-  }
-
-  isValidTypeBoolean: boolean = true;
-
-  // isValidFunctionReturnsBoolean(args: StepValidationArgs) {
-  //   return true;
-  // }
-
-  // isValidFunctionReturnsObservable(args: StepValidationArgs) {
-  //   return of(true);
-  // }
-
-  exampleCHange() {
-    // console.log(this.contactObj.addons_IDs, "Add ons")
-    // console.log(this.contactObj.item_IDs, "items")
-    // console.log(this.contactObj.laminate_IDs, "laminates")
-    // console.log(this.contactObj.flooring_IDs, "flooring")
+    $("#secondarySwiper").find(".swiper-slide").removeClass("swiper-slide-active");
+    $("#secondarySwiper").find(".swiper-slide:nth-child("+(slide+1)+")").addClass("swiper-slide-active");
+    
   }
 
   getFlooring() {
@@ -384,7 +265,6 @@ export class CollectionDetailComponent implements OnInit {
       }
     })
   }
-
 
   convertToNumber(value: string): number {
     return Number(value);

@@ -82,7 +82,7 @@
         <div class="relative" *ngIf="!isLoading">
           <div class="items-flex-sec">
             <div class="items-sec inner-flex inner-flex-common" *ngFor="let item of item_list">
-              <a data-fancybox="item-fancy" href="{{ item.banner_image_full }}" target="_self">
+              <a data-fancybox="item-fancy" href="{{ item.banner_image_full }}" target="_self" style="background-color: #fff;">
                 <div class="relative">
                   <div class="items-img-sec">
                     <img src="{{ item.banner_image_full }}" alt="" />
@@ -93,7 +93,7 @@
                   </div>
                 </div>
                 <div class="small-content item_main_title">
-                  <p class="medium-fonts">{{ item.item }}</p>
+                  <p class="medium-fonts">{{ toTitleCase(item.item) }}</p>
                 </div>
 
               </a>

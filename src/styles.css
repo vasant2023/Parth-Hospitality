@@ -384,6 +384,12 @@ img {
 	display: block;
 }
 
+.fancybox-slide--image {
+	overflow: hidden;
+    padding: 44px 0;
+    background-color: #fff;
+}
+
 .relative {
 	position: relative;
 }
@@ -2189,7 +2195,25 @@ button.ph-button.black-border-ph-button p {
 	visibility: hidden;
 }
 
+.popup-overlay-country {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: all ease 0.4s;
+	z-index: 99999;
+	transition: var(--common-transition);
+	opacity: 0;
+	visibility: hidden;
+}
+
 .popup-overlay.popup-overlay-active {
+	transition: var(--common-transition);
+	opacity: 1;
+	visibility: visible;
+}
+.popup-overlay-country.popup-overlay-country-active {
 	transition: var(--common-transition);
 	opacity: 1;
 	visibility: visible;

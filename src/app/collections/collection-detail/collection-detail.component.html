@@ -27,7 +27,7 @@
             </div>
           </div>
 
-          <swiper class="swiper mainProductGallery" #secondarySwiper [config]="productImageSwiper">
+          <swiper class="swiper mainProductGallery" id="secondarySwiper" #secondarySwiper [config]="productImageSwiper">
             <div class="swiper-slide main_short_image" *ngFor="let item of collectionDetail.images; let i = index"
               (click)="jumpBig(i)">
               <img src="{{ item.image_full }}" style=" object-fit: contain;" />
@@ -59,13 +59,13 @@
                 <h3 class="regular-fonts">${{ collectionDetail.price }}</h3>
               </div>
             </div>
-            <div class="section-content">
-              <p class="light-fonts" innerHTML="{{ collectionDetail.short_description }}">
+            <div class="section-content-details">
+              <p class="" innerHTML="{{ collectionDetail.short_description }}">
               </p>
             </div>
-            <div class="specifcation-banner-accordion specification section-content">
+            <div class="specifcation-banner-accordion specification section-content-details">
               <h3>Specification</h3>
-              <p class="light-fonts" innerHTML="{{ collectionDetail.description }}"></p>
+              <p class="" innerHTML="{{ collectionDetail.description }}"></p>
             </div>
             <div class="specification-download-btns-flex">
               <button class="ph-button black-border-ph-button" *ngIf="collectionDetail.brochure"
@@ -256,6 +256,8 @@
 <div>
   <div class="popup-overlay" [class.popup-overlay-active]="enquiry" (click)="closeEnquiry()"></div>
   <div class="inquire-popup-wrapper" [class.inquire-popup-wrapper-active]="enquiry">
+    <div class="popup-overlay-country" [class.popup-overlay-country-active]="country_code_clickF" (click)="closeCountry()"></div>
+
     <div class="inquire-popup-inner-flex side_popup_wrapper inner-flex inner-flex-small">
       <div class="inner-flex">
         <div class="close-popup-inquire" (click)="closeEnquiry()" style="cursor: pointer">
@@ -308,14 +310,14 @@
                   <li *ngFor="let country_list_detail of countries"
                     (click)="country_click_career(country_list_detail.phonecode);">
                     <div (click)="country_code_click_false();">
-                      <span class="display_country_code">{{country_list_detail.phonecode}}</span>
+                      <span class="display_country_code">+{{country_list_detail.phonecode}}</span>
                       {{country_list_detail.name}}
                     </div>
                   </li>
                 </ul>
               </div>
 
-              <input id="client_contact_no" name="phone" type="tel" numbers-only="" minlength="8" maxlength="13"
+              <input id="client_contact_no" name="phone" type="text" numbers-only="" minlength="8" maxlength="13"
                 autocomplete="off" class="form-control" #phone="ngModel" [(ngModel)]="contactObj.phone"
                 (keypress)="_keyPress($event)" required />
               <label class="md-lable contact_code" for="client_contact_no">Mobile*</label>
@@ -345,7 +347,7 @@
             <ng-select class="form-control" name="country" id="country" [(ngModel)]="contactObj.country"
               #country="ngModel" (change)="loadStates(contactObj.country)">
               <ng-option value="">-Select Country-</ng-option>
-              <ng-option value="{{ country.id }}" *ngFor="let country of countries">
+              <ng-option value="{{ country.phonecode }}" *ngFor="let country of countries">
                 {{ country.name }}
               </ng-option>
             </ng-select>

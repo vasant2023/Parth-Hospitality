@@ -210,3 +210,8 @@
   margin-top: 10rem;
   margin-bottom: 10rem;
 }
+
+.section-content-details p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}

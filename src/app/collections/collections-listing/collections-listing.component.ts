@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { ServiceService } from "../../_services/service.service";
 
@@ -11,15 +11,42 @@ import { ServiceService } from "../../_services/service.service";
 export class CollectionsListingComponent implements OnInit {
 
   constructor(
-    public service: ServiceService
-  ) { }
+    public service: ServiceService,
+    private route: ActivatedRoute,
+  ) {
+    
+  }
+  
 
   public isLoading:boolean = false;
   collection_list: any = [];
 
 
   ngOnInit() {
+    this.getHotelSlug();
     this.getCollection();
+    this.route.paramMap.subscribe(params => {this.getHotelSlug()})
+  }
+
+  public hotel_slug = "";
+  getHotelSlug(){
+    this.hotel_slug = this.route.snapshot.params['hotel_slug'];
+    if(this.hotel_slug){
+      this.getHotelWiseCollection();
+    }
+  }
+
+  public hotel_wise_collection:any = [];
+  getHotelWiseCollection(){
+    if(this.hotel_slug && this.hotel_slug != ""){
+      this.isLoading = true;
+      this.service.getHotelWiseCollection(this.hotel_slug).subscribe((response:any) => {
+        if(response.success == 1){
+          this.hotel_wise_collection = response.categories;
+        }
+        this.isLoading = false
+      })
+    }
   }
 
   getCollection(){

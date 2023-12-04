@@ -1,6 +1,6 @@
 <div>
   <h1 class="heading">Inquiry</h1>
-  <div class="lead-inquire-popup-wrapper">
+  <!-- <div class="lead-inquire-popup-wrapper">
     <div class="lead-wizard-popup">
       <ng-wizard [config]="config" (stepChanged)="stepChanged($event)">
         <ng-wizard-step [title]="'Step 1'" [description]="'Contact Details'">
@@ -244,6 +244,365 @@
           
         </ng-wizard-step>
       </ng-wizard>
+    </div>
+  </div> -->
+
+  <div class="lead-inquire-popup-wrapper">
+    <div class="lead-wizard-popup">
+
+
+      <div class="tab_title">
+        <div class="contat_detail_tab" (click)="formtabclick('contact_detail', 1)"
+          [class.active]="is_form_click_f == 'contact_detail'">
+          <p>
+            Step 1
+          </p>
+          <p>
+            Contact Details
+          </p>
+        </div>
+        <div class="contat_detail_tab" (click)="formtabclick('select_items', 2)"
+          [class.active]="is_form_click_f == 'select_items'">
+          <p>
+            Step 2
+          </p>
+          <p>
+            Select Items
+          </p>
+        </div>
+        <div class="contat_detail_tab" (click)="formtabclick('select_laminates', 3)"
+          [class.active]="is_form_click_f == 'select_laminates'">
+          <p>
+            Step 3
+          </p>
+          <p>
+            Select Laminates
+          </p>
+        </div>
+        <div class="contat_detail_tab" (click)="formtabclick('select_flooring', 4)"
+          [class.active]="is_form_click_f == 'select_flooring'">
+          <p>
+            Step 4
+          </p>
+          <p>
+            Select Flooring
+          </p>
+        </div>
+        <div class="contat_detail_tab" (click)="formtabclick('select_add_on', 5)"
+          [class.active]="is_form_click_f == 'select_add_on'">
+          <p>
+            Step 5
+          </p>
+          <p>
+            Select Add On
+          </p>
+        </div>
+      </div>
+
+      <form id="inquiry_form" name="inquiry_form" (ngSubmit)="inquiryForm.form.valid && submitContactForm()"
+        #inquiryForm="ngForm" class="inquiry_form_main">
+
+        <div>
+    <div class="popup-overlay-country" [class.popup-overlay-country-active]="country_code_clickF" (click)="closeCountry()"></div>
+
+          <div class="form_content_main" [class.active]="is_form_click_f == 'contact_detail' "
+            *ngIf="tab_index == 1  && is_form_click_f == 'contact_detail'">
+            <div class="form_wrapper">
+              <div class="contact_lable" [class.active]="contactObj.name != ''">
+                <label class="md-lable" for="name" style="padding: 1rem 0rem">Name*</label>
+                <input id="name" name="name" type="text" class="form-control input-padding" letters-only=""
+                  [(ngModel)]="contactObj.name" #name="ngModel" required />
+                <div *ngIf="inquiryForm.submitted && name.invalid" class="invalid-feedback">
+                  <div *ngIf="name.errors.required">Name cannot be empty!</div>
+                </div>
+              </div>
+
+              <div class="relative two-grid-form">
+                <div class="contact_lable" [class.active]="contactObj.email != ''">
+                  <label class="md-lable" for="email_address" style="padding: 1rem 0rem">Email*</label>
+                  <input id="email_address" name="email" type="email" autocomplete="off"
+                    class="form-control input-padding" #email="ngModel" [(ngModel)]="contactObj.email"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
+                  <div *ngIf="inquiryForm.submitted && email.invalid" class="invalid-feedback">
+                    <div *ngIf="email.errors.required">
+                      Email can not be empty!
+                    </div>
+                    <div *ngIf="email.invalid && !email.errors.required">
+                      Invalid Email address
+                    </div>
+                  </div>
+                </div>
+                <div class="contact_lable relative select_country_main_wrapper" [class.active]="contactObj.phone != ''">
+
+                  <div class="conatct_number_input">
+                    <div class="country_code_data" (click)="country_code_click(); ">
+                      <div>
+                        &nbsp; +{{contactObj.country}}
+                      </div>
+                      <div>
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="country_code_list_data" [class.active]="country_code_clickF">
+                    <ul>
+                      <li *ngFor="let country_list_detail of countries"
+                        (click)="country_click_career(country_list_detail.phonecode);">
+                        <div (click)="country_code_click_false();">
+                          <span class="display_country_code">+{{country_list_detail.phonecode}}</span>
+                          {{country_list_detail.name}}
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <label class="md-lable contact_code" for="client_contact_no" style="padding: 1rem 0rem">Mobile</label>
+                  <input id="client_contact_no" name="phone" type="text" numbers-only="" minlength="8" maxlength="13"
+                    autocomplete="off" class="form-control input-padding" #phone="ngModel"
+                    [(ngModel)]="contactObj.phone" (keypress)="_keyPress($event)" required />
+
+                  <div *ngIf="inquiryForm.submitted && phone.invalid" class="invalid-feedback">
+                    <div *ngIf="phone.errors.required">
+                      phone can not be empty!
+                    </div>
+                    <div *ngIf="phone.invalid && !phone.errors.required">
+                      Invalid Mobile number
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="relative two-grid-form">
+                <div class="contact_lable" [class.active]="contactObj.company_name != ''">
+                  <label class="md-lable" for="hotel_name" style="padding: 1rem 0rem">Hotel Name</label>
+                  <input id="hotel_name" name="company_name" type="text" class="form-control input-padding"
+                    #company_name="ngModel" [(ngModel)]="contactObj.company_name" />
+                </div>
+                <div class="contact_lable" [class.active]="contactObj.property_code != ''">
+                  <label class="md-lable" for="hotel_name" style="padding: 1rem 0rem">Property Code</label>
+
+                  <input id="property_code" name="property_code" type="text" class="form-control input-padding"
+                    #property_code="ngModel" [(ngModel)]="contactObj.property_code" (keypress)="_keyPress($event)" />
+                </div>
+              </div>
+
+              <div class="contact_lable" [class.active]="contactObj.country != ''" style="padding: 1rem 0rem">
+                <ng-select class="form-control input-padding" name="country" id="country"
+                  [(ngModel)]="contactObj.country" #country="ngModel" (change)="loadStates(contactObj.country)">
+                  <ng-option value="">-Select Country-</ng-option>
+                  <ng-option value="{{ country.phonecode }}" *ngFor="let country of countries">
+                    {{ country.name }}
+                  </ng-option>
+                </ng-select>
+              </div>
+
+              <div class="relative two-grid-form">
+                <div class="contact_lable drops" [class.active]="contactObj.state != ''">
+                  <ng-select class="form-control input-padding" name="state" id="state" [(ngModel)]="contactObj.state"
+                    #state="ngModel" (change)="loadCities(contactObj.state)">
+                    <ng-option value="">-Select State-</ng-option>
+                    <ng-option value="{{ state.id }}" *ngFor="let state of states">
+                      {{ state.name }}
+                    </ng-option>
+                  </ng-select>
+                </div>
+                <div class="contact_lable" [class.active]="contactObj.city != ''">
+                  <ng-select class="form-control input-padding" name="city" id="city" [(ngModel)]="contactObj.city"
+                    #city="ngModel">
+                    <ng-option value="">-Select City-</ng-option>
+                    <ng-option value="{{ city.id }}" *ngFor="let city of cities">
+                      {{ city.name }}
+                    </ng-option>
+                  </ng-select>
+                </div>
+              </div>
+
+              <div class="relative two-grid-form">
+                <div class="contact_lable" [class.active]="contactObj.rooms != ''">
+                  <label class="md-lable" for="hotel_name" style="padding: 1rem 0">Rooms</label>
+                  <input id="rooms" name="rooms" type="text" class="form-control input-padding" #rooms="ngModel"
+                    (keypress)="_keyPress($event)" [(ngModel)]="contactObj.rooms" />
+                </div>
+                <div class="contact_lable" [class.active]="contactObj.zip_code != ''">
+                  <label class="md-lable" for="hotel_name" style="padding: 1rem 0">Zip Code</label>
+
+                  <input id="zip_code" name="zip_code" type="text" class="form-control input-padding"
+                    #zip_code="ngModel" [(ngModel)]="contactObj.zip_code" (keypress)="_keyPress($event)" />
+                </div>
+              </div>
+
+              <div class="contact_lable" [class.active]="contactObj.message != ''">
+                <label class="md-lable" for="remarks" style="padding: 1rem 0">Comments</label>
+
+                <textarea id="remarks" name="message" type="text" aria-invalid="false" autocomplete="off"
+                  class="form-control input-padding" rows="1" #message="ngModel" rows="5"
+                  [(ngModel)]="contactObj.message" required>
+                  </textarea>
+                <div *ngIf="inquiryForm.submitted && message.invalid" class="invalid-feedback">
+                  <div *ngIf="message.errors.required">Message can not be empty!</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form_content_main" [class.active]="is_form_click_f == 'select_items'"
+            *ngIf="tab_index == 2  && is_form_click_f == 'select_items'">
+            <div class="image-wrapper-details">
+              <div class="card" *ngFor="let item of collectionDetail.items">
+                <div class="card-body" style="display: grid; place-content: center;">
+                  <label for="item_{{ item.item_ID }}">
+                    <div>
+                      <img class="card-img-top" src="{{ item.banner_image_full }}" alt="Card image cap"
+                        style="height: 300px;" />
+                    </div>
+
+                    <div class="input_card_main_flex">
+                      <div class="rounded_width_check_height">
+                        <input type="checkbox" name="item_{{ item.item_ID }}" [(checklist)]="contactObj.item_IDs"
+                          [checklistValue]="item.item_ID" id="item_{{ item.item_ID }}" class="rounded-checkbox"
+                          (change)="exampleCHange()" />
+                      </div>
+                      <div>
+                        <p class="card-text">
+                          {{ item.item }}
+                        </p>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div *ngIf="collectionDetail.items.length == 0" class="not_found_title">
+                <p>
+                  No Records Found
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form_content_main" [class.active]="is_form_click_f == 'select_laminates' && tab_index == 3">
+            <div class="image-wrapper-details">
+              <div class="card" *ngFor="let laminate of collectionObj.laminates">
+                <div class="card-body" style="display: grid; place-content: center;">
+                  <label for="laminate_{{ laminate.laminate_ID }}">
+                    <div>
+                      <img class="card-img-top" src="{{ laminate.image }}&w=350&h=350" alt="Card image cap" />
+                    </div>
+                    <div class="input_card_main_flex">
+                      <div class="rounded_width_check_height">
+                        <input type="checkbox" name="laminate_{{ laminate.laminate_ID }}"
+                          [(checklist)]="contactObj.laminate_IDs" [checklistValue]="laminate.laminate_ID"
+                          id="laminate_{{ laminate.laminate_ID }}" class="rounded-checkbox"
+                          (change)="exampleCHange()" />
+                      </div>
+                      <div>
+                        <p class="card-text">{{ laminate.laminate }} {{collectionObj.laminates.length}}</p>
+                      </div>
+                    </div>
+                  </label>
+                  <p style="padding-left: 2.5rem; padding-top: 0.5rem;">
+                    {{ laminate.size }}
+                  </p>
+                </div>
+              </div>
+              <div *ngIf="collectionObj.laminates.length > 0" class="not_found_title">
+                <p>
+                  No Records Found
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form_content_main" [class.active]="is_form_click_f == 'select_flooring' && tab_index == 4">
+
+            <div class="image-wrapper-details">
+              <div class="card" *ngFor="let flooring of flooringList">
+                <div class="card-body" style="display: grid; place-content: center;">
+                  <label for="flooring_{{ flooring.item_ID }}">
+                    <div>
+                      <img class="card-img-top" src="{{ flooring.banner_image }}&w=350&h=350" alt="Card image cap" />
+                    </div>
+                    <div class="input_card_main_flex">
+                      <div class="rounded_width_check_height">
+                        <input type="checkbox" name="flooring_{{ flooring.item_ID }}"
+                          [(checklist)]="contactObj.flooring_IDs" [checklistValue]="flooring.item_ID"
+                          id="flooring_{{ flooring.item_ID }}" class="rounded-checkbox" (change)="exampleCHange()" />
+                      </div>
+                      <div>
+                        <p class="card-text">
+                          {{ flooring.item }}
+                        </p>
+                      </div>
+                    </div>
+
+                  </label>
+                </div>
+              </div>
+              <div *ngIf="!flooringList.length" class="not_found_title">
+                <p>
+                  No Records Found
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form_content_main" [class.active]="is_form_click_f == 'select_add_on' && tab_index == 5">
+            <div *ngFor="let addons of collectionDetail.addons" style="margin-top: 1rem">
+              <h3>{{ addons.addon }}</h3>
+              <div class="image-wrapper-details">
+                <div class="card" *ngFor="let addonItem of addons.list">
+                  <div class="card-body" style="display: grid; place-content: center;">
+                    <label for="addonItem_{{ addonItem.item_ID }}">
+                      <div>
+                        <img class="card-img-top" src="{{ addonItem.banner_image }}&w=350&h=350" alt="Card image cap" />
+                      </div>
+                      <div class="input_card_main_flex">
+                        <div class="rounded_width_check_height">
+                          <input type="checkbox" name="addonItem_{{ addonItem.item_ID }}"
+                            [(checklist)]="contactObj.addons_IDs" [checklistValue]="addonItem.item_ID"
+                            id="addonItem_{{ addonItem.item_ID }}" class="rounded-checkbox"
+                            (change)="exampleCHange()" />
+                        </div>
+                        <div>
+                          <p class="card-text" style="padding-left: 1.5rem">
+                            {{ addonItem.item }}
+                          </p>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="collectionDetail.addons.length == 0" class="not_found_title">
+              <p>
+                No Records Found
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="submit_btn_main">
+          <div class="previous_next_btn">
+            <div class="previous_btn_submit no_curve_previous" *ngIf="tab_index > '1'">
+              <p (click)="managePrevious()">
+                Previous
+              </p>
+            </div>
+            <div class="previous_btn_submit no_curve_next" *ngIf="tab_index < '5'">
+              <p (click)="manageNext()">
+                Next
+              </p>
+            </div>
+          </div>
+          <div class="previous_btn_submit">
+            <button>
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>

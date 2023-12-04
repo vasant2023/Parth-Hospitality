@@ -103,6 +103,20 @@ export class ServiceService {
    return this.http.post(url, body, { headers: httpHeaders });
   }
 
+  getHotelWiseCollection(hotel_slug){
+    const url = environment.apiUrl + 'categories/collection_list';
+    const apiId = environment.apiId;
+
+    let body = new HttpParams();
+    body = body.append('apiId', apiId);
+    body = body.append('slug', hotel_slug);
+
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded'
+   });
+   return this.http.post(url, body, { headers: httpHeaders });
+  }
+
   getCollectioncategories(){
     const url = environment.apiUrl + 'categories/list';
     const apiId = environment.apiId;

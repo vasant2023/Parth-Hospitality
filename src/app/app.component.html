@@ -29,7 +29,11 @@
             <ul class="megamenu-level-1-sub">
               <li class="megamenu-last-level-head" *ngFor="let item of menuList">
                 <a href="javascript:void(0)" *ngIf="item.children.length > 0">
-                  <p>{{item.category}}</p>
+                  <p>
+                    <a routerLink="/collections/hotel/{{item.slug}}">
+                      {{item.category}}
+                    </a>
+                  </p>
                   <span class="material-symbols-outlined">
                     chevron_right
                   </span>

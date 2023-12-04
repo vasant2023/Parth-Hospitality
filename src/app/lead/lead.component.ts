@@ -11,7 +11,7 @@ import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
 import { ServiceService } from 'src/app/_services/service.service';
 import Swal from "sweetalert2";
 import { SwiperModule, SWIPER_CONFIG, SwiperConfigInterface, SwiperComponent } from 'ngx-swiper-wrapper';
-import { NgWizardConfig, NgWizardService, StepChangedArgs, STEP_STATE, THEME } from 'ng-wizard';
+// import { NgWizardConfig, NgWizardService, StepChangedArgs, STEP_STATE, THEME } from 'ng-wizard';
 import { style } from '@angular/animations';
 
 
@@ -23,29 +23,31 @@ import { style } from '@angular/animations';
 })
 export class LeadComponent implements OnInit {
 
-  stepStates = {
-    normal: STEP_STATE.normal,
-    disabled: STEP_STATE.disabled,
-    error: STEP_STATE.error,
-    hidden: STEP_STATE.hidden
-  };
+  // stepStates = {
+  //   normal: STEP_STATE.normal,
+  //   disabled: STEP_STATE.disabled,
+  //   error: STEP_STATE.error,
+  //   hidden: STEP_STATE.hidden
+  // };
 
-  config: NgWizardConfig = {
-    selected: 0,
-    theme: THEME.arrows,
-    toolbarSettings: {
-      toolbarExtraButtons: [
-        { text: 'Submit', class: 'btn btn-info', event: () => { this.submitContactForm() } }
-      ],
-    }
-  };
+  // config: NgWizardConfig = {
+  //   selected: 0,
+  //   theme: THEME.arrows,
+  //   toolbarSettings: {
+  //     toolbarExtraButtons: [
+  //       { text: 'Submit', class: 'btn btn-info', event: () => { this.submitContactForm() } }
+  //     ],
+  //   }
+  // };
 
-  @ViewChild('mainSwiper', { static: false }) mainSwiper: SwiperComponent;
-  @ViewChild('secondarySwiper', { static: false }) secondarySwiper: SwiperComponent;
 
   collectionObj: any = {
     collection_id: "",
     name: "",
+    laminates:[],
+    addons:[],
+    items:[],
+
   }
 
   contactObj: any = {
@@ -68,35 +70,11 @@ export class LeadComponent implements OnInit {
     addons_IDs: []
   }
 
-  public productImageSwiper: SwiperConfigInterface = {
-    spaceBetween: 10,
-    slidesPerView: 3,
-    loop: true,
-    freeMode: false,
-    // loopedSlides: 5,
-    observer: true,
-    // observeParents: true,
-    watchSlidesVisibility: true,
-    watchSlidesProgress: true,
-    centeredSlides: true,
-  };
-
-  public mainImageSwiper: SwiperConfigInterface = {
-    spaceBetween: 20,
-    slidesPerView: 1,
-    loop: true,
-    observer: true,
-    freeMode: false,
-    watchSlidesVisibility: true,
-    watchSlidesProgress: true,
-  };
-
-
+ 
   isLoading = false;
-  isWizardOpen = false;
+  // isWizardOpen = false;
   public tab = "productSpecification";
   public accName = 'Construction';
-  enquiry = false;
   sizeSpecificationItems: any = [];
   flooringList: any = []
 
@@ -106,7 +84,7 @@ export class LeadComponent implements OnInit {
     public service: ServiceService,
     private route: ActivatedRoute,
     private router: Router,
-    private ngWizardService: NgWizardService,
+    // private ngWizardService: NgWizardService,
 
   ) {
     router.events.subscribe(event => {
@@ -122,12 +100,14 @@ export class LeadComponent implements OnInit {
   collectionSlug = ""
   collectionDetail: any = {
     items: [],
+    addons:[]
+
   }
 
   ngOnInit() {
     this.getCollectionDetails();
     this.getCountries();
-    this.loadStates(101);
+    this.loadStates(91);
     this.getFlooring();
     this.route.paramMap.subscribe(params => {
       this.getCollectionDetails();
@@ -178,13 +158,9 @@ export class LeadComponent implements OnInit {
     }
   }
 
-  public country_code_clickF = false;
+  public country_code_clickF:boolean = false;
   country_code_click() {
-    if (this.country_code_clickF) {
-      this.country_code_clickF = false;
-    } else {
-      this.country_code_clickF = true;
-    }
+    this.country_code_clickF = !this.country_code_clickF
   }
 
   country_code_click_false() {
@@ -196,28 +172,32 @@ export class LeadComponent implements OnInit {
     this.country_code_clickF = false;
   }
 
+  closeCountry(){
+    this.country_code_clickF = false
+  }
+
   getCollectionDetails() {
     this.collectionSlug = this.route.snapshot.params['slug'];
     this.contactObj.collection_id = this.collectionSlug
-    this.contactObj.country = '101';
+    this.contactObj.country = '91';
 
 
     if (this.collectionSlug) {
-      this.service.getCollectionDetails(this.collectionSlug).subscribe((response: { success: number, message: string, collection: [] }) => {
-        this.collectionObj = response.collection
-        console.log(this.collectionObj);
+      this.service.getCollectionDetails(this.collectionSlug).subscribe((response: { success: number, message: string, collection: {} }) => { 
         this.contactObj.collection_id = this.collectionObj.collection_ID;
-
-
         if (response.success == 1) {
+          this.collectionObj = response.collection
           this.collectionDetail = response.collection;
           this.sizeSpecificationItems = this.collectionDetail.items;
+
+          console.log(this.sizeSpecificationItems, "items");
         }
       })
     }
   }
 
-  submitContactForm() {
+  submitContactForm(form) {
+
     if (this.isLoading == false) {
       this.isLoading = true;
 
@@ -228,8 +208,6 @@ export class LeadComponent implements OnInit {
           this.contactObj.phone = this.contactObj.country + " " + phone;
 
 
-
-          this.enquiry = false
           Swal.fire("Thank You for Contacting!", "Our team members will be in touch with you shortly!");
           this.router.navigate(["/collections"]);
         }
@@ -251,53 +229,53 @@ export class LeadComponent implements OnInit {
     }
   }
 
-  handleEnquiry() {
-    this.isWizardOpen = true;
-  }
+  // handleEnquiry() {
+  //   this.isWizardOpen = true;
+  // }
 
-  handleBrochure() {
-    this.enquiry = true;
-    this.contactObj.brochure = 1;
-  }
+  // handleBrochure() {
+  //   this.enquiry = true;
+  //   this.contactObj.brochure = 1;
+  // }
 
-  closeEnquiry() {
-    this.enquiry = false;
-  }
+  // closeEnquiry() {
+  //   this.enquiry = false;
+  // }
 
-  closeWizard() {
-    this.isWizardOpen = false
-  }
+  // closeWizard() {
+  //   this.isWizardOpen = false
+  // }
 
-  jumpBig(index) {
-    this.mainSwiper.directiveRef.setIndex(index);
-  }
+  // jumpBig(index) {
+  //   this.mainSwiper.directiveRef.setIndex(index);
+  // }
 
-  jumpThumb(slide) {
-    this.secondarySwiper.directiveRef.setIndex(slide);
-  }
+  // jumpThumb(slide) {
+  //   this.secondarySwiper.directiveRef.setIndex(slide);
+  // }
 
 
   // Wizard Functions
 
-  showPreviousStep(event?: Event) {
-    this.ngWizardService.previous();
-  }
+  // showPreviousStep(event?: Event) {
+  //   this.ngWizardService.previous();
+  // }
 
-  showNextStep(event?: Event) {
-    this.ngWizardService.next();
-  }
+  // showNextStep(event?: Event) {
+  //   this.ngWizardService.next();
+  // }
 
-  resetWizard(event?: Event) {
-    this.ngWizardService.reset();
-  }
+  // resetWizard(event?: Event) {
+  //   this.ngWizardService.reset();
+  // }
 
-  setTheme(theme: THEME) {
-    this.ngWizardService.theme(theme);
-  }
+  // setTheme(theme: THEME) {
+  //   this.ngWizardService.theme(theme);
+  // }
 
-  stepChanged(args: StepChangedArgs) {
-    // console.log(args.step);
-  }
+  // stepChanged(args: StepChangedArgs) {
+  //   // console.log(args.step);
+  // }
 
   isValidTypeBoolean: boolean = true;
 
@@ -320,5 +298,47 @@ export class LeadComponent implements OnInit {
       }
     })
   }
+
+
+  public is_form_click_f = "contact_detail";
+  public tab_index:any = "1";
+  formtabclick(tab, tabIndex) {
+    this.is_form_click_f = tab;
+    this.tab_index = tabIndex
+  }
+
+
+  manageNext(){
+    this.tab_index = parseInt(this.tab_index) + 1;
+
+    if(this.tab_index == 1){
+      this.is_form_click_f = 'contact_detail';
+    } else if(this.tab_index == 2){
+      this.is_form_click_f = 'select_items';
+    } else if(this.tab_index == 3){
+      this.is_form_click_f = 'select_laminates';
+    } else if(this.tab_index == 4){
+      this.is_form_click_f = 'select_flooring';
+    } else if(this.tab_index == 5){
+      this.is_form_click_f = 'select_add_on';
+    }
+    
+  }
+  managePrevious(){
+    this.tab_index = parseInt(this.tab_index) - 1;
+    if(this.tab_index == 1){
+      this.is_form_click_f = 'contact_detail';
+    } else if(this.tab_index == 2){
+      this.is_form_click_f = 'select_items';
+    } else if(this.tab_index == 3){
+      this.is_form_click_f = 'select_laminates';
+    } else if(this.tab_index == 4){
+      this.is_form_click_f = 'select_flooring';
+    } else if(this.tab_index == 5){
+      this.is_form_click_f = 'select_add_on';
+    }
+  }
+
+  
 
 }

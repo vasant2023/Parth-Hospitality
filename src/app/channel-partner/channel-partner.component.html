@@ -327,355 +327,45 @@
         </div>
         <div class="visible-sm visible-xs">
           <div class="parth-edge-swiper swiper relative">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="ph-edge-grid-item ">
-                  <div class="ph-cp-icon">
-                    <div class="ph-cp-icon-img">
-                      <img src="assets/images/icons/channel-partner-icons/concenience.svg" alt="">
-                    </div>
-                    <div class="ph-cp-icon-text link-font ">
-                      <p class="text-uppercase bold-fonts">
-                        concenience
-                      </p>
-                    </div>
-                  </div>
-                  <div class="ph-edge-grid-content-flex">
-                    <div class="inner-flex">
-                      <div class="link-font">
-                        <p class="edge-heading">Parth Furniture</p>
-                      </div>
-                      <div class="link-font">
-                        <p>One-stop-shop for all range of products.</p>
-                      </div>
-                    </div>
-                    <div class="inner-flex">
-                      <div class="link-font ">
-                        <p class="edge-heading">Traditional Manufacture</p>
-                      </div>
-                      <div class="link-font">
-                        <p>Need to reach out to various vendors for different products
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="ph-edge-grid-item ">
-                  <div class="ph-cp-icon">
-                    <div class="ph-cp-icon-img">
-                      <img src="assets/images/icons/channel-partner-icons/Quality.svg" alt="">
-                    </div>
-                    <div class="ph-cp-icon-text link-font ">
-                      <p class="text-uppercase bold-fonts">
-                        Quality
-                      </p>
-                    </div>
-                  </div>
-                  <div class="ph-edge-grid-content-flex">
-                    <div class="inner-flex">
-                      <div class="link-font">
-                        <p class="edge-heading">Parth Furniture</p>
-                      </div>
-                      <div class="link-font">
-                        <p>Standard material <br>
-                          Extensive quality checks</p>
+            <div class="">
+              <swiper class="swiper homeBannerSwiper" #mainSwiper [config]="channelPartnerSwiper">
 
+                <div class="swiper-slide" *ngFor="let specification of channelPartnerData">
+                  <div class="ph-edge-grid-item ">
+                    <div class="ph-cp-icon">
+                      <div class="ph-cp-icon-img">
+                        <img src="{{specification.image_name}}" alt="">
+                      </div>
+                      <div class="ph-cp-icon-text link-font ">
+                        <p class="text-uppercase bold-fonts">
+                          {{specification.title_name}}
+                        </p>
                       </div>
                     </div>
-
-                    <div class="inner-flex">
-                      <div class="link-font ">
-                        <p class="edge-heading">Traditional Manufacture</p>
+                    <div class="ph-edge-grid-content-flex">
+                      <div class="inner-flex">
+                        <div class="link-font">
+                          <p class="edge-heading">{{specification.hospitality1}}</p>
+                        </div>
+                        <div class="link-font">
+                          <p>{{specification.content_1_name}}</p>
+                        </div>
                       </div>
-                      <div class="link-font">
-                        <p>Compromised quality to cut costs <br>
-                          Absolutely zero quality checks</p>
+                      <div class="inner-flex">
+                        <div class="link-font ">
+                          <p class="edge-heading">{{
+                            specification.hospitality2}}</p>
+                        </div>
+                        <div class="link-font">
+                          <p>{{
+                            specification.content_2_name}}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="ph-edge-grid-item ">
-                  <div class="ph-cp-icon">
-                    <div class="ph-cp-icon-img">
-                      <img src="assets/images/icons/channel-partner-icons/warranty.svg" alt="">
-                    </div>
-                    <div class="ph-cp-icon-text link-font ">
-                      <p class="text-uppercase bold-fonts">
-                        warranty
-                      </p>
-                    </div>
-                  </div>
-                  <div class="ph-edge-grid-content-flex">
-                    <div class="inner-flex">
-                      <div class="link-font">
-                        <p class="edge-heading">Parth Furniture</p>
-                      </div>
-                      <div class="link-font">
-                        <p>Industry best & transparent warranty policies</p>
-                      </div>
-                    </div>
-
-                    <div class="inner-flex">
-                      <div class="link-font ">
-                        <p class="edge-heading">Traditional Manufacture</p>
-                      </div>
-                      <div class="link-font">
-                        <p>No warranty</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="ph-edge-grid-item ">
-                  <div class="ph-cp-icon">
-                    <div class="ph-cp-icon-img">
-                      <img src="assets/images/icons/channel-partner-icons/after-sales-supprt.svg" alt="">
-                    </div>
-                    <div class="ph-cp-icon-text link-font ">
-                      <p class="text-uppercase bold-fonts">
-                        after sales supprt
-                      </p>
-                    </div>
-                  </div>
-                  <div class="ph-edge-grid-content-flex">
-                    <div class="inner-flex">
-                      <div class="link-font">
-                        <p class="edge-heading">Parth Furniture</p>
-                      </div>
-                      <div class="link-font">
-                        <p>Dedicated Team <br>
-                          100% Our responsibility
-                        </p>
-                      </div>
-                    </div>
-                    <div class="inner-flex">
-                      <div class="link-font ">
-                        <p class="edge-heading">Traditional Manufacture</p>
-                      </div>
-                      <div class="link-font">
-                        <p>No after sales support</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="ph-edge-grid-item ">
-                  <div class="ph-cp-icon">
-                    <div class="ph-cp-icon-img">
-                      <img src="assets/images/icons/channel-partner-icons/delivery-assistance.svg" alt="">
-                    </div>
-                    <div class="ph-cp-icon-text link-font ">
-                      <p class="text-uppercase bold-fonts">
-                        delivery assistance
-                      </p>
-                    </div>
-                  </div>
-                  <div class="ph-edge-grid-content-flex">
-                    <div class="inner-flex">
-                      <div class="link-font">
-                        <p class="edge-heading">Parth Furniture</p>
-                      </div>
-                      <div class="link-font">
-                        <p>Delivery & installation will be done by us.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div class="inner-flex">
-                      <div class="link-font ">
-                        <p class="edge-heading">Traditional Manufacture</p>
-                      </div>
-                      <div class="link-font">
-                        <p>Delivery Hassles.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="ph-edge-grid-item ">
-                  <div class="ph-cp-icon">
-                    <div class="ph-cp-icon-img">
-                      <img src="assets/images/icons/channel-partner-icons/Product-Conductivity.svg" alt="">
-                    </div>
-                    <div class="ph-cp-icon-text link-font ">
-                      <p class="text-uppercase bold-fonts">
-                        Product Conductivity
-                      </p>
-                    </div>
-                  </div>
-                  <div class="ph-edge-grid-content-flex">
-                    <div class="inner-flex">
-                      <div class="link-font">
-                        <p class="edge-heading">Parth Furniture</p>
-                      </div>
-                      <div class="link-font">
-                        <p>Guaranteed product continuity.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div class="inner-flex">
-                      <div class="link-font ">
-                        <p class="edge-heading">Traditional Manufacture</p>
-                      </div>
-                      <div class="link-font">
-                        <p>Challenged product continuity.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="ph-edge-grid-item ">
-                  <div class="ph-cp-icon">
-                    <div class="ph-cp-icon-img">
-                      <img src="assets/images/icons/channel-partner-icons/brand.svg" alt="">
-                    </div>
-                    <div class="ph-cp-icon-text link-font ">
-                      <p class="text-uppercase bold-fonts">
-                        brand
-                      </p>
-                    </div>
-                  </div>
-                  <div class="ph-edge-grid-content-flex">
-                    <div class="inner-flex">
-                      <div class="link-font">
-                        <p class="edge-heading">Parth Furniture</p>
-                      </div>
-                      <div class="link-font">
-                        <p>Brand awareness, as it makes selling at ease
-                        </p>
-                      </div>
-                    </div>
-
-                    <div class="inner-flex">
-                      <div class="link-font ">
-                        <p class="edge-heading">Traditional Manufacture</p>
-                      </div>
-                      <div class="link-font">
-                        <p>No Brand
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="ph-edge-grid-item ">
-                  <div class="ph-cp-icon">
-                    <div class="ph-cp-icon-img">
-                      <img src="assets/images/icons/channel-partner-icons/Pricing.svg" alt="">
-                    </div>
-                    <div class="ph-cp-icon-text link-font ">
-                      <p class="text-uppercase bold-fonts">
-                        Pricing
-                      </p>
-                    </div>
-                  </div>
-                  <div class="ph-edge-grid-content-flex">
-                    <div class="inner-flex">
-                      <div class="link-font">
-                        <p class="edge-heading">Parth Furniture</p>
-                      </div>
-                      <div class="link-font">
-                        <p>Standard & competitive pricing <br>
-                          No hidden costs
-                        </p>
-                      </div>
-                    </div>
-
-                    <div class="inner-flex">
-                      <div class="link-font ">
-                        <p class="edge-heading">Traditional Manufacture</p>
-                      </div>
-                      <div class="link-font">
-                        <p>Fluctuating seasonal pricing.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="ph-edge-grid-item ">
-                  <div class="ph-cp-icon">
-                    <div class="ph-cp-icon-img">
-                      <img src="assets/images/icons/channel-partner-icons/Design.svg" alt="">
-                    </div>
-                    <div class="ph-cp-icon-text link-font ">
-                      <p class="text-uppercase bold-fonts">
-                        Design
-                      </p>
-                    </div>
-                  </div>
-                  <div class="ph-edge-grid-content-flex">
-                    <div class="inner-flex">
-                      <div class="link-font">
-                        <p class="edge-heading">Parth Furniture</p>
-                      </div>
-                      <div class="link-font">
-                        <p>Planning, prototyping, evaluating & designing
-                          by expert & qualified designers
-                        </p>
-                      </div>
-                    </div>
-
-                    <div class="inner-flex">
-                      <div class="link-font ">
-                        <p class="edge-heading">Traditional Manufacture</p>
-                      </div>
-                      <div class="link-font">
-                        <p>Generally from a picture/image.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="ph-edge-grid-item ">
-                  <div class="ph-cp-icon">
-                    <div class="ph-cp-icon-img">
-                      <img src="assets/images/icons/channel-partner-icons/Delivery.svg" alt="">
-                    </div>
-                    <div class="ph-cp-icon-text link-font ">
-                      <p class="text-uppercase bold-fonts">
-                        Delivery
-                      </p>
-                    </div>
-                  </div>
-                  <div class="ph-edge-grid-content-flex">
-                    <div class="inner-flex">
-                      <div class="link-font">
-                        <p class="edge-heading">Parth Furniture</p>
-                      </div>
-                      <div class="link-font">
-                        <p>Standard time-frame committed at the time
-                          of placing the order
-                        </p>
-                      </div>
-                    </div>
-
-                    <div class="inner-flex">
-                      <div class="link-font ">
-                        <p class="edge-heading">Traditional Manufacture</p>
-                      </div>
-                      <div class="link-font">
-                        <p>Unrealistic, due to lack of commitment / experience
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              </swiper>
             </div>
             <div class="swiper-pagination parth-edege-swiper-pagination"></div>
           </div>

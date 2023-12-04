@@ -47,6 +47,11 @@ const routes: Routes = [
     data : {title : "Parth Hospitality"}
   },
   {
+    path: 'collections/hotel/:hotel_slug',
+    component: CollectionsListingComponent,
+    data : {title : "Parth Hospitality"}
+  },
+  {
     path: 'collections/:slug',
     component: CollectionDetailComponent,
     data : {title : "Parth Hospitality"}
