@@ -99,12 +99,12 @@ export class ChannelPartnerComponent implements OnInit {
       })
     }
   }
- 
-  submitContactForm(){
+
+  submitContactForm(form){
     this.contactObj.type = 'channel_partner';
     if(this.isLoading == false){
       this.isLoading = true;
- 
+
       this.service.submitContactForm(this.contactObj).subscribe((response : {success:number, message:string}) => {
         if(response.success == 1){
           Swal.fire("Thank You for contacting!", "success");
