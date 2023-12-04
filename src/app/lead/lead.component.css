@@ -125,13 +125,35 @@
   top: 72%;
   transform: translateY(-50%);
   padding: 0.5rem;
-  z-index: 999;
+  z-index: 99;
 }
 
 .select_country_main_wrapper.active .input-padding {
   padding: 1rem 1rem 1rem 4.5rem;
 }
-.rounded-checkbox{
+
+.rounded-checkbox {
   width: 21px;
   height: 21px;
+}
+
+@media only screen and (max-width: 991px) {
+  .image-wrapper-details {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rounded-checkbox {
+    width: 13px;
+    height: 13px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .image-wrapper-details {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .rounded-checkbox {
+    width: 13px;
+    height: 13px;
+  }
 }

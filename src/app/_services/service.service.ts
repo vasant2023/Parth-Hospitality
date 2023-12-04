@@ -232,6 +232,8 @@ export class ServiceService {
     return this.http.post(url, body, { headers: httpHeaders });
   }
 
+
+
   getStates(country){
     const url = environment.apiUrl + "states";
     const apiId = environment.apiId;

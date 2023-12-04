@@ -87,15 +87,15 @@
       </ul>
     </div>
     <div class="header-icons-flex">
-      <div class="inquiry_now_header_btn">
+      <!-- <div class="inquiry_now_header_btn">
         <a href="javascript:void(0)">
           <button class="ph-button black-border-ph-button">
             Inquire now
           </button>
         </a>
-      </div>
+      </div> -->
       <div class="visible-tab-mobile">
-        <div id="nav-toggle" (click)="mobile_menu_click();" [class.active]="mobile_menu_click_F"
+        <div id="nav-toggle" (click)="mobile_menu_click(); mobile_menu_close_click();" [class.active]="mobile_menu_click_F"
           class="mobile_menu_plus">
           <div class="plus">
             <div class="bar top"></div>
@@ -122,8 +122,12 @@
             About</a>
         </li>
         <li>
-          <a routerLink="/collections" (click)="mobile_menu_click();">
-            Product Collection</a>
+          <a (click)="sub_mobile_menu_click()" class="sub_menu_flex_details">
+            <p>Product Collection</p>
+            <span class="material-symbols-outlined">
+              chevron_right
+            </span>
+          </a>
         </li>
         <li>
           <a routerLink="/items" (click)="mobile_menu_click();">
@@ -145,6 +149,50 @@
     </div>
   </div>
 </div>
+
+<div class="sub_category_sub_menu" [class.active]="sub_menu_click_f">
+  <div class="back_btn_main_div back_flex_details" (click)="sub_mobile_menu_click_close()">
+    <span class="material-symbols-outlined">
+      chevron_left
+    </span>
+    <p>Back</p>
+  </div>
+  <ul>
+    <li class="" *ngFor="let item of menuList">
+      <div *ngIf="item.children.length > 0" class="sub_menu_flex_details"
+        (click)="sub_mobile_2_menu_click(item.category_ID)">
+        <p>{{item.category}}</p>
+        <span class="material-symbols-outlined">
+          chevron_right
+        </span>
+      </div>
+
+      <div class="sub_2_mobile_menu" *ngIf="item.children.length > 0"
+        [class.active]="sub_menu_2_click_f == item.category_ID">
+        <div class="back_btn_main_div back_flex_details" (click)="sub_mobile_2_menu_click_close()">
+          <span class="material-symbols-outlined">
+            chevron_left
+          </span>
+          <p>Back</p>
+        </div>
+        <ul class="sub_2_mobile_menu_ul">
+          <li *ngFor="let submenu of item.children">
+            <p *ngIf="submenu.collections.length > 0">
+              <a routerLink="/collections/{{submenu.collections[0].slug}}" (click)="all_close_menu()">
+                <p>{{submenu.category}}</p>
+              </a>
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <a routerLink="/collections" *ngIf="item.children.length <= 0">
+        <p>{{item.category}}</p>
+      </a>
+    </li>
+  </ul>
+</div>
+
 
 
 <router-outlet></router-outlet>

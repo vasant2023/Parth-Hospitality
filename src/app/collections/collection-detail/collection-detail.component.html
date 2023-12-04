@@ -63,7 +63,7 @@
               <p class="light-fonts" innerHTML="{{ collectionDetail.short_description }}">
               </p>
             </div>
-            <div class="specifcation-banner-accordion specification">
+            <div class="specifcation-banner-accordion specification section-content">
               <h3>Specification</h3>
               <p class="light-fonts" innerHTML="{{ collectionDetail.description }}"></p>
             </div>
@@ -306,9 +306,9 @@
               <div class="country_code_list_data" [class.active]="country_code_clickF">
                 <ul>
                   <li *ngFor="let country_list_detail of countries"
-                    (click)="country_click_career(country_list_detail.id);">
+                    (click)="country_click_career(country_list_detail.phonecode);">
                     <div (click)="country_code_click_false();">
-                      <span class="display_country_code">+{{country_list_detail.id}}</span>
+                      <span class="display_country_code">{{country_list_detail.phonecode}}</span>
                       {{country_list_detail.name}}
                     </div>
                   </li>

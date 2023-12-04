@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+// import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Renderer2, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
 import {
@@ -95,7 +96,7 @@ export class CollectionDetailComponent implements OnInit {
   };
 
 
-  public isLoading:boolean = false;
+  public isLoading: boolean = false;
   isWizardOpen = false;
   public tab = "productSpecification";
   public accName = 'Construction';
@@ -110,6 +111,8 @@ export class CollectionDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private ngWizardService: NgWizardService,
+    private el: ElementRef, 
+    private renderer: Renderer2
   ) { }
 
   collectionSlug = ""
@@ -125,6 +128,62 @@ export class CollectionDetailComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.getCollectionDetails();
     })
+
+
+
+    // const l1Elements = this.el.nativeElement.querySelectorAll('.l1');
+    // l1Elements.forEach((element: HTMLElement) => {
+    //   this.renderer.listen(element, 'click', () => {
+    //     const tag = element.getAttribute('value');
+    //     const tag1 = element.innerText;
+    //     const backLink = "#layer" + tag;
+
+    //     // Update navigation link attributes
+    //     const navLink = this.el.nativeElement.querySelector('.nav-link');
+    //     this.renderer.setAttribute(navLink, 'href', backLink);
+    //     this.renderer.setAttribute(navLink, 'value', tag);
+
+    //     // Show/hide layers
+    //     const layerElement = this.el.nativeElement.querySelector("#layer" + tag);
+    //     this.renderer.removeClass(layerElement, 'hide-menu');
+    //     this.renderer.toggleClass(layerElement, 'show-menu');
+    //   });
+    // });
+
+    // // Handling click on elements with class 'nav-link'
+    // const navLinkElement = this.el.nativeElement.querySelector('.nav-link');
+    // this.renderer.listen(navLinkElement, 'click', () => {
+    //   const tag = navLinkElement.getAttribute('href');
+    //   const val = parseInt(navLinkElement.getAttribute('value'), 10);
+
+    //   // Hide the corresponding layer
+    //   const layerElement = this.el.nativeElement.querySelector(tag);
+    //   this.renderer.removeClass(layerElement, 'show-menu');
+
+    //   // Update navigation link attributes for the previous layer
+    //   const backLink = "#layer" + (val - 1);
+    //   this.renderer.setAttribute(navLinkElement, 'href', backLink);
+    //   this.renderer.setAttribute(navLinkElement, 'value', (val - 1).toString());
+    // });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
   }
 
   _keyPress(event: any) {

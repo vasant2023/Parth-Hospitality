@@ -1627,7 +1627,7 @@ button.ph-button.black-border-ph-button p {
 	display: flex;
 	flex-direction: row;
 	gap: 10rem;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: space-between;
 }
 
@@ -2404,6 +2404,11 @@ select {
 	.main_banner_section_pd {
 		padding-top: 6rem;
 	}
+
+	.product-home-card-flex {
+		gap: 5rem;
+	}
+
 }
 
 @media only screen and (max-width:1152px) {}
@@ -2446,6 +2451,24 @@ select {
 	.mobile_header {
 		display: block;
 	}
+
+	.product-home-card-image img {
+		height: 40vh;
+	}
+
+	.swiper-button-next.swiper-button-next-homeproduct {
+		top: unset !important;
+		bottom: 20%;
+		right: unset;
+		left: 95%;
+	}
+
+	.swiper-button-prev.swiper-button-prev-homeproduct {
+		top: unset !important;
+		bottom: 20%;
+		left: 88%;
+	}
+
 
 	.bar {
 		display: block;
@@ -2525,57 +2548,6 @@ select {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	.main_banner_section_pd {
 		padding-top: 7.7rem;
 	}
@@ -2585,7 +2557,7 @@ select {
 	}
 
 	.heading {
-		padding-top: 6rem !important;
+		padding-top: 10rem !important;
 	}
 
 	.main_short_image {
@@ -2653,22 +2625,7 @@ select {
 		width: 10%;
 	}
 
-	.swiper-button-next.swiper-button-next-homeproduct {
-		right: unset;
-		left: 95%;
-		top: 45%;
-	}
 
-	.swiper-button-next.swiper-button-next-homeproduct {
-		right: unset;
-		left: 95%;
-		top: 45%;
-	}
-
-	.swiper-button-prev.swiper-button-prev-homeproduct {
-		top: 45%;
-		left: 88%;
-	}
 
 	.price-tag-btn-flex {
 		margin-top: 2rem;
@@ -2800,7 +2757,31 @@ select {
 	}
 }
 
+
+
 @media only screen and (max-width: 768px) {
+
+	.ng-wizard-theme-arrows>.nav-tabs>li {
+		flex-basis: 50%;
+	}
+
+	.ng-wizard-theme-arrows>ul.step-anchor>li>a {
+		font-size: 1.3rem;
+	}
+
+	#inquiry_form .form_wrapper .contact_lable label,
+	#inquiry_form .form_wrapper .contact_lable input {
+		font-size: 1.2rem;
+	}
+
+	.two-grid-form {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.lead-inquire-popup-wrapper {
+		width: 90% !important;
+	}
+
 	.header-logo {
 		width: 9rem;
 	}
@@ -2848,7 +2829,7 @@ select {
 		width: 25%;
 	}
 
-	.swiper-button-next.swiper-button-next-homeproduct {
+	/* .swiper-button-next.swiper-button-next-homeproduct {
 		right: unset;
 		left: 85%;
 		top: 60%;
@@ -2857,7 +2838,10 @@ select {
 	.swiper-button-prev.swiper-button-prev-homeproduct {
 		top: 60%;
 		left: 70%;
-	}
+	} */
+
+
+
 
 	.discount-lable-swiper-card {
 		position: absolute;
@@ -2981,6 +2965,8 @@ select {
 	}
 }
 
+
+
 @media only screen and (max-width: 375px) {
 	html {
 		font-size: 8px;
@@ -3020,7 +3006,7 @@ select {
 
 .swiper-pagination.swiper-pagination-home-banner {
 	width: fit-content;
-	bottom: 20%;
+	bottom: 10%;
 	left: 50%;
 	transform: translateX(-50%);
 }
@@ -3044,9 +3030,9 @@ ng-select .ng-clear-wrapper {
 	padding: 1rem 0;
 }
 
-.specification p {
+/* .specification p {
 	font-size: 1.2rem;
-}
+} */
 
 .ng-wizard-theme-arrows>ul.step-anchor>li.active>a {
 	background-color: #F7AC29 !important;
@@ -3294,6 +3280,9 @@ a.page-link {
 		height: 35px;
 	}
 
+
+
+
 }
 
 @media only screen and (max-width: 475px) {
@@ -3301,4 +3290,5 @@ a.page-link {
 		height: 30px;
 		padding: 1.5rem !important;
 	}
+
 }

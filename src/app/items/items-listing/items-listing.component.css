@@ -21,16 +21,18 @@
 }
 
 .items-img-sec {
-  background: #ebebeb;
+  /* border: 1px solid #000; */
+  box-shadow: rgba(35, 35, 35, 0.2) 0px 2px 8px 0px;
+  background: #fff;
   height: 40vh;
   display: grid;
   place-content: center;
 }
 
 .items-img-sec img {
-  height: 30vh;
+  height: 40vh;
   object-fit: contain;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .ph-items-wrapper .hoverarrow_icon {
@@ -401,7 +403,7 @@
 
 
 
-  .clear_now_btn button{
+  .clear_now_btn button {
     padding: 1rem 1.5rem;
     font-size: 1.5rem;
     background-color: red;
@@ -409,17 +411,17 @@
     color: var(--white-color);
   }
 
-  .apply_clear_filter{
+  .apply_clear_filter {
     display: flex;
     gap: 1rem;
   }
 }
 
-.clear-btn{
+.clear-btn {
   width: 100%;
 }
 
-.section-clear-content p{
+.section-clear-content p {
   font-size: var(--regular-font-family);
   font-family: var(--light-font-family);
   line-height: normal;
