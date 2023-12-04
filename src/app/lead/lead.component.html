@@ -299,7 +299,7 @@
         </div>
       </div>
 
-      <form id="inquiry_form" name="inquiry_form" (ngSubmit)="inquiryForm.form.valid && submitContactForm()"
+      <form id="inquiry_form" name="inquiry_form" (ngSubmit)="submitContactForm(inquiryForm)"
         #inquiryForm="ngForm" class="inquiry_form_main">
 
         <div>

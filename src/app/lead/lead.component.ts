@@ -197,23 +197,25 @@ export class LeadComponent implements OnInit {
   }
 
   submitContactForm(form) {
-
-    if (this.isLoading == false) {
-      this.isLoading = true;
-
-      this.service.submitContactForm(this.contactObj).subscribe((response: { success: number, message: string }) => {
-        if (response.success == 1) {
-
-          var phone = this.contactObj.phone;
-          this.contactObj.phone = this.contactObj.country + " " + phone;
-
-
-          Swal.fire("Thank You for Contacting!", "Our team members will be in touch with you shortly!");
-          this.router.navigate(["/collections"]);
-        }
-        this.isLoading = false
-      })
+    if(form.valid){
+      if (this.isLoading == false) {
+        this.isLoading = true;
+  
+        this.service.submitContactForm(this.contactObj).subscribe((response: { success: number, message: string }) => {
+          if (response.success == 1) {
+  
+            var phone = this.contactObj.phone;
+            this.contactObj.phone = this.contactObj.country + " " + phone;
+  
+  
+            Swal.fire("Thank You for Contacting!", "Our team members will be in touch with you shortly!");
+            this.router.navigate(["/collections"]);
+          }
+          this.isLoading = false
+        })
+      }
     }
+
     // }
   }
 
