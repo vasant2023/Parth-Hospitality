@@ -215,3 +215,32 @@
   font-size: 1.2rem;
   line-height: 1.5;
 }
+
+@media only screen and (max-width: 767px) {
+
+  .product-specification-table table tbody tr>td>p,
+  .product-specification-table table thead tr>th>p {
+    font-size: 13px;
+  }
+
+  .section-content-details p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .table-note-lable p {
+    font-size: 1rem;
+  }
+
+  .total_item_bold {
+    font-size: 15px;
+  }
+
+  .tablinks {
+    font-size: 13px;
+  }
+
+  .product-name h2 ,.product-info p ,.product-name p{
+    font-size: 13px;
+  }
+}

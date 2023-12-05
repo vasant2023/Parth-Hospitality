@@ -65,11 +65,52 @@
           </div>
         </li>
 
-        <li>
+        <li class="megamenu-level-head">
           <a routerLink="/items">
             <p>Items</p>
-
+            <span class="material-symbols-outlined">
+              expand_more
+            </span>
           </a>
+          <div class="megamenu-level-1" *ngIf="itemList">
+            <ul class="megamenu-level-1-sub">
+              <li class="megamenu-last-level-head" *ngFor="let item of itemList">
+                <a href="javascript:void(0)" *ngIf="item.children.length > 0">
+
+                  <p>
+                    <a routerLink="/items/{{item.slug}}">
+                      {{item.category}}
+                    </a>
+                  </p>
+                  <span class="material-symbols-outlined">
+                    chevron_right
+                  </span>
+                </a>
+                <a routerLink="/items/{{item.slug}}" *ngIf="item.children.length <= 0">
+                  <p>{{item.category}}</p>
+                  <span class="material-symbols-outlined">
+                    chevron_right
+                  </span>
+                </a>
+                <div class="right-hover-megamenu" *ngIf="item.children.length > 0">
+                  <ul class="right-menu-ul-li">
+                    <li *ngFor="let submenu of item.children">
+                      <p *ngIf="submenu.children.length > 0">
+                        <a routerLink="/items/{{submenu.slug}}">
+                          <p>All</p>
+                        </a>
+                      </p>
+                      <p *ngIf="submenu.children.length == 0">
+                        <a href="/items/{{submenu.slug}}">
+                          <p>{{submenu.category}}</p>
+                        </a>
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
         </li>
 
         <li>
@@ -99,8 +140,8 @@
         </a>
       </div> -->
       <div class="visible-tab-mobile">
-        <div id="nav-toggle" (click)="mobile_menu_click(); mobile_menu_close_click();" [class.active]="mobile_menu_click_F"
-          class="mobile_menu_plus">
+        <div id="nav-toggle" (click)="mobile_menu_click(); mobile_menu_close_click();"
+          [class.active]="mobile_menu_click_F" class="mobile_menu_plus">
           <div class="plus">
             <div class="bar top"></div>
             <div class="bar middle"></div>
@@ -133,10 +174,22 @@
             </span>
           </a>
         </li>
+
         <li>
+          <a (click)="item_sub_mobile_menu_click()" class="sub_menu_flex_details">
+            <p>Items</p>
+            <span class="material-symbols-outlined">
+              chevron_right
+            </span>
+          </a>
+        </li>
+
+
+
+        <!-- <li>
           <a routerLink="/items" (click)="mobile_menu_click();">
             Items</a>
-        </li>
+        </li> -->
         <li>
           <a routerLink="/laminates" (click)="mobile_menu_click();">
             Laminates</a>
@@ -162,6 +215,9 @@
     <p>Back</p>
   </div>
   <ul>
+    <li>
+      <a routerLink="/collections" (click)="all_close_menu()">All Collection</a>
+    </li>
     <li class="" *ngFor="let item of menuList">
       <div *ngIf="item.children.length > 0" class="sub_menu_flex_details"
         (click)="sub_mobile_2_menu_click(item.category_ID)">
@@ -190,7 +246,59 @@
         </ul>
       </div>
 
-      <a routerLink="/collections" *ngIf="item.children.length <= 0">
+      <a routerLink="/collections" (click)="all_close_menu()" *ngIf="item.children.length <= 0">
+        <p>{{item.category}}</p>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+
+
+<div class="sub_category_sub_menu" [class.active]="item_sub_menu_click_f">
+  <div class="back_btn_main_div back_flex_details" (click)="item_sub_mobile_menu_click_close()">
+    <span class="material-symbols-outlined">
+      chevron_left
+    </span>
+    <p>Back</p>
+  </div>
+  <ul>
+    <li>
+      <a routerLink="/items" (click)="item_all_close_menu()">All Items</a>
+    </li>
+    <li class="" *ngFor="let item of itemList">
+      <div *ngIf="item.children.length > 0" class="sub_menu_flex_details"
+        (click)="item_sub_mobile_2_menu_click(item.slug)">
+        <p>{{item.category}}</p>
+        <span class="material-symbols-outlined">
+          chevron_right
+        </span>
+      </div>
+
+      <div class="sub_2_mobile_menu" *ngIf="item.children.length > 0"
+        [class.active]="item_sub_menu_2_click_f == item.slug">
+        <div class="back_btn_main_div back_flex_details" (click)="item_sub_mobile_2_menu_click_close()">
+          <span class="material-symbols-outlined">
+            chevron_left
+          </span>
+          <p>Back</p>
+        </div>
+        <ul class="sub_2_mobile_menu_ul">
+          <li *ngFor="let submenu of item.children">
+            <p>
+              <a routerLink="/items/{{submenu.slug}}" (click)="item_all_close_menu()">
+                <p>{{submenu.category}}</p>
+              </a>
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <a routerLink="/items/{{item.slug}}" (click)="item_all_close_menu()" *ngIf="item.children.length <= 0">
         <p>{{item.category}}</p>
       </a>
     </li>

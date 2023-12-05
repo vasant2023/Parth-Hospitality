@@ -594,3 +594,7 @@
 }
 
 @media only screen and (max-width: 375px) {}
+
+.capitalize {
+    text-transform: capitalize !important;
+}

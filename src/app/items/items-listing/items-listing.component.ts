@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { ServiceService } from "../../_services/service.service";
 import { PagerService } from 'src/app/_services/pager.service';
@@ -15,7 +15,15 @@ export class ItemsListingComponent implements OnInit {
   constructor(
     public service: ServiceService,
     private pagerService: PagerService,
-  ) { }
+    private route: ActivatedRoute,
+    private router: Router,
+
+
+  ) {
+    this.route.paramMap.subscribe(params => {
+      this.getItemSlug();
+    })
+   }
 
   item_list: any = [];
   collection_list: any = [];
@@ -37,14 +45,26 @@ export class ItemsListingComponent implements OnInit {
     PageIndex: this.PageIndex,
     PageSize: this.PageSize,
     search: "",
-    collection_ID: "",
-    category_ID: ""
+    // collection_ID: "",
+    // category_ID: ""
+    slug:""
   };
 
   ngOnInit() {
-    this.getItems();
-    this.getCollection();
+    this.getItemSlug();
+    // this.getItems();
+    // this.getCollection();
     this.menuCollection();
+  }
+
+  public itemSlug = "";
+
+  getItemSlug(){
+    this.itemSlug = this.route.snapshot.params['slug'];
+    if(this.itemSlug){
+      this.item_data.slug = this.itemSlug;
+      this.getItems();
+    }
   }
 
   onSearchChange(value: string) {
@@ -55,34 +75,6 @@ export class ItemsListingComponent implements OnInit {
       this.getItems();
     }
   }
-
-
-  // getItems() {
-  //   this.item_data.search = this.item_data.search ? this.item_data.search : "";
-  //   this.item_data.collection_ID = this.item_data.collection_ID ? this.item_data.collection_ID : "";
-  //   this.item_data.PageIndex = this.PageIndex;
-  //   this.item_data.PageSize = this.PageSize;
-  //   this.service.getItems(this.item_data).subscribe((response: any) => {
-  //     if (response.success == 1) {
-  //       this.item_list = response.items;
-  //       if (this.totalCount == 0) {
-  //         this.totalCount = response.total_records;
-  //       }
-  //       if (this.item_list.length > 0 && this.flag == 1) { // initialize to page 1
-  //         this.flag = 0;
-  //         this.setPage(this.PageIndex, this.flag);
-  //       }
-  //       else if (this.item_list.length == 0) {
-  //         this.item_list = [];
-  //       }
-  //     }
-  //     else {
-  //       this.item_list = [];
-  //     }
-  //   });
-
-
-  // public isLoading = false;
 
   getItems() {
     this.isLoading = true;
@@ -100,49 +92,37 @@ export class ItemsListingComponent implements OnInit {
   }
 
 
- clearAllFilters() {
+//  clearAllFilters() {
 
-    this.item_data.category_ID = ""
-    this.item_data.collection_ID = ""
-    this.getItems();
-}
+//     this.item_data.category_ID = ""
+//     this.item_data.collection_ID = ""
+//     this.getItems();
+// }
 
-
-  // setPage(page: number, flag: number) {
-
-  //   this.pager = this.pagerService.getPager(this.totalCount, page, this.PageSize);
-  //   this.PageIndex = this.pager.currentPage;
-  //   if (flag == 1) {
-  //     this.getItems();
-  //   }
-  // }
 
   setUsersPage(page: number, flag: number) {
     this.usersPager = this.pagerService.getPager(this.totalCount, page, this.item_data.PageSize);
     this.item_data.PageIndex = this.usersPager.currentPage;
-    console.log(this.usersPager);
     if (flag == 1) {
       this.getItems();
     }
   }
 
-
-
-  getCollection() {
-    this.service.getCollection().subscribe((response: { success: number, message: string, collections: [] }) => {
-      if (response.success == 1) {
-        this.collection_list = response.collections;
-      } else {
-      }
-    })
-  }
-
-
+//   getCollection() {  
+//     this.service.getCollection().subscribe((response: { success: number, message: string, collections: [] }) => {
+//       if (response.success == 1) {
+//         this.collection_list = response.collections;
+//       } else {
+//       }
+//     })
+//   }
 
   menuCollection() {
-    this.service.item_categories().subscribe((response: { success: number, message: string, categories: [] }) => {
+    this.service.item_categories().subscribe((response:any) => {
       if (response.success == 1) {
         this.categories_list = response.categories;
+        this.totalCount = response.total_records;
+        this.setUsersPage(this.item_data.PageIndex, 0);
       } else {
       }
     })

@@ -37,6 +37,11 @@ const routes: Routes = [
     data : {title : "Parth Hospitality"}
   },
   {
+    path: 'items/:slug',
+    component: ItemsListingComponent,
+    data : {title : "Parth Hospitality"}
+  },
+  {
     path: 'items-category',
     component: ItemsCategoryComponent,
     data : {title : "Parth Hospitality"}

@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.menuCollection();
+    this.itemCollection();
   }
 
   menuList: any = [];
@@ -34,6 +35,15 @@ export class AppComponent implements OnInit {
       if (response.success == 1) {
         this.menuList = response.categories;
         console.log(this.menuList);
+      }
+    })
+  }
+
+  itemList:any = [];
+  itemCollection(){
+    this.service.item_categories().subscribe((response:any) => {
+      if(response.success == 1){
+        this.itemList = response.categories;
       }
     })
   }
@@ -91,5 +101,62 @@ export class AppComponent implements OnInit {
     this.sub_menu_2_click_f = "";
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  public item_sub_menu_click_f = false;
+  item_sub_mobile_menu_click() {
+    if (this.item_sub_menu_click_f) {
+      this.item_sub_menu_click_f = false;
+    } else {
+      this.item_sub_menu_click_f = true;
+    }
+  }
+
+  item_sub_mobile_menu_click_close() {
+    this.item_sub_menu_click_f = false;
+  }
+
+  public item_sub_menu_2_click_false = false;
+  public item_sub_menu_2_click_f = "";
+  item_sub_mobile_2_menu_click(slug) {
+    // if (this.sub_menu_2_click_f) {
+      this.item_sub_menu_2_click_f = slug;
+    // } 
+  }
+
+  item_sub_mobile_2_menu_click_close() {
+    this.item_sub_menu_2_click_false = false;
+    this.item_sub_menu_2_click_f = "";
+  }
+
+
+  item_all_close_menu(){
+    this.item_sub_menu_2_click_false = false;
+    this.item_sub_menu_click_f = false;
+    this.mobile_menu_click_F = false;
+    this.item_sub_menu_2_click_f = "";
+  }
 
 }

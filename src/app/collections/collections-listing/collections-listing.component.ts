@@ -42,7 +42,7 @@ export class CollectionsListingComponent implements OnInit {
       this.isLoading = true;
       this.service.getHotelWiseCollection(this.hotel_slug).subscribe((response:any) => {
         if(response.success == 1){
-          this.hotel_wise_collection = response.categories;
+          this.hotel_wise_collection = response.collections;
         }
         this.isLoading = false
       })
