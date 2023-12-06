@@ -17,6 +17,7 @@ import { ChannelPartnerComponent } from './channel-partner/channel-partner.compo
 import { AboutComponent } from './about/about.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
+import { FAQComponent } from './faq/faq.component';
 
 
 const routes: Routes = [
@@ -116,6 +117,11 @@ const routes: Routes = [
     component: BlogDetailComponent,
     data : {title : "Parth Hospitality"}
   },
+  {
+    path: 'faq',
+    component: FAQComponent,
+    data : {title : "Parth Hospitality"}
+  }
 ];
 
 @NgModule({

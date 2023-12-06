@@ -102,29 +102,6 @@ export class AppComponent implements OnInit {
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   public item_sub_menu_click_f = false;
   item_sub_mobile_menu_click() {
     if (this.item_sub_menu_click_f) {
@@ -158,5 +135,11 @@ export class AppComponent implements OnInit {
     this.mobile_menu_click_F = false;
     this.item_sub_menu_2_click_f = "";
   }
+
+  toTitleCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+ }
 
 }

@@ -189,8 +189,9 @@
 	--title-font-size: 3.5rem;
 	--specification-font-size: 2.5rem;
 	--subtitle-font-size: 2rem;
-	--content-font-size: 1.5rem;
+	--content-font-size: 1.3rem;
 	--link-font-size: 1rem;
+	--btn-font-size: 1.1rem;
 
 
 	/* font-families */
@@ -680,7 +681,7 @@ body.no-scroll-body {
 .header-links ul li a p span {
 	font-size: var(--link-font-size);
 	font-family: var(--medium-font-family);
-	text-transform: uppercase;
+	text-transform: capitalize;
 }
 
 .home-banner-image {
@@ -723,6 +724,7 @@ button.ph-button {
 	border: 1px solid transparent;
 	background-color: transparent;
 	transition: var(--common-transition);
+
 }
 
 button.ph-button.filled-ph-button {
@@ -737,6 +739,9 @@ button.ph-button.filled-ph-button:hover {
 
 button.ph-button.filled-ph-button:hover p {
 	color: var(--secondary-color);
+}
+button.ph-button.filled-ph-button p {
+	
 }
 
 button.ph-button.white-border-ph-button {
@@ -766,7 +771,7 @@ button.ph-button.black-border-ph-button:hover a {
 }
 
 button.ph-button a {
-	font-size: 1.3rem;
+	font-size: var(--btn-font-size);
 	text-transform: uppercase;
 	line-height: 1;
 	transition: var(--common-transition);
@@ -790,7 +795,7 @@ button.ph-button.black-border-ph-button:hover p {
 }
 
 button.ph-button p {
-	font-size: 1.3rem;
+	font-size: var(--btn-font-size);
 	text-transform: uppercase;
 	line-height: 1;
 	transition: var(--common-transition);
@@ -1839,8 +1844,37 @@ button.ph-button.black-border-ph-button p {
 }
 
 .channel-partner-footer-card {
+	background-color: var(--primary-color);
+	transition: var(--common-transition);
+
+}
+.channel-partner-footer-card:hover {
 	background-color: var(--secondary-color);
 }
+.channel-partner-footer-card .section-subtitle h3 {
+	color:var(--white-color);
+}
+.channel-partner-footer-card .section-content p {
+	color:var(--white-color);
+}
+.channel-partner-footer-card .channel-partner-arrow img {
+	filter: invert(1);
+}
+
+/**/
+.channel-partner-footer-card:hover .section-subtitle h3 {
+	color:var(--primary-color);
+}
+.channel-partner-footer-card:hover .section-content p {
+	color:var(--primary-color);
+}
+.channel-partner-footer-card:hover .channel-partner-arrow img {
+	filter: invert(0);
+}
+
+/* .channel-partner-footer-card {
+	background-color: var(--secondary-color);
+} */
 
 .footer-grid-card {
 	display: grid;
@@ -2781,6 +2815,10 @@ select {
 	}
 }
 
+.presence-image {
+	width:70%;
+
+}
 
 
 @media only screen and (max-width: 768px) {

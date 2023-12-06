@@ -31,7 +31,7 @@
                 <a href="javascript:void(0)" *ngIf="item.children.length > 0">
                   <p>
                     <a routerLink="/collections/hotel/{{item.slug}}">
-                      {{item.category}}
+                      {{toTitleCase(item.category)}}
                     </a>
                   </p>
                   <span class="material-symbols-outlined">
@@ -39,7 +39,7 @@
                   </span>
                 </a>
                 <a routerLink="/collections" *ngIf="item.children.length <= 0">
-                  <p>{{item.category}}</p>
+                  <p> {{toTitleCase(item.category)}}</p>
                   <span class="material-symbols-outlined">
                     chevron_right
                   </span>
@@ -49,12 +49,14 @@
                     <li *ngFor="let submenu of item.children">
                       <p *ngIf="submenu.collections.length > 0">
                         <a routerLink="/collections/{{submenu.collections[0].slug}}">
-                          <p>{{submenu.category}}</p>
+                          <p>
+                            
+                            {{toTitleCase(submenu.category)}}</p>
                         </a>
                       </p>
                       <p *ngIf="submenu.collections.length == 0">
                         <a href="javascript:void(0)">
-                          <p>{{submenu.category}}</p>
+                          <p>{{toTitleCase(submenu.category)}}</p>
                         </a>
                       </p>
                     </li>
@@ -79,7 +81,7 @@
 
                   <p>
                     <a routerLink="/items/{{item.slug}}">
-                      {{item.category}}
+                      {{toTitleCase(item.category)}}
                     </a>
                   </p>
                   <span class="material-symbols-outlined">
@@ -87,7 +89,7 @@
                   </span>
                 </a>
                 <a routerLink="/items/{{item.slug}}" *ngIf="item.children.length <= 0">
-                  <p>{{item.category}}</p>
+                  <p>{{toTitleCase(item.category)}}</p>
                   <span class="material-symbols-outlined">
                     chevron_right
                   </span>
@@ -102,7 +104,7 @@
                       </p>
                       <p *ngIf="submenu.children.length == 0">
                         <a href="/items/{{submenu.slug}}">
-                          <p>{{submenu.category}}</p>
+                          <p>{{toTitleCase(submenu.category)}}</p>
                         </a>
                       </p>
                     </li>
@@ -125,10 +127,16 @@
           </a>
         </li>
         <li>
+          <a routerLink="/faq">
+            <p>FAQs</p>
+          </a>
+        </li>
+        <li>
           <a routerLink="/contact-us">
             <p>Contact</p>
           </a>
         </li>
+
       </ul>
     </div>
     <div class="header-icons-flex">

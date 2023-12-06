@@ -212,7 +212,7 @@
 }
 
 .section-content-details p {
-  font-size: 1.2rem;
+  font-size: var(--content-font-size);
   line-height: 1.5;
 }
 

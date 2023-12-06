@@ -27,6 +27,7 @@ import { AboutComponent } from './about/about.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { PagerService } from './_services/pager.service';
+import { FAQComponent } from './faq/faq.component';
 
 
 const ngWizardConfig: NgWizardConfig = {
@@ -53,7 +54,8 @@ const ngWizardConfig: NgWizardConfig = {
     ChannelPartnerComponent,
     AboutComponent,
     BlogComponent,
-    BlogDetailComponent
+    BlogDetailComponent,
+    FAQComponent
   ],
   imports: [
     FormsModule,

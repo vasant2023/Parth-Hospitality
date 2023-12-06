@@ -17,13 +17,13 @@
 
 .ph-contact-wrapper .ph-contact-wrapper-main-grid {
     border-radius: 1.75rem;
-    background-color: #F8AB18d4;
+    background-color:#f8ab18f5;
 }
 
 .ph-contact-wrapper .ph-contact-flex {
     display: flex;
     flex-direction: row;
-    align-items: end;
+    align-items: start;
     width: 100%;
     padding: 2rem;
     gap: var(--medium-gap-size);
@@ -46,7 +46,7 @@
     width: 100%;
     grid-template-columns: repeat(1, 1fr);
     gap: 1.5rem;
-    padding: 4rem 0 0 2rem;
+    padding: 0rem 0 0 2rem;
     position: relative;
 
 }
