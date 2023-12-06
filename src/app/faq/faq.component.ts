@@ -10,7 +10,7 @@ export class FAQComponent implements OnInit {
 
   ngOnInit() {}
 
-  public faqs_tab_f = "";
+  public faqs_tab_f:any = "";
 
   faqstab(tab) {
     if (this.faqs_tab_f == tab) {
