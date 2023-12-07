@@ -1,0 +1,246 @@
+.wizard-popup {
+  width: 80%;
+  height: 90vh;
+  overflow: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  /* Ensure the pop-up is above other content */
+}
+
+.table tr {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.drops.form-control {
+  padding: 0rem !important;
+}
+
+.input-padding {
+  padding: 1rem 1rem;
+}
+
+.image-wrapper-details {
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.image-wrapper-details>div {
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.card-img-top {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+
+.select_country_code {
+  position: absolute;
+  z-index: 999;
+  width: 25%;
+  background: transparent;
+  border: unset;
+  top: 50%;
+  left: 0;
+  transform: translate(0%, -50%);
+}
+
+.select_country_main_wrapper .contact_code {
+  margin-left: 4.5rem;
+}
+
+.form-control:focus {
+  box-shadow: unset !important;
+}
+
+.select_country_main_wrapper.active input {
+  padding-left: 6rem;
+}
+
+.side_popup_wrapper .select_country_main_wrapper.contact_lable input:focus~label.md-lable,
+.side_popup_wrapper .select_country_main_wrapper.contact_lable input.not_required~label.md-lable,
+.side_popup_wrapper .select_country_main_wrapper.contact_lable.active input~label.md-lable,
+.side_popup_wrapper .select_country_main_wrapper.contact_lable.active input.not_required~label.md-lable {
+  left: -4rem !important;
+}
+
+.country_code_data>div {
+  font-size: 1.25em;
+}
+
+.down-country-angle i {
+  font-size: 1rem;
+  padding-left: 0.3rem;
+}
+
+.country_code_list_data ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.country_code_list_data ul li {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  transition: all ease 0.2s;
+}
+
+.country_code_list_data ul li:hover {
+  background-color: #dddddd;
+}
+
+.country_code_list_data li>div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.country_code_list_data {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 40vh;
+  overflow-y: scroll;
+  width: 300px;
+  z-index: 99999;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #999999;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.country_code_list_data {
+  display: none;
+}
+
+.country_code_list_data.active {
+  display: block;
+}
+
+.country_code_data {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.conatct_number_input {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.5rem;
+  z-index: 999;
+}
+
+.total_item_bold {
+  font-family: var(--bold-font-family);
+  font-size: 1.2rem;
+}
+
+@media only screen and (max-width:991px) {
+  .inquire-popup-wrapper {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width:768px) {
+
+  .side_popup_wrapper div.contact_lable input:focus~label.md-lable,
+  .side_popup_wrapper div.contact_lable textarea:focus~label.md-lable,
+  .side_popup_wrapper div.contact_lable input.not_required~label.md-lable,
+  .side_popup_wrapper div.contact_lable textarea.not_required~label.md-lable,
+  .side_popup_wrapper div.contact_lable.active input~label.md-lable,
+  .side_popup_wrapper div.contact_lable.active textarea~label.md-lable,
+  .side_popup_wrapper div.contact_lable.active input.not_required~label.md-lable,
+  .side_popup_wrapper div.contact_lable.active textarea.not_required~label.md-lable {
+    font-size: 10px;
+  }
+
+  .inquire-popup-wrapper {
+    width: 100%;
+  }
+}
+
+.swiper-button-next.swiper-button-next-collection {
+  right: 3%;
+  top: 50%;
+  display: grid !important;
+  place-content: center;
+}
+
+.swiper-button-prev.swiper-button-prev-collection {
+  top: 50%;
+  left: 3%;
+  display: grid !important;
+  place-content: center;
+}
+
+
+.loader {
+  display: flex;
+  align-items: center;
+  border: 12px solid #f7eede;
+  border-top: 12px solid #F7AC29;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+  margin: 0 auto;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+
+.section-content-details p {
+  font-size: var(--content-font-size);
+  line-height: 1.5;
+}
+
+@media only screen and (max-width: 767px) {
+
+  .product-specification-table table tbody tr>td>p,
+  .product-specification-table table thead tr>th>p {
+    font-size: 13px;
+  }
+
+  .section-content-details p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .table-note-lable p {
+    font-size: 1rem;
+  }
+
+  .total_item_bold {
+    font-size: 15px;
+  }
+
+  .tablinks {
+    font-size: 13px;
+  }
+
+  .product-name h2 ,.product-info p ,.product-name p{
+    font-size: 13px;
+  }
+}

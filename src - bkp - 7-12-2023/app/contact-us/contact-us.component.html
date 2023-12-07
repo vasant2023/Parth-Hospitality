@@ -1,0 +1,77 @@
+<div class="ph-contact-wrapper main_banner_section_pd" id="ph-contact-wrapper">
+  <section class="ph-contact-section-one section-padding-contact relative" id="ph-contact-section-one">
+    <div class="main-container">
+      <div class="ph-contact-wrapper-main-grid">
+        <div class="ph-contact-flex">
+          <div class="ph-contact-flex-item-one inner-flex ">
+
+            <div class="banner-title">
+              <h2 class="text-uppercase ">CONTACT</h2>
+            </div>
+            <div class="section-title">
+              <h2 class="light-fonts  text-uppercase">"Your questions, our priority."</h2>
+            </div>
+          </div>
+          <div class="ph-contact-flex-item-two">
+            <div class="ph-contact-form-wrapper">
+
+              <form name="form" (ngSubmit)="createContactForm.form.valid && submitContactForm(createContactForm.form)"
+                #createContactForm="ngForm" novalidate class="ph-contact-form-grid">
+
+                <div class="ph-contact-form-input">
+                  <input type="text" name="name" id="name" placeholder="Name*" [(ngModel)]="contactObj.name"
+                    #name="ngModel" required>
+
+                  <div *ngIf="createContactForm.submitted && name.invalid" class="invalid-feedback">
+                    <div *ngIf="name.errors.required">Name cannot be empty!</div>
+                  </div>
+                </div>
+
+
+                <div class="ph-contact-form-input">
+                  <input type="text" minlength="1" maxlength="10" (keypress)=_keyPress($event) name="phone" id="phone"
+                    placeholder="Contact No.*" [(ngModel)]="contactObj.phone" #phone="ngModel" required
+                    pattern="[0-9]{10}$">
+
+                  <div *ngIf="createContactForm.submitted && phone.invalid" class="invalid-feedback">
+                    <div *ngIf="phone.errors.required">Contact can not be empty!
+                    </div>
+                    <div *ngIf="phone.invalid && !phone.errors.required">Invalid Contact Number
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="ph-contact-form-input">
+                  <input type="email" name="email" id="email" placeholder="Email*" [(ngModel)]="contactObj.email"
+                    #email="ngModel" required>
+                  <div *ngIf="createContactForm.submitted && email.invalid" class="invalid-feedback">
+                    <div *ngIf="email.errors.required">Email can not be empty!</div>
+                    <div *ngIf="email.invalid && !email.errors.required">Invalid Email address</div>
+                  </div>
+                </div>
+
+
+                <div class="ph-contact-form-input">
+                  <textarea name="message" id="message" placeholder="Add remarks*" rows="10"
+                    [(ngModel)]="contactObj.message" #message="ngModel" required></textarea>
+                  <div *ngIf="createContactForm.submitted && message.invalid" class="invalid-feedback">
+                    <div *ngIf="message.errors.required">Message cannot be empty!</div>
+                  </div>
+                </div>
+
+                <div class="ph-contact-form-input">
+                  <button type="submit" class="ph-contact-form-input-button">
+                    <div class="link-font">
+                      <p class="text-center bold-fonts text-uppercase white-color ">Submit</p>
+                    </div>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

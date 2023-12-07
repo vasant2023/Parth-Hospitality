@@ -1,0 +1,486 @@
+<!-- Header Wrapper Start -->
+<div class="ph-header-wrapper">
+  <div class="header-flex">
+    <div class="header-logo">
+      <a routerLink="/">
+        <img src="assets/images/logo/logo.svg" alt="">
+      </a>
+    </div>
+    <div class="header-links hidden-header-mobile-view">
+      <ul>
+        <li>
+          <a routerLink="/">
+            <p>Home</p>
+          </a>
+        </li>
+        <li>
+          <a routerLink="about">
+            <p>About</p>
+          </a>
+        </li>
+        <li class="megamenu-level-head">
+          <a routerLink="/collections">
+            <p>Collections</p>
+            <span class="material-symbols-outlined">
+              expand_more
+            </span>
+          </a>
+          <div class="megamenu-level-1" *ngIf="menuList">
+            <ul class="megamenu-level-1-sub">
+              <li class="megamenu-last-level-head" *ngFor="let item of menuList">
+                <a href="javascript:void(0)" *ngIf="item.children.length > 0">
+                  <p>
+                    <a routerLink="/collections/hotel/{{item.slug}}">
+                      {{toTitleCase(item.category)}}
+                    </a>
+                  </p>
+                  <span class="material-symbols-outlined">
+                    chevron_right
+                  </span>
+                </a>
+                <a routerLink="/collections" *ngIf="item.children.length <= 0">
+                  <p> {{toTitleCase(item.category)}}</p>
+                  <span class="material-symbols-outlined">
+                    chevron_right
+                  </span>
+                </a>
+                <div class="right-hover-megamenu" *ngIf="item.children.length > 0">
+                  <ul class="right-menu-ul-li">
+                    <li *ngFor="let submenu of item.children">
+                      <p *ngIf="submenu.collections.length > 0">
+                        <a routerLink="/collections/{{submenu.collections[0].slug}}">
+                          <p>
+                            
+                            {{toTitleCase(submenu.category)}}</p>
+                        </a>
+                      </p>
+                      <p *ngIf="submenu.collections.length == 0">
+                        <a href="javascript:void(0)">
+                          <p>{{toTitleCase(submenu.category)}}</p>
+                        </a>
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="megamenu-level-head">
+          <a routerLink="/items">
+            <p>Items</p>
+            <span class="material-symbols-outlined">
+              expand_more
+            </span>
+          </a>
+          <div class="megamenu-level-1" *ngIf="itemList">
+            <ul class="megamenu-level-1-sub">
+              <li class="megamenu-last-level-head" *ngFor="let item of itemList">
+                <a href="javascript:void(0)" *ngIf="item.children.length > 0">
+
+                  <p>
+                    <a routerLink="/items/{{item.slug}}">
+                      {{toTitleCase(item.category)}}
+                    </a>
+                  </p>
+                  <span class="material-symbols-outlined">
+                    chevron_right
+                  </span>
+                </a>
+                <a routerLink="/items/{{item.slug}}" *ngIf="item.children.length <= 0">
+                  <p>{{toTitleCase(item.category)}}</p>
+                  <span class="material-symbols-outlined">
+                    chevron_right
+                  </span>
+                </a>
+                <div class="right-hover-megamenu" *ngIf="item.children.length > 0">
+                  <ul class="right-menu-ul-li">
+                    <li *ngFor="let submenu of item.children">
+                      <p *ngIf="submenu.children.length > 0">
+                        <a routerLink="/items/{{submenu.slug}}">
+                          <p>All</p>
+                        </a>
+                      </p>
+                      <p *ngIf="submenu.children.length == 0">
+                        <a href="/items/{{submenu.slug}}">
+                          <p>{{toTitleCase(submenu.category)}}</p>
+                        </a>
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li>
+          <a routerLink="/laminates">
+            <p>Laminates</p>
+
+          </a>
+        </li>
+        <li>
+          <a routerLink="/blog">
+            <p>Blog</p>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/faq">
+            <p>FAQs</p>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/contact-us">
+            <p>Contact</p>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+    <div class="header-icons-flex">
+      <!-- <div class="inquiry_now_header_btn">
+        <a href="javascript:void(0)">
+          <button class="ph-button black-border-ph-button">
+            Inquire now
+          </button>
+        </a>
+      </div> -->
+      <div class="visible-tab-mobile">
+        <div id="nav-toggle" (click)="mobile_menu_click(); mobile_menu_close_click();"
+          [class.active]="mobile_menu_click_F" class="mobile_menu_plus">
+          <div class="plus">
+            <div class="bar top"></div>
+            <div class="bar middle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Header Wrapper End -->
+
+
+<div id="mobile-nav-menu" [class.active]="mobile_menu_click_F" class="mobile_header ">
+  <div class="relative">
+    <div class="header_padding">
+      <ul>
+        <li>
+          <a routerLink="/" (click)="mobile_menu_click();">
+            Home</a>
+        </li>
+        <li>
+          <a routerLink="/about" (click)="mobile_menu_click();">
+            About</a>
+        </li>
+        <li>
+          <a (click)="sub_mobile_menu_click()" class="sub_menu_flex_details">
+            <p>Product Collection</p>
+            <span class="material-symbols-outlined">
+              chevron_right
+            </span>
+          </a>
+        </li>
+
+        <li>
+          <a (click)="item_sub_mobile_menu_click()" class="sub_menu_flex_details">
+            <p>Items</p>
+            <span class="material-symbols-outlined">
+              chevron_right
+            </span>
+          </a>
+        </li>
+
+
+
+        <!-- <li>
+          <a routerLink="/items" (click)="mobile_menu_click();">
+            Items</a>
+        </li> -->
+        <li>
+          <a routerLink="/laminates" (click)="mobile_menu_click();">
+            Laminates</a>
+        </li>
+        <li>
+          <a routerLink="/blog" (click)="mobile_menu_click();">
+            Blog</a>
+        </li>
+        <li>
+          <a routerLink="/contact-us" (click)="mobile_menu_click();">
+            Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="sub_category_sub_menu" [class.active]="sub_menu_click_f">
+  <div class="back_btn_main_div back_flex_details" (click)="sub_mobile_menu_click_close()">
+    <span class="material-symbols-outlined">
+      chevron_left
+    </span>
+    <p>Back</p>
+  </div>
+  <ul>
+    <li>
+      <a routerLink="/collections" (click)="all_close_menu()">All Collection</a>
+    </li>
+    <li class="" *ngFor="let item of menuList">
+      <div *ngIf="item.children.length > 0" class="sub_menu_flex_details"
+        (click)="sub_mobile_2_menu_click(item.category_ID)">
+        <p>{{item.category}}</p>
+        <span class="material-symbols-outlined">
+          chevron_right
+        </span>
+      </div>
+
+      <div class="sub_2_mobile_menu" *ngIf="item.children.length > 0"
+        [class.active]="sub_menu_2_click_f == item.category_ID">
+        <div class="back_btn_main_div back_flex_details" (click)="sub_mobile_2_menu_click_close()">
+          <span class="material-symbols-outlined">
+            chevron_left
+          </span>
+          <p>Back</p>
+        </div>
+        <ul class="sub_2_mobile_menu_ul">
+          <li *ngFor="let submenu of item.children">
+            <p *ngIf="submenu.collections.length > 0">
+              <a routerLink="/collections/{{submenu.collections[0].slug}}" (click)="all_close_menu()">
+                <p>{{submenu.category}}</p>
+              </a>
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <a routerLink="/collections" (click)="all_close_menu()" *ngIf="item.children.length <= 0">
+        <p>{{item.category}}</p>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+
+
+<div class="sub_category_sub_menu" [class.active]="item_sub_menu_click_f">
+  <div class="back_btn_main_div back_flex_details" (click)="item_sub_mobile_menu_click_close()">
+    <span class="material-symbols-outlined">
+      chevron_left
+    </span>
+    <p>Back</p>
+  </div>
+  <ul>
+    <li>
+      <a routerLink="/items" (click)="item_all_close_menu()">All Items</a>
+    </li>
+    <li class="" *ngFor="let item of itemList">
+      <div *ngIf="item.children.length > 0" class="sub_menu_flex_details"
+        (click)="item_sub_mobile_2_menu_click(item.slug)">
+        <p>{{item.category}}</p>
+        <span class="material-symbols-outlined">
+          chevron_right
+        </span>
+      </div>
+
+      <div class="sub_2_mobile_menu" *ngIf="item.children.length > 0"
+        [class.active]="item_sub_menu_2_click_f == item.slug">
+        <div class="back_btn_main_div back_flex_details" (click)="item_sub_mobile_2_menu_click_close()">
+          <span class="material-symbols-outlined">
+            chevron_left
+          </span>
+          <p>Back</p>
+        </div>
+        <ul class="sub_2_mobile_menu_ul">
+          <li *ngFor="let submenu of item.children">
+            <p>
+              <a routerLink="/items/{{submenu.slug}}" (click)="item_all_close_menu()">
+                <p>{{submenu.category}}</p>
+              </a>
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <a routerLink="/items/{{item.slug}}" (click)="item_all_close_menu()" *ngIf="item.children.length <= 0">
+        <p>{{item.category}}</p>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+<router-outlet></router-outlet>
+
+<!-- Footer Wrapper Start -->
+<div class="ph-footer-wrapper">
+  <div class="inner-flex inner-flex-big">
+
+    <div class="main-container-fluid">
+      <div class="footer-grid-card">
+        <div class="footer-card-1">
+          <div class="inner-flex inner-flex-center inner-flex-small">
+            <a href="javascript:void(0);">
+              <div class="footer-logo">
+                <img src="assets/images/logo/footer-logo.svg" alt="">
+              </div>
+            </a>
+            <div class="hide-tab-mobile">
+              <div class="social-media-footer-ul">
+                <ul>
+                  <li class="fontawesome">
+                    <a href="https://web.facebook.com/parthhospitalityfurniture" target="_blank">
+                      <i class="fa-brands fa-square-facebook"></i>
+                    </a>
+                  </li>
+                  <li class="fontawesome">
+                    <a href="https://www.instagram.com/parth_hospitality/" target="_blank">
+                      <i class="fa-brands fa-instagram"></i>
+                    </a>
+                  </li>
+                  <li class="fontawesome">
+                    <a href="https://twitter.com/parthhosp" target="_blank">
+                      <i class="fa-brands fa-twitter"></i>
+                    </a>
+                  </li>
+                  <!-- <li class="fontawesome">
+                    <a href="javascript:void(0);">
+                      <i class="fa-brands fa-youtube"></i>
+                    </a>
+                  </li> -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-card-2">
+          <div class="footer-card-links-grid-wrapper">
+            <div class="footer-card-address-wrapper">
+              <div class="inner-flex inner-flex-medium">
+                <div class="inner-flex inner-flex-small">
+                  <div class="section-subtitle hide-tab-mobile">
+                    <h3>
+                      Parth Hospitality
+                    </h3>
+                  </div>
+                  <div class="address-content relative">
+                    <div class="location-icon-address">
+                      <span class="material-symbols-outlined">
+                        location_on
+                      </span>
+                    </div>
+                    <p class="regular-fonts">
+                      7903 Ocean Highway <br>Pawleys Island, SC 29585
+                    </p>
+                  </div>
+                </div>
+
+                <div class="inner-flex">
+                  <a href="tel:+1 803 319 7356">
+                    <p>
+                      +1 803 319 7356
+                    </p>
+                  </a>
+                  <a href="mailto:contact@parthhospitality.com">
+                    <p>
+                      contact@parthhospitality.com
+                    </p>
+                  </a>
+                </div>
+
+                <div class="visible-tab-mobile">
+                  <div class="social-media-footer-ul">
+                    <ul>
+                      <li>
+                        <a href="javascript:void(0);">
+                          <img src="assets/images/social/fb.svg" alt="" class="hide-tab-mobile">
+                          <img src="assets/images/social/fab.svg" alt="" class="visible-tab-mobile">
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0);">
+                          <img src="assets/images/social/insta.svg" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0);">
+                          <img src="assets/images/social/twitter.svg" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0);">
+                          <img src="assets/images/social/youtube.svg" alt="">
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="footer-link-flex">
+              <div class="section-subtitle visible-tab-mobile">
+                <h3>
+                  Parth Hospitality
+                </h3>
+                <br>
+                <br>
+                <br>
+              </div>
+              <ul class="inner-flex">
+                <li>
+                  <a routerLink="/">
+                    <p class="regular-fonts">Home</p>
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="/about">
+                    <p class="regular-fonts">About</p>
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="/collections">
+                    <p class="regular-fonts">Product Collections</p>
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="/blog">
+                    <p class="regular-fonts">Blog</p>
+                  </a>
+                </li>
+                <li>
+
+
+                  <a routerLink="contact-us">
+
+                    <p class="regular-fonts">Contact</p>
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="/channel-partner">
+                    <p class="regular-fonts">Channel Partner</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-credential-div">
+      <p>
+        &copy; Parth Hospitality 2023 | All Rights Reserved.
+      </p>
+      <div class="powered-by">
+        <p>
+          Powered by : <a href="https://www.saltpixels.in/" target="_blank" class="text-uppercase">saltpixels</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Footer Wrapper End -->

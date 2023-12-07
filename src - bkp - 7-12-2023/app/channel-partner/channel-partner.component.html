@@ -1,0 +1,502 @@
+<!-- <div>
+  <h1 class="heading">Channel Partner</h1>
+  <div class="channel-container">
+    <div class="channel-wrapper">
+      <form name="form" (ngSubmit)="submitContactForm()" #createContactForm="ngForm">
+        <div class="channel_flex">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="contactObj.name" #name="ngModel"
+              required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="contactObj.email"
+              #email="ngModel" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="number" class="form-control" id="phone" name="phone" [(ngModel)]="contactObj.phone"
+              #phone="ngModel" required />
+          </div>
+
+          <div class="form-group">
+            <label for="company_name">Company Name:</label>
+            <input type="text" class="form-control" id="company_name" name="company_name"
+              [(ngModel)]="contactObj.company_name" #company_name="ngModel" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Comments:</label>
+            <textarea type="text" class="form-control" id="message" name="message"
+              [(ngModel)]="contactObj.message" #message="ngModel"></textarea>
+          </div>
+        
+        </div>
+        <div class="channel_submit_btn">
+          <button type="submit" class="btn btn-secondary ">Submit</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- Channel Partner Wrapper Start -->
+
+<div class="ph-channel-partner-wrapper relative" id="ph-channel-partner-wrapper">
+  <section class="ph-channel-partner-banner-section  relative" id="ph-channel-partner-banner-section">
+    <div class="ph-channel-partner-banner-img">
+      <img src="assets/images/channel-partner/banner.jpg" alt="">
+      <div class="black_overlay"></div>
+    </div>
+    <div class="ph-cp-banner-text inner-flex inner-flex-small inner-flex-center">
+      <div class="section-subtitle ">
+        <h3 class="text-uppercase white-color regular-fonts">Ready to Join</h3>
+      </div>
+      <div class="banner-title">
+        <h2 class="text-uppercase text-center white-color">Revolutionary <br class="hidden-xs hidden-sm">
+          plaTform for Furniture
+          & Home Products</h2>
+      </div>
+      <!-- <div class="cp-btn">
+        <a href="javascript:void(0)">
+          <button class="link-btn" id="channel-partner-btn">
+            <div class="small-content">
+              <p class="white-color regular-fonts">Become A channel Partner</p>
+            </div>
+          </button>
+        </a>
+      </div> -->
+    </div>
+  </section>
+  <section class="ph-channel-partner-edge-section relative section-padding" id="ph-channel-partner-edge-section">
+    <div class="cp-container">
+      <div class="section-content">
+        <p class="text-center light-fonts">With a Vision to solve Pain points of Furniture Showrooms,
+          Traders & our other potential
+          client, we have launched Copper Leaf. Join us as we strive to make indian homes beautiful.
+        </p>
+      </div>
+      <div class="ph-edge-wrapper inner-flex inner-flex-medium section-padding-small-top">
+        <div class="section-title">
+          <h2 class="text-center text-uppercase"><span>Parth Furniture </span>EDGE</h2>
+        </div>
+        <div class="hidden-xs hidden-sm">
+          <div class="ph-edge-wrapper-grid">
+
+            <div class="ph-edge-grid-item " style="align-items: center;">
+              <div>
+                <div class="ph-logo">
+                  <img src="assets/images/logo/parth-logo-opacity-5.svg" alt="">
+                </div>
+              </div>
+              <div class="ph-edge-grid-content-flex" style="border: none;">
+                <div class="section-content">
+                  <p class="bold-fonts">Parth <br>
+                    Furniture</p>
+                </div>
+                <div class="section-content">
+                  <p class="bold-fonts">Traditional <br>
+                    Manufacturer</p>
+                </div>
+              </div>
+            </div>
+            <div class="ph-edge-grid-item ">
+              <div class="ph-cp-icon">
+                <div class="ph-cp-icon-img">
+                  <img src="assets/images/icons/channel-partner-icons/concenience.svg" alt="">
+                </div>
+                <div class="ph-cp-icon-text link-font ">
+                  <p class="text-uppercase capitalize">
+                    concenience
+                  </p>
+                </div>
+              </div>
+              <div class="ph-edge-grid-content-flex">
+                <div class="link-font">
+                  <p>One-stop-shop for all range of products.</p>
+                </div>
+                <div class="link-font">
+                  <p>Need to reach out to various vendors for different products</p>
+                </div>
+              </div>
+            </div>
+            <div class="ph-edge-grid-item ">
+              <div class="ph-cp-icon">
+                <div class="ph-cp-icon-img">
+                  <img src="assets/images/icons/channel-partner-icons/Quality.svg" alt="">
+                </div>
+                <div class="ph-cp-icon-text link-font ">
+                  <p class="text-uppercase capitalize">
+                    Quality
+                  </p>
+                </div>
+              </div>
+              <div class="ph-edge-grid-content-flex">
+                <div class="link-font">
+                  <p>Standard material <br>
+                    Extensive quality checks</p>
+                </div>
+                <div class="link-font">
+                  <p>Compromised quality to cut costs <br>
+                    Absolutely zero quality checks</p>
+                </div>
+              </div>
+            </div>
+            <div class="ph-edge-grid-item ">
+              <div class="ph-cp-icon">
+                <div class="ph-cp-icon-img">
+                  <img src="assets/images/icons/channel-partner-icons/warranty.svg" alt="">
+                </div>
+                <div class="ph-cp-icon-text link-font ">
+                  <p class="text-uppercase capitalize">
+                    warranty
+                  </p>
+                </div>
+              </div>
+              <div class="ph-edge-grid-content-flex">
+                <div class="link-font">
+                  <p>Industry best & transparent warranty policies</p>
+                </div>
+                <div class="link-font">
+                  <p>No warranty</p>
+                </div>
+              </div>
+            </div>
+            <div class="ph-edge-grid-item ">
+              <div class="ph-cp-icon">
+                <div class="ph-cp-icon-img">
+                  <img src="assets/images/icons/channel-partner-icons/after-sales-supprt.svg" alt="">
+                </div>
+                <div class="ph-cp-icon-text link-font ">
+                  <p class="text-uppercase capitalize">
+                    after sales supprt
+                  </p>
+                </div>
+              </div>
+              <div class="ph-edge-grid-content-flex">
+                <div class="link-font">
+                  <p>Dedicated Team <br>
+                    100% Our responsibility
+                  </p>
+                </div>
+                <div class="link-font">
+                  <p>No after sales support</p>
+                </div>
+              </div>
+            </div>
+            <div class="ph-edge-grid-item ">
+              <div class="ph-cp-icon">
+                <div class="ph-cp-icon-img">
+                  <img src="assets/images/icons/channel-partner-icons/delivery-assistance.svg" alt="">
+                </div>
+                <div class="ph-cp-icon-text link-font ">
+                  <p class="text-uppercase capitalize">
+                    delivery assistance
+                  </p>
+                </div>
+              </div>
+              <div class="ph-edge-grid-content-flex">
+                <div class="link-font">
+                  <p>Delivery & installation will be done by us.
+                  </p>
+                </div>
+                <div class="link-font">
+                  <p>Delivery Hassles.</p>
+                </div>
+              </div>
+            </div>
+            <div class="ph-edge-grid-item ">
+              <div class="ph-cp-icon">
+                <div class="ph-cp-icon-img">
+                  <img src="assets/images/icons/channel-partner-icons/Product-Conductivity.svg" alt="">
+                </div>
+                <div class="ph-cp-icon-text link-font ">
+                  <p class="text-uppercase capitalize">
+                    Product Conductivity
+                  </p>
+                </div>
+              </div>
+              <div class="ph-edge-grid-content-flex">
+                <div class="link-font">
+                  <p>Guaranteed product continuity.
+                  </p>
+                </div>
+                <div class="link-font">
+                  <p>Challenged product continuity.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="ph-edge-grid-item ">
+              <div class="ph-cp-icon">
+                <div class="ph-cp-icon-img">
+                  <img src="assets/images/icons/channel-partner-icons/brand.svg" alt="">
+                </div>
+                <div class="ph-cp-icon-text link-font ">
+                  <p class="text-uppercase capitalize">
+                    brand
+                  </p>
+                </div>
+              </div>
+              <div class="ph-edge-grid-content-flex">
+                <div class="link-font">
+                  <p>Brand awareness, as it makes selling at ease
+                  </p>
+                </div>
+                <div class="link-font">
+                  <p>No Brand
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="ph-edge-grid-item ">
+              <div class="ph-cp-icon">
+                <div class="ph-cp-icon-img">
+                  <img src="assets/images/icons/channel-partner-icons/Pricing.svg" alt="">
+                </div>
+                <div class="ph-cp-icon-text link-font ">
+                  <p class="text-uppercase capitalize">
+                    Pricing
+                  </p>
+                </div>
+              </div>
+              <div class="ph-edge-grid-content-flex">
+                <div class="link-font">
+                  <p>Standard & competitive pricing <br>
+                    No hidden costs
+                  </p>
+                </div>
+                <div class="link-font">
+                  <p>Fluctuating seasonal pricing.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="ph-edge-grid-item ">
+              <div class="ph-cp-icon">
+                <div class="ph-cp-icon-img">
+                  <img src="assets/images/icons/channel-partner-icons/Design.svg" alt="">
+                </div>
+                <div class="ph-cp-icon-text link-font ">
+                  <p class="text-uppercase capitalize">
+                    Design
+                  </p>
+                </div>
+              </div>
+              <div class="ph-edge-grid-content-flex">
+                <div class="link-font">
+                  <p>Planning, prototyping, evaluating & designing
+                    by expert & qualified designers
+                  </p>
+                </div>
+                <div class="link-font">
+                  <p>Generally from a picture/image.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="ph-edge-grid-item ">
+              <div class="ph-cp-icon" style="border-radius: 0 0  1.75rem 1.75rem;">
+                <div class="ph-cp-icon-img">
+                  <img src="assets/images/icons/channel-partner-icons/Delivery.svg" alt="">
+                </div>
+                <div class="ph-cp-icon-text link-font ">
+                  <p class="text-uppercase capitalize">
+                    Delivery
+                  </p>
+                </div>
+              </div>
+              <div class="ph-edge-grid-content-flex">
+                <div class="link-font">
+                  <p>Standard time-frame committed at the time
+                    of placing the order
+                  </p>
+                </div>
+                <div class="link-font">
+                  <p>Unrealistic, due to lack of commitment/experience
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="visible-sm visible-xs">
+          <div class="parth-edge-swiper swiper relative">
+            <div class="">
+              <swiper class="swiper homeBannerSwiper" #mainSwiper [config]="channelPartnerSwiper">
+
+                <div class="swiper-slide" *ngFor="let specification of channelPartnerData">
+                  <div class="ph-edge-grid-item ">
+                    <div class="ph-cp-icon">
+                      <div class="ph-cp-icon-img">
+                        <img src="{{specification.image_name}}" alt="">
+                      </div>
+                      <div class="ph-cp-icon-text link-font ">
+                        <p class="text-uppercase bold-fonts">
+                          {{specification.title_name}}
+                        </p>
+                      </div>
+                    </div>
+                    <div class="ph-edge-grid-content-flex">
+                      <div class="inner-flex">
+                        <div class="link-font">
+                          <p class="edge-heading">{{specification.hospitality1}}</p>
+                        </div>
+                        <div class="link-font">
+                          <p>{{specification.content_1_name}}</p>
+                        </div>
+                      </div>
+                      <div class="inner-flex">
+                        <div class="link-font ">
+                          <p class="edge-heading">{{
+                            specification.hospitality2}}</p>
+                        </div>
+                        <div class="link-font">
+                          <p>{{
+                            specification.content_2_name}}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </swiper>
+            </div>
+            <div class="swiper-pagination parth-edege-swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="main-container ">
+    <div class="horizantal-line"></div>
+  </div>
+  <section class="ph-channel-partner-dealer-section relative section-padding-top"
+    id="ph-channel-partner-dealer-section">
+    <div class="cp-container">
+      <div class="section-title">
+        <h2 class="text-center text-uppercase"><span>Become A </span> <br>
+          Parth Furniture <span> Dealer </span></h2>
+      </div>
+      <div class="ph-dealer-wrapper-flex ">
+        <div class="ph-dealer-wrapper-flex-item-one relative hidden-xs hidden-sm">
+          <div class="table-cup-img">
+            <img src="assets/images/channel-partner/table-cup.png" alt="">
+          </div>
+          <div class="lamp-vector-img">
+            <img src="assets/images/channel-partner/lamp.png" alt="">
+          </div>
+        </div>
+        <div class="ph-dealer-wrapper-flex-item-two">
+          <div class="dealer-form-wrapper inner-flex inner-flex-medium ">
+            <div class="section-content">
+              <p class="bold-fonts">Register Your Interest</p>
+            </div>
+            <form name="form" (ngSubmit)="createContactForm.form.valid && submitContactForm(createContactForm.form)"
+              #createContactForm="ngForm" novalidate class="dealer-form-grid">
+              <div class="dealer-form-input">
+                <input type="text" name="name" id="name" placeholder="Name*" [(ngModel)]="contactObj.name"
+                  #name="ngModel" required>
+                <div *ngIf="createContactForm.submitted && name.invalid" class="invalid-feedback">
+                  <div *ngIf="name.errors.required">Name cannot be empty!</div>
+                </div>
+              </div>
+
+              <div class="dealer-form-input">
+                <input type="text" minlength="1" maxlength="10" (keypress)=_keyPress($event) name="phone" id="phone"
+                  placeholder="Contact No.*" [(ngModel)]="contactObj.phone" #phone="ngModel" required
+                  pattern="[0-9]{10}$">
+
+                <div *ngIf="createContactForm.submitted && phone.invalid" class="invalid-feedback">
+                  <div *ngIf="phone.errors.required">Contact can not be empty!
+                  </div>
+                  <div *ngIf="phone.invalid && !phone.errors.required">Invalid Contact Number
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="dealer-form-input">
+                <input type="email" name="email" id="email" placeholder="email*" [(ngModel)]="contactObj.email"
+                  #email="ngModel" required>
+                <div *ngIf="createContactForm.submitted && email.invalid" class="invalid-feedback">
+                  <div *ngIf="email.errors.required">Email can not be empty!</div>
+                  <div *ngIf="email.invalid && !email.errors.required">Invalid Email address</div>
+                </div>
+              </div>
+
+
+
+              <div class="dealer-form-input" [class.active]="contactObj.country != ''">
+                <select class="form-control" name="country" id="country" [(ngModel)]="contactObj.country"
+                  #country="ngModel" (change)="loadStates(contactObj.country)">
+                  <option value="">-Select Country-</option>
+                  <option value="{{ country.id }}" *ngFor="let country of countries">
+                    {{ country.name }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="dealer-form-input" [class.active]="contactObj.state != ''">
+                <select class="form-control" name="state" id="state" [(ngModel)]="contactObj.state" #state="ngModel"
+                  (change)="loadCities(contactObj.state)">
+                  <option value="">-Select State-</option>
+                  <option value="{{ state.id }}" *ngFor="let state of states">
+                    {{ state.name }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="dealer-form-input" [class.active]="contactObj.city != ''">
+                <select class="form-control" name="city" id="city" [(ngModel)]="contactObj.city" #city="ngModel">
+                  <option value="">-Select City-</option>
+                  <option value="{{ city.id }}" *ngFor="let city of cities">
+                    {{ city.name }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="dealer-form-input">
+                <input type="text" name="zip_code" id="zip_code" placeholder="Zip Code" maxlength="10"
+                  (keypress)=_keyPress($event) [(ngModel)]="contactObj.zip_code" #zip_code="ngModel">
+              </div>
+
+
+              <div class="dealer-form-input">
+                <input type="text" name="company_name" id="company_name" placeholder="Company Name"
+                  [(ngModel)]="contactObj.company_name" #company_name="ngModel">
+              </div>
+
+              <div class="dealer-form-input">
+                <textarea type="text" name="message" id="message" placeholder="Company Name*"
+                  [(ngModel)]="contactObj.message" #message="ngModel" required>
+                  </textarea>
+                <div *ngIf="createContactForm.submitted && message.invalid" class="invalid-feedback">
+                  <div *ngIf="message.errors.required">Message cannot be empty!</div>
+                </div>
+              </div>
+
+
+
+              <div class="dealer-form-input">
+                <button type="submit" class="dealer-form-btn link-font">
+                  <p class="bold-fonts">Register Now!</p>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cp-outer-table-cup-img">
+      <img src="assets/images/channel-partner/table-cup-light.png" alt="">
+    </div>
+  </section>
+</div>
+
+<!-- Channel Partner Wrapper End -->

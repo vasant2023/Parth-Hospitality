@@ -1,0 +1,49 @@
+.companies-card-image {
+    width: max-content;
+    margin: 0 auto;
+}
+
+.description_limit_page {
+    height: 300px;
+    overflow: hidden;
+}
+
+.product-home-card-image img {
+    height: 60vh;
+}
+
+.mobile_hidden{
+    display: block;
+}
+
+.website_hidden{
+    display: none;
+}
+
+@media only screen and (max-width: 767px) {
+
+    .mobile_hidden{
+        display: none;
+    }
+    
+    .website_hidden{
+        display: block;
+    }
+    
+    .swiper-button-next.swiper-button-next-homeproduct {
+        top: unset !important;
+        bottom: 15%;
+        right: unset;
+        left: 85%;
+    }
+
+    .swiper-button-prev.swiper-button-prev-homeproduct {
+        top: unset !important;
+        bottom: 15%;
+        left: 70%;
+    }
+
+    .description_limit_page {
+        height: 200px !important;
+    }
+}

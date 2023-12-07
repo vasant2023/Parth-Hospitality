@@ -12,7 +12,7 @@
 }
 
 .ph-contact-wrapper .section-title h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 .ph-contact-wrapper .ph-contact-wrapper-main-grid {
@@ -50,7 +50,6 @@
     position: relative;
 
 }
-
 
 .ph-contact-wrapper .ph-contact-form-grid::before {
     content: "";
@@ -99,8 +98,6 @@
     padding: 1.25rem;
     outline: none
 }
-
-
 
 @media screen and (max-width : 1450px) {
 

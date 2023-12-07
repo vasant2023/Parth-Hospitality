@@ -9,7 +9,6 @@
 @import '~ng-wizard/themes/ng_wizard_theme_circles.min.css';
 @import '~ng-wizard/themes/ng_wizard_theme_dots.min.css';
 
-
 @font-face {
 	font-family: 'Corbert-Regular';
 	src: url('../src/assets/fonts/corbert/Corbert-Regular.woff2') format('woff2'),
@@ -27,7 +26,6 @@
 	font-style: normal;
 	font-display: swap;
 }
-
 
 @font-face {
 	font-family: 'Poppins-Bold';
@@ -64,7 +62,6 @@
 	font-style: normal;
 	font-display: swap;
 }
-
 
 .wow {
 	visibility: hidden;
@@ -185,14 +182,13 @@
 	/* font-sizes */
 	--banner-font-size: 7.5rem;
 	--common-banner-font-size: 5rem;
-	--section-title-font-size: 6rem;
-	--title-font-size: 3.5rem;
+	--section-title-font-size: 5rem;
+	--title-font-size: 3.3rem;
 	--specification-font-size: 2.5rem;
 	--subtitle-font-size: 2rem;
-	--content-font-size: 1.3rem;
+	--content-font-size: 1rem;
 	--link-font-size: 1rem;
-	--btn-font-size: 1.1rem;
-
+	--btn-font-size: 0.8rem;
 
 	/* font-families */
 	--light-font-family: 'Poppins-Light';
@@ -207,9 +203,9 @@
 	--web-border-radius: 0.625rem;
 	--mobile-border-radius: 0.6rem;
 	--common-gap-size: 1rem;
-	--small-gap-size: 1.5rem;
-	--medium-gap-size: 3rem;
-	--big-gap-size: 6rem;
+	--small-gap-size: 1rem;
+	--medium-gap-size: 2rem;
+	--big-gap-size: 4rem;
 }
 
 html,
@@ -420,7 +416,7 @@ img {
 }
 
 .main-container-fluid {
-	width: 96%;
+	width: 85%;
 	margin: 0 auto;
 }
 
@@ -468,13 +464,11 @@ body.no-scroll-body {
 	width: 12rem;
 }
 
-
 .inner-flex {
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
 }
-
 
 .inner-flex.inner-flex-small {
 	gap: var(--small-gap-size);
@@ -526,7 +520,6 @@ body.no-scroll-body {
 	color: var(--secondary-color);
 }
 
-
 /* --specification-font-size */
 .specification-font-size h1 {
 	font-size: var(--specification-font-size);
@@ -568,7 +561,6 @@ body.no-scroll-body {
 	font-family: var(--medium-font-family-p);
 	color: var(--secondary-color);
 }
-
 
 .section-content p,
 .section-content a {
@@ -741,7 +733,7 @@ button.ph-button.filled-ph-button:hover p {
 	color: var(--secondary-color);
 }
 button.ph-button.filled-ph-button p {
-	
+
 }
 
 button.ph-button.white-border-ph-button {
@@ -750,6 +742,15 @@ button.ph-button.white-border-ph-button {
 
 button.ph-button.black-border-ph-button {
 	border-color: var(--primary-color);
+}
+
+.fill-btton .yelloow {
+  border-color: var(--secondary-color) !important;
+    background-color: var(--secondary-color);
+}
+.fill-btton .yelloow:hover   {
+  border-color: var(--primary-color) !important;
+    background-color: transparent !important;
 }
 
 button.ph-button.black-border-ph-button:hover {
@@ -764,7 +765,6 @@ button.ph-button.white-border-ph-button:hover {
 button.ph-button.white-border-ph-button:hover a {
 	color: var(--primary-color);
 }
-
 
 button.ph-button.black-border-ph-button:hover a {
 	color: var(--primary-color);
@@ -788,7 +788,6 @@ button.ph-button.black-border-ph-button a {
 button.ph-button.white-border-ph-button:hover p {
 	color: var(--primary-color);
 }
-
 
 button.ph-button.black-border-ph-button:hover p {
 	color: var(--primary-color);
@@ -1735,7 +1734,6 @@ button.ph-button.black-border-ph-button p {
 	right: 5rem;
 }
 
-
 #ph-home-section-3 .section-padding {
 	padding-top: 0 !important;
 }
@@ -1933,7 +1931,6 @@ button.ph-button.black-border-ph-button p {
 	color: #FF0000;
 }
 
-
 .header-icons-flex {
 	display: flex;
 	flex-direction: row;
@@ -2099,7 +2096,6 @@ button.ph-button.black-border-ph-button p {
 	border-bottom: 1px solid #00000030;
 }
 
-
 .product-specification-grid {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
@@ -2198,7 +2194,6 @@ button.ph-button.black-border-ph-button p {
 	object-fit: contain;
 }
 
-
 /* .hardware-list-image a {
 	display: grid;
 	place-content: center;
@@ -2207,7 +2202,6 @@ button.ph-button.black-border-ph-button p {
 	aspect-ratio: unset;
 	background-color: #F5F5F5;
 } */
-
 
 .finishes-list-image {
 	background-color: #F5F5F5;
@@ -2278,7 +2272,6 @@ button.ph-button.black-border-ph-button p {
 .close-popup-inquire {
 	align-self: end;
 }
-
 
 .side_popup_wrapper .form_wrapper {
 	display: flex;
@@ -2370,7 +2363,6 @@ button.ph-button.filled-ph-button-submit {
 	width: 100%;
 	justify-content: center;
 }
-
 
 select {
 	-webkit-appearance: auto !important;
@@ -2527,7 +2519,6 @@ select {
 		left: 88%;
 	}
 
-
 	.bar {
 		display: block;
 		height: 2px;
@@ -2556,8 +2547,6 @@ select {
 		-o-transform: translateY(0px) rotateZ(0deg);
 		transform: translateY(0px) rotateZ(0deg);
 	}
-
-
 
 	#nav-toggle.active .bar.middle {
 		-webkit-transform: translateY(-5px) rotateZ(45deg);
@@ -2603,8 +2592,6 @@ select {
 	.header_padding>ul>li {
 		padding: 1rem 0;
 	}
-
-
 
 	.main_banner_section_pd {
 		padding-top: 7.7rem;
@@ -2683,8 +2670,6 @@ select {
 		width: 10%;
 	}
 
-
-
 	.price-tag-btn-flex {
 		margin-top: 2rem;
 		width: 30%;
@@ -2742,7 +2727,6 @@ select {
 	.specification-banner-flex {
 		flex-direction: column;
 	}
-
 
 	.specification-banner-flex>div:nth-child(2) {
 		width: 100%;
@@ -2820,7 +2804,6 @@ select {
 
 }
 
-
 @media only screen and (max-width: 768px) {
 
 	.ng-wizard-theme-arrows>.nav-tabs>li {
@@ -2856,7 +2839,6 @@ select {
 	.banner-title h2 span {
 		font-size: 3.75rem;
 	}
-
 
 	.home-highlights-grid {
 		padding-bottom: 4rem;
@@ -2902,9 +2884,6 @@ select {
 		left: 70%;
 	} */
 
-
-
-
 	.discount-lable-swiper-card {
 		position: absolute;
 		top: unset;
@@ -2919,7 +2898,6 @@ select {
 		flex-direction: column;
 		gap: 4rem;
 	}
-
 
 	.comapnies-grid>div:nth-child(odd),
 	.comapnies-grid>div:nth-child(even) {
@@ -3027,14 +3005,33 @@ select {
 	}
 }
 
+@media only screen and (max-width: 767px) {
+  .section-content p, .section-content a {
+    font-size: 14px;
+  }
 
+  .section-content-details p  {
+    font-size: 14px;
+}
+button.ph-button p {
+  font-size: 13px;
+}
+.footer-card-links-grid-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+}
+.footer-grid-card .inner-flex.inner-flex-center {
+  padding-left: 0rem;
+}
+.ph-blog-wrapper  .regular-fonts p {
+  font-size: 13px;
+}
 
+}
 @media only screen and (max-width: 375px) {
 	html {
 		font-size: 8px;
 	}
-
-
 
 }
 
@@ -3059,12 +3056,10 @@ select {
 	/* width: 60%; */
 }
 
-
 .ng-select.ng-select-opened.ng-select-bottom>.ng-select-container,
 .ng-select .ng-select-container {
 	border-color: transparent !important;
 }
-
 
 .swiper-pagination.swiper-pagination-home-banner {
 	width: fit-content;
@@ -3244,7 +3239,6 @@ fieldset:disabled .btn {
 	color: #FFF !important;
 }
 
-
 .megamenu-last-level-head {
 	position: relative;
 	width: 100%;
@@ -3341,9 +3335,6 @@ a.page-link {
 	a.page-link {
 		height: 35px;
 	}
-
-
-
 
 }
 

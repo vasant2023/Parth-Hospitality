@@ -139,7 +139,7 @@
 }
 
 .ph_wrapper_about  .main-container-about {
-    width: 88%;
+    width: 80%;
     margin: 0 auto;
 }
 
@@ -158,10 +158,27 @@
 .ph_wrapper_about .inner-flex.inner-flex-common {
     gap: var(--common-gap-size);
 }
+.lion_flex {
+  display: flex;
+  gap:3rem;
+  align-items: center;
 
+}
+.lion_flex .child1   {
+  width: 15rem;
+}
+.lion_flex  .child2   {
+  width: 8rem;
+}
 /*about css end*/
 
 @media only screen and (max-width: 767px) {
+  .lion_flex {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+  }
 
     .lion_img {
         width: 80%;
@@ -221,7 +238,7 @@
 
     .section-content p,
     .section-content a {
-        font-size: 1.8rem;
+        /* font-size: 1.8rem; */
     }
 
     .ph-blog-wrapper .product-about-card-flex {
@@ -369,7 +386,6 @@
     }
 
 }
-
 
 .about_pd_main{
     padding: 8rem 0;

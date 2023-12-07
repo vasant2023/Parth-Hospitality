@@ -1,0 +1,79 @@
+<div id="ph-collection-wrapper" class="relative ph-collection-wrapper main_banner_section_pd" *ngIf="!hotel_slug">
+  <section id="ph-collection-section-1" class="ph-section">
+    <div class="about-banner-swiper-outer relative">
+      <div class="banner_img relative">
+        <img src="assets/images/collection/colection-banner.png" alt="">
+        <div class="black_overlay"></div>
+
+        <div class="page-title banner-title-sec">
+          <h2 class="white-color text-uppercase">
+            Collections
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="loader" *ngIf="isLoading">
+  </div>
+
+  <div class="collection-container" style=" margin-top: 4rem;" *ngIf="!isLoading">
+    <div class="flex">
+      <div class="card" *ngFor="let item of collection_list">
+
+        <div class="" style="cursor: pointer;">
+
+          <a routerLink="/collections/{{item.slug}}">
+            <img class="" src="{{ item.banner_image }}&w=600&h=300" alt="Card image cap" />
+            <div class="content">
+              <h5 class="" style="text-align: center;">{{ item.collection }}</h5>
+              <div class="btn" style="width: 100%;">
+                <p class="white-color">View collection</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="ph-collection-wrapper" class="relative ph-collection-wrapper main_banner_section_pd" *ngIf="hotel_slug">
+  <section id="ph-collection-section-1" class="ph-section">
+    <div class="about-banner-swiper-outer relative">
+      <div class="banner_img relative">
+        <img src="assets/images/collection/colection-banner.png" alt="">
+        <div class="black_overlay"></div>
+
+        <div class="page-title banner-title-sec">
+          <h2 class="white-color text-uppercase">
+            Collections
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="loader" *ngIf="isLoading">
+  </div>
+
+  <div class="collection-container" style=" margin-top: 4rem;" *ngIf="!isLoading">
+    <div class="flex">
+      <div class="card" *ngFor="let item of hotel_wise_collection">
+
+        <div class="" style="cursor: pointer;">
+
+          <a routerLink="/collections/{{item.slug}}">
+            <img class="" src="{{ item.banner_image}}&w=600&h=300" alt="Card image cap" />
+            <div class="content">
+              <h5 class="" style="text-align: center;">{{ item.collection }}</h5>
+              <div class="btn" style="width: 100%;">
+                <p class="white-color">View collection</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

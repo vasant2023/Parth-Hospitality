@@ -67,12 +67,12 @@
               <h3>Specification</h3>
               <p class="" innerHTML="{{ collectionDetail.description }}"></p>
             </div>
-            <div class="specification-download-btns-flex">
-              <button class="ph-button black-border-ph-button" *ngIf="collectionDetail.brochure"
+            <div class="specification-download-btns-flex fill-btton">
+              <button class="ph-button black-border-ph-button yelloow" *ngIf="collectionDetail.brochure"
                 (click)="handleBrochure()">
                 <p class="text-uppercase">Brochure</p>
               </button>
-              <button class="ph-button black-border-ph-button">
+              <button class="ph-button black-border-ph-button  ">
                 <a routerLink="/lead/{{collectionDetail.slug}}">
                   <p class="text-uppercase">Inquiry</p>
                 </a>
