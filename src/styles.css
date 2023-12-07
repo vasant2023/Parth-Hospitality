@@ -3188,6 +3188,7 @@ fieldset:disabled .btn {
 	visibility: hidden;
 	left: -10%;
 	transition: var(--common-transition);
+	min-width: 230px;
 }
 
 .megamenu-level-1 li {
