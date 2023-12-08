@@ -1,6 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { ServiceService } from './_services/service.service';
+
+
+// import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Renderer2, OnInit, ViewChild,HostListener } from '@angular/core';
+import { ActivatedRoute,NavigationEnd, Router } from '@angular/router';
+import { of } from 'rxjs';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormControl,
+} from "@angular/forms";
+import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
+import { ServiceService } from 'src/app/_services/service.service';
+import Swal from "sweetalert2";
+import { SwiperModule, SWIPER_CONFIG, SwiperConfigInterface, SwiperComponent } from 'ngx-swiper-wrapper';
+import { style } from '@angular/animations';
+declare var $: any
+
 
 @Component({
   selector: 'app-root',
@@ -9,15 +25,74 @@ import { ServiceService } from './_services/service.service';
 })
 export class AppComponent implements OnInit {
 
+  currentRoute: string;
+
+  isNavHidden: boolean = false;
+  lastScrollPosition: number = 0;
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: Event): void {
+    const scrollY = window.scrollY || document.documentElement.scrollTop;
+
+    this.isNavHidden = scrollY > this.lastScrollPosition && scrollY > 100;
+    this.lastScrollPosition = scrollY;
+  }
+
+
+
+
+  contactObj: any = {
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+    company_name: "",
+    city: "",
+    state: "",
+    zip_code: "",
+    country: "91",
+    property_code: "",
+    rooms: "",
+    brochure: 0,
+    item_IDs: [],
+    laminate_IDs: [],
+    flooring_IDs: [],
+    addons_IDs: []
+  }
+
+
+
+
+
+  public isLoading: boolean = false;
+
+
+
+
+
+
+
+
+
+
+
   constructor(
     private router: Router,
     public service: ServiceService,
     private route: ActivatedRoute,
-
+    private el: ElementRef, 
+    private renderer: Renderer2
   ) {
     router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         window.scrollTo(0, 0);
+      }
+    });
+
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.currentRoute = event.url;
       }
     });
   }
@@ -25,6 +100,11 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.menuCollection();
     this.itemCollection();
+
+
+    this.getCountries();
+    this.loadStates(91);
+
   }
 
   menuList: any = [];
@@ -39,10 +119,10 @@ export class AppComponent implements OnInit {
     })
   }
 
-  itemList:any = [];
-  itemCollection(){
-    this.service.item_categories().subscribe((response:any) => {
-      if(response.success == 1){
+  itemList: any = [];
+  itemCollection() {
+    this.service.item_categories().subscribe((response: any) => {
+      if (response.success == 1) {
         this.itemList = response.categories;
       }
     })
@@ -84,7 +164,7 @@ export class AppComponent implements OnInit {
   public sub_menu_2_click_f = "";
   sub_mobile_2_menu_click(category_ID) {
     // if (this.sub_menu_2_click_f) {
-      this.sub_menu_2_click_f = category_ID;
+    this.sub_menu_2_click_f = category_ID;
     // } 
   }
 
@@ -94,7 +174,7 @@ export class AppComponent implements OnInit {
   }
 
 
-  all_close_menu(){
+  all_close_menu() {
     this.sub_menu_2_click_false = false;
     this.sub_menu_click_f = false;
     this.mobile_menu_click_F = false;
@@ -119,7 +199,7 @@ export class AppComponent implements OnInit {
   public item_sub_menu_2_click_f = "";
   item_sub_mobile_2_menu_click(slug) {
     // if (this.sub_menu_2_click_f) {
-      this.item_sub_menu_2_click_f = slug;
+    this.item_sub_menu_2_click_f = slug;
     // } 
   }
 
@@ -129,7 +209,7 @@ export class AppComponent implements OnInit {
   }
 
 
-  item_all_close_menu(){
+  item_all_close_menu() {
     this.item_sub_menu_2_click_false = false;
     this.item_sub_menu_click_f = false;
     this.mobile_menu_click_F = false;
@@ -138,8 +218,108 @@ export class AppComponent implements OnInit {
 
   toTitleCase(str) {
     return str.replace(/\w\S*/g, function (txt) {
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
- }
+  }
 
+  _keyPress(event: any) {
+    const pattern = /[0-9]/;
+    let inputChar = String.fromCharCode(event.charCode);
+    if (!pattern.test(inputChar)) {
+      event.preventDefault();
+    }
+  }
+
+  countries: any = [];
+  states: any = [];
+  cities: any = [];
+
+  // laminateArray:any=[];
+  // flatArrayLaminates:any=[];
+
+  getCountries() {
+    this.service.getCountries().subscribe((response: { success: number, message: string, data: [] }) => {
+      if (response.success == 1) {
+        this.countries = response.data;
+      }
+    })
+  }
+
+  loadStates(phonecode) {
+    if (phonecode) {
+      this.service.getStates(phonecode).subscribe((response: { success: number, message: string, data: [] }) => {
+        if (response.success == 1) {
+          this.states = response.data;
+        } else {
+          console.log(response.message)
+        }
+      })
+    }
+  }
+
+  loadCities(state) {
+    if (state) {
+      this.service.getCities(state).subscribe((response: { success: number, message: string, data: [] }) => {
+        if (response.success == 1) {
+          this.cities = response.data;
+        } else {
+          console.log(response.message)
+        }
+      })
+    }
+  }
+
+
+
+  public enquiry = false;
+
+  handleBrochure() {
+    if (this.enquiry) {
+      this.enquiry = false;
+    } else {
+      this.enquiry = true;
+    }
+  }
+
+
+  closeEnquiry(){
+    this.enquiry = false;
+  }
+
+  public country_code_clickF = false;
+  country_code_click() {
+      this.country_code_clickF =  !this.country_code_clickF;   
+  }
+
+  country_code_click_false() {
+    this.country_code_clickF = false;
+  }
+
+  country_click_career(id) {
+    this.contactObj.country = id;
+    this.country_code_clickF = false;
+  }
+
+  closeCountry(){
+    this.country_code_clickF = false
+  }
+
+
+  submitContactForm() {
+    if (this.isLoading == false) {
+      this.isLoading = true;
+      this.contactObj.phone = this.contactObj.country + " " + this.contactObj.phone;
+      this.service.submitContactForm(this.contactObj).subscribe((response: { success: number, message: string }) => {
+        if (response.success == 1) {
+         
+          this.enquiry = false
+          Swal.fire("Thank You for Contacting!", "Our team members will be in touch with you shortly!");
+          this.router.navigate(["/collections"]);
+        }
+        this.isLoading = false;
+        this.contactObj.phone = "91"
+      })
+    }
+    // }
+  }
 }

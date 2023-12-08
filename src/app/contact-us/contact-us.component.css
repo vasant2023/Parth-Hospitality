@@ -17,29 +17,19 @@
 
 .ph-contact-wrapper .ph-contact-wrapper-main-grid {
     border-radius: 1.75rem;
-    background-color:#f8ab18f5;
+    background-color: #f8ab18f5;
 }
 
 .ph-contact-wrapper .ph-contact-flex {
-    display: flex;
-    flex-direction: row;
     align-items: start;
     width: 100%;
     padding: 2rem;
     gap: var(--medium-gap-size);
-    width: 100%;
     padding: 6rem 3rem 3rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
-.ph-contact-wrapper .ph-contact-flex>div:nth-child(1) {
-    width: calc(100% - 45% - 1.5rem);
-    flex-basis: calc(100% - 45% - 1.5rem);
-}
-
-.ph-contact-wrapper .ph-contact-flex>div:nth-child(2) {
-    width: calc(100% - 55% - 1.5rem);
-    flex-basis: calc(100% - 55% - 1.5rem);
-}
 
 .ph-contact-wrapper .ph-contact-form-grid {
     display: grid;
@@ -99,6 +89,96 @@
     outline: none
 }
 
+
+.country_code_list_data ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.country_code_list_data ul li {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    transition: all ease 0.2s;
+}
+
+.country_code_list_data ul li:hover {
+    background-color: #dddddd;
+}
+
+.country_code_list_data li>div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.country_code_list_data {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 40vh;
+    overflow-y: scroll;
+    width: 300px;
+    z-index: 99999;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #ffffff;
+    border: 1px solid #999999;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.country_code_list_data {
+    display: none;
+}
+
+.country_code_list_data.active {
+    display: block;
+}
+
+.country_code_data {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.conatct_number_input {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.5rem;
+    z-index: 999;
+}
+
+.input_contact_main_details {
+    padding-left: 5.5rem !important;
+}
+
+.inner_contact_flex_2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4rem;
+    height: 100%;
+    padding-right: 1rem;
+}
+
+.contact_address_contact_flex {
+    display: flex;
+    align-items: flex-start;
+    gap: 4rem;
+}
+
+.address-content_flex_inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
 @media screen and (max-width : 1450px) {
 
     .ph-contact-wrapper .link-font p {
@@ -117,15 +197,10 @@
 @media screen and (max-width : 991px) {
 
     .ph-contact-wrapper .ph-contact-flex {
-        flex-direction: column;
+        grid-template-columns: repeat(1, 1fr);
         padding: 3rem 1.5rem 3rem 1.5rem;
     }
 
-    .ph-contact-wrapper .ph-contact-flex>div:nth-child(2),
-    .ph-contact-wrapper .ph-contact-flex>div:nth-child(1) {
-        width: 100%;
-        flex-basis: 100%;
-    }
 
     .ph-contact-wrapper .ph-contact-form-grid {
         width: 100%;
@@ -137,6 +212,17 @@
         left: 0;
         height: 1px;
         width: 100%;
+    }
+
+    .contact_address_contact_flex {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3rem;
+    }
+
+    .address-content_flex_inner p ,.mail_phone_flex_contact p{
+        font-size: 13px;
     }
 }
 

@@ -4,8 +4,8 @@
       <swiper class="swiper homeBannerSwiper" #mainSwiper [config]="homeBannerSwiper">
         <div class="swiper-slide" *ngFor="let image of bannerList">
           <div class="home-banner-image relative">
-            <img src="{{image.image}}" alt=""  class="mobile_hidden"/> 
-            <img src="{{image.mobile_image}}" alt="" class="website_hidden"/> 
+            <img src="{{image.image}}" alt="" class="mobile_hidden" />
+            <img src="{{image.mobile_image}}" alt="" class="website_hidden" />
             <div class=""></div>
           </div>
         </div>
@@ -90,9 +90,14 @@
                 2020.
               </p>
             </div>
-            <button class="ph-button black-border-ph-button">
-              <a routerLink="/about">Know More</a>
-            </button>
+            <div>
+              <a routerLink="/about">
+                <button class="ph-button black-border-ph-button">
+                  Know More
+                </button>
+              </a>
+            </div>
+
           </div>
           <div class="overview-industry-image-flex">
             <div class="overview-industry-image">

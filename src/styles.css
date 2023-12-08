@@ -189,6 +189,8 @@
 	--content-font-size: 1rem;
 	--link-font-size: 1rem;
 	--btn-font-size: 0.8rem;
+	--floating-font-size: 1.5rem;
+	--download-font-size: 1.2rem;
 
 	/* font-families */
 	--light-font-family: 'Poppins-Light';
@@ -383,8 +385,12 @@ img {
 
 .fancybox-slide--image {
 	overflow: hidden;
-    padding: 44px 0;
-    background-color: #fff;
+	padding: 44px 0;
+	/* background-color: #fff; */
+}
+
+.fancybox-bg {
+    background: #ffffff;
 }
 
 .relative {
@@ -732,9 +738,8 @@ button.ph-button.filled-ph-button:hover {
 button.ph-button.filled-ph-button:hover p {
 	color: var(--secondary-color);
 }
-button.ph-button.filled-ph-button p {
 
-}
+button.ph-button.filled-ph-button p {}
 
 button.ph-button.white-border-ph-button {
 	border-color: var(--white-color);
@@ -745,12 +750,13 @@ button.ph-button.black-border-ph-button {
 }
 
 .fill-btton .yelloow {
-  border-color: var(--secondary-color) !important;
-    background-color: var(--secondary-color);
+	border-color: var(--secondary-color) !important;
+	background-color: var(--secondary-color);
 }
-.fill-btton .yelloow:hover   {
-  border-color: var(--primary-color) !important;
-    background-color: transparent !important;
+
+.fill-btton .yelloow:hover {
+	border-color: var(--primary-color) !important;
+	background-color: transparent !important;
 }
 
 button.ph-button.black-border-ph-button:hover {
@@ -1846,26 +1852,32 @@ button.ph-button.black-border-ph-button p {
 	transition: var(--common-transition);
 
 }
+
 .channel-partner-footer-card:hover {
 	background-color: var(--secondary-color);
 }
+
 .channel-partner-footer-card .section-subtitle h3 {
-	color:var(--white-color);
+	color: var(--white-color);
 }
+
 .channel-partner-footer-card .section-content p {
-	color:var(--white-color);
+	color: var(--white-color);
 }
+
 .channel-partner-footer-card .channel-partner-arrow img {
 	filter: invert(1);
 }
 
 /**/
 .channel-partner-footer-card:hover .section-subtitle h3 {
-	color:var(--primary-color);
+	color: var(--primary-color);
 }
+
 .channel-partner-footer-card:hover .section-content p {
-	color:var(--primary-color);
+	color: var(--primary-color);
 }
+
 .channel-partner-footer-card:hover .channel-partner-arrow img {
 	filter: invert(0);
 }
@@ -2241,6 +2253,7 @@ button.ph-button.black-border-ph-button p {
 	opacity: 1;
 	visibility: visible;
 }
+
 .popup-overlay-country.popup-overlay-country-active {
 	transition: var(--common-transition);
 	opacity: 1;
@@ -2651,10 +2664,6 @@ select {
 		flex-basis: 100%;
 	}
 
-	.product-home-card-image {
-		width: 50% !important;
-	}
-
 	.discount-lable-swiper-card {
 		position: absolute;
 		top: 1.5rem;
@@ -2800,7 +2809,7 @@ select {
 }
 
 .presence-image {
-	width:70%;
+	width: 70%;
 
 }
 
@@ -3006,28 +3015,35 @@ select {
 }
 
 @media only screen and (max-width: 767px) {
-  .section-content p, .section-content a {
-    font-size: 14px;
-  }
 
-  .section-content-details p  {
-    font-size: 14px;
-}
-button.ph-button p {
-  font-size: 13px;
-}
-.footer-card-links-grid-wrapper {
-    padding-left: 0;
-    padding-right: 0;
-}
-.footer-grid-card .inner-flex.inner-flex-center {
-  padding-left: 0rem;
-}
-.ph-blog-wrapper  .regular-fonts p {
-  font-size: 13px;
-}
+	.section-content p,
+	.section-content a {
+		font-size: 14px;
+	}
+
+	.section-content-details p {
+		font-size: 14px;
+	}
+
+	button.ph-button p {
+		font-size: 13px;
+	}
+
+	.footer-card-links-grid-wrapper {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.footer-grid-card .inner-flex.inner-flex-center {
+		padding-left: 0rem;
+	}
+
+	.ph-blog-wrapper .regular-fonts p {
+		font-size: 13px;
+	}
 
 }
+
 @media only screen and (max-width: 375px) {
 	html {
 		font-size: 8px;
@@ -3191,8 +3207,8 @@ fieldset:disabled .btn {
 	min-width: 230px;
 }
 
-.megamenu-level-1 li {
-	padding: 0.75rem 1.5rem;
+.megamenu-level-1>.megamenu-level-1-sub>li>a {
+	padding: 0.9rem 1.5rem;
 }
 
 .megamenu-level-head:hover .megamenu-level-1 {
@@ -3263,13 +3279,22 @@ fieldset:disabled .btn {
 }
 
 .right-hover-megamenu li {
-	position: relative;
+	/* position: relative;
 	min-height: 43px;
 	width: 100%;
 	display: flex;
 	align-items: center;
+	border: 1px solid #c8c8c8; */
+	width: 100%;
 	border: 1px solid #c8c8c8;
+
 }
+
+.right-hover-megamenu li>a {
+	padding: 0.9rem 1.5rem;
+}
+
+
 
 .megamenu-last-level-head:hover .right-hover-megamenu {
 	opacity: 1;
@@ -3345,4 +3370,8 @@ a.page-link {
 		padding: 1.5rem !important;
 	}
 
+}
+
+.fancybox-infobar span{
+	color: #ffffff;
 }

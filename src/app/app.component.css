@@ -44,15 +44,15 @@
   color: rgb(82, 82, 82);
 }
 
-.sub_category_sub_menu>ul>li {
+.sub_category_sub_menu > ul > li {
   padding: 1rem 0;
 }
 
-.sub_category_sub_menu>ul {
+.sub_category_sub_menu > ul {
   height: 100%;
 }
 
-.sub_2_mobile_menu_ul>li {
+.sub_2_mobile_menu_ul > li {
   padding: 1rem 0;
 }
 
@@ -84,14 +84,136 @@
   right: 0;
 }
 
-@media only screen and (max-width: 767px) {
+.active-link p {
+  color: var(--secondary-color);
+}
 
+.active-link .material-symbols-outlined {
+  color: var(--secondary-color);
+}
+
+.ph-header-wrapper.hidden {
+  top: -100%;
+}
+
+.floating_inquiry_btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 99;
+}
+
+.floating_inquiry_btn .inquiry_floating_now {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem;
+  border-radius: 100%;
+  background-color: #29a71a;
+  width: 3.5rem;
+}
+
+.country_code_data > div {
+  font-size: 1.25em;
+}
+
+.down-country-angle i {
+  font-size: 1rem;
+  padding-left: 0.3rem;
+}
+
+.country_code_list_data ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.country_code_list_data ul li {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  transition: all ease 0.2s;
+}
+
+.country_code_list_data ul li:hover {
+  background-color: #dddddd;
+}
+
+.country_code_list_data li > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.country_code_list_data {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 40vh;
+  overflow-y: scroll;
+  width: 300px;
+  z-index: 99999;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #999999;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.country_code_list_data {
+  display: none;
+}
+
+.country_code_list_data.active {
+  display: block;
+}
+
+.country_code_data {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.select_country_main_wrapper .contact_code {
+  margin-left: 4.5rem;
+}
+
+.select_country_main_wrapper.active input {
+  padding-left: 6rem;
+}
+
+.conatct_number_input {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.5rem;
+  z-index: 999;
+}
+
+@media only screen and (max-width: 991px) {
+  .floating_inquiry_btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+  }
+
+  .floating_inquiry_btn .inquiry_floating_now {
+    padding: 1rem;
+    width: 5rem;
+  }
+}
+
+@media only screen and (max-width: 767px) {
   .section-subtitle h3 {
     font-size: 13px;
   }
 
   .footer-card-links-grid-wrapper p {
     font-size: 13px;
-}
-
+  }
 }

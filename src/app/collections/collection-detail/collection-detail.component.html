@@ -50,7 +50,7 @@
                 </div>
                 <div class="section-subtitle"
                   *ngIf="convertToNumber(collectionDetail.price) > convertToNumber(collectionDetail.sale_price)">
-                  <h3 class="regular-fonts" style="text-decoration: line-through">
+                  <h3 class="regular-fonts" style="text-decoration: line-through; color: #808080;">
                     ${{ collectionDetail.price }}
                   </h3>
                 </div>
@@ -72,11 +72,13 @@
                 (click)="handleBrochure()">
                 <p class="text-uppercase">Brochure</p>
               </button>
-              <button class="ph-button black-border-ph-button  ">
+              <div>
                 <a routerLink="/lead/{{collectionDetail.slug}}">
-                  <p class="text-uppercase">Inquiry</p>
+                  <button class="ph-button black-border-ph-button  ">
+                    <p class="text-uppercase">Inquiry</p>
+                  </button>
                 </a>
-              </button>
+              </div>
             </div>
           </div>
         </div>
@@ -256,7 +258,8 @@
 <div>
   <div class="popup-overlay" [class.popup-overlay-active]="enquiry" (click)="closeEnquiry()"></div>
   <div class="inquire-popup-wrapper" [class.inquire-popup-wrapper-active]="enquiry">
-    <div class="popup-overlay-country" [class.popup-overlay-country-active]="country_code_clickF" (click)="closeCountry()"></div>
+    <div class="popup-overlay-country" [class.popup-overlay-country-active]="country_code_clickF"
+      (click)="closeCountry()"></div>
 
     <div class="inquire-popup-inner-flex side_popup_wrapper inner-flex inner-flex-small">
       <div class="inner-flex">
@@ -337,8 +340,8 @@
               <label class="md-lable" for="company_name">Hotel Name</label>
             </div>
             <div class="contact_lable" [class.active]="contactObj.property_code != ''">
-              <input id="property_code" name="property_code" (keypress)=_keyPress($event) type="text" class="form-control" #property_code="ngModel"
-                [(ngModel)]="contactObj.property_code" />
+              <input id="property_code" name="property_code" (keypress)=_keyPress($event) type="text"
+                class="form-control" #property_code="ngModel" [(ngModel)]="contactObj.property_code" />
               <label class="md-lable" for="company_name">Property Code</label>
             </div>
           </div>
@@ -375,8 +378,8 @@
 
           <div class="relative two-grid-form">
             <div class="contact_lable" [class.active]="contactObj.rooms != ''">
-              <input id="rooms" name="rooms" type="text" class="form-control" #rooms="ngModel" (keypress)=_keyPress($event)
-                [(ngModel)]="contactObj.rooms" />
+              <input id="rooms" name="rooms" type="text" class="form-control" #rooms="ngModel"
+                (keypress)=_keyPress($event) [(ngModel)]="contactObj.rooms" />
               <label class="md-lable" for="hotel_name">Rooms</label>
             </div>
 

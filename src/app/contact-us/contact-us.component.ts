@@ -23,7 +23,7 @@ import Swal from "sweetalert2";
 })
 export class ContactUsComponent implements OnInit {
 
-  contactObj:any = {
+  contactObj: any = {
     name: "",
     email: "",
     phone: "",
@@ -32,12 +32,14 @@ export class ContactUsComponent implements OnInit {
     city: "",
     state: "",
     zip_code: "",
-    country: "",
+    country: "91",
     property_code: "",
     rooms: "",
   }
 
   isLoading = false;
+
+  countries: any = [];
 
   createContactForm: FormGroup;
 
@@ -49,6 +51,7 @@ export class ContactUsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getCountries();
   }
 
   _keyPress(event: any) {
@@ -59,19 +62,52 @@ export class ContactUsComponent implements OnInit {
     }
   }
 
-  submitContactForm(form){
-    this.contactObj.type = 'contact';
-    if(this.isLoading == false){
-      this.isLoading = true;
+  public country_code_clickF = false;
+  country_code_click() {
+    this.country_code_clickF = !this.country_code_clickF;
+  }
 
-      this.service.submitContactForm(this.contactObj).subscribe((response : {success:number, message:string}) => {
-        if(response.success == 1){
+  country_code_click_false() {
+    this.country_code_clickF = false;
+  }
+
+  country_click_career(id) {
+    this.contactObj.country = id;
+    this.country_code_clickF = false;
+  }
+
+  closeCountry() {
+    this.country_code_clickF = false
+  }
+
+  getCountries() {
+    this.service.getCountries().subscribe((response: { success: number, message: string, data: [] }) => {
+      if (response.success == 1) {
+        this.countries = response.data;
+      }
+    })
+  }
+
+
+
+  submitContactForm(form) {
+    this.contactObj.country = '91';
+    this.contactObj.type = 'contact';
+    if (this.isLoading == false) {
+      this.isLoading = true;
+      this.contactObj.phone = this.contactObj.country + " " + this.contactObj.phone;
+
+      this.service.submitContactForm(this.contactObj).subscribe((response: { success: number, message: string }) => {
+        if (response.success == 1) {
           Swal.fire("Thank You for contacting!", "success");
           this.contactObj = {};
+          this.contactObj.country = "91"
         }
         this.isLoading = false
       })
     }
   }
+
+
 
 }

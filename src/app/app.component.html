@@ -1,5 +1,5 @@
 <!-- Header Wrapper Start -->
-<div class="ph-header-wrapper">
+<div class="ph-header-wrapper" [ngClass]="{'hidden': isNavHidden}">
   <div class="header-flex">
     <div class="header-logo">
       <a routerLink="/">
@@ -9,17 +9,18 @@
     <div class="header-links hidden-header-mobile-view">
       <ul>
         <li>
-          <a routerLink="/">
+          <a routerLink="/" [ngClass]="{'active-link': currentRoute === '/'}">
             <p>Home</p>
           </a>
         </li>
         <li>
-          <a routerLink="about">
+          <a routerLink="/about" [ngClass]="{'active-link': currentRoute === '/about'}">
+
             <p>About</p>
           </a>
         </li>
         <li class="megamenu-level-head">
-          <a routerLink="/collections">
+          <a routerLink="/collections" [ngClass]="{'active-link': currentRoute === '/collections'}">
             <p>Collections</p>
             <span class="material-symbols-outlined">
               expand_more
@@ -28,11 +29,10 @@
           <div class="megamenu-level-1" *ngIf="menuList">
             <ul class="megamenu-level-1-sub">
               <li class="megamenu-last-level-head" *ngFor="let item of menuList">
-                <a href="javascript:void(0)" *ngIf="item.children.length > 0">
+                <a href="javascript:void(0)" routerLink="/collections/hotel/{{item.slug}}"
+                  *ngIf="item.children.length > 0">
                   <p>
-                    <a routerLink="/collections/hotel/{{item.slug}}">
-                      {{toTitleCase(item.category)}}
-                    </a>
+                    {{toTitleCase(item.category)}}
                   </p>
                   <span class="material-symbols-outlined">
                     chevron_right
@@ -40,25 +40,19 @@
                 </a>
                 <a routerLink="/collections" *ngIf="item.children.length <= 0">
                   <p> {{toTitleCase(item.category)}}</p>
-                  <span class="material-symbols-outlined">
-                    chevron_right
-                  </span>
                 </a>
                 <div class="right-hover-megamenu" *ngIf="item.children.length > 0">
                   <ul class="right-menu-ul-li">
                     <li *ngFor="let submenu of item.children">
-                      <p *ngIf="submenu.collections.length > 0">
-                        <a routerLink="/collections/{{submenu.collections[0].slug}}">
-                          <p>
-                            
-                            {{toTitleCase(submenu.category)}}</p>
-                        </a>
-                      </p>
-                      <p *ngIf="submenu.collections.length == 0">
-                        <a href="javascript:void(0)">
-                          <p>{{toTitleCase(submenu.category)}}</p>
-                        </a>
-                      </p>
+                      <a routerLink="/collections/{{submenu.collections[0].slug}}"
+                        *ngIf="submenu.collections.length > 0">
+                        <p>
+                          {{toTitleCase(submenu.category)}}
+                        </p>
+                      </a>
+                      <a href="javascript:void(0)" *ngIf="submenu.collections.length == 0">
+                        <p>{{toTitleCase(submenu.category)}}</p>
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -68,7 +62,7 @@
         </li>
 
         <li class="megamenu-level-head">
-          <a routerLink="/items">
+          <a routerLink="/items" [ngClass]="{'active-link': currentRoute === '/items'}">
             <p>Items</p>
             <span class="material-symbols-outlined">
               expand_more
@@ -77,19 +71,10 @@
           <div class="megamenu-level-1" *ngIf="itemList">
             <ul class="megamenu-level-1-sub">
               <li class="megamenu-last-level-head" *ngFor="let item of itemList">
-                <a href="javascript:void(0)" *ngIf="item.children.length > 0">
-
+                <a href="javascript:void(0)" routerLink="/items/{{item.slug}}" *ngIf="item.children.length > 0">
                   <p>
-                    <a routerLink="/items/{{item.slug}}">
-                      {{toTitleCase(item.category)}}
-                    </a>
+                    {{toTitleCase(item.category)}}
                   </p>
-                  <span class="material-symbols-outlined">
-                    chevron_right
-                  </span>
-                </a>
-                <a routerLink="/items/{{item.slug}}" *ngIf="item.children.length <= 0">
-                  <p>{{toTitleCase(item.category)}}</p>
                   <span class="material-symbols-outlined">
                     chevron_right
                   </span>
@@ -97,42 +82,45 @@
                 <div class="right-hover-megamenu" *ngIf="item.children.length > 0">
                   <ul class="right-menu-ul-li">
                     <li *ngFor="let submenu of item.children">
-                      <p *ngIf="submenu.children.length > 0">
-                        <a routerLink="/items/{{submenu.slug}}">
-                          <p>All</p>
-                        </a>
-                      </p>
-                      <p *ngIf="submenu.children.length == 0">
-                        <a href="/items/{{submenu.slug}}">
-                          <p>{{toTitleCase(submenu.category)}}</p>
-                        </a>
-                      </p>
+                      <a routerLink="/items/{{submenu.slug}}" *ngIf="submenu.children.length > 0">
+                        <p>
+                          All
+                        </p>
+                      </a>
+                      <a routerLink="/items/{{submenu.slug}}" *ngIf="submenu.children.length == 0">
+                        <p>
+                          {{toTitleCase(submenu.category)}}
+                        </p>
+                      </a>
                     </li>
                   </ul>
                 </div>
+                <a routerLink="/items/{{item.slug}}" *ngIf="item.children.length <= 0">
+                  <p>{{toTitleCase(item.category)}}</p>
+                </a>
               </li>
             </ul>
           </div>
         </li>
 
         <li>
-          <a routerLink="/laminates">
+          <a routerLink="/laminates" [ngClass]="{'active-link': currentRoute === '/laminates'}">
             <p>Laminates</p>
 
           </a>
         </li>
         <li>
-          <a routerLink="/blog">
+          <a routerLink="/blog" [ngClass]="{'active-link': currentRoute === '/blog'}">
             <p>Blog</p>
           </a>
         </li>
         <li>
-          <a routerLink="/faq">
+          <a routerLink="/faq" [ngClass]="{'active-link': currentRoute === '/faq'}">
             <p>FAQs</p>
           </a>
         </li>
         <li>
-          <a routerLink="/contact-us">
+          <a routerLink="/contact-us" [ngClass]="{'active-link': currentRoute === '/contact-us'}">
             <p>Contact</p>
           </a>
         </li>
@@ -140,13 +128,13 @@
       </ul>
     </div>
     <div class="header-icons-flex">
-      <!-- <div class="inquiry_now_header_btn">
+      <div class="inquiry_now_header_btn" (click)="handleBrochure()">
         <a href="javascript:void(0)">
           <button class="ph-button black-border-ph-button">
-            Inquire now
+           Download Brochure
           </button>
         </a>
-      </div> -->
+      </div>
       <div class="visible-tab-mobile">
         <div id="nav-toggle" (click)="mobile_menu_click(); mobile_menu_close_click();"
           [class.active]="mobile_menu_click_F" class="mobile_menu_plus">
@@ -368,7 +356,7 @@
                       Parth Hospitality
                     </h3>
                   </div>
-                  <div class="address-content relative">
+                  <a class="address-content relative" href="https://maps.app.goo.gl/7aecDcGFVt6GdxDT7" target="_blank">
                     <div class="location-icon-address">
                       <span class="material-symbols-outlined">
                         location_on
@@ -377,7 +365,7 @@
                     <p class="regular-fonts">
                       7903 Ocean Highway <br>Pawleys Island, SC 29585
                     </p>
-                  </div>
+                  </a>
                 </div>
 
                 <div class="inner-flex">
@@ -484,3 +472,174 @@
   </div>
 </div>
 <!-- Footer Wrapper End -->
+
+<div class="floating_inquiry_btn">
+  <a routerLink="contact-us " class="inquiry_floating_now">
+    <img src="assets/images/whatsapp.svg" alt="">
+  </a>
+</div>
+
+
+
+<div>
+  <div class="popup-overlay" [class.popup-overlay-active]="enquiry" (click)="closeEnquiry()"></div>
+  <div class="inquire-popup-wrapper" [class.inquire-popup-wrapper-active]="enquiry">
+    <div class="popup-overlay-country" [class.popup-overlay-country-active]="country_code_clickF"
+      (click)="closeCountry()"></div>
+
+    <div class="inquire-popup-inner-flex side_popup_wrapper inner-flex inner-flex-small">
+      <div class="inner-flex">
+        <div class="close-popup-inquire" (click)="closeEnquiry()" style="cursor: pointer">
+          <span class="material-symbols-outlined"> close </span>
+        </div>
+        <div class="section-subtitle">
+          <h3 class="regular-fonts">Enquire Now</h3>
+        </div>
+      </div>
+
+      <form id="inquiry_form" name="inquiry_form" (ngSubmit)="inquiryForm.form.valid && submitContactForm()"
+        #inquiryForm="ngForm">
+        <div class="form_wrapper">
+          <div class="contact_lable relative" [class.active]="contactObj.name != ''">
+            <input id="client_name" name="name" type="text" class="form-control" letters-only=""
+              [(ngModel)]="contactObj.name" #name="ngModel" required="" />
+            <label class="md-lable" for="client_name">Name*</label>
+            <div *ngIf="inquiryForm.submitted && name.invalid" class="invalid-feedback">
+              <div *ngIf="name.errors.required">Name cannot be empty!</div>
+            </div>
+          </div>
+
+          <div class="relative two-grid-form">
+            <div class="contact_lable" [class.active]="contactObj.email != ''">
+              <input id="email_address" name="email" type="email" autocomplete="off" class="form-control"
+                #email="ngModel" [(ngModel)]="contactObj.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                required />
+              <label class="md-lable" for="email_address">Email*</label>
+              <div *ngIf="inquiryForm.submitted && email.invalid" class="invalid-feedback">
+                <div *ngIf="email.errors.required">Email can not be empty!</div>
+                <div *ngIf="email.invalid && !email.errors.required">
+                  Invalid Email address
+                </div>
+              </div>
+            </div>
+            <div class="contact_lable relative select_country_main_wrapper" [class.active]="contactObj.phone != ''">
+
+              <div class="conatct_number_input">
+                <div class="country_code_data" (click)="country_code_click(); ">
+                  <div>
+                    &nbsp; +{{contactObj.country}}
+                  </div>
+                  <div class="down-country-angle">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="country_code_list_data" [class.active]="country_code_clickF">
+                <ul>
+                  <li *ngFor="let country_list_detail of countries"
+                    (click)="country_click_career(country_list_detail.phonecode);">
+                    <div (click)="country_code_click_false();">
+                      <span class="display_country_code">+{{country_list_detail.phonecode}}</span>
+                      {{country_list_detail.name}}
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <input id="client_contact_no" name="phone" type="text" numbers-only="" minlength="8" maxlength="13"
+                autocomplete="off" class="form-control" #phone="ngModel" [(ngModel)]="contactObj.phone"
+                (keypress)="_keyPress($event)" required />
+              <label class="md-lable contact_code" for="client_contact_no">Mobile*</label>
+              <div *ngIf="inquiryForm.submitted && phone.invalid" class="invalid-feedback">
+                <div *ngIf="phone.errors.required">phone can not be empty!</div>
+                <div *ngIf="phone.invalid && !phone.errors.required">
+                  Invalid Mobile number
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative two-grid-form">
+            <div class="contact_lable" [class.active]="contactObj.company_name != ''">
+              <input id="company_name" name="company_name" type="text" class="form-control" #company_name="ngModel"
+                [(ngModel)]="contactObj.company_name" />
+              <label class="md-lable" for="company_name">Hotel Name</label>
+            </div>
+            <div class="contact_lable" [class.active]="contactObj.property_code != ''">
+              <input id="property_code" name="property_code" (keypress)=_keyPress($event) type="text"
+                class="form-control" #property_code="ngModel" [(ngModel)]="contactObj.property_code" />
+              <label class="md-lable" for="company_name">Property Code</label>
+            </div>
+          </div>
+
+          <div class="contact_lable" [class.active]="contactObj.country != ''">
+            <ng-select class="form-control" name="country" id="country" [(ngModel)]="contactObj.country"
+              #country="ngModel" (change)="loadStates(contactObj.country)">
+              <ng-option value="">-Select Country-</ng-option>
+              <ng-option value="{{ country.phonecode }}" *ngFor="let country of countries">
+                {{ country.name }}
+              </ng-option>
+            </ng-select>
+          </div>
+
+          <div class="relative two-grid-form">
+            <div class="contact_lable" [class.active]="contactObj.state != ''">
+              <ng-select class="form-control" name="state" id="state" [(ngModel)]="contactObj.state" #state="ngModel"
+                (change)="loadCities(contactObj.state)">
+                <ng-option value="">-Select State-</ng-option>
+                <ng-option value="{{ state.id }}" *ngFor="let state of states">
+                  {{ state.name }}
+                </ng-option>
+              </ng-select>
+            </div>
+            <div class="contact_lable" [class.active]="contactObj.city != ''">
+              <ng-select class="form-control" name="city" id="city" [(ngModel)]="contactObj.city" #city="ngModel">
+                <ng-option value="">-Select City-</ng-option>
+                <ng-option value="{{ city.id }}" *ngFor="let city of cities">
+                  {{ city.name }}
+                </ng-option>
+              </ng-select>
+            </div>
+          </div>
+
+          <div class="relative two-grid-form">
+            <div class="contact_lable" [class.active]="contactObj.rooms != ''">
+              <input id="rooms" name="rooms" type="text" class="form-control" #rooms="ngModel"
+                (keypress)=_keyPress($event) [(ngModel)]="contactObj.rooms" />
+              <label class="md-lable" for="hotel_name">Rooms</label>
+            </div>
+
+            <div class="contact_lable" [class.active]="contactObj.zip_code != ''">
+              <input id="zip_code" name="zip_code" type="text" (keypress)=_keyPress($event) class="form-control"
+                #zip_code="ngModel" [(ngModel)]="contactObj.zip_code" />
+              <label class="md-lable" for="hotel_name">Zip Code</label>
+            </div>
+          </div>
+
+          <div class="contact_lable" [class.active]="contactObj.message != ''">
+            <textarea id="remarks" name="message" type="text" aria-invalid="false" autocomplete="off"
+              class="form-control" rows="1" #message="ngModel" rows="5" [(ngModel)]="contactObj.message" required>
+            </textarea>
+            <div *ngIf="inquiryForm.submitted && message.invalid" class="invalid-feedback">
+              <div *ngIf="message.errors.required">Message can not be empty!</div>
+            </div>
+            <label class="md-lable" for="remarks">Comments*</label>
+          </div>
+          <div class="checkbox-flex">
+            <label>
+              <input type="checkbox" name="" id="" />
+              <p>
+                <span> Keep Me Updated. </span>
+              </p>
+            </label>
+          </div>
+          <div class="submit-button">
+            <button class="ph-button filled-ph-button filled-ph-button-submit" type="submit">
+              <p class="">Submit</p>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,15 +1,48 @@
 <div class="ph-contact-wrapper main_banner_section_pd" id="ph-contact-wrapper">
+  <div class="popup-overlay-country" [class.popup-overlay-country-active]="country_code_clickF"
+    (click)="closeCountry()"></div>
   <section class="ph-contact-section-one section-padding-contact relative" id="ph-contact-section-one">
     <div class="main-container">
       <div class="ph-contact-wrapper-main-grid">
         <div class="ph-contact-flex">
-          <div class="ph-contact-flex-item-one inner-flex ">
-
-            <div class="banner-title">
-              <h2 class="text-uppercase ">CONTACT</h2>
+          <div class="ph-contact-flex_item_contact inner_contact_flex_2">
+            <div class="ph-contact-flex-item-one inner-flex ">
+              <div class="banner-title">
+                <h2 class="text-uppercase ">CONTACT</h2>
+              </div>
+              <div class="section-title">
+                <h2 class="light-fonts  text-uppercase">"Your questions, our priority."</h2>
+              </div>
             </div>
-            <div class="section-title">
-              <h2 class="light-fonts  text-uppercase">"Your questions, our priority."</h2>
+            <div>
+              <div class="contact_address_contact_flex">
+                <div class="">
+                  <a class="address-content_flex_inner"
+                    href="https://maps.app.goo.gl/7aecDcGFVt6GdxDT7" target="_blank">
+                    <div class="">
+                      <span class="material-symbols-outlined">
+                        location_on
+                      </span>
+                    </div>
+                    <p class="regular-fonts">
+                      7903 Ocean Highway <br>Pawleys Island, SC 29585
+                    </p>
+                  </a>
+                </div>
+
+                <div class="inner-flex mail_phone_flex_contact">
+                  <a href="tel:+1 803 319 7356">
+                    <p>
+                      +1 803 319 7356
+                    </p>
+                  </a>
+                  <a href="mailto:contact@parthhospitality.com">
+                    <p>
+                      contact@parthhospitality.com
+                    </p>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
           <div class="ph-contact-flex-item-two">
@@ -28,7 +61,7 @@
                 </div>
 
 
-                <div class="ph-contact-form-input">
+                <!-- <div class="">
                   <input type="text" minlength="1" maxlength="10" (keypress)=_keyPress($event) name="phone" id="phone"
                     placeholder="Contact No.*" [(ngModel)]="contactObj.phone" #phone="ngModel" required
                     pattern="[0-9]{10}$">
@@ -37,6 +70,39 @@
                     <div *ngIf="phone.errors.required">Contact can not be empty!
                     </div>
                     <div *ngIf="phone.invalid && !phone.errors.required">Invalid Contact Number
+                    </div>
+                  </div>
+                </div> -->
+
+                <div class="ph-contact-form-input relative">
+
+                  <div class="conatct_number_input">
+                    <div class="country_code_data" (click)="country_code_click(); ">
+                      <div>
+                        &nbsp; +{{contactObj.country}}
+                      </div>
+                      <div class="down-country-angle">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="country_code_list_data" [class.active]="country_code_clickF">
+                    <ul>
+                      <li *ngFor="let country_list_detail of countries"
+                        (click)="country_click_career(country_list_detail.phonecode);">
+                        <div (click)="country_code_click_false();">
+                          <span class="display_country_code">+{{country_list_detail.phonecode}}</span>
+                          {{country_list_detail.name}}
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <input type="text" minlength="1" maxlength="13" (keypress)=_keyPress($event) name="phone" id="phone"
+                    placeholder="Contact No.*" [(ngModel)]="contactObj.phone" #phone="ngModel" required
+                    class="input_contact_main_details">
+                  <div *ngIf="createContactForm.submitted && phone.invalid" class="invalid-feedback">
+                    <div *ngIf="phone.errors.required">Contact can not be empty!
                     </div>
                   </div>
                 </div>

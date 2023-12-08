@@ -208,10 +208,10 @@ export class CollectionDetailComponent implements OnInit {
   submitContactForm() {
     if (this.isLoading == false) {
       this.isLoading = true;
-
+      this.contactObj.phone = this.contactObj.country + " " + this.contactObj.phone;
       this.service.submitContactForm(this.contactObj).subscribe((response: { success: number, message: string }) => {
         if (response.success == 1) {
-          this.contactObj.phone = this.contactObj.country + " " + this.contactObj.phone;
+         
           this.enquiry = false
           Swal.fire("Thank You for Contacting!", "Our team members will be in touch with you shortly!");
           this.router.navigate(["/collections"]);

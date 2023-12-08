@@ -24,103 +24,103 @@ const routes: Routes = [
   {
     path: '',
     component: HomepageComponent,
-    data : {title : "Parth Hospitality"}
+    data : {title : "Parth Hospitality | Home"}
   },
 
   {
     path: 'brands',
     component: BrandsComponent,
-    data : {title : "Parth Hospitality"}
+    data : {title : "Parth Hospitality | Brands"}
   },
   {
     path: 'items',
     component: ItemsListingComponent,
-    data : {title : "Parth Hospitality"}
+    data : {title : "Parth Hospitality | Items"}
   },
   {
     path: 'items/:slug',
     component: ItemsListingComponent,
-    data : {title : "Parth Hospitality"}
+    data : {title : "Parth Hospitality | Items"}
   },
   {
     path: 'items-category',
     component: ItemsCategoryComponent,
-    data : {title : "Parth Hospitality"}
+    data : {title : "Parth Hospitality | Items"}
   },
   {
     path: 'collections',
     component: CollectionsListingComponent,
-    data : {title : "Parth Hospitality"}
+    data : {title : "Parth Hospitality | Collection"}
   },
   {
     path: 'collections/hotel/:hotel_slug',
     component: CollectionsListingComponent,
-    data : {title : "Parth Hospitality"}
+    data : {title : "Parth Hospitality | Collection"}
   },
   {
     path: 'collections/:slug',
     component: CollectionDetailComponent,
-    data : {title : "Parth Hospitality"}
+    data : {title : "Parth Hospitality | Collection Detail"}
   },
   {
     path: 'collections-category',
     component: CollectionsCategoryComponent,
-    data : {title : "Parth Hospitality"}
+    data : {title : "Parth Hospitality | Collection"}
   },
   {
     path: 'hardwares',
     component: HardwaresListingComponent,
-    data : {title : "Parth Hospitality"}
+    data : {title : "Parth Hospitality | Hardwares"}
   },
   {
     path: 'hardwares-category',
     component: HardwaresCategoryComponent,
-    data : {title : "Parth Hospitality"}
+    data : {title : "Parth Hospitality | Hardwares"}
   },
   {
     path: 'laminates',
     component: LaminatesListingComponent,
-    data : {title : "Parth Hospitality"}
+    data : {title : "Parth Hospitality | Laminates"}
   },
   {
     path: 'laminates-category',
     component: LaminatesCategoryComponent,
-    data : {title : "Parth Hospitality"}
+    data : {title : "Parth Hospitality | Laminates"}
   },
   {
     path: 'contact-us',
     component: ContactUsComponent,
-    data : {title : "Parth Hospitality"}
+    data : {title : "Parth Hospitality | Contact Us"}
   },
   {
     path: 'channel-partner',
     component: ChannelPartnerComponent,
-    data : {title : "Parth Hospitality"}
+    data : {title : "Parth Hospitality | Channel Partner"}
   },
   {
     path: 'lead/:slug',
     component: LeadComponent,
-    data : {title : "Parth Hospitality"}
+    data : {title : "Parth Hospitality | Inquiry"}
   },
   {
     path: 'about',
     component: AboutComponent,
-    data : {title : "Parth Hospitality"}
+    data : {title : "Parth Hospitality | About"}
   },
   {
     path: 'blog',
     component: BlogComponent,
-    data : {title : "Parth Hospitality"}
+    data : {title : "Parth Hospitality | Blog"}
   },
   {
     path: 'blog/:blog_slug',
-    component: BlogDetailComponent,
-    data : {title : "Parth Hospitality"}
+    component: BlogDetailComponent, 
+    data : {title : "Parth Hospitality | Blog"}
   },
   {
     path: 'faq',
     component: FAQComponent,
-    data : {title : "Parth Hospitality"}
+    data : {title : "Parth Hospitality | FAQs"}
   }
 ];
 
