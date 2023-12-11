@@ -310,7 +310,11 @@
               </div>
               <div class="country_code_list_data" [class.active]="country_code_clickF">
                 <ul>
-                  <li *ngFor="let country_list_detail of countries"
+                  <li>
+                    <input type="search" name="search" id="search" [(ngModel)]="searchPhoneCode"
+                  (ngModelChange)="filterCountries($event)" placeholder="Search" style="outline: none; width: 100%;" />
+                  </li>
+                  <li *ngFor="let country_list_detail of filteredCountries"
                     (click)="country_click_career(country_list_detail.phonecode);">
                     <div (click)="country_code_click_false();">
                       <span class="display_country_code">+{{country_list_detail.phonecode}}</span>

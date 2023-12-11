@@ -92,7 +92,7 @@ export class CollectionDetailComponent implements OnInit {
     public service: ServiceService,
     private route: ActivatedRoute,
     private router: Router,
-    private el: ElementRef, 
+    private el: ElementRef,
     private renderer: Renderer2
   ) { }
 
@@ -108,7 +108,7 @@ export class CollectionDetailComponent implements OnInit {
     this.getFlooring();
     this.route.paramMap.subscribe(params => {
       this.getCollectionDetails();
-    }) 
+    })
   }
 
   _keyPress(event: any) {
@@ -132,8 +132,27 @@ export class CollectionDetailComponent implements OnInit {
     this.service.getCountries().subscribe((response: { success: number, message: string, data: [] }) => {
       if (response.success == 1) {
         this.countries = response.data;
+        this.filteredCountries = this.countries;
       }
     })
+  }
+
+  public searchPhoneCode:any = "";
+  public filteredCountries:any = []
+
+  filterCountries(value: string){
+    this.searchPhoneCode = value;
+    console.log(this.searchPhoneCode);
+
+    if(this.searchPhoneCode !== ''){
+      this.filteredCountries = this.countries.filter(country =>
+        country.name.toLowerCase().includes(this.searchPhoneCode.toLowerCase()) ||
+        country.phonecode.includes(this.searchPhoneCode)
+      );
+
+    } else {
+      this.filteredCountries = this.countries
+    }
   }
 
   loadStates(phonecode) {
@@ -163,7 +182,7 @@ export class CollectionDetailComponent implements OnInit {
 
   public country_code_clickF = false;
   country_code_click() {
-      this.country_code_clickF =  !this.country_code_clickF;   
+      this.country_code_clickF =  !this.country_code_clickF;
   }
 
   country_code_click_false() {
@@ -211,7 +230,7 @@ export class CollectionDetailComponent implements OnInit {
       this.contactObj.phone = this.contactObj.country + " " + this.contactObj.phone;
       this.service.submitContactForm(this.contactObj).subscribe((response: { success: number, message: string }) => {
         if (response.success == 1) {
-         
+
           this.enquiry = false
           Swal.fire("Thank You for Contacting!", "Our team members will be in touch with you shortly!");
           this.router.navigate(["/collections"]);
@@ -254,7 +273,7 @@ export class CollectionDetailComponent implements OnInit {
     this.secondarySwiper.directiveRef.setIndex(slide);
     $("#secondarySwiper").find(".swiper-slide").removeClass("swiper-slide-active");
     $("#secondarySwiper").find(".swiper-slide:nth-child("+(slide+1)+")").addClass("swiper-slide-active");
-    
+
   }
 
   getFlooring() {

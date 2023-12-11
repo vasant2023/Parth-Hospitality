@@ -20,10 +20,16 @@
           </a>
         </li>
         <li class="megamenu-level-head">
-          <a routerLink="/collections" [ngClass]="{'active-link': currentRoute === '/collections'}">
+          <!-- <a routerLink="/collections" [ngClass]="{'active-link': currentRoute === '/collections'}">
             <p>Collections</p>
             <span class="material-symbols-outlined">
               expand_more
+            </span>
+          </a> -->
+          <a routerLink="/collections" [ngClass]="{'active-link': currentRoute === '/collections' || currentRoute.startsWith('/collections')}">
+            <p>Collections</p>
+            <span class="material-symbols-outlined">
+                expand_more
             </span>
           </a>
           <div class="megamenu-level-1" *ngIf="menuList">
@@ -62,7 +68,7 @@
         </li>
 
         <li class="megamenu-level-head">
-          <a routerLink="/items" [ngClass]="{'active-link': currentRoute === '/items'}">
+          <a routerLink="/items" [ngClass]="{'active-link': currentRoute === '/items' || currentRoute.startsWith('/items')}">
             <p>Items</p>
             <span class="material-symbols-outlined">
               expand_more
@@ -527,17 +533,34 @@
               <div class="conatct_number_input">
                 <div class="country_code_data" (click)="country_code_click(); ">
                   <div>
-                    &nbsp; +{{contactObj.country}}
+                    &nbsp; +{{contactObj.phonecode}}
                   </div>
                   <div class="down-country-angle">
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </div>
                 </div>
               </div>
-              <div class="country_code_list_data" [class.active]="country_code_clickF">
+              <!-- <div class="country_code_list_data" [class.active]="country_code_clickF">
                 <ul>
                   <li *ngFor="let country_list_detail of countries"
-                    (click)="country_click_career(country_list_detail.phonecode);">
+                    (click)="country_click_career(country_list_detail.id, country_list_detail.phonecode);">
+                    <div (click)="country_code_click_false();">
+                      <span class="display_country_code">+{{country_list_detail.phonecode}}</span>
+                      {{country_list_detail.name}}
+                    </div>
+                  </li>
+                </ul>
+              </div> -->
+
+              <div class="country_code_list_data" [class.active]="country_code_clickF">
+                <ul>
+                  <li>
+                    <input type="search" name="search" id="search" [(ngModel)]="searchPhoneCode"
+                  (ngModelChange)="filterCountries($event)" placeholder="Search" style="outline: none; width: 100%;" />
+                  </li>
+
+                  <li *ngFor="let country_list_detail of filteredCountries"
+                      (click)="country_click_career(country_list_detail.id, country_list_detail.phonecode);">
                     <div (click)="country_code_click_false();">
                       <span class="display_country_code">+{{country_list_detail.phonecode}}</span>
                       {{country_list_detail.name}}
@@ -545,6 +568,7 @@
                   </li>
                 </ul>
               </div>
+
 
               <input id="client_contact_no" name="phone" type="text" numbers-only="" minlength="8" maxlength="13"
                 autocomplete="off" class="form-control" #phone="ngModel" [(ngModel)]="contactObj.phone"
@@ -576,7 +600,7 @@
             <ng-select class="form-control" name="country" id="country" [(ngModel)]="contactObj.country"
               #country="ngModel" (change)="loadStates(contactObj.country)">
               <ng-option value="">-Select Country-</ng-option>
-              <ng-option value="{{ country.phonecode }}" *ngFor="let country of countries">
+              <ng-option value="{{ country.id }}" *ngFor="let country of countries">
                 {{ country.name }}
               </ng-option>
             </ng-select>

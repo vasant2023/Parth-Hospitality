@@ -84,8 +84,27 @@ export class ContactUsComponent implements OnInit {
     this.service.getCountries().subscribe((response: { success: number, message: string, data: [] }) => {
       if (response.success == 1) {
         this.countries = response.data;
+        this.filteredCountries = this.countries;
       }
     })
+  }
+
+  public searchPhoneCode:any = "";
+  public filteredCountries:any = []
+
+  filterCountries(value: string){
+    this.searchPhoneCode = value;
+    console.log(this.searchPhoneCode);
+
+    if(this.searchPhoneCode !== ''){
+      this.filteredCountries = this.countries.filter(country =>
+        country.name.toLowerCase().includes(this.searchPhoneCode.toLowerCase()) ||
+        country.phonecode.includes(this.searchPhoneCode)
+      );
+
+    } else {
+      this.filteredCountries = this.countries
+    }
   }
 
 

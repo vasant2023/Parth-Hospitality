@@ -4,6 +4,8 @@
 import { Component, ElementRef, Renderer2, OnInit, ViewChild,HostListener } from '@angular/core';
 import { ActivatedRoute,NavigationEnd, Router } from '@angular/router';
 import { of } from 'rxjs';
+
+import { Title } from '@angular/platform-browser';
 import {
   FormBuilder,
   FormGroup,
@@ -50,7 +52,8 @@ export class AppComponent implements OnInit {
     city: "",
     state: "",
     zip_code: "",
-    country: "91",
+    country: "231",
+    phonecode:'1',
     property_code: "",
     rooms: "",
     brochure: 0,
@@ -60,27 +63,14 @@ export class AppComponent implements OnInit {
     addons_IDs: []
   }
 
-
-
-
-
   public isLoading: boolean = false;
-
-
-
-
-
-
-
-
-
-
 
   constructor(
     private router: Router,
+    private titleService: Title,
     public service: ServiceService,
     private route: ActivatedRoute,
-    private el: ElementRef, 
+    private el: ElementRef,
     private renderer: Renderer2
   ) {
     router.events.subscribe(event => {
@@ -103,7 +93,8 @@ export class AppComponent implements OnInit {
 
 
     this.getCountries();
-    this.loadStates(91);
+    this.loadStates(this.contactObj.country);
+
 
   }
 
@@ -126,6 +117,23 @@ export class AppComponent implements OnInit {
         this.itemList = response.categories;
       }
     })
+  }
+
+  public searchPhoneCode:any = "";
+  public filteredCountries:any = []
+
+  filterCountries(value: string){
+    this.searchPhoneCode = value;
+    console.log(this.searchPhoneCode);
+
+    if(this.searchPhoneCode !== ''){
+      this.filteredCountries = this.countries.filter(country =>
+        country.name.toLowerCase().includes(this.searchPhoneCode.toLowerCase()) ||
+        country.phonecode.includes(this.searchPhoneCode)
+      );
+    } else {
+      this.filteredCountries = this.countries
+    }
   }
 
 
@@ -165,7 +173,7 @@ export class AppComponent implements OnInit {
   sub_mobile_2_menu_click(category_ID) {
     // if (this.sub_menu_2_click_f) {
     this.sub_menu_2_click_f = category_ID;
-    // } 
+    // }
   }
 
   sub_mobile_2_menu_click_close() {
@@ -200,7 +208,7 @@ export class AppComponent implements OnInit {
   item_sub_mobile_2_menu_click(slug) {
     // if (this.sub_menu_2_click_f) {
     this.item_sub_menu_2_click_f = slug;
-    // } 
+    // }
   }
 
   item_sub_mobile_2_menu_click_close() {
@@ -241,13 +249,14 @@ export class AppComponent implements OnInit {
     this.service.getCountries().subscribe((response: { success: number, message: string, data: [] }) => {
       if (response.success == 1) {
         this.countries = response.data;
+        this.filteredCountries = this.countries;
       }
     })
   }
 
-  loadStates(phonecode) {
-    if (phonecode) {
-      this.service.getStates(phonecode).subscribe((response: { success: number, message: string, data: [] }) => {
+  loadStates(id) {
+    if (id) {
+      this.service.getStates(id).subscribe((response: { success: number, message: string, data: [] }) => {
         if (response.success == 1) {
           this.states = response.data;
         } else {
@@ -288,15 +297,17 @@ export class AppComponent implements OnInit {
 
   public country_code_clickF = false;
   country_code_click() {
-      this.country_code_clickF =  !this.country_code_clickF;   
+      this.country_code_clickF =  !this.country_code_clickF;
   }
 
   country_code_click_false() {
     this.country_code_clickF = false;
   }
 
-  country_click_career(id) {
-    this.contactObj.country = id;
+  country_click_career(id, phonecode) {
+    // this.contactObj.country = id;
+    this.contactObj.phonecode = phonecode;
+    this.loadStates(this.contactObj.country);
     this.country_code_clickF = false;
   }
 
@@ -308,10 +319,10 @@ export class AppComponent implements OnInit {
   submitContactForm() {
     if (this.isLoading == false) {
       this.isLoading = true;
-      this.contactObj.phone = this.contactObj.country + " " + this.contactObj.phone;
+      // this.contactObj.phone = this.contactObj.country + " " + this.contactObj.phone;
       this.service.submitContactForm(this.contactObj).subscribe((response: { success: number, message: string }) => {
         if (response.success == 1) {
-         
+
           this.enquiry = false
           Swal.fire("Thank You for Contacting!", "Our team members will be in touch with you shortly!");
           this.router.navigate(["/collections"]);

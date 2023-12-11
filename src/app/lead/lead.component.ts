@@ -70,7 +70,7 @@ export class LeadComponent implements OnInit {
     addons_IDs: []
   }
 
- 
+
   isLoading = false;
   // isWizardOpen = false;
   public tab = "productSpecification";
@@ -130,8 +130,27 @@ export class LeadComponent implements OnInit {
     this.service.getCountries().subscribe((response: { success: number, message: string, data: [] }) => {
       if (response.success == 1) {
         this.countries = response.data;
+        this.filteredCountries = this.countries;
       }
     })
+  }
+
+  public searchPhoneCode:any = "";
+  public filteredCountries:any = []
+
+  filterCountries(value: string){
+    this.searchPhoneCode = value;
+    console.log(this.searchPhoneCode);
+
+    if(this.searchPhoneCode !== ''){
+      this.filteredCountries = this.countries.filter(country =>
+        country.name.toLowerCase().includes(this.searchPhoneCode.toLowerCase()) ||
+        country.phonecode.includes(this.searchPhoneCode)
+      );
+
+    } else {
+      this.filteredCountries = this.countries
+    }
   }
 
   loadStates(country) {
@@ -183,7 +202,7 @@ export class LeadComponent implements OnInit {
 
 
     if (this.collectionSlug) {
-      this.service.getCollectionDetails(this.collectionSlug).subscribe((response: { success: number, message: string, collection: {} }) => { 
+      this.service.getCollectionDetails(this.collectionSlug).subscribe((response: { success: number, message: string, collection: {} }) => {
         this.contactObj.collection_id = this.collectionObj.collection_ID;
         if (response.success == 1) {
           this.collectionObj = response.collection
@@ -202,13 +221,13 @@ export class LeadComponent implements OnInit {
         this.isLoading = true;
         var phone = this.contactObj.phone;
         this.contactObj.phone = this.contactObj.country + " " + phone;
-        
+
         this.service.submitContactForm(this.contactObj).subscribe((response: { success: number, message: string }) => {
           if (response.success == 1) {
-  
-          
-  
-  
+
+
+
+
             Swal.fire("Thank You for Contacting!", "Our team members will be in touch with you shortly!");
             this.router.navigate(["/collections"]);
           }
@@ -325,7 +344,7 @@ export class LeadComponent implements OnInit {
     } else if(this.tab_index == 5){
       this.is_form_click_f = 'select_add_on';
     }
-    
+
   }
   managePrevious(){
     this.tab_index = parseInt(this.tab_index) - 1;
@@ -342,6 +361,6 @@ export class LeadComponent implements OnInit {
     }
   }
 
-  
+
 
 }

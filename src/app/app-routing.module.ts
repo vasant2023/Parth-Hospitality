@@ -18,6 +18,8 @@ import { AboutComponent } from './about/about.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { FAQComponent } from './faq/faq.component';
+import { Title } from '@angular/platform-browser';
+
 
 
 const routes: Routes = [
@@ -114,7 +116,7 @@ const routes: Routes = [
   },
   {
     path: 'blog/:blog_slug',
-    component: BlogDetailComponent, 
+    component: BlogDetailComponent,
     data : {title : "Parth Hospitality | Blog"}
   },
   {

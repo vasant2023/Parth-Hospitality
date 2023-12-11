@@ -3,6 +3,7 @@ import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { ServiceService } from "../../_services/service.service";
 import { PagerService } from 'src/app/_services/pager.service';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { PagerService } from 'src/app/_services/pager.service';
 export class ItemsListingComponent implements OnInit {
 
   constructor(
+    public titleService: Title,
     public service: ServiceService,
     private pagerService: PagerService,
     private route: ActivatedRoute,
@@ -108,7 +110,7 @@ export class ItemsListingComponent implements OnInit {
     }
   }
 
-//   getCollection() {  
+//   getCollection() {
 //     this.service.getCollection().subscribe((response: { success: number, message: string, collections: [] }) => {
 //       if (response.success == 1) {
 //         this.collection_list = response.collections;

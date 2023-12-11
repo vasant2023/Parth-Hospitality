@@ -138,11 +138,7 @@ export class ChannelPartnerComponent implements OnInit {
     "content_2_name": "Unrealistic, due to lack of commitment/experience",
     "image_name": "assets/images/icons/channel-partner-icons/Delivery.svg"
   }
-]
-
-
-
-
+  ]
 
   isLoading = false;
 

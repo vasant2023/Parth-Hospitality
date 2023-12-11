@@ -33,7 +33,7 @@
             <textarea type="text" class="form-control" id="message" name="message"
               [(ngModel)]="contactObj.message" #message="ngModel"></textarea>
           </div>
-        
+
         </div>
         <div class="channel_submit_btn">
           <button type="submit" class="btn btn-secondary ">Submit</button>
@@ -436,7 +436,7 @@
                 <select class="form-control" name="country" id="country" [(ngModel)]="contactObj.country"
                   #country="ngModel" (change)="loadStates(contactObj.country)">
                   <option value="">-Select Country-</option>
-                  <option value="{{ country.id }}" *ngFor="let country of countries">
+                  <option value="{{ country.phonecode }}" *ngFor="let country of countries">
                     {{ country.name }}
                   </option>
                 </select>
