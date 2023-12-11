@@ -17,6 +17,7 @@ import { ServiceService } from 'src/app/_services/service.service';
 import Swal from "sweetalert2";
 import { SwiperModule, SWIPER_CONFIG, SwiperConfigInterface, SwiperComponent } from 'ngx-swiper-wrapper';
 import { style } from '@angular/animations';
+import { filter } from 'rxjs/operators';
 declare var $: any
 
 
@@ -68,6 +69,7 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     private titleService: Title,
+    private activatedRoute: ActivatedRoute,
     public service: ServiceService,
     private route: ActivatedRoute,
     private el: ElementRef,
@@ -95,8 +97,25 @@ export class AppComponent implements OnInit {
     this.getCountries();
     this.loadStates(this.contactObj.country);
 
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+    ).subscribe(() => {
+        const rt = this.getChild(this.activatedRoute);
+        rt.data.subscribe(data => {
+            this.titleService.setTitle(data.title)
+            // this.titleService.setTitle("data.title")
+        });
 
+    });
   }
+  getChild(activatedRoute: ActivatedRoute) {
+    if (activatedRoute.firstChild) {
+        return this.getChild(activatedRoute.firstChild);
+    } else {
+        return activatedRoute;
+    }
+
+}
 
   menuList: any = [];
   title = 'Parth-Hospitality';
