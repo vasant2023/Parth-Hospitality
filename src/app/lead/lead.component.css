@@ -74,7 +74,7 @@
 .conatct_number_input {
   position: absolute;
   left: 0;
-  top: 72%;
+  top: 78%;
   transform: translateY(-50%);
   padding: 0.5rem;
   z-index: 99;
@@ -207,6 +207,18 @@
 
 .contact_lable {
   padding-top: 1rem;
+}
+
+#phone{
+  padding-left: 9rem !important;
+}
+
+.countrymanage>p:first-child{
+  width: 40px;
+}
+
+.countrymanage img{
+  width: 30px;
 }
 
 @media only screen and (max-width: 991px) {

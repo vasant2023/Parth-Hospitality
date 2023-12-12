@@ -24,10 +24,6 @@
   padding: 0rem !important;
 }
 
-.input-padding {
-  padding: 1rem 1rem;
-}
-
 .image-wrapper-details {
   display: grid;
   justify-content: space-between;
@@ -156,6 +152,18 @@
 .total_item_bold {
   font-family: var(--bold-font-family);
   font-size: 1.2rem;
+}
+
+#phone{
+  padding-left: 8rem !important;
+}
+
+.countrymanage>p:first-child{
+  width: 40px;
+}
+
+.countrymanage img{
+  width: 30px;
 }
 
 @media only screen and (max-width:991px) {

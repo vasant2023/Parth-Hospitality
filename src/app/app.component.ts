@@ -41,9 +41,6 @@ export class AppComponent implements OnInit {
     this.lastScrollPosition = scrollY;
   }
 
-
-
-
   contactObj: any = {
     name: "",
     email: "",
@@ -54,7 +51,8 @@ export class AppComponent implements OnInit {
     state: "",
     zip_code: "",
     country: "231",
-    phonecode:'1',
+    country_code:'1',
+    flag:"us",
     property_code: "",
     rooms: "",
     brochure: 0,
@@ -103,7 +101,6 @@ export class AppComponent implements OnInit {
         const rt = this.getChild(this.activatedRoute);
         rt.data.subscribe(data => {
             this.titleService.setTitle(data.title)
-            // this.titleService.setTitle("data.title")
         });
 
     });
@@ -323,11 +320,23 @@ export class AppComponent implements OnInit {
     this.country_code_clickF = false;
   }
 
-  country_click_career(id, phonecode) {
-    // this.contactObj.country = id;
-    this.contactObj.phonecode = phonecode;
+  // country_click_career(id, phonecode) {
+  //   // this.contactObj.country = id;
+  //   this.contactObj.country_code = phonecode;
+  //   this.loadStates(this.contactObj.country);
+  //   this.country_code_clickF = false;
+  // }
+
+  country_click_career(id, phonecode, flag) {
+    this.contactObj.country = id;
+    this.contactObj.country_code = phonecode;
     this.loadStates(this.contactObj.country);
+    this.contactObj.flag = flag;
     this.country_code_clickF = false;
+  }
+
+  toSmallerCase(country){
+    return country.toLowerCase();
   }
 
   closeCountry(){
@@ -342,12 +351,16 @@ export class AppComponent implements OnInit {
       this.service.submitContactForm(this.contactObj).subscribe((response: { success: number, message: string }) => {
         if (response.success == 1) {
 
-          this.enquiry = false
-          Swal.fire("Thank You for Contacting!", "Our team members will be in touch with you shortly!");
-          this.router.navigate(["/collections"]);
+          this.enquiry = false;
+          Swal.fire({
+            icon: "success",
+            title: "Thank You for Contacting.",
+            text: "Our team members will be in touch with you shortly!",
+          });
+
         }
         this.isLoading = false;
-        this.contactObj.phone = "91"
+        this.contactObj.phone = "1"
       })
     }
     // }

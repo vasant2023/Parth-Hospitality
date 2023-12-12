@@ -198,8 +198,6 @@ export class ServiceService {
   // Contact form
 
   submitContactForm(contactObj){
-    // console.log(contactObj);
-    // return false
     const url = environment.apiUrl + "leads/lead-add";
     const apiId = environment.apiId;
 
@@ -216,7 +214,7 @@ export class ServiceService {
     body = body.append("state", contactObj.state);
     body = body.append("zip_code", contactObj.zip_code);
     body = body.append("country", contactObj.country);
-    body = body.append("country_code", contactObj.phonecode);
+    body = body.append("country_code", contactObj.country_code);
     body = body.append("property_code", contactObj.property_code);
     body = body.append("rooms", contactObj.rooms);
     body = body.append("collection_id", contactObj.collection_id);

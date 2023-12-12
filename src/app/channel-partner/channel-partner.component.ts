@@ -54,7 +54,9 @@ export class ChannelPartnerComponent implements OnInit {
     city: "",
     state: "",
     zip_code: "",
-    country: "",
+    country: "231",
+    country_code:"1",
+    flag:"us"
   }
 
   public channelPartnerData:any =  [
@@ -153,6 +155,7 @@ export class ChannelPartnerComponent implements OnInit {
 
   ngOnInit() {
     this.getCountries();
+    this.loadStates(this.contactObj.country)
   }
 
 
@@ -173,6 +176,7 @@ export class ChannelPartnerComponent implements OnInit {
     this.service.getCountries().subscribe((response: { success: number, message: string, data: [] }) => {
       if (response.success == 1) {
         this.countries = response.data;
+        this.filteredCountries = this.countries;
       }
     })
   }
@@ -209,8 +213,13 @@ export class ChannelPartnerComponent implements OnInit {
 
         this.service.submitContactForm(this.contactObj).subscribe((response : {success:number, message:string}) => {
           if(response.success == 1){
-            Swal.fire("Thank You for contacting!", "success");
+            Swal.fire({
+              icon: "success",
+              title: "Thank You for Contacting.",
+              text: "Our team members will be in touch with you shortly!",
+            });
             this.contactObj = {};
+            this.router.navigate(["/"]);
           }
           this.isLoading = false
         })
@@ -218,5 +227,49 @@ export class ChannelPartnerComponent implements OnInit {
     }
 
   }
+
+  public country_code_clickF:boolean = false;
+  country_code_click() {
+    this.country_code_clickF = !this.country_code_clickF
+  }
+
+  country_code_click_false() {
+    this.country_code_clickF = false;
+  }
+
+  country_click_career(id, phonecode, flag) {
+    this.contactObj.country = id;
+    this.contactObj.country_code = phonecode;
+    this.contactObj.flag = flag;
+    this.country_code_clickF = false;
+    this.loadStates(this.contactObj.country)
+  }
+
+  closeCountry(){
+    this.country_code_clickF = false
+  }
+
+  toSmallerCase(country){
+    return country.toLowerCase();
+  }
+
+  public searchPhoneCode:any = "";
+  public filteredCountries:any = []
+
+  filterCountries(value: string){
+    this.searchPhoneCode = value;
+    console.log(this.searchPhoneCode);
+
+    if(this.searchPhoneCode !== ''){
+      this.filteredCountries = this.countries.filter(country =>
+        country.name.toLowerCase().includes(this.searchPhoneCode.toLowerCase()) ||
+        country.phonecode.includes(this.searchPhoneCode)
+      );
+
+    } else {
+      this.filteredCountries = this.countries
+    }
+  }
+
 
 }

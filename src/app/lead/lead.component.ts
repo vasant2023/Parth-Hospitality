@@ -23,24 +23,6 @@ import { style } from '@angular/animations';
 })
 export class LeadComponent implements OnInit {
 
-  // stepStates = {
-  //   normal: STEP_STATE.normal,
-  //   disabled: STEP_STATE.disabled,
-  //   error: STEP_STATE.error,
-  //   hidden: STEP_STATE.hidden
-  // };
-
-  // config: NgWizardConfig = {
-  //   selected: 0,
-  //   theme: THEME.arrows,
-  //   toolbarSettings: {
-  //     toolbarExtraButtons: [
-  //       { text: 'Submit', class: 'btn btn-info', event: () => { this.submitContactForm() } }
-  //     ],
-  //   }
-  // };
-
-
   collectionObj: any = {
     collection_id: "",
     name: "",
@@ -59,7 +41,9 @@ export class LeadComponent implements OnInit {
     city: "",
     state: "",
     zip_code: "",
-    country: "",
+    country: "231",
+    country_code:"1",
+    flag:"us",
     property_code: "",
     rooms: "",
     collection_id: this.collectionObj.collection_id,
@@ -107,11 +91,13 @@ export class LeadComponent implements OnInit {
   ngOnInit() {
     this.getCollectionDetails();
     this.getCountries();
-    this.loadStates(91);
     this.getFlooring();
     this.route.paramMap.subscribe(params => {
       this.getCollectionDetails();
     })
+    if(this.contactObj.country){
+      this.loadStates(this.contactObj.country)
+    }
   }
 
   _keyPress(event: any) {
@@ -133,6 +119,10 @@ export class LeadComponent implements OnInit {
         this.filteredCountries = this.countries;
       }
     })
+  }
+
+  toSmallerCase(country){
+    return country.toLowerCase();
   }
 
   public searchPhoneCode:any = "";
@@ -186,9 +176,12 @@ export class LeadComponent implements OnInit {
     this.country_code_clickF = false;
   }
 
-  country_click_career(id) {
+  country_click_career(id, phonecode, flag) {
     this.contactObj.country = id;
+    this.contactObj.country_code = phonecode;
+    this.contactObj.flag = flag;
     this.country_code_clickF = false;
+    this.loadStates(this.contactObj.country)
   }
 
   closeCountry(){
@@ -198,7 +191,7 @@ export class LeadComponent implements OnInit {
   getCollectionDetails() {
     this.collectionSlug = this.route.snapshot.params['slug'];
     this.contactObj.collection_id = this.collectionSlug
-    this.contactObj.country = '91';
+    // this.contactObj.country = '91';
 
 
     if (this.collectionSlug) {
@@ -209,7 +202,6 @@ export class LeadComponent implements OnInit {
           this.collectionDetail = response.collection;
           this.sizeSpecificationItems = this.collectionDetail.items;
 
-          console.log(this.sizeSpecificationItems, "items");
         }
       })
     }
@@ -219,16 +211,16 @@ export class LeadComponent implements OnInit {
     if(form.valid){
       if (this.isLoading == false) {
         this.isLoading = true;
-        var phone = this.contactObj.phone;
-        this.contactObj.phone = this.contactObj.country + " " + phone;
+        // var phone = this.contactObj.phone;
+        // this.contactObj.phone = this.contactObj.country + " " + phone;
 
         this.service.submitContactForm(this.contactObj).subscribe((response: { success: number, message: string }) => {
           if (response.success == 1) {
-
-
-
-
-            Swal.fire("Thank You for Contacting!", "Our team members will be in touch with you shortly!");
+            Swal.fire({
+              icon: "success",
+              title: "Thank You for Contacting.",
+              text: "Our team members will be in touch with you shortly!",
+            });
             this.router.navigate(["/collections"]);
           }
           this.isLoading = false
@@ -316,7 +308,6 @@ export class LeadComponent implements OnInit {
     this.service.getFlooring().subscribe((response: { success: number, message: string, items: [] }) => {
       if (response.success == 1) {
         this.flooringList = response.items
-        console.log(this.flooringList)
       }
     })
   }

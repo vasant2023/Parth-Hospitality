@@ -194,6 +194,18 @@
   z-index: 999;
 }
 
+#phone{
+  padding-left: 8rem !important;
+}
+
+.countrymanage>p:first-child{
+  width: 40px;
+}
+
+.countrymanage img{
+  width: 30px;
+}
+
 @media only screen and (max-width: 991px) {
   .floating_inquiry_btn {
     position: fixed;

@@ -407,10 +407,56 @@
                 </div>
               </div>
 
-              <div class="dealer-form-input">
-                <input type="text" minlength="1" maxlength="10" (keypress)=_keyPress($event) name="phone" id="phone"
+              <div class="dealer-form-input contact_lable relative select_country_main_wrapper" [class.active]="contactObj.phone != ''">
+                <!-- <input type="text" minlength="1" maxlength="10" (keypress)=_keyPress($event) name="phone" id="phone"
                   placeholder="Contact No.*" [(ngModel)]="contactObj.phone" #phone="ngModel" required
-                  pattern="[0-9]{10}$">
+                  pattern="[0-9]{10}$"> -->
+
+                  <div class="conatct_number_input">
+                    <div class="country_code_data" (click)="country_code_click(); ">
+                      <div style="display: flex;align-items: center; gap: 0.25rem; padding-left: 1rem;">
+                        <p>
+                          <img src="https://flagcdn.com/w40/{{toSmallerCase(contactObj.flag)}}.webp" alt="flag" style="width: 30px;">
+                        </p>
+                        <p style="font-size: 1.2rem;">
+                          +{{contactObj.country_code}}
+                        </p>
+                        <p class="down-country-angle">
+                          <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="country_code_list_data" [class.active]="country_code_clickF">
+                    <ul>
+                      <li>
+                        <input type="search" name="search" id="search" [(ngModel)]="searchPhoneCode"
+                      (ngModelChange)="filterCountries($event)" placeholder="Search" style="outline: none; width: 100%; padding: 0.5rem 1rem" />
+                      </li>
+
+                      <li *ngFor="let country_list_detail of filteredCountries"
+                        (click)="country_click_career(country_list_detail.id,country_list_detail.phonecode, country_list_detail.sortname);" style="display: flex; align-items: center; justify-content: space-between;">
+                        <div class="countrymanage" (click)="country_code_click_false();">
+                          <p class="">+{{country_list_detail.phonecode}}</p>
+                          <p>
+                            <img src="https://flagcdn.com/w40/{{toSmallerCase(country_list_detail.sortname)}}.webp" alt="country_flag">
+                          </p>
+                          <p>
+                            {{country_list_detail.name}}
+
+                          </p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <input type="text" minlength="1" maxlength="13" (keypress)=_keyPress($event) name="phone" id="phone"
+                    placeholder="Contact No.*" [(ngModel)]="contactObj.phone" #phone="ngModel" required
+                    class="form-control input-padding">
+                  </div>
+
 
                 <div *ngIf="createContactForm.submitted && phone.invalid" class="invalid-feedback">
                   <div *ngIf="phone.errors.required">Contact can not be empty!
@@ -436,7 +482,7 @@
                 <select class="form-control" name="country" id="country" [(ngModel)]="contactObj.country"
                   #country="ngModel" (change)="loadStates(contactObj.country)">
                   <option value="">-Select Country-</option>
-                  <option value="{{ country.phonecode }}" *ngFor="let country of countries">
+                  <option value="{{ country.id }}" *ngFor="let country of countries">
                     {{ country.name }}
                   </option>
                 </select>
@@ -473,7 +519,7 @@
               </div>
 
               <div class="dealer-form-input">
-                <textarea type="text" name="message" id="message" placeholder="Company Name*"
+                <textarea type="text" name="message" id="message" placeholder="Message*"
                   [(ngModel)]="contactObj.message" #message="ngModel" required>
                   </textarea>
                 <div *ngIf="createContactForm.submitted && message.invalid" class="invalid-feedback">

@@ -40,8 +40,10 @@ export class CollectionDetailComponent implements OnInit {
     city: "",
     state: "",
     zip_code: "",
-    country: "",
+    country: "231",
+    country_code:"1",
     property_code: "",
+    flag:"us",
     rooms: "",
     collection_id: this.collectionObj.collection_id,
     brochure: 0,
@@ -104,7 +106,7 @@ export class CollectionDetailComponent implements OnInit {
   ngOnInit() {
     this.getCollectionDetails();
     this.getCountries();
-    this.loadStates(91);
+    this.loadStates(this.contactObj.country);
     this.getFlooring();
     this.route.paramMap.subscribe(params => {
       this.getCollectionDetails();
@@ -189,9 +191,17 @@ export class CollectionDetailComponent implements OnInit {
     this.country_code_clickF = false;
   }
 
-  country_click_career(id) {
+  country_click_career(id, phonecode, flag) {
     this.contactObj.country = id;
+    this.contactObj.country_code = phonecode;
+
+    this.loadStates(this.contactObj.country)
+    this.contactObj.flag = flag;
     this.country_code_clickF = false;
+  }
+
+  toSmallerCase(country){
+    return country.toLowerCase();
   }
 
   closeCountry(){
@@ -204,7 +214,6 @@ export class CollectionDetailComponent implements OnInit {
     this.isLoading = true;
     this.collectionSlug = this.route.snapshot.params['slug'];
     this.contactObj.collection_id = this.collectionSlug
-    this.contactObj.country = '91';
     if (this.collectionSlug) {
       this.service.getCollectionDetails(this.collectionSlug).subscribe((response: { success: number, message: string, collection: {} }) => {
         this.collectionObj = response.collection
@@ -227,12 +236,15 @@ export class CollectionDetailComponent implements OnInit {
   submitContactForm() {
     if (this.isLoading == false) {
       this.isLoading = true;
-      this.contactObj.phone = this.contactObj.country + " " + this.contactObj.phone;
       this.service.submitContactForm(this.contactObj).subscribe((response: { success: number, message: string }) => {
         if (response.success == 1) {
 
           this.enquiry = false
-          Swal.fire("Thank You for Contacting!", "Our team members will be in touch with you shortly!");
+          Swal.fire({
+            icon: "success",
+            title: "Thank You for Contacting.",
+            text: "Our team members will be in touch with you shortly!",
+          });
           this.router.navigate(["/collections"]);
         }
         this.isLoading = false

@@ -29,12 +29,14 @@ export class ContactUsComponent implements OnInit {
     phone: "",
     message: "",
     company_name: "",
+    country_code:"1",
     city: "",
     state: "",
     zip_code: "",
-    country: "91",
+    country: "231",
     property_code: "",
     rooms: "",
+    flag:"us"
   }
 
   isLoading = false;
@@ -71,8 +73,10 @@ export class ContactUsComponent implements OnInit {
     this.country_code_clickF = false;
   }
 
-  country_click_career(id) {
+  country_click_career(id, phonecode, flag) {
     this.contactObj.country = id;
+    this.contactObj.country_code = phonecode;
+    this.contactObj.flag = flag;
     this.country_code_clickF = false;
   }
 
@@ -94,8 +98,6 @@ export class ContactUsComponent implements OnInit {
 
   filterCountries(value: string){
     this.searchPhoneCode = value;
-    console.log(this.searchPhoneCode);
-
     if(this.searchPhoneCode !== ''){
       this.filteredCountries = this.countries.filter(country =>
         country.name.toLowerCase().includes(this.searchPhoneCode.toLowerCase()) ||
@@ -107,23 +109,33 @@ export class ContactUsComponent implements OnInit {
     }
   }
 
+  toSmallerCase(country){
+    return country.toLowerCase();
+  }
+
 
 
   submitContactForm(form) {
-    this.contactObj.country = '91';
+    // this.contactObj.country = '91';
     this.contactObj.type = 'contact';
-    if (this.isLoading == false) {
-      this.isLoading = true;
-      this.contactObj.phone = this.contactObj.country + " " + this.contactObj.phone;
+    if(form.valid){
+      if (this.isLoading == false) {
+        this.isLoading = true;
+        this.service.submitContactForm(this.contactObj).subscribe((response: { success: number, message: string }) => {
+          if (response.success == 1) {
+            Swal.fire({
+              icon: "success",
+              title: "Thank You for Contacting.",
+              text: "Our team members will be in touch with you shortly!",
+            });
+            this.contactObj = {};
+            this.contactObj.country = "91";
+            this.router.navigate(["/"]);
 
-      this.service.submitContactForm(this.contactObj).subscribe((response: { success: number, message: string }) => {
-        if (response.success == 1) {
-          Swal.fire("Thank You for contacting!", "success");
-          this.contactObj = {};
-          this.contactObj.country = "91"
-        }
-        this.isLoading = false
-      })
+          }
+          this.isLoading = false
+        })
+      }
     }
   }
 

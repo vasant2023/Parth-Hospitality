@@ -60,29 +60,20 @@
                   </div>
                 </div>
 
-
-                <!-- <div class="">
-                  <input type="text" minlength="1" maxlength="10" (keypress)=_keyPress($event) name="phone" id="phone"
-                    placeholder="Contact No.*" [(ngModel)]="contactObj.phone" #phone="ngModel" required
-                    pattern="[0-9]{10}$">
-
-                  <div *ngIf="createContactForm.submitted && phone.invalid" class="invalid-feedback">
-                    <div *ngIf="phone.errors.required">Contact can not be empty!
-                    </div>
-                    <div *ngIf="phone.invalid && !phone.errors.required">Invalid Contact Number
-                    </div>
-                  </div>
-                </div> -->
-
                 <div class="ph-contact-form-input relative">
 
                   <div class="conatct_number_input">
                     <div class="country_code_data" (click)="country_code_click(); ">
-                      <div>
-                        &nbsp; +{{contactObj.country}}
-                      </div>
-                      <div class="down-country-angle">
-                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                      <div style="display: flex;align-items: center; gap: 0.25rem; padding-left: 1rem;">
+                        <p>
+                          <img src="https://flagcdn.com/w40/{{toSmallerCase(contactObj.flag)}}.webp" alt="flag" style="width: 30px;">
+                        </p>
+                        <p style="font-size: 1.2rem;">
+                          +{{contactObj.country_code}}
+                        </p>
+                        <p class="down-country-angle">
+                          <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -94,18 +85,26 @@
                       </li>
 
                       <li *ngFor="let country_list_detail of filteredCountries"
-                        (click)="country_click_career(country_list_detail.phonecode);">
-                        <div (click)="country_code_click_false();">
-                          <span class="display_country_code">+{{country_list_detail.phonecode}}</span>
-                          {{country_list_detail.name}}
+                        (click)="country_click_career(country_list_detail.id,country_list_detail.phonecode, country_list_detail.sortname);" style="display: flex; align-items: center; justify-content: space-between;">
+                        <div class="countrymanage" (click)="country_code_click_false();">
+                          <p class="">+{{country_list_detail.phonecode}}</p>
+                          <p>
+                            <img src="https://flagcdn.com/w40/{{toSmallerCase(country_list_detail.sortname)}}.webp" alt="country_flag">
+                          </p>
+                          <p>
+                            {{country_list_detail.name}}
+
+                          </p>
                         </div>
                       </li>
                     </ul>
                   </div>
 
-                  <input type="text" minlength="1" maxlength="13" (keypress)=_keyPress($event) name="phone" id="phone"
+                  <div>
+                    <input type="text" minlength="1" maxlength="13" (keypress)=_keyPress($event) name="phone" id="phone"
                     placeholder="Contact No.*" [(ngModel)]="contactObj.phone" #phone="ngModel" required
                     class="input_contact_main_details">
+                  </div>
                   <div *ngIf="createContactForm.submitted && phone.invalid" class="invalid-feedback">
                     <div *ngIf="phone.errors.required">Contact can not be empty!
                     </div>

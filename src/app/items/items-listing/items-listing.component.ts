@@ -61,6 +61,10 @@ export class ItemsListingComponent implements OnInit {
 
   public itemSlug = "";
 
+  replaceStr(slug){
+    return slug.replace(/-/g, ' ');
+  }
+
   getItemSlug(){
     this.itemSlug = this.route.snapshot.params['slug'];
     if(this.itemSlug){

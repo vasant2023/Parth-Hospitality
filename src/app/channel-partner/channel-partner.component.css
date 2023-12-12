@@ -345,6 +345,75 @@
     width: 12.5%;
 }
 
+#phone{
+  padding-left: 9rem !important;
+}
+
+.countrymanage>p:first-child{
+  width: 40px;
+}
+
+.countrymanage img{
+  width: 30px;
+}
+
+.conatct_number_input {
+  position: absolute;
+  left: 0;
+  top: 53%;
+  transform: translateY(-50%);
+  padding: 0.5rem;
+  z-index: 99;
+}
+
+.country_code_list_data ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.country_code_list_data ul li {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  transition: all ease 0.2s;
+}
+
+.country_code_list_data ul li:hover {
+  background-color: #dddddd;
+}
+
+.country_code_list_data li>div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.country_code_list_data {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 40vh;
+  overflow-y: scroll;
+  width: 300px;
+  z-index: 99999;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #999999;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.country_code_list_data {
+  display: none;
+}
+
+.country_code_list_data.active {
+  display: block;
+}
+
 /* Responsive */
 
 @media only screen and (max-width:1680px) {}

@@ -115,6 +115,14 @@
     cursor: pointer;
 }
 
+.countrymanage>p:first-child{
+  width: 40px;
+}
+
+.countrymanage img{
+  width: 30px;
+}
+
 .country_code_list_data {
     position: absolute;
     top: 100%;
@@ -179,6 +187,10 @@
     gap: 1rem;
 }
 
+#phone{
+  padding-left: 9rem !important;
+}
+
 @media screen and (max-width : 1450px) {
 
     .ph-contact-wrapper .link-font p {
@@ -233,3 +245,4 @@
     } */
 
 }
+
