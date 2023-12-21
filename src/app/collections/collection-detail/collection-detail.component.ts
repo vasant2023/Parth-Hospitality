@@ -50,7 +50,8 @@ export class CollectionDetailComponent implements OnInit {
     item_IDs: [],
     laminate_IDs: [],
     flooring_IDs: [],
-    addons_IDs: []
+    addons_IDs: [],
+    type:'lead'
   }
 
   public productImageSwiper: SwiperConfigInterface = {

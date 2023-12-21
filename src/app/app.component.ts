@@ -59,7 +59,8 @@ export class AppComponent implements OnInit {
     item_IDs: [],
     laminate_IDs: [],
     flooring_IDs: [],
-    addons_IDs: []
+    addons_IDs: [],
+    type:'lead'
   }
 
   public isLoading: boolean = false;
