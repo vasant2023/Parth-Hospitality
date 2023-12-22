@@ -240,7 +240,7 @@ export class CollectionDetailComponent implements OnInit {
       this.service.submitContactForm(this.contactObj).subscribe((response: { success: number, message: string }) => {
         if (response.success == 1) {
 
-          this.enquiry = false
+          this.enquiry = false;
           Swal.fire({
             icon: "success",
             title: "Thank You for Contacting.",
@@ -248,7 +248,7 @@ export class CollectionDetailComponent implements OnInit {
           });
           this.router.navigate(["/collections"]);
         }
-        this.isLoading = false
+        this.isLoading = false;
       })
     }
     // }

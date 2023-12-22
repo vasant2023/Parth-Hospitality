@@ -114,7 +114,7 @@
 
                 <div class="ph-contact-form-input">
                   <input type="email" name="email" id="email" placeholder="Email*" [(ngModel)]="contactObj.email"
-                    #email="ngModel" required>
+                    #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
                   <div *ngIf="createContactForm.submitted && email.invalid" class="invalid-feedback">
                     <div *ngIf="email.errors.required">Email can not be empty!</div>
                     <div *ngIf="email.invalid && !email.errors.required">Invalid Email address</div>
@@ -133,7 +133,9 @@
                 <div class="ph-contact-form-input">
                   <button type="submit" class="ph-contact-form-input-button">
                     <div class="link-font">
-                      <p class="text-center bold-fonts text-uppercase white-color ">Submit</p>
+                      <p class="text-center bold-fonts text-uppercase white-color ">
+                        {{ isLoading ? 'Submitting' : 'Submit'}}
+                      </p>
                     </div>
                   </button>
                 </div>

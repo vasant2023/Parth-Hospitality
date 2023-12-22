@@ -348,19 +348,17 @@ export class AppComponent implements OnInit {
   submitContactForm() {
     if (this.isLoading == false) {
       this.isLoading = true;
-      // this.contactObj.phone = this.contactObj.country + " " + this.contactObj.phone;
       this.service.submitContactForm(this.contactObj).subscribe((response: { success: number, message: string }) => {
         if (response.success == 1) {
-
           this.enquiry = false;
           Swal.fire({
             icon: "success",
             title: "Thank You for Contacting.",
             text: "Our team members will be in touch with you shortly!",
           });
-
         }
         this.isLoading = false;
+        this.contactObj = {};
         this.contactObj.phone = "1"
       })
     }

@@ -475,7 +475,7 @@
 <!-- Footer Wrapper End -->
 
 <div class="floating_inquiry_btn">
-  <a routerLink="contact-us " class="inquiry_floating_now">
+  <a routerLink="/contact-us" class="inquiry_floating_now">
     <img src="assets/images/whatsapp.svg" alt="">
   </a>
 </div>
@@ -693,7 +693,7 @@
           </div>
           <div class="submit-button">
             <button class="ph-button filled-ph-button filled-ph-button-submit" type="submit">
-              <p class="">Submit</p>
+              <p class="">{{isLoading ? 'Submitting...' : 'Submit'}}</p>
             </button>
           </div>
         </div>

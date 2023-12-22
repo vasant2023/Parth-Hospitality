@@ -271,7 +271,7 @@
           <p>Select Flooring</p>
         </div>
         <div class="contat_detail_tab" (click)="formtabclick('select_add_on', 5)"
-          [class.active]="is_form_click_f == 'select_add_on'">
+          [class.active]="is_form_click_f == 'select_add_on'" *ngIf="collectionDetail.addons.length > 0">
           <p>Step 5</p>
           <p>Select Add On</p>
         </div>
@@ -548,7 +548,7 @@
 
           <div class="form_content_main" [class.active]="
               is_form_click_f == 'select_add_on' && tab_index == 5
-            ">
+            " *ngIf="collectionDetail.addons.length > 0">
             <div *ngFor="let addons of collectionDetail.addons" style="margin-top: 1rem">
               <h3>{{ addons.addon }}</h3>
               <div class="image-wrapper-details">
@@ -592,7 +592,9 @@
             </div>
           </div>
           <div class="previous_btn_submit">
-            <button>Submit</button>
+            <button>
+              <p class="">{{ isLoading ? 'Submitting...' : 'Submit'}}</p>
+            </button>
           </div>
         </div>
       </form>
