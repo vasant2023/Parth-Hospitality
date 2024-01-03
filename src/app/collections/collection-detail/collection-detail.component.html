@@ -19,18 +19,18 @@
               <img src="assets/images/dummy-placeholder.png" *ngIf="collectionObj.images == ''">
             </div>
 
-            <div class="swiper-button-next swiper-button-next-collection">
+            <!-- <div class="swiper-button-next swiper-button-next-collection">
               <span class="material-symbols-outlined"> arrow_forward </span>
             </div>
             <div class="swiper-button-prev swiper-button-prev-collection">
               <span class="material-symbols-outlined"> arrow_back </span>
-            </div>
+            </div> -->
           </div>
 
           <swiper class="swiper mainProductGallery" id="secondarySwiper" #secondarySwiper [config]="productImageSwiper">
             <div class="swiper-slide main_short_image" *ngFor="let item of collectionDetail.images; let i = index"
               (click)="jumpBig(i)">
-              <img src="{{ item.image_full }}" style=" object-fit: contain;" />
+              <img src="{{ item.image_full }}" />
             </div>
           </swiper>
         </div>
@@ -38,43 +38,93 @@
           <div class="inner-flex inner-flex-medium">
             <div class="inner-flex">
               <div class="specification-font-size">
-                <h1 class="text-uppercase bold-fonts">
+                <h1 class="text-uppercase">
                   {{ collectionDetail.collection }}
                 </h1>
               </div>
               <div style="display: flex; gap: 1.5rem" *ngIf="collectionDetail.sale_price">
-                <div class="section-subtitle">
-                  <h3 class="regular-fonts">
+                <div class="section-subtitle sale_price_sub_title">
+                  <h3>
                     ${{ collectionDetail.sale_price }}
                   </h3>
                 </div>
-                <div class="section-subtitle"
+                <div class="section-subtitle sale_price_sub_title"
                   *ngIf="convertToNumber(collectionDetail.price) > convertToNumber(collectionDetail.sale_price)">
-                  <h3 class="regular-fonts" style="text-decoration: line-through; color: #808080;">
+                  <h3 style="text-decoration: line-through; color: #808080;">
                     ${{ collectionDetail.price }}
                   </h3>
                 </div>
               </div>
-              <div class="section-subtitle" *ngIf="!collectionDetail.sale_price">
-                <h3 class="regular-fonts">${{ collectionDetail.price }}</h3>
+              <div class="section-subtitle sale_price_sub_title" *ngIf="!collectionDetail.sale_price">
+                <h3>${{ collectionDetail.price }}</h3>
               </div>
             </div>
-            <div class="section-content-details">
-              <p class="" innerHTML="{{ collectionDetail.short_description }}">
+            <div class="section-content-details collection_detail_description">
+              <p class="" [innerHTML]="collectionDetail.short_description">
               </p>
             </div>
-            <div class="specifcation-banner-accordion specification section-content-details">
+            <!-- <div class="specifcation-banner-accordion specification section-content-details">
               <h3>Specification</h3>
               <p class="" innerHTML="{{ collectionDetail.description }}"></p>
+            </div> -->
+            <div class="accordian_collection_main">
+              <div class="accordian_sub_collection inner-flex" (click)="collectiondetailtab(1)">
+                <div class="accordian_collection_question section-subtitle">
+                  <div class="plus_div">
+                    <h3 class="" [class.expanded]="collection_detail_tab_f == 1">Construction</h3>
+                  </div>
+                </div>
+                <div class="accordian_collction_answer section-content" [class.active]="collection_detail_tab_f == 1">
+                  <p class="">
+                    We are using only mdf carb & pur glue for edge banding.
+                    All surface tops provided with hpl to increase scratch and impact resistance. Case
+                    bottoms are edge banded with pvc to protect from moisture penetration.
+                  </p>
+                </div>
+              </div>
+
+              <div class="accordian_sub_collection inner-flex" (click)="collectiondetailtab(2)">
+                <div class="accordian_collection_question section-subtitle">
+                  <div class="plus_div">
+                    <h3 class="" [class.expanded]="collection_detail_tab_f == 2">Card Board
+                    </h3>
+                  </div>
+                </div>
+                <div class="accordian_collction_answer section-content" [class.active]="collection_detail_tab_f == 2">
+                  <p class="">
+                    We are using only mdf carb & pur glue for edge banding.
+                    All surface tops provided with hpl to increase scratch and impact resistance. Case
+                    bottoms are edge banded with pvc to protect from moisture penetration.
+                  </p>
+                </div>
+              </div>
+
+              <div class="accordian_sub_collection inner-flex" (click)="collectiondetailtab(3)">
+                <div class="accordian_collection_question section-subtitle">
+                  <div class="plus_div">
+                    <h3 class="" [class.expanded]="collection_detail_tab_f == 3">Pur Glue
+                    </h3>
+                  </div>
+                </div>
+                <div class="accordian_collction_answer section-content" [class.active]="collection_detail_tab_f == 3">
+                  <p class="">
+                    We are using only mdf carb & pur glue for edge banding.
+                    All surface tops provided with hpl to increase scratch and impact resistance. Case
+                    bottoms are edge banded with pvc to protect from moisture penetration.
+                  </p>
+                </div>
+              </div>
+
             </div>
-            <div class="specification-download-btns-flex fill-btton">
-              <button class="ph-button black-border-ph-button yelloow" *ngIf="collectionDetail.brochure"
-                (click)="handleBrochure()">
-                <p class="text-uppercase">Brochure</p>
-              </button>
+            <div class="specification-download-btns-flex">
+              <div>
+                <button class="inquiry_brocheture_btn" *ngIf="collectionDetail.brochure" (click)="handleBrochure()">
+                  <p class="text-uppercase">Brochure</p>
+                </button>
+              </div>
               <div>
                 <a routerLink="/lead/{{collectionDetail.slug}}">
-                  <button class="ph-button black-border-ph-button  ">
+                  <button class="inquiry_brocheture_btn">
                     <p class="text-uppercase">Inquiry</p>
                   </button>
                 </a>
@@ -187,16 +237,23 @@
                   <img src="{{ item.banner_image_full }}" alt="" />
                 </a>
               </div>
-              <div class="product-name">
-                <h2 class="medium-fonts">
-                  {{ item.item }}
-                </h2>
+              <div class="product_flex_main_content">
+                <div class="product-name">
+                  <p>
+                    {{ item.item }}
+                  </p>
+                </div>
+                <div class="product_price_content">
+                  <p>
+                    ${{ item.price }}
+                  </p>
+                </div>
               </div>
+
               <div class="product-info">
-                <p class="text-uppercase">Size</p>
                 <p class="text-uppercase gray-fonts" *ngFor="let item of item.sizes" style="padding: 0.5rem 0">
-                  {{ item.width }}" x {{ item.dimension }}" x {{ item.height }}"
-                  &nbsp; &nbsp; <span>${{ item.price }}</span>
+                  {{ item.width }}"W x {{ item.dimension }}"D x {{ item.height }}"H
+                  &nbsp; &nbsp;
                 </p>
               </div>
             </div>
@@ -213,13 +270,16 @@
                   <img src="{{ laminate.image_full }}" alt="" />
                 </a>
               </div>
-              <div class="product-name">
-                <h2 class="medium-fonts text-uppercase">
-                  {{ laminate.laminate }}
-                </h2>
+              <div class="product_flex_main_content">
+                <div class="product-name">
+                  <p class="text-uppercase">
+                    {{ laminate.laminate }}
+                  </p>
+                </div>
               </div>
-              <div class="product-name">
-                <p class="medium-fonts text-uppercase">
+
+              <div class="product-info">
+                <p class="text-uppercase gray-fonts">
                   {{ laminate.size }}
                 </p>
               </div>
@@ -237,14 +297,12 @@
                   <img src="{{ hardware.image_full }} " alt="" />
                 </a>
               </div>
-              <div class="product-name">
-                <h2 class="medium-fonts text-uppercase">
-                  {{ hardware.hardware }}
-                </h2>
-              </div>
-              <div class="product-info">
-                <p class="text-uppercase"></p>
-                <p class="text-uppercase gray-fonts"></p>
+              <div class="product_flex_main_content">
+                <div class="product-name">
+                  <p class="text-uppercase">
+                    {{ hardware.hardware }}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -302,7 +360,8 @@
                 <div class="country_code_data" (click)="country_code_click(); ">
                   <div style="display: flex;align-items: center; gap: 0.2rem; padding-left: 0.75rem;">
                     <p>
-                      <img src="https://flagcdn.com/w40/{{toSmallerCase(contactObj.flag)}}.webp" alt="flag" style="width: 30px;">
+                      <img src="https://flagcdn.com/w40/{{toSmallerCase(contactObj.flag)}}.webp" alt="flag"
+                        style="width: 30px;">
                     </p>
                     <p style="font-size: 1.2rem;">
                       +{{contactObj.country_code}}
@@ -318,15 +377,18 @@
                 <ul>
                   <li>
                     <input type="search" name="search" id="search" [(ngModel)]="searchPhoneCode"
-                  (ngModelChange)="filterCountries($event)" placeholder="Search" style="outline: none; width: 100%; padding: 0.5rem 1rem" />
+                      (ngModelChange)="filterCountries($event)" placeholder="Search"
+                      style="outline: none; width: 100%; padding: 0.5rem 1rem" />
                   </li>
 
                   <li *ngFor="let country_list_detail of filteredCountries"
-                    (click)="country_click_career(country_list_detail.id,country_list_detail.phonecode, country_list_detail.sortname);" style="display: flex; align-items: center; justify-content: space-between;">
+                    (click)="country_click_career(country_list_detail.id,country_list_detail.phonecode, country_list_detail.sortname);"
+                    style="display: flex; align-items: center; justify-content: space-between;">
                     <div class="countrymanage" (click)="country_code_click_false();">
                       <p class="">+{{country_list_detail.phonecode}}</p>
                       <p>
-                        <img src="https://flagcdn.com/w40/{{toSmallerCase(country_list_detail.sortname)}}.webp" alt="country_flag">
+                        <img src="https://flagcdn.com/w40/{{toSmallerCase(country_list_detail.sortname)}}.webp"
+                          alt="country_flag">
                       </p>
                       <p>
                         {{country_list_detail.name}}
@@ -338,11 +400,10 @@
               </div>
 
               <div>
-                <label class="md-lable contact_code" for="client_contact_no"
-                  style="padding: 1rem 0rem">Mobile</label>
+                <label class="md-lable contact_code" for="client_contact_no" style="padding: 1rem 0rem">Mobile</label>
                 <input type="text" minlength="1" maxlength="13" (keypress)=_keyPress($event) name="phone" id="phone"
-                placeholder="Contact No.*" [(ngModel)]="contactObj.phone" #phone="ngModel" required
-                class="form-control input-padding">
+                  placeholder="Contact No.*" [(ngModel)]="contactObj.phone" #phone="ngModel" required
+                  class="form-control input-padding">
               </div>
               <div *ngIf="inquiryForm.submitted && phone.invalid" class="invalid-feedback">
                 <div *ngIf="phone.errors.required">phone can not be empty!</div>

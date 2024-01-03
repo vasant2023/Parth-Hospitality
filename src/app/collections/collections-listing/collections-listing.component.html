@@ -1,10 +1,9 @@
-<div id="ph-collection-wrapper" class="relative ph-collection-wrapper main_banner_section_pd" *ngIf="!hotel_slug">
+<div id="ph-collection-wrapper" class="ph-collection-wrapper main_banner_section_pd" *ngIf="!hotel_slug">
   <section id="ph-collection-section-1" class="ph-section">
     <div class="about-banner-swiper-outer relative">
       <div class="banner_img relative">
-        <img src="assets/images/collection/colection-banner.png" alt="">
+        <img src="assets/images/collection/banner.png" alt="">
         <div class="black_overlay"></div>
-
         <div class="page-title banner-title-sec">
           <h2 class="white-color text-uppercase">
             Collections
@@ -17,22 +16,31 @@
   <div class="loader" *ngIf="isLoading">
   </div>
 
-  <div class="collection-container" style=" margin-top: 4rem;" *ngIf="!isLoading">
-    <div class="flex">
-      <div class="card" *ngFor="let item of collection_list">
-
-        <div class="" style="cursor: pointer;">
-
-          <a routerLink="/collections/{{item.slug}}">
+  <div class="main-container collection_padding" *ngIf="!isLoading">
+    <div class="collection_main_grid">
+      <div class="collection_bd_style" *ngFor="let item of collection_list">
+        <a routerLink="/collections/{{item.slug}}">
+          <div class="collection_image">
             <img class="" src="{{ item.banner_image }}&w=600&h=300" alt="Card image cap" />
-            <div class="content">
-              <h5 class="" style="text-align: center;">{{ item.collection }}</h5>
-              <div class="btn" style="width: 100%;">
-                <p class="white-color">View collection</p>
+          </div>
+          <div class="collection_content_padding">
+            <div class="collection_content_title">
+              <h5 class="">{{ item.collection }}</h5>
+            </div>
+            <div class="collection_content_description">
+              <p class="" [innerHtml]="item.short_description"></p>
+            </div>
+            <div class="collection_view_moreflex">
+              <div class="view_more_content">
+                <p>View collection</p>
+              </div>
+              <div class="view_more_imgt">
+                <img src="assets/images/collection/arrow-right.png" alt="">
               </div>
             </div>
-          </a>
-        </div>
+          </div>
+
+        </a>
       </div>
     </div>
   </div>
@@ -44,7 +52,6 @@
       <div class="banner_img relative">
         <img src="assets/images/collection/colection-banner.png" alt="">
         <div class="black_overlay"></div>
-
         <div class="page-title banner-title-sec">
           <h2 class="white-color text-uppercase">
             Collections
@@ -57,22 +64,31 @@
   <div class="loader" *ngIf="isLoading">
   </div>
 
-  <div class="collection-container" style=" margin-top: 4rem;" *ngIf="!isLoading">
-    <div class="flex">
-      <div class="card" *ngFor="let item of hotel_wise_collection">
-
-        <div class="" style="cursor: pointer;">
-
-          <a routerLink="/collections/{{item.slug}}">
-            <img class="" src="{{ item.banner_image}}&w=600&h=300" alt="Card image cap" />
-            <div class="content">
-              <h5 class="" style="text-align: center;">{{ item.collection }}</h5>
-              <div class="btn" style="width: 100%;">
-                <p class="white-color">View collection</p>
+  <div class="main-container collection_padding" *ngIf="!isLoading">
+    <div class="collection_main_grid">
+      <div class="collection_bd_style" *ngFor="let item of collection_list">
+        <a routerLink="/collections/{{item.slug}}">
+          <div class="collection_image">
+            <img class="" src="{{ item.banner_image }}&w=600&h=300" alt="Card image cap" />
+          </div>
+          <div class="collection_content_padding">
+            <div class="collection_content_title">
+              <h5 class="">{{ item.collection }}</h5>
+            </div>
+            <div class="collection_content_description">
+              <p class="" [innerHtml]="item.short_description"></p>
+            </div>
+            <div class="collection_view_moreflex">
+              <div class="view_more_content">
+                <p>View collection</p>
+              </div>
+              <div class="view_more_imgt">
+                <img src="assets/images/collection/arrow-right.png" alt="">
               </div>
             </div>
-          </a>
-        </div>
+          </div>
+
+        </a>
       </div>
     </div>
   </div>

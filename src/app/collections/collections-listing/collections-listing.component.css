@@ -1,8 +1,4 @@
-.flex {
-  /* display: flex;
-  flex-wrap: wrap;
-
-  gap: 2rem; */
+.collection_main_grid {
   display: grid;
   justify-content: space-between;
   align-items: center;
@@ -19,61 +15,70 @@
   transform: translate(-50%, -50%);
 }
 
-.collection-container {
-  width: 80%;
-  margin: 0 auto;
+.collection_image {
+  background-color: #EBEBEB;
+  display: grid;
+  place-content: center;
+  height: 40vh;
+  padding: 2rem;
 }
 
-.wrap {
-  flex-wrap: wrap;
+.collection_image img {
+  height: 30vh;
+  object-fit: contain;
 }
 
-.heading {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 600;
-  padding-top: 5rem;
-  padding-bottom: 2rem;
+.collection_padding {
+  padding: 10rem 0;
 }
 
-.content {
-  padding: 1rem 0.5rem;
+.collection_bd_style {
+  border: 1px solid #EBEBEB;
+  cursor: pointer;
 }
 
-.content h5 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  padding-bottom: 1rem;
+.collection_content_title h5 {
+  font-size: var(--smallcontent-font-size);
+  font-family: var(--medium-font-family-p);
 }
 
-.content .btn {
-  width: 40%;
-  background-color: var(--primary-color);
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  margin-top: 1rem;
+.collection_content_description p {
+  font-size: var(--content-font-size);
+  font-family: var(--light-font-family);
+  padding-top: 1rem;
 }
 
-.content .btn:hover {
-  background-color: var(--secondary-color);
+.collection_content_padding {
+  padding: 2rem;
 }
 
-.content .btn a:hover {
-  color: #fff;
+.collection_view_moreflex {
+  display: flex;
+  gap: 1rem;
+  padding-top: 4rem;
 }
 
-@media only screen and (max-width:1152px) {
+.view_more_content p {
+  font-size: var(--smallcontent-font-size);
+  font-family: var(--medium-font-family-p);
+  color: #515151;
 
-  .collection-container {
-    width: 90%;
-    margin: 0 auto;
-  }
+}
 
-  .flex {
+@media only screen and (max-width:1280px) {
+  .collection_main_grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .view_more_imgt img{
+    width: 1.8rem;
+  }
+}
+
+@media only screen and (max-width:1152px) {
+  .collection_padding {
+    padding: 6rem 0;
+  }
 }
 
 @media only screen and (max-width:991px) {
@@ -83,19 +88,14 @@
     object-fit: cover;
   }
 
-  .collection-container {
-    width: 95%;
-    margin: 0 auto;
-  }
-
-  .flex {
+  .collection_main_grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media only screen and (max-width:767px) {
 
-  .flex {
+  .collection_main_grid {
     grid-template-columns: repeat(1, 1fr);
   }
 }

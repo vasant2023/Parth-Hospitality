@@ -193,6 +193,9 @@
   color: var(--black-color);
 }
 
+.test_blc p{
+padding: 0;
+}
 
 
 /* .no_curve_previous button{

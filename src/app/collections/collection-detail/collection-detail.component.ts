@@ -41,9 +41,9 @@ export class CollectionDetailComponent implements OnInit {
     state: "",
     zip_code: "",
     country: "231",
-    country_code:"1",
+    country_code: "1",
     property_code: "",
-    flag:"us",
+    flag: "us",
     rooms: "",
     collection_id: this.collectionObj.collection_id,
     brochure: 0,
@@ -51,12 +51,12 @@ export class CollectionDetailComponent implements OnInit {
     laminate_IDs: [],
     flooring_IDs: [],
     addons_IDs: [],
-    type:'lead'
+    type: 'lead'
   }
 
   public productImageSwiper: SwiperConfigInterface = {
     spaceBetween: 10,
-    slidesPerView: 3,
+    slidesPerView: 8,
     loop: false,
     freeMode: false,
     // loopedSlides: 5,
@@ -65,6 +65,23 @@ export class CollectionDetailComponent implements OnInit {
     watchSlidesVisibility: true,
     watchSlidesProgress: true,
     centeredSlides: false,
+    breakpoints: {
+      1366: {
+        slidesPerView: 6,
+      },
+      1152: {
+        slidesPerView: 4,
+      },
+      991: {
+        slidesPerView: 8,
+      },
+      767: {
+        slidesPerView: 4,
+      },
+      480: {
+        slidesPerView: 2,
+      }
+    }
   };
 
   public mainImageSwiper: SwiperConfigInterface = {
@@ -114,6 +131,19 @@ export class CollectionDetailComponent implements OnInit {
     })
   }
 
+
+
+
+  public collection_detail_tab_f: any = "1";
+
+  collectiondetailtab(tab) {
+    if (this.collection_detail_tab_f == tab) {
+      this.collection_detail_tab_f = "1";
+    } else {
+      this.collection_detail_tab_f = tab;
+    }
+  }
+
   _keyPress(event: any) {
     const pattern = /[0-9]/;
     let inputChar = String.fromCharCode(event.charCode);
@@ -140,14 +170,14 @@ export class CollectionDetailComponent implements OnInit {
     })
   }
 
-  public searchPhoneCode:any = "";
-  public filteredCountries:any = []
+  public searchPhoneCode: any = "";
+  public filteredCountries: any = []
 
-  filterCountries(value: string){
+  filterCountries(value: string) {
     this.searchPhoneCode = value;
     console.log(this.searchPhoneCode);
 
-    if(this.searchPhoneCode !== ''){
+    if (this.searchPhoneCode !== '') {
       this.filteredCountries = this.countries.filter(country =>
         country.name.toLowerCase().includes(this.searchPhoneCode.toLowerCase()) ||
         country.phonecode.includes(this.searchPhoneCode)
@@ -185,7 +215,7 @@ export class CollectionDetailComponent implements OnInit {
 
   public country_code_clickF = false;
   country_code_click() {
-      this.country_code_clickF =  !this.country_code_clickF;
+    this.country_code_clickF = !this.country_code_clickF;
   }
 
   country_code_click_false() {
@@ -201,11 +231,11 @@ export class CollectionDetailComponent implements OnInit {
     this.country_code_clickF = false;
   }
 
-  toSmallerCase(country){
+  toSmallerCase(country) {
     return country.toLowerCase();
   }
 
-  closeCountry(){
+  closeCountry() {
     this.country_code_clickF = false
   }
 
@@ -285,7 +315,7 @@ export class CollectionDetailComponent implements OnInit {
 
     this.secondarySwiper.directiveRef.setIndex(slide);
     $("#secondarySwiper").find(".swiper-slide").removeClass("swiper-slide-active");
-    $("#secondarySwiper").find(".swiper-slide:nth-child("+(slide+1)+")").addClass("swiper-slide-active");
+    $("#secondarySwiper").find(".swiper-slide:nth-child(" + (slide + 1) + ")").addClass("swiper-slide-active");
 
   }
 

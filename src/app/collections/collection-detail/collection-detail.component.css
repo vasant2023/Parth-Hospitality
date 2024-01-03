@@ -20,6 +20,18 @@
   align-items: center;
 }
 
+.main_short_image img {
+  width: 100%;
+  height: 70px;
+  object-fit: cover;
+}
+
+.collection_detail_description.section-content-details p {
+  font-size: var(--floating-font-size);
+  font-family: var(--regular-font-family-c);
+}
+
+
 .drops.form-control {
   padding: 0rem !important;
 }
@@ -32,6 +44,48 @@
   margin: 1rem;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
+}
+
+.inquiry_brocheture_btn {
+  border: 1px solid #000;
+  padding: 1.2rem 3rem;
+  width: 11.25rem;
+  background: var(--white-color);
+  transition: all ease-in-out 0.3s;
+}
+
+.product_flex_main_content {
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between;
+  align-items: self-start;
+}
+
+.product_flex_main_content .product-name p {
+  font-family: var(--bold-font-family-c);
+  font-size: var(--smallcontent-font-size);
+}
+
+.product_flex_main_content .product-info p {
+  font-family: var(--medium-font-family);
+  font-size: var(--smallcontent-font-size);
+}
+
+
+.product_flex_main_content .product_price_content p {
+  font-family: var(--bold-font-family-c);
+  font-size: var(--floating-font-size);
+}
+
+.inquiry_brocheture_btn:hover {
+  border: 1px solid var(--secondary-color);
+  background: var(--secondary-color);
+}
+
+
+.inquiry_brocheture_btn p {
+  font-family: var(--medium-font-family);
+  font-size: var(--btn-font-size);
 }
 
 .image-wrapper-details>div {
@@ -154,16 +208,98 @@
   font-size: 1.2rem;
 }
 
-#phone{
+#phone {
   padding-left: 8rem !important;
 }
 
-.countrymanage>p:first-child{
+.countrymanage>p:first-child {
   width: 40px;
 }
 
-.countrymanage img{
+.countrymanage img {
   width: 30px;
+}
+
+
+
+
+
+
+.accordian_collction_answer {
+  display: none;
+
+}
+
+.accordian_collction_answer.active {
+  display: block;
+}
+
+.accordian_collction_answer.section-content p {
+  font-size: var(--content-font-size);
+  font-family: var(--medium-font-family);
+}
+
+.accordian_collection_main {
+  padding: 2rem 0 3rem 0;
+}
+
+.accordian_sub_collection {
+  border-bottom: 1px solid #DEE2E6;
+  padding: 2rem 0;
+}
+
+.accordian_sub_collection .section-subtitle h3 {
+  font-family: var(--bold-font-family-c);
+  font-size: var(--smallcontent-font-size);
+  color: #333333;
+
+}
+
+.accordian_collection_question {
+  display: flex;
+  gap: 5rem;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+
+.accordian_collection_question .plus_div h3:before,
+.accordian_collection_question .plus_div h3:after {
+  content: "";
+  position: absolute;
+  top: 40%;
+  right: 0;
+  margin: 0 0 -8px;
+  background: #000000;
+  border-radius: 2px;
+}
+
+.accordian_collection_question .plus_div h3:before {
+  right: 9px;
+  width: 2px;
+  height: 18px;
+  transition: all 300ms;
+  margin-top: -9px;
+  background: #000000;
+}
+
+.accordian_collection_question .plus_div h3:after {
+  right: 1px;
+  width: 18px;
+  height: 2px;
+  margin-top: -1.5px;
+  background: #000000;
+}
+
+.accordian_collection_question .plus_div h3.expanded:before {
+  height: 0;
+  margin-top: 0;
+}
+
+.accordian_collection_question .plus_div {
+  position: relative;
+  width: 100%;
 }
 
 @media only screen and (max-width:991px) {
@@ -173,6 +309,16 @@
 }
 
 @media only screen and (max-width:768px) {
+
+  .accordian_collection_question .plus_div h3:before {
+    right: 8px;
+    height: 16px;
+    margin-top: -8px;
+  }
+
+  .accordian_collection_question .plus_div h3:after {
+    width: 16px;
+  }
 
   .side_popup_wrapper div.contact_lable input:focus~label.md-lable,
   .side_popup_wrapper div.contact_lable textarea:focus~label.md-lable,
@@ -248,7 +394,9 @@
     font-size: 13px;
   }
 
-  .product-name h2 ,.product-info p ,.product-name p{
+  .product-name h2,
+  .product-info p,
+  .product-name p {
     font-size: 13px;
   }
 }
